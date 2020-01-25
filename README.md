@@ -11,10 +11,12 @@ It provides utilities for creating and supplying your React components with a mo
 ## Install
 
 ```bash
-npm install mobx-state-provider
+# via NPM
+npm install mobx-state-provider --save
 ```
 
 ```bash
+# via Yarn
 yarn add mobx-state-provider
 ```
 
