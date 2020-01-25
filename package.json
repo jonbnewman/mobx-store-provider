@@ -3,6 +3,7 @@
   "version": "1.0.2",
   "description": "Use react hooks to connect a mobx-state-tree store to your components",
   "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "scripts": {
     "test": "jest --config jestconfig.json",
     "lint": "eslint src/*.ts",
