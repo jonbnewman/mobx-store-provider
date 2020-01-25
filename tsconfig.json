@@ -7,9 +7,9 @@
     "strict": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "lib": ["es2015"],
+    "lib": ["es2015", "dom"],
     "jsx": "react"
   },
   "include": ["src"],
-  "exclude": ["node_modules", "src/*.test.ts"]
+  "exclude": ["node_modules", "src/*.test.tsx"]
 }
