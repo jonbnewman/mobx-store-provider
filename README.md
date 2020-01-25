@@ -79,7 +79,7 @@ This works well enough, but has a few possible issues:
 
 1. Using `inject()` is not idiomatic apropos to [React Hooks](https://reactjs.org/docs/hooks-reference.html) use (which may matter if you are transitioning to Hooks).
 
-## Using mobx-store-provider
+## The solution: Use mobx-store-provider
 
 The same example from above, but using mobx-store-provider with hooks on functional components instead:
 
