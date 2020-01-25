@@ -12,12 +12,12 @@ It provides utilities for creating and supplying your React components with a mo
 
 ```bash
 # via NPM
-npm install mobx-state-provider --save
+npm install mobx-store-provider --save
 ```
 
 ```bash
 # via Yarn
-yarn add mobx-state-provider
+yarn add mobx-store-provider
 ```
 
 ## What problem does mobx-store-provider solve?
