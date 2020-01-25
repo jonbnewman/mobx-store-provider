@@ -4,7 +4,7 @@ function identity(thing: any): any {
   return thing;
 }
 
-interface MobxStoreProvider {
+export interface MobxStoreProvider {
   Provider: any;
   Consumer: any;
   useStore: Function;
