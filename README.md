@@ -72,38 +72,4 @@ This works well enough, but has a few possible issues:
 
 The same example from above, but using mobx-store-provider with hooks on functional components instead:
 
-```javascript
-import React from "react";
-import { observer } from "mobx-react";
-import { types } from "mobx-state-tree";
-import StoreProvider from "mobx-store-provider";
-
-const { Provider, useStore } = new StoreProvider();
-
-const MyStore = types.model({
-  name: types.string,
-});
-
-const MyNameDisplay = observer(() => {
-  const [myStore] = useState(() => MyStore.create({ name: "Jonathan" }));
-});
-
-@inject("store")
-@observer
-class MyNameDisplay extends Component {
-  render() {
-    return <div>{this.props.store.name}</div>;
-  }
-}
-
-export default class MyComponent extends Component {
-  myStore = MyStore.create({ name: "Jonathan" });
-  render() {
-    return (
-      <Provider value={this.myStore}>
-        <MyNameDisplay />
-      </Provider>
-    );
-  }
-}
-```
+TODO
