@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useRef } from "react";
 
 function identity(thing: any): any {
   return thing;
@@ -8,6 +8,14 @@ export interface StoreProvider {
   Provider: any;
   Consumer: any;
   useStore: Function;
+}
+
+export function createStore(storeFactory: Function) {
+  const storeRef = useRef(null);
+  if (!storeRef.current) {
+    storeRef.current = storeFactory();
+  }
+  return storeRef.current;
 }
 
 /**
