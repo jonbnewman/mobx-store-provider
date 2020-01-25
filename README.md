@@ -6,7 +6,7 @@ Conveniently use React Hooks or Consumers to connect a [mobx-state-tree](https:/
 
 Using mobx-state-tree with newer React requires a bit of glue logic, this library provides that.
 
-It provides a method for supplying your React components with a mobx-state-tree store, so they can bind to and trigger actions on it.
+It provides utilities for creating and supplying your React components with a mobx-state-tree store, so they can bind to and trigger actions on it.
 
 ## What problem does mobx-store-provider solve?
 
@@ -18,31 +18,37 @@ Here is a class-based example using `@inject` and `@observer` decorators:
 
 ```javascript
 import React, { Component } from "react";
-import { inject, observer, Provider } from "mobx-react";
+import { Provider } from "mobx-react";
 import { types } from "mobx-state-tree";
 
 // Our mobx-state-tree store definition
-const MyStore = types.model({
+const AppStore = types.model({
   name: types.string,
 });
 
-// Main component which creates myStore, wraps our content in the provider and passes it as the store value.
+// Main component which creates appStore, wraps our content in the provider and passes it as the store value.
 export default class MyComponent extends Component {
-  myStore = MyStore.create({ name: "Jonathan" });
+  appStore = AppStore.create({ name: "Jonathan" });
   render() {
     return (
-      <Provider store={this.myStore}>
+      <Provider store={this.appStore}>
         <MyNameDisplay />
       </Provider>
     );
   }
 }
+```
 
-// This component is assumed to be in a separate module/file.
+In some other module, you have the `MyNameDisplay` component:
+
+```javascript
+import React, { Component } from "react";
+import { inject, observer } from "mobx-react";
+
 // Using inject, we get the store from the provider and use it in the render method.
 @inject("store")
 @observer
-class MyNameDisplay extends Component {
+export default class MyNameDisplay extends Component {
   render() {
     return <div>{this.props.store.name}</div>;
   }
@@ -78,36 +84,44 @@ The same example from above, but using mobx-store-provider with hooks on functio
 
 ```javascript
 import React from "react";
-import { observer } from "mobx-react";
 import { types } from "mobx-state-tree";
 import StoreProvider, { createStore } from "mobx-store-provider";
 
 // Create the provider and hook we can use in our application to access this store
-const { Provider: MyStoreProvider, useStore: useMyStore } = new StoreProvider();
+const { Provider: AppStoreProvider, useStore: useAppStore } = new StoreProvider();
 
-// To provide this store to other components, we export useMyStore here and then import it elsewhere:
-export { useMyStore };
+// To provide this store to other components, we export useAppStore here and then import it elsewhere:
+export { useAppStore };
 
 // Our mobx-state-tree store definition
-const MyStore = types.model({
+const AppStore = types.model({
   name: types.string,
 });
 
-// Now we use the hook createStore to create myStore, and then wrap our application with
-// MyStoreProvider, passing in myStore for the value.
+// Now we use the hook createStore to create appStore, and then wrap our application with
+// AppStoreProvider, passing in appStore for the value.
 export default () => {
-  const myStore = createStore(() => MyStore.create({ name: "Jonathan" }));
+  const appStore = createStore(() => AppStore.create({ name: "Jonathan" }));
   return (
-    <MyStoreProvider value={myStore}>
+    <AppStoreProvider value={appStore}>
       <MyNameDisplay />
-    </MyStoreProvider>
+    </AppStoreProvider>
   );
 };
+```
 
-// Instead of inject(), we import useMyStore from where we created it.
-import { useMyStore } from "path/to/module";
-const MyNameDisplay = observer(() => {
-  const myStore = useMyStore();
-  return <div>{myStore.name}</div>;
+In some other module, you have the `MyNameDisplay` component:
+
+```javascript
+import React from "react";
+import { observer } from "mobx-react";
+
+// Instead of inject(), we import the useAppStore hook from where we created it.
+import { useAppStore } from "path/to/module";
+
+export default observer(() => {
+  // Then we can use the hook to get and use the store in our component
+  const appStore = useAppStore();
+  return <div>{appStore.name}</div>;
 });
 ```
