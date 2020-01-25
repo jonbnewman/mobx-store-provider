@@ -21,10 +21,12 @@ import React, { Component } from "react";
 import { inject, observer, Provider } from "mobx-react";
 import { types } from "mobx-state-tree";
 
+// Our mobx-state-tree store definition
 const MyStore = types.model({
   name: types.string,
 });
 
+// Main component which creates myStore, wraps our content in the provider and passes it as the store value.
 export default class MyComponent extends Component {
   myStore = MyStore.create({ name: "Jonathan" });
   render() {
@@ -37,6 +39,7 @@ export default class MyComponent extends Component {
 }
 
 // This component is assumed to be in a separate module/file.
+// Using inject, we get the store from the provider and use it in the render method.
 @inject("store")
 @observer
 class MyNameDisplay extends Component {
@@ -82,15 +85,16 @@ import StoreProvider, { createStore } from "mobx-store-provider";
 // Create the provider and hook we can use in our application to access this store
 const { Provider: MyStoreProvider, useStore: useMyStore } = new StoreProvider();
 
-// To provide this store to other components, you export useMyStore here and import it elsewhere:
+// To provide this store to other components, we export useMyStore here and then import it elsewhere:
 export { useMyStore };
 
+// Our mobx-state-tree store definition
 const MyStore = types.model({
   name: types.string,
 });
 
-// Now we use the hook createStore to create myStore, and then wrap our application with the newly
-// created MyStoreProvider, passing in myStore for the value.
+// Now we use the hook createStore to create myStore, and then wrap our application with
+// MyStoreProvider, passing in myStore for the value.
 export default () => {
   const myStore = createStore(() => MyStore.create({ name: "Jonathan" }));
   return (
