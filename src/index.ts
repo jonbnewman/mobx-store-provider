@@ -4,13 +4,13 @@ function identity(thing: any): any {
   return thing;
 }
 
-export interface StoreProvider {
+export interface IStoreProvider {
   Provider: any;
   Consumer: any;
   useStore: Function;
 }
 
-export function createStore(storeFactory: Function) {
+export function createStore(storeFactory: Function): any {
   const storeRef = useRef(null);
   if (!storeRef.current) {
     storeRef.current = storeFactory();
@@ -22,7 +22,7 @@ export function createStore(storeFactory: Function) {
  * Create a new StoreProvider instance, which supplies you with a `Provider`, `Consumer`, and a `useStore` hook.
  * @param defaultValue The default value you want supplied to consumers of useStore in the event no Provider is found (null by default)
  */
-export default function StoreProvider(defaultValue = null): StoreProvider {
+export default function StoreProvider(defaultValue = null): IStoreProvider {
   const StoreContext = React.createContext(defaultValue);
   return {
     Provider: StoreContext.Provider,
