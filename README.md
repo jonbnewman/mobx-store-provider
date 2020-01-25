@@ -128,3 +128,5 @@ export default observer(() => {
   return <div>{appStore.name}</div>;
 });
 ```
+
+**TODO: Write tests**
