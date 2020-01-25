@@ -8,6 +8,16 @@ Using mobx-state-tree with newer React requires a bit of glue logic, this librar
 
 It provides utilities for creating and supplying your React components with a mobx-state-tree store, so they can bind to and trigger actions on it.
 
+## Install
+
+```bash
+npm install mobx-state-provider
+```
+
+```bash
+yarn add mobx-state-provider
+```
+
 ## What problem does mobx-store-provider solve?
 
 When using mobx-state-tree in an application, you have to somehow provide the store to your component.
