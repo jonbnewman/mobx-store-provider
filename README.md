@@ -66,8 +66,6 @@ This works well enough, but has a few possible issues:
 
 1. In lieu of decorators, it requires you to wrap your components with `inject()` and `observer()`.
 
-   If you can't (or don't want to) use decorators, you can alternatively wrap your components with `inject()` and/or `observer()`:
-
    ```javascript
    import React from "react";
    import { inject, observer } from "mobx-react";
