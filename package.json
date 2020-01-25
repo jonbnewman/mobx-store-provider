@@ -2,11 +2,16 @@
   "name": "mobx-store-provider",
   "version": "1.0.0",
   "description": "Use react hooks to connect a mobx-state-tree store to your components",
-  "main": "src/index.js",
+  "main": "lib/index.js",
   "scripts": {
     "test": "jest --config jestconfig.json",
     "lint": "eslint src/*.ts",
-    "build": "tsc"
+    "build": "tsc",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "git add -A src",
+    "postversion": "git push && git push --tags"
   },
   "keywords": [
     "mobx",
