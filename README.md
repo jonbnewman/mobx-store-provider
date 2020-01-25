@@ -1,12 +1,46 @@
 # mobx-store-provider
 
-Conveniently use React Hooks or Consumers to connect a [mobx-state-tree](https://mobx-state-tree.js.org) store to your components.
+Use React Hooks with mobx-state-tree.
 
 ## Intro
 
-Using mobx-state-tree with newer React requires a bit of glue logic, this library provides that.
+Using Hooks with mobx-state-tree requires a bit of glue logic, this library provides that.
 
-It provides utilities for creating and supplying your React components with a mobx-state-tree store, so they can bind to and trigger actions on it.
+mobx-store-provide supplies utilities for creating and supplying your React components with a mobx-state-tree store, so they can bind to and trigger actions on it.
+
+```javascript
+// app.js
+import React from "react";
+import { types } from "mobx-state-tree";
+import StoreProvider, { createStore } from "mobx-store-provider";
+import MyNameDisplay from "./MyNameDisplay";
+
+const AppStore = types.model({
+  name: types.string,
+});
+
+const { Provider, useStore } = StoreProvider();
+export { useStore };
+export default () => {
+  const appStore = createStore(() => AppStore.create({ name: "Jonathan" }));
+  return (
+    <Provider value={appStore}>
+      <MyNameDisplay />
+    </Provider>
+  );
+};
+```
+
+```javascript
+// MyNameDisplay.js
+import React from "react";
+import { observer } from "mobx-react";
+import { useStore } from "./app";
+export default observer(() => {
+  const appStore = useStore();
+  return <div>{appStore.name}</div>;
+});
+```
 
 ## Install
 
@@ -109,7 +143,7 @@ const AppStore = types.model({
 });
 
 // Create the provider and hook we can use in our application to access this store
-const { Provider: AppStoreProvider, useStore: useAppStore } = new StoreProvider();
+const { Provider: AppStoreProvider, useStore: useAppStore } = StoreProvider();
 // To provide this store to other components, we export useAppStore here and then import it elsewhere:
 export { useAppStore };
 
@@ -140,5 +174,3 @@ export default observer(() => {
   return <div>{appStore.name}</div>;
 });
 ```
-
-**TODO: Write tests**
