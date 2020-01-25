@@ -25,14 +25,6 @@ const MyStore = types.model({
   name: types.string,
 });
 
-@inject("store")
-@observer
-class MyNameDisplay extends Component {
-  render() {
-    return <div>{this.props.store.name}</div>;
-  }
-}
-
 export default class MyComponent extends Component {
   myStore = MyStore.create({ name: "Jonathan" });
   render() {
@@ -41,6 +33,15 @@ export default class MyComponent extends Component {
         <MyNameDisplay />
       </Provider>
     );
+  }
+}
+
+// This component is assumed to be in a separate module/file.
+@inject("store")
+@observer
+class MyNameDisplay extends Component {
+  render() {
+    return <div>{this.props.store.name}</div>;
   }
 }
 ```
@@ -76,24 +77,20 @@ The same example from above, but using mobx-store-provider with hooks on functio
 import React from "react";
 import { observer } from "mobx-react";
 import { types } from "mobx-state-tree";
-
 import StoreProvider, { createStore } from "mobx-store-provider";
+
+// Create the provider and hook we can use in our application to access this store
 const { Provider: MyStoreProvider, useStore: useMyStore } = new StoreProvider();
 
-// To provide this store to other components, you can export useMyStore here and import it elsewhere:
+// To provide this store to other components, you export useMyStore here and import it elsewhere:
 export { useMyStore };
-// ...in another component elsewhere in your code you can get the store via:
-// import { useMyStore } from 'path/to/this/module'
 
 const MyStore = types.model({
   name: types.string,
 });
 
-const MyNameDisplay = observer(() => {
-  const myStore = useMyStore();
-  return <div>{myStore.name}</div>;
-});
-
+// Now we use the hook createStore to create myStore, and then wrap our application with the newly
+// created MyStoreProvider, passing in myStore for the value.
 export default () => {
   const myStore = createStore(() => MyStore.create({ name: "Jonathan" }));
   return (
@@ -102,4 +99,11 @@ export default () => {
     </MyStoreProvider>
   );
 };
+
+// Instead of inject(), we import useMyStore from where we created it.
+import { useMyStore } from "path/to/module";
+const MyNameDisplay = observer(() => {
+  const myStore = useMyStore();
+  return <div>{myStore.name}</div>;
+});
 ```
