@@ -4,7 +4,7 @@ function identity(thing: any): any {
   return thing;
 }
 
-interface HookProvider {
+interface MobxStoreProvider {
   Provider: any;
   Consumer: any;
   useStore: Function;
@@ -14,12 +14,12 @@ interface HookProvider {
  * Create a new StoreProvider instance, which supplies you with a `Provider`, `Consumer`, and a `useStore` hook.
  * @param defaultValue The default value you want supplied to consumers of useStore in the event no Provider is found (null by default)
  */
-export default function StoreProvider(defaultValue = null): HookProvider {
+export default function StoreProvider(defaultValue = null): MobxStoreProvider {
   const StoreContext = React.createContext(defaultValue);
   return {
     Provider: StoreContext.Provider,
     Consumer: StoreContext.Consumer,
-    useStore: (mapStateToProps: Function = identity) => {
+    useStore: (mapStateToProps: Function = identity): any => {
       const store = useContext(StoreContext);
       return mapStateToProps(store);
     },
