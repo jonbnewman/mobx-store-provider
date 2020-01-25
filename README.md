@@ -51,7 +51,7 @@ This works well enough, but has a few possible issues:
 
    This may be a problem if you don't have control of or know how to add that capability to your bundler. As an example, if you started with a create-react-app base and haven't ejected - then you can't use decorators.
 
-1. Requires you to wrap your components with `inject()` and `observer()`.
+1. In lieu of decorators, it requires you to wrap your components with `inject()` and `observer()`.
 
    If you can't (or don't want to) use decorators, you can alternatively wrap your components with `inject()` and/or `observer()`:
 
@@ -72,4 +72,34 @@ This works well enough, but has a few possible issues:
 
 The same example from above, but using mobx-store-provider with hooks on functional components instead:
 
-TODO
+```javascript
+import React from "react";
+import { observer } from "mobx-react";
+import { types } from "mobx-state-tree";
+
+import StoreProvider, { createStore } from "mobx-store-provider";
+const { Provider: MyStoreProvider, useStore: useMyStore } = new StoreProvider();
+
+// To provide this store to other components, you can export useMyStore here and import it elsewhere:
+export { useMyStore };
+// ...in another component elsewhere in your code you can get the store via:
+// import { useMyStore } from 'path/to/this/module'
+
+const MyStore = types.model({
+  name: types.string,
+});
+
+const MyNameDisplay = observer(() => {
+  const myStore = useMyStore();
+  return <div>{myStore.name}</div>;
+});
+
+export default () => {
+  const myStore = createStore(() => MyStore.create({ name: "Jonathan" }));
+  return (
+    <MyStoreProvider value={myStore}>
+      <MyNameDisplay />
+    </MyStoreProvider>
+  );
+};
+```
