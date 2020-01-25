@@ -2,6 +2,18 @@
 
 Use React Hooks with mobx-state-tree.
 
+## Install
+
+```bash
+# via NPM
+npm install mobx-store-provider --save
+```
+
+```bash
+# via Yarn
+yarn add mobx-store-provider
+```
+
 ## Intro
 
 Using Hooks with mobx-state-tree requires a bit of glue logic, this library provides that.
@@ -42,17 +54,65 @@ export default observer(() => {
 });
 ```
 
-## Install
+### API
 
-```bash
-# via NPM
-npm install mobx-store-provider --save
-```
+- `StoreProvider(): IStoreProvider`
 
-```bash
-# via Yarn
-yarn add mobx-store-provider
-```
+  Store provider factory. Use this to create a new `Provider` which you can use to supply a store to your application.
+
+  - Returns an **IStoreProvider** instance
+
+    This is the instance created and returned by the `StoreProvider`. It contains three properties:
+
+    1. `<Provider value={yourStore} />` - This is the wrapper component you can use to provide your application with the store.
+
+    1. `useStore(mapStateToProps: Function)` - This is the React Hook which you can use in your other components to retrieve and use the store.
+
+       Typically you would export `useStore` from where you instantiated it, so that you can import and use it in other components.
+
+       You can optionally pass it a `mapStateToProps` function which you can use to select and return specific slices of data into your components with. This would be analagous to redux selectors.
+
+       ```javascript
+       function selectName(store) {
+         return store.person.name;
+       }
+       function selectJobTitle(store) {
+         return store.person.job.title;
+       }
+
+       // Then in a component
+       export default observer(() => {
+         const { name, job } = useStore(function mapStateToProps(store) {
+           return {
+             name: selectName(store),
+             job: selectJobTitle(store),
+           };
+         });
+         return (
+           <div>
+             <div>Person Info</div>
+             <div>Name: {name}</div>
+             <div>Job: {job}</div>
+           </div>
+         );
+       });
+       ```
+
+    1. `Consumer` - You can alternatively use this to consume the store in your components.
+
+       ```javascript
+       <Consumer>{appStore => <div>{appStore.name}</div>}</Consumer>
+       ```
+
+- `createStore(fn)`
+
+  This is a React Hook which you use to instantiate new mobx-state-tree instances inside of components. You would typically use in your main `app.js`, and then use a `StoreProvider` to provide it to your application.
+
+  It takes a `Function` as its input, you should instantiate and return your mobx-state-tree instance within that function.
+
+  ```javascript
+  const myStore = createStore(() => MyStore.create({ ... }));
+  ```
 
 ## What problem does mobx-store-provider solve?
 
