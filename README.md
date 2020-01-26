@@ -171,11 +171,11 @@ export default AppStore;
   import { useProvider, createStore, disposeStore } from "mobx-store-provider";
   import MyPetAnimal from "./MyPetAnimal";
 
-  export const myPetStore = "my-pet-store";
+  export const myPetAnimal = "my-pet-animal";
 
   function MyPet() {
-    useEffect(() => disposeStore(myPetStore), []);
-    const Provider = useProvider(myPetStore);
+    useEffect(() => disposeStore(myPetAnimal), []);
+    const Provider = useProvider(myPetAnimal);
     return (
       <Provider value={createStore(() => MyPetAnimal.create())}>
         <>... The rest the MyPet component ...</>
