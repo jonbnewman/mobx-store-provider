@@ -205,56 +205,56 @@ import { types } from "mobx-state-tree";
 import { observer } from "mobx-react";
 import { useProvider, createStore, useStore, disposeStore } from "mobx-store-provider";
 
-const TestStore = types
+const AppStore = types
   .model({
-    name: types.string,
+    user: types.string,
   })
   .actions(self => ({
-    setName(name: string) {
-      self.name = name;
+    setUser(user: string) {
+      self.user = user;
     },
   }));
 
 describe("My tests", () => {
-  test("When I click the name it changes (testing events and UI updates)", () => {
-    const normalName = "Keanu Reeves";
-    const alternateName = "Neo";
+  test("When I click the user name label it changes", () => {
+    const userName = "Keanu Reeves";
+    const altUsername = "Neo";
 
-    const NameDisplay = observer(() => {
+    const UserDisplay = observer(() => {
       const store = useStore();
       return (
-        <div onClick={() => store.setName(alternateName)} data-testid="name-label">
-          {store.name}
+        <div onClick={() => store.setUser(altUsername)} data-testid="label">
+          {store.user}
         </div>
       );
     });
 
-    const TestComponent = () => {
+    function AppComponent() {
       const Provider = useProvider();
-      const testStore = createStore(() => TestStore.create({ name: normalName }));
+      const appStore = createStore(() => AppStore.create({ user: userName }));
       return (
-        <Provider value={testStore}>
-          <NameDisplay />
+        <Provider value={appStore}>
+          <UserDisplay />
         </Provider>
       );
-    };
+    }
 
-    const container = render(<TestComponent />).container;
-    expect(container).toHaveTextContent(normalName);
-    fireEvent.click(getByTestId(container, "name-label"));
-    expect(container).toHaveTextContent(alternateName);
+    const container = render(<AppComponent />).container;
+    expect(container).toHaveTextContent(userName);
+    fireEvent.click(getByTestId(container, "label"));
+    expect(container).toHaveTextContent(altUsername);
   });
 
   // This is not part of mobx-store-provider but as an aside, you could also
   // test a store separate from React like this:
-  test("When I trigger the setName action the name changes", () => {
-    const normalName = "Keanu Reeves";
-    const alternateName = "Neo";
+  test("When I trigger the setUser action the user changes", () => {
+    const userName = "Keanu Reeves";
+    const altUsername = "Neo";
 
-    const store = TestStore.create({ name: normalName });
-    expect(store.name).toBe(normalName);
-    store.setName(alternateName);
-    expect(store.name).toBe(alternateName);
+    const store = AppStore.create({ user: userName });
+    expect(store.user).toBe(userName);
+    store.setUser(altUsername);
+    expect(store.user).toBe(altUsername);
   });
 });
 ```
