@@ -5,7 +5,7 @@ import "@testing-library/jest-dom/extend-expect";
 
 import React from "react";
 import { types } from "mobx-state-tree";
-import { createProvider, createStore, useStore, useConsumer, disposeStore } from "./index";
+import { useProvider, createStore, useStore, disposeStore } from "./index";
 
 const TestStore = types
   .model({
@@ -22,7 +22,7 @@ function makeContainer(contents: any) {
 }
 
 describe("mobx-store-provider", () => {
-  test("can provide a created store using createProvider, createStore, and useStore", () => {
+  test("can provide a created store using useProvider, createStore, and useStore", () => {
     const firstName = "Jonathan";
 
     const MyNameDisplay = () => {
@@ -30,7 +30,7 @@ describe("mobx-store-provider", () => {
     };
 
     const TestComponent = () => {
-      const Provider = createProvider();
+      const Provider = useProvider();
       const testStore = createStore(() => TestStore.create({ name: firstName }));
       return (
         <Provider value={testStore}>
@@ -57,7 +57,7 @@ describe("mobx-store-provider", () => {
     });
 
     const TestComponent = () => {
-      const Provider = createProvider();
+      const Provider = useProvider();
       const testStore = createStore(() => TestStore.create({ name: firstName }));
       return (
         <Provider value={testStore}>
@@ -74,16 +74,16 @@ describe("mobx-store-provider", () => {
 
   test("can retrieve the same store with an identifier", () => {
     const storeIdentifier = "some really cool store";
-    const FirstProvider = createProvider(storeIdentifier);
-    const SecondProvider = createProvider(storeIdentifier);
+    const FirstProvider = useProvider(storeIdentifier);
+    const SecondProvider = useProvider(storeIdentifier);
     expect(FirstProvider).toBe(SecondProvider);
   });
 
   test("can dispose a StoreProvider", () => {
     const storeIdentifier = "my-destructable-store";
-    const FirstProvider = createProvider(storeIdentifier);
+    const FirstProvider = useProvider(storeIdentifier);
     disposeStore(storeIdentifier);
-    const SecondProvider = createProvider(storeIdentifier);
+    const SecondProvider = useProvider(storeIdentifier);
     expect(FirstProvider).not.toBe(SecondProvider);
   });
 
@@ -91,8 +91,8 @@ describe("mobx-store-provider", () => {
     const storeIdentifier = function() {
       console.info("You will never see this. Wait, did you just read that?");
     };
-    const FirstProvider = createProvider(storeIdentifier);
-    const SecondProvider = createProvider(storeIdentifier);
+    const FirstProvider = useProvider(storeIdentifier);
+    const SecondProvider = useProvider(storeIdentifier);
     expect(FirstProvider).toBe(SecondProvider);
   });
 });
