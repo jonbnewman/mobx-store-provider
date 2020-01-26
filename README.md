@@ -148,9 +148,7 @@ export default observer(MyNameDisplay);
   }
 
   function Header() {
-    const user = useStore(appStore, function mapStateToProps(store) {
-      return selectUser(store);
-    });
+    const user = useStore(appStore, selectUser);
     return <div>User: {user}</div>;
   }
 
