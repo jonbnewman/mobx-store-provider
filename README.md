@@ -39,7 +39,7 @@ export default App;
 ```
 
 ```javascript
-// UserDisplay.js (Your component, we use the store inside)
+// UserDisplay.js (A component, we use the store inside)
 import React from "react";
 import { observer } from "mobx-react";
 import { useStore } from "mobx-store-provider";
@@ -133,7 +133,7 @@ export default AppStore;
   ```
 
   ```javascript
-  // Header.js (A random component, we reference/use the store inside)
+  // Header.js (A component, we use the store inside)
   import { observer } from "mobx-react";
   import { useStore } from "mobx-store-provider";
   import { appStore } from "./App";
