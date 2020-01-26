@@ -117,10 +117,8 @@ export default observer(() => {
   }
 
   function House() {
-    const { owner } = useStore(storeIdentifier, function mapStateToProps(store) {
-      return {
-        owner: selectOwner(store),
-      };
+    const owner = useStore(storeIdentifier, function mapStateToProps(store) {
+      return selectOwner(store);
     });
 
     return (
