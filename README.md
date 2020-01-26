@@ -59,9 +59,27 @@ export default observer(() => {
 
 ### API
 
-- `StoreProvider(identifier = null, defaultValue = null): StoreProvider`
+- `createStore(fn)`
+
+  This is a React Hook which you use to instantiate new mobx-state-tree instances inside of components.
+
+  It takes a `Function` as its input, you should instantiate and return your mobx-state-tree instance within that function.
+
+  ```javascript
+  import StoreProvider, { createStore } from "mobx-store-provider";
+  const { Provider } = StoreProvider("my-app");
+
+  function MyComponent() {
+    const myStore = createStore(() => MyStore.create());
+    return <Provider value={myStore}>...</Provider>;
+  }
+  ```
+
+- `StoreProvider(storeIdentifier = null, defaultValue = null): StoreProvider`
 
   Store provider factory. Use this to create a new `StoreProvider` which you can use to supply a store to your application.
+
+  You can optionally (likely should) supply a `storeIdentifier`, this identifier is used when other parts of your application need to use the same store. By supplying the same identifier, you are ensured the same store is being supplied.
 
   - Returns a **StoreProvider** instance:
 
@@ -70,6 +88,7 @@ export default observer(() => {
     1. `Provider` - This is the wrapper component you can use to provide your application with the store.
 
        ```javascript
+       import StoreProvider from "mobx-store-provider";
        const { Provider } = StoreProvider("my-app");
        function MainApp() {
          return (
@@ -82,11 +101,12 @@ export default observer(() => {
 
     1. `useStore(mapStateToProps: Function)` - This is the React Hook which you can use in your other components to retrieve and use the store.
 
-       Typically you would export `useStore` from where you instantiated it, so that you can import and use it in other components.
-
        You can optionally pass it a `mapStateToProps` function which you can use to select and return specific slices of data into your components with. This would be analagous to redux selectors.
 
        ```javascript
+       import StoreProvider from "mobx-store-provider";
+       const { useStore } = StoreProvider("my-app");
+
        function selectName(store) {
          return store.person.name;
        }
@@ -114,6 +134,7 @@ export default observer(() => {
     1. `Consumer` - You can alternatively use this to consume the store in your components.
 
        ```javascript
+       import StoreProvider from "mobx-store-provider";
        const { Consumer } = StoreProvider("my-app");
        function MyComponent() {
          return <Consumer>{appStore => <div>{appStore.person.name}</div>}</Consumer>;
@@ -129,28 +150,28 @@ export default observer(() => {
        In that case you need to call `destroy()` so that the store can be fully released and garbage collected.
 
        ```javascript
+       import React, { useEffect } from "react";
+       import { types } from "mobx-state-tree";
+
        import StoreProvider, { createStore } from "mobx-store-provider";
        const { destroy, Provider } = StoreProvider("my-app");
+
+       const MyStore = types.model({
+         name: "Jonathan Newman",
+       });
+
        function MyComponent() {
-         useEffect(() => destroy);
+         useEffect(() => destroy, []);
+
          const myStore = createStore(() => MyStore.create());
+
          return (
            <Provider value={myStore}>
-             <div>My component</div>
+             <div>...</div>
            </Provider>
          );
        }
        ```
-
-- `createStore(fn)`
-
-  This is a React Hook which you use to instantiate new mobx-state-tree instances inside of components. You would typically use in your main `app.js`, and then use a `StoreProvider` to provide it to your application.
-
-  It takes a `Function` as its input, you should instantiate and return your mobx-state-tree instance within that function.
-
-  ```javascript
-  const myStore = createStore(() => MyStore.create({ ... }));
-  ```
 
 ## What problem does mobx-store-provider solve?
 
