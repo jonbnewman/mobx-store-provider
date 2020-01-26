@@ -149,17 +149,6 @@ export default AppStore;
   export default observer(Header);
   ```
 
-  ```javascript
-  // AppStore.js (mobx-state-tree store/model)
-  import { types } from "mobx-state-tree";
-
-  const AppStore = types.model({
-    user: types.string,
-  });
-
-  export default AppStore;
-  ```
-
 * `disposeStore(storeIdentifier: any = null): undefined`
 
   Cleanup, if your app doesn't need the store and Provider anymore.
