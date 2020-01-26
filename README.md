@@ -110,6 +110,7 @@ export default observer(() => {
        function selectName(store) {
          return store.person.name;
        }
+
        function selectJobTitle(store) {
          return store.person.job.title;
        }
@@ -121,6 +122,7 @@ export default observer(() => {
              job: selectJobTitle(store),
            };
          });
+
          return (
            <div>
              <div>Person Info</div>
@@ -262,18 +264,16 @@ const AppStore = types.model({
 });
 
 // Create the provider and hook we can use in our application to access this store
-const { Provider: AppStoreProvider, useStore: useAppStore } = StoreProvider();
-// To provide this store to other components, we export useAppStore here and then import it elsewhere:
-export { useAppStore };
+const { Provider } = StoreProvider();
 
 // Now we use the hook createStore to create appStore, and then wrap our application with
-// AppStoreProvider, passing in appStore for the value.
+// Provider, passing in appStore for the value.
 export default () => {
   const appStore = createStore(() => AppStore.create({ name: "Jonathan" }));
   return (
-    <AppStoreProvider value={appStore}>
+    <Provider value={appStore}>
       <MyNameDisplay />
-    </AppStoreProvider>
+    </Provider>
   );
 };
 ```
@@ -284,12 +284,11 @@ In another file, you have the `MyNameDisplay` component:
 import React from "react";
 import { observer } from "mobx-react";
 
-// Instead of inject(), we import the useAppStore hook from where we created it.
-import { useAppStore } from "path/to/module/above";
+import StoreProvider from "mobx-store-provider";
+const { useStore } = StoreProvider();
 
 export default observer(() => {
-  // Then we can use the hook to get and use the store in our component
-  const appStore = useAppStore();
+  const appStore = useStore();
   return <div>{appStore.name}</div>;
 });
 ```
