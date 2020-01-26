@@ -76,7 +76,7 @@ export default observer(MyNameDisplay);
     const Provider = useProvider();
     return (
       <Provider value={myStore}>
-        <div>My awesome app</div>
+        <MyOtherComponent />
       </Provider>
     );
   }
@@ -89,7 +89,12 @@ export default observer(MyNameDisplay);
   It takes a factory `Function` as its input, you should instantiate and return a mobx-state-tree instance within that function.
 
   ```javascript
+  import { types } from "mobx-state-tree";
   import { createStore, useProvider } from "mobx-store-provider";
+
+  const AppStore = types.model({
+    user: "Jonathan",
+  });
 
   export default function App() {
     const Provider = useProvider();
@@ -110,45 +115,43 @@ export default observer(MyNameDisplay);
 
   ```javascript
   // App.js
-  import { useProvider, createStore } from "mobx-store-provider";
   import { types } from "mobx-state-tree";
-  import House from "./House";
+  import { useProvider, createStore } from "mobx-store-provider";
+  import Header from "./Header";
 
-  // Export our appStore identifier so other components can use it to pull in the correct store.
+  // Export our appStore identifier so other components can use it to
+  // pull in the correct store.
   export const appStore = "app-store";
+
+  const AppStore = types.model({
+    user: "Jonathan",
+  });
 
   export default function App() {
     const Provider = useProvider(appStore);
-    const appStoreInstance = createStore(() => types.model({ owner: "Jonathan" }).create());
     return (
-      <Provider value={appStoreInstance}>
-        <House />
+      <Provider value={createStore(() => AppStore.create())}>
+        <Header />
       </Provider>
     );
   }
   ```
 
   ```javascript
-  // House.js
+  // Header.js
   import { observer } from "mobx-react";
   import { useStore } from "mobx-store-provider";
   import { appStore } from "./App";
 
-  function selectOwner(store) {
-    return store.owner;
+  function selectUser(store) {
+    return store.user;
   }
 
-  function House() {
-    const owner = useStore(appStore, function mapStateToProps(store) {
-      return selectOwner(store);
+  function Header() {
+    const user = useStore(appStore, function mapStateToProps(store) {
+      return selectUser(store);
     });
-
-    return (
-      <>
-        <div>House</div>
-        <div>Owner: {owner}</div>
-      </>
-    );
+    return <div>User: {user}</div>;
   }
 
   export default observer(House);
@@ -167,16 +170,17 @@ export default observer(MyNameDisplay);
   import { types } from "mobx-state-tree";
   import { useProvider, createStore, disposeStore } from "mobx-store-provider";
 
-  const MyStore = types.model({
-    name: "Jonathan Newman",
+  const MyPetAnimal = types.model({
+    name: types.optional(types.string, "Barney"),
+    type: types.optional(types.enumeration("type", ["Cat", "Dog", "Orangutan"]), "Dog"),
   });
 
-  export default function MyComponent() {
+  export default function MyPet() {
     useEffect(() => disposeStore("my-app"), []);
     const Provider = useProvider("my-app");
-    const myStore = createStore(() => MyStore.create());
+    const myPet = createStore(() => MyPetAnimal.create());
     return (
-      <Provider value={myStore}>
+      <Provider value={myPet}>
         <div>...</div>
       </Provider>
     );
