@@ -32,7 +32,7 @@ function createStore(storeFactory: Function): any {
  * @param storeIdentifier The identifier used for the store (optional)
  */
 function useProvider(storeIdentifier: any = null): Provider<any> {
-  return retreiveStore(storeIdentifier).Provider;
+  return retrieveStore(storeIdentifier).Provider;
 }
 
 /**
@@ -40,7 +40,7 @@ function useProvider(storeIdentifier: any = null): Provider<any> {
  * @param storeIdentifier The identifier used for the store (optional)
  */
 function disposeStore(storeIdentifier: any = null): undefined {
-  return retreiveStore(storeIdentifier).dispose();
+  return retrieveStore(storeIdentifier).dispose();
 }
 
 /**
@@ -48,14 +48,14 @@ function disposeStore(storeIdentifier: any = null): undefined {
  * @param storeIdentifier The identifier used for the store (optional)
  */
 function useStore(storeIdentifier: any = null, mapStateToProps: Function = identity): any {
-  return retreiveStore(storeIdentifier).useStore(mapStateToProps);
+  return retrieveStore(storeIdentifier).useStore(mapStateToProps);
 }
 
 /**
- * Creates and/or retreives the `store` from the internal `stores` Map.
+ * Creates and/or retrieves the `store` from the internal `stores` Map.
  * @param storeIdentifier The identifier supplied by the consumer
  */
-function retreiveStore(storeIdentifier: any = null): StoreProvider {
+function retrieveStore(storeIdentifier: any = null): StoreProvider {
   if (!stores.has(storeIdentifier)) {
     const StoreContext = React.createContext(null);
     StoreContext.displayName = String(storeIdentifier);
