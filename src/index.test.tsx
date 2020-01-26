@@ -115,12 +115,12 @@ describe("mobx-store-provider", () => {
     expect(FirstProvider).toBe(SecondProvider);
   });
 
-  test("can destroy a StoreProvider instance", () => {
+  test("can dispose a StoreProvider instance", () => {
     const storeIdentifier = "my-destructable-store";
 
-    const { Provider: FirstProvider, destroy } = StoreProvider(storeIdentifier);
+    const { Provider: FirstProvider, dispose } = StoreProvider(storeIdentifier);
 
-    destroy();
+    dispose();
 
     const { Provider: SecondProvider } = StoreProvider(storeIdentifier);
 

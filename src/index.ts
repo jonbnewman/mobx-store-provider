@@ -10,7 +10,7 @@ export interface StoreProvider {
   Provider: any;
   Consumer: any;
   useStore: Function;
-  destroy: Function;
+  dispose: Function;
 }
 
 /**
