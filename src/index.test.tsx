@@ -72,4 +72,38 @@ describe("mobx-store-provider", () => {
     fireEvent.click(getByTestId(container, "name"));
     expect(container).toHaveTextContent(lastName);
   });
+
+  test("can use identifier to decouple use Provider and useStore", () => {
+    const identifier = "my-store";
+    const firstName = "Jonathan";
+    const lastName = "Newman";
+
+    const { useStore } = StoreProvider(identifier);
+
+    const MyNameDisplay = observer(() => {
+      const store = useStore();
+      return (
+        <div onClick={() => store.setName(lastName)} data-testid="name">
+          {store.name}
+        </div>
+      );
+    });
+
+    const { Provider } = StoreProvider(identifier);
+
+    const TestComponent = () => {
+      const testStore = createStore(() => TestStore.create({ name: firstName }));
+      return (
+        <Provider value={testStore}>
+          <MyNameDisplay />
+        </Provider>
+      );
+    };
+
+    const container = makeContainer(<TestComponent />);
+    expect(container).toHaveTextContent(firstName);
+
+    fireEvent.click(getByTestId(container, "name"));
+    expect(container).toHaveTextContent(lastName);
+  });
 });
