@@ -1,6 +1,6 @@
 # mobx-store-provider
 
-Use React Hooks with mobx-state-tree.
+Use React Hooks with [mobx-state-tree](http://mobx-state-tree.js.org/).
 
 > An easy to use, straight-forward API for using mobx-state-tree with functional React components.
 
