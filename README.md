@@ -59,15 +59,26 @@ export default observer(() => {
 
 ### API
 
-- `StoreProvider(): IStoreProvider`
+- `StoreProvider(identifier = null, defaultValue = null): StoreProvider`
 
-  Store provider factory. Use this to create a new `Provider` which you can use to supply a store to your application.
+  Store provider factory. Use this to create a new `StoreProvider` which you can use to supply a store to your application.
 
-  - Returns an **IStoreProvider** instance
+  - Returns a **StoreProvider** instance:
 
-    This is the instance created and returned by the `StoreProvider`. It contains three properties:
+    This instance contains four properties:
 
-    1. `<Provider value={yourStore} />` - This is the wrapper component you can use to provide your application with the store.
+    1. `Provider` - This is the wrapper component you can use to provide your application with the store.
+
+       ```javascript
+       const { Provider } = StoreProvider("my-app");
+       function MainApp() {
+         return (
+           <Provider value={myStore}>
+             <div>My awesome app</div>
+           </Provider>
+         );
+       }
+       ```
 
     1. `useStore(mapStateToProps: Function)` - This is the React Hook which you can use in your other components to retrieve and use the store.
 
@@ -83,8 +94,7 @@ export default observer(() => {
          return store.person.job.title;
        }
 
-       // Then in a component
-       export default observer(() => {
+       function PersonComponent() {
          const { name, job } = useStore(function mapStateToProps(store) {
            return {
              name: selectName(store),
@@ -98,13 +108,38 @@ export default observer(() => {
              <div>Job: {job}</div>
            </div>
          );
-       });
+       }
        ```
 
     1. `Consumer` - You can alternatively use this to consume the store in your components.
 
        ```javascript
-       <Consumer>{appStore => <div>{appStore.name}</div>}</Consumer>
+       const { Consumer } = StoreProvider("my-app");
+       function MyComponent() {
+         return <Consumer>{appStore => <div>{appStore.person.name}</div>}</Consumer>;
+       }
+       ```
+
+    1. `destroy()`
+
+       Cleanup, if your app doesn't need the store and Provider anymore.
+
+       You might encounter this scenario if you created a store for a specific component (ie: not a long-lived root store/etc), and that component is removed.
+
+       In that case you need to call `destroy()` so that the store can be fully released and garbage collected.
+
+       ```javascript
+       import StoreProvider, { createStore } from "mobx-store-provider";
+       const { destroy, Provider } = StoreProvider("my-app");
+       function MyComponent() {
+         useEffect(() => destroy);
+         const myStore = createStore(() => MyStore.create());
+         return (
+           <Provider value={myStore}>
+             <div>My component</div>
+           </Provider>
+         );
+       }
        ```
 
 - `createStore(fn)`
