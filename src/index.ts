@@ -34,9 +34,9 @@ export function createStore(storeFactory: Function): any {
 export default function StoreProvider(storeIdentifier: any = null): StoreProvider {
   if (!stores.has(storeIdentifier)) {
     const StoreContext = React.createContext(null);
+    StoreContext.displayName = String(storeIdentifier);
     stores.set(storeIdentifier, {
-      Provider: StoreContext.Provider,
-      Consumer: StoreContext.Consumer,
+      ...StoreContext,
       useStore: (mapStateToProps: Function = identity): any => {
         const store = useContext(StoreContext);
         return mapStateToProps(store);

@@ -146,7 +146,7 @@ export default observer(() => {
 
     1. `<Consumer />`
 
-       You can alternatively use this to consume the store in your components.
+       You can alternatively use this to consume the store in your components. Under the hood, this is the React `Context.Consumer`, so it's use is the same:
 
        ```javascript
        import StoreProvider from "mobx-store-provider";
