@@ -1,4 +1,4 @@
-import React, { useContext, useRef, Consumer, Provider } from "react";
+import React, { useContext, useRef, Provider } from "react";
 
 const stores = new Map();
 
@@ -8,7 +8,6 @@ function identity(thing: any): any {
 
 interface StoreProvider {
   Provider: Provider<any>;
-  Consumer: Consumer<any>;
   useStore: Function;
   dispose: Function;
 }
@@ -53,16 +52,6 @@ function useStore(storeIdentifier: any = null, mapStateToProps: Function = ident
 }
 
 /**
- * React Hook whick returns the React `Context.Consumer` component.
- *
- * You can use this as an alternative to Hooks for consuming your `store`.
- * @param storeIdentifier The identifier you use for your store (optional)
- */
-function useConsumer(storeIdentifier: any = null): Consumer<any> {
-  return retreiveStore(storeIdentifier).Consumer;
-}
-
-/**
  * Creates and/or retreives the store from the internal `stores` Map.
  * @param storeIdentifier The identifier supplied by the consumer
  */
@@ -82,4 +71,4 @@ function retreiveStore(storeIdentifier: any = null): StoreProvider {
   return stores.get(storeIdentifier);
 }
 
-export { createStore, createProvider, disposeStore, useStore, useConsumer };
+export { createStore, createProvider, disposeStore, useStore };

@@ -130,40 +130,6 @@ export default observer(() => {
   }
   ```
 
-* `useConsumer(storeIdentifier: any = null): Consumer`
-
-  React Hook which you can use in your other components to consume and use a `store` for a given `storeIdentifier`. This is an alternative to using `useStore`, it provides the `store` as a render-prop of `Consumer`.
-
-  ```javascript
-  import { createStore, createProvider, useConsumer } from "mobx-store-provider";
-  import { types } from "mobx-state-tree";
-  const storeIdentifier = "house";
-
-  function House() {
-    const Consumer = useConsumer(storeIdentifier);
-    return (
-      <Consumer>
-        {store => (
-          <>
-            <div>House</div>
-            <div>Owner: {store.owner}</div>
-          </>
-        )}
-      </Consumer>
-    );
-  }
-
-  export default function Dashboard() {
-    const Provider = createProvider(storeIdentifier);
-    const myStore = createStore(() => types.model({ owner: "Jonathan" }).create());
-    return (
-      <Provider value={myStore}>
-        <House />
-      </Provider>
-    );
-  }
-  ```
-
 * `disposeStore(storeIdentifier: any = null): undefined`
 
   Cleanup, if your app doesn't need the store and Provider anymore.
