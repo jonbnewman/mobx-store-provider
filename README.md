@@ -24,16 +24,15 @@ mobx-store-provider supplies utilities for creating and supplying your React com
 // app.js
 import React from "react";
 import { types } from "mobx-state-tree";
-
-import StoreProvider, { createStore } from "mobx-store-provider";
-const { Provider } = StoreProvider("app");
-
+import { createProvider, createStore } from "mobx-store-provider";
 import MyNameDisplay from "./MyNameDisplay";
+
 const AppStore = types.model({
   name: types.string,
 });
 
 export default () => {
+  const Provider = createProvider("app");
   const appStore = createStore(() => AppStore.create({ name: "Jonathan" }));
   return (
     <Provider value={appStore}>
@@ -47,12 +46,10 @@ export default () => {
 // MyNameDisplay.js
 import React from "react";
 import { observer } from "mobx-react";
-
-import StoreProvider from "mobx-store-provider";
-const { useStore } = StoreProvider("app");
+import { useStore } from "mobx-store-provider";
 
 export default observer(() => {
-  const appStore = useStore();
+  const appStore = useStore("app");
   return <div>{appStore.name}</div>;
 });
 ```
