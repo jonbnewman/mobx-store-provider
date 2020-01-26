@@ -76,7 +76,7 @@ export default AppStore;
   import AppStore from "./AppStore";
   const appStore = AppStore.create();
 
-  export default function App() {
+  function App() {
     const Provider = useProvider();
     return (
       <Provider value={appStore}>
@@ -84,6 +84,8 @@ export default AppStore;
       </Provider>
     );
   }
+
+  export default App;
   ```
 
 - `createStore(StoreFactory: Function): any`
@@ -96,11 +98,13 @@ export default AppStore;
   import { createStore, useProvider } from "mobx-store-provider";
   import AppStore from "./AppStore";
 
-  export default function App() {
+  function App() {
     const Provider = useProvider();
     const appStore = createStore(() => AppStore.create());
     return <Provider value={appStore}>...</Provider>;
   }
+
+  export default App;
   ```
 
 - `useStore(storeIdentifier: any = null, mapStateToProps: Function = identity): any`
@@ -122,7 +126,7 @@ export default AppStore;
   // Export our appStore identifier so other components can use it
   export const appStore = "app-store";
 
-  export default function App() {
+  function App() {
     const Provider = useProvider(appStore);
     return (
       <Provider value={createStore(() => AppStore.create())}>
@@ -130,6 +134,8 @@ export default AppStore;
       </Provider>
     );
   }
+
+  export default App;
   ```
 
   ```javascript
@@ -167,7 +173,7 @@ export default AppStore;
 
   export const myPetStore = "my-pet-store";
 
-  export default function MyPet() {
+  function MyPet() {
     useEffect(() => disposeStore(myPetStore), []);
     const Provider = useProvider(myPetStore);
     return (
@@ -176,6 +182,8 @@ export default AppStore;
       </Provider>
     );
   }
+
+  export default MyPet;
   ```
 
   ```javascript
@@ -185,6 +193,8 @@ export default AppStore;
     name: types.optional(types.string, "Barney"),
     type: types.optional(types.enumeration("type", ["Cat", "Dog"]), "Dog"),
   });
+
+  export default MyPetAnimal;
   ```
 
 ## Testing
