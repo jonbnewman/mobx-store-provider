@@ -82,11 +82,11 @@ export default observer(MyNameDisplay);
   }
   ```
 
-- `createStore(storeIdentifier: any = null): any`
+- `createStore(StoreFactory: Function): any`
 
   React Hook which you can use to instantiate new mobx-state-tree instances inside of components.
 
-  It takes a `Function` as its input, you should instantiate and return your mobx-state-tree instance within that function.
+  It takes a factory `Function` as its input, you should instantiate and return a mobx-state-tree instance within that function.
 
   ```javascript
   import { createStore, useProvider } from "mobx-store-provider";
@@ -101,6 +101,8 @@ export default observer(MyNameDisplay);
 - `useStore(storeIdentifier: any = null, mapStateToProps: Function = identity): any`
 
   React Hook which you can use in your other components to retrieve and use a `store` for a given `storeIdentifier`.
+
+  The `storeIdentifier` simply tells mobx-store-provider which store you want to get access to. It is optional, the default identifier is `null`.
 
   You can optionally pass it a `mapStateToProps` function which you can use to select and return specific slices of the store into your components with.
 
