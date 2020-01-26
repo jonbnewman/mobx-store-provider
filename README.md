@@ -53,7 +53,7 @@ export default observer(() => {
 });
 ```
 
-## API Details
+## API Details and Examples
 
 - `useProvider(storeIdentifier: any = null): Provider`
 
