@@ -30,7 +30,7 @@ function App() {
   const appStore = createStore(() => AppStore.create({ user: "Jonathan" }));
   return (
     <Provider value={appStore}>
-      <MyNameDisplay />
+      <UserDisplay />
     </Provider>
   );
 }
@@ -39,17 +39,17 @@ export default App;
 ```
 
 ```javascript
-// MyNameDisplay.js (Your component we use the store inside)
+// UserDisplay.js (Your component we use the store inside)
 import React from "react";
 import { observer } from "mobx-react";
 import { useStore } from "mobx-store-provider";
 
-function MyNameDisplay() {
+function UserDisplay() {
   const appStore = useStore();
   return <div>{appStore.user}</div>;
 }
 
-export default observer(MyNameDisplay);
+export default observer(UserDisplay);
 ```
 
 ```javascript
