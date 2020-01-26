@@ -178,7 +178,7 @@ export default AppStore;
     const Provider = useProvider(myPetAnimal);
     return (
       <Provider value={createStore(() => MyPetAnimal.create())}>
-        <>... The rest the MyPet component ...</>
+        <>... The rest of the MyPet component ...</>
       </Provider>
     );
   }
