@@ -49,10 +49,12 @@ import React from "react";
 import { observer } from "mobx-react";
 import { useStore } from "mobx-store-provider";
 
-export default observer(() => {
+function MyNameDisplay() {
   const appStore = useStore();
   return <div>{appStore.name}</div>;
-});
+}
+
+export default observer(MyNameDisplay);
 ```
 
 ## API Details and Examples
