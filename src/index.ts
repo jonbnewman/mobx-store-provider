@@ -31,8 +31,8 @@ export function createStore(storeFactory: Function): any {
  * @param defaultValue The default value you want supplied to consumers of useStore in the event no Provider is found (null by default)
  * @returns An IStoreProvider object which contains the Provider, Consumer, and a useStore hook
  */
-export default function StoreProvider(storeIdentifier: any = null, defaultValue = null): StoreProvider {
-  if (!stores.get(storeIdentifier)) {
+export default function StoreProvider(storeIdentifier: any = null, defaultValue: any = null): StoreProvider {
+  if (!stores.has(storeIdentifier)) {
     const StoreContext = React.createContext(defaultValue);
     stores.set(storeIdentifier, {
       Provider: StoreContext.Provider,
@@ -44,6 +44,5 @@ export default function StoreProvider(storeIdentifier: any = null, defaultValue 
       destroy: () => stores.delete(storeIdentifier),
     });
   }
-
   return stores.get(storeIdentifier);
 }
