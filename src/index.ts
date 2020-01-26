@@ -36,19 +36,19 @@ function useProvider(storeIdentifier: any = null): Provider<any> {
 }
 
 /**
- * This will dispose the `store` identified by the `storeIdentifier`.
- * @param storeIdentifier The identifier used for the store (optional)
- */
-function disposeStore(storeIdentifier: any = null): undefined {
-  return retrieveStore(storeIdentifier).dispose();
-}
-
-/**
  * React Hook which retrieves the `store` from the `Provider` that supplies it.
  * @param storeIdentifier The identifier used for the store (optional)
  */
 function useStore(storeIdentifier: any = null, mapStateToProps: Function = identity): any {
   return retrieveStore(storeIdentifier).useStore(mapStateToProps);
+}
+
+/**
+ * This will dispose the `store` identified by the `storeIdentifier`.
+ * @param storeIdentifier The identifier used for the store (optional)
+ */
+function disposeStore(storeIdentifier: any = null): undefined {
+  return retrieveStore(storeIdentifier).dispose();
 }
 
 /**
