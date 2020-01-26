@@ -159,23 +159,31 @@ export default AppStore;
   In that case you need to call `disposeStore(storeIdentifier)` so that the store can be fully released and garbage collected.
 
   ```javascript
+  // MyPet component, it has its own local store, and it is assumed it will
+  // be removed from the DOM at some point. So we have to worry about disposal.
   import React, { useEffect } from "react";
-  import { types } from "mobx-state-tree";
   import { useProvider, createStore, disposeStore } from "mobx-store-provider";
+  import MyPetAnimal from "./MyPetAnimal";
 
+  export const myPetStore = "my-pet";
+
+  export default function MyPet() {
+    useEffect(() => disposeStore(myPetStore), []);
+    const Provider = useProvider(myPetStore);
+    const myPet = createStore(() => MyPetAnimal.create());
+    return (
+      <Provider value={myPet}>
+        <>... The rest the MyPet component ...</>
+      </Provider>
+    );
+  }
+  ```
+
+  ```javascript
+  // MyPetAnimal.js (mobx-state-tree store/model)
+  import { types } from "mobx-state-tree";
   const MyPetAnimal = types.model({
     name: types.optional(types.string, "Barney"),
     type: types.optional(types.enumeration("type", ["Cat", "Dog", "Orangutan"]), "Dog"),
   });
-
-  export default function MyPet() {
-    useEffect(() => disposeStore("my-app"), []);
-    const Provider = useProvider("my-app");
-    const myPet = createStore(() => MyPetAnimal.create());
-    return (
-      <Provider value={myPet}>
-        <div>...</div>
-      </Provider>
-    );
-  }
   ```
