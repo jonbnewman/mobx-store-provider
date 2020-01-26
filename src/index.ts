@@ -40,19 +40,20 @@ function createProvider(storeIdentifier: any = null): any {
  * @param storeIdentifier The identifier you use for your store (optional)
  */
 function disposeStore(storeIdentifier: any = null): any {
-  return retreiveStore(storeIdentifier).dispose;
+  return retreiveStore(storeIdentifier).dispose();
 }
 
 /**
  * React Hook which retrieves and returns the `store` from the `Provider` that supplies it.
  * @param storeIdentifier The identifier you use for your store (optional)
  */
-function useStore(storeIdentifier: any = null): any {
-  return retreiveStore(storeIdentifier).useStore;
+function useStore(storeIdentifier: any = null, mapStateToProps: Function = identity): any {
+  return retreiveStore(storeIdentifier).useStore(mapStateToProps);
 }
 
 /**
- * React Hook whick returns the React `Context.Consumer` component you can use as an alternative to Hooks for consuming your `store`.
+ * React Hook whick returns the React `Context.Consumer` component.
+ * You can use this as an alternative to Hooks for consuming your `store`.
  * @param storeIdentifier The identifier you use for your store (optional)
  */
 function useConsumer(storeIdentifier: any = null): any {
