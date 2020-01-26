@@ -35,12 +35,13 @@ export default function StoreProvider(storeIdentifier: any = null, defaultValue:
   if (!stores.has(storeIdentifier)) {
     const StoreContext = React.createContext(defaultValue);
     stores.set(storeIdentifier, {
-      ...StoreContext,
-      dispose: () => stores.delete(storeIdentifier),
+      Provider: StoreContext.Provider,
+      Consumer: StoreContext.Consumer,
       useStore: (mapStateToProps: Function = identity): any => {
         const store = useContext(StoreContext);
         return mapStateToProps(store);
       },
+      dispose: () => stores.delete(storeIdentifier),
     });
   }
   return stores.get(storeIdentifier);
