@@ -215,7 +215,7 @@ const TestStore = types
     },
   }));
 
-describe("my tests", () => {
+describe("My tests", () => {
   test("When I click the name it changes (testing events and UI updates)", () => {
     const normalName = "Keanu Reeves";
     const alternateName = "Neo";
