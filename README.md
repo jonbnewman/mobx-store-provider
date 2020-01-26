@@ -196,13 +196,13 @@ Here are a couple examples, notably using [Jest](https://jestjs.io/) and [react-
 
 ```javascript
 // MyTests.tests.jsx
-import React from "react";
-import { types } from "mobx-state-tree";
-import { observer } from "mobx-react";
 import { getByTestId, fireEvent } from "@testing-library/dom";
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
+import React from "react";
+import { types } from "mobx-state-tree";
+import { observer } from "mobx-react";
 import { useProvider, createStore, useStore, disposeStore } from "mobx-store-provider";
 
 const TestStore = types
