@@ -247,7 +247,7 @@ describe("my tests", () => {
 
   // This is not part of mobx-store-provider but as an aside, you could also
   // test a store separate from React like this:
-  test("When I trigger an action the name changes", () => {
+  test("When I trigger the setName action the name changes", () => {
     const normalName = "Keanu Reeves";
     const alternateName = "Neo";
 
