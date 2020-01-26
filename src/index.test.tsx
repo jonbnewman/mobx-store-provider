@@ -22,97 +22,103 @@ function makeContainer(contents: any) {
 }
 
 describe("mobx-store-provider", () => {
-  test("can provide a created store using useProvider, createStore, and useStore", () => {
-    const firstName = "Jonathan";
+  describe("smoke tests", () => {
+    test("can provide a created store using useProvider, createStore, and useStore", () => {
+      const firstName = "Jonathan";
 
-    const MyNameDisplay = () => <div>{useStore().name}</div>;
-    const TestComponent = () => {
-      const Provider = useProvider();
-      const testStore = createStore(() => TestStore.create({ name: firstName }));
-      return (
-        <Provider value={testStore}>
-          <MyNameDisplay />
-        </Provider>
-      );
-    };
+      const MyNameDisplay = () => <div>{useStore().name}</div>;
+      const TestComponent = () => {
+        const Provider = useProvider();
+        const testStore = createStore(() => TestStore.create({ name: firstName }));
+        return (
+          <Provider value={testStore}>
+            <MyNameDisplay />
+          </Provider>
+        );
+      };
 
-    const container = makeContainer(<TestComponent />);
-    expect(container).toHaveTextContent(firstName);
-  });
-
-  test("observability retained, updates are reflected in the UI", () => {
-    const firstName = "Jonathan";
-    const lastName = "Newman";
-
-    const MyNameDisplay = observer(() => {
-      const store = useStore();
-      return (
-        <div onClick={() => store.setName(lastName)} data-testid="name">
-          {store.name}
-        </div>
-      );
+      const container = makeContainer(<TestComponent />);
+      expect(container).toHaveTextContent(firstName);
     });
 
-    const TestComponent = () => {
-      const Provider = useProvider();
-      const testStore = createStore(() => TestStore.create({ name: firstName }));
-      return (
-        <Provider value={testStore}>
-          <MyNameDisplay />
-        </Provider>
-      );
-    };
+    test("observability is retained, and updates are reflected in the UI", () => {
+      const firstName = "Jonathan";
+      const lastName = "Newman";
 
-    const container = makeContainer(<TestComponent />);
-    expect(container).toHaveTextContent(firstName);
-    fireEvent.click(getByTestId(container, "name"));
-    expect(container).toHaveTextContent(lastName);
+      const MyNameDisplay = observer(() => {
+        const store = useStore();
+        return (
+          <div onClick={() => store.setName(lastName)} data-testid="name">
+            {store.name}
+          </div>
+        );
+      });
+
+      const TestComponent = () => {
+        const Provider = useProvider();
+        const testStore = createStore(() => TestStore.create({ name: firstName }));
+        return (
+          <Provider value={testStore}>
+            <MyNameDisplay />
+          </Provider>
+        );
+      };
+
+      const container = makeContainer(<TestComponent />);
+      expect(container).toHaveTextContent(firstName);
+      fireEvent.click(getByTestId(container, "name"));
+      expect(container).toHaveTextContent(lastName);
+    });
   });
 
-  test("can use a mapStateToProps selector", () => {
-    const firstName = "Jonathan";
-    const storeIdentifier = "map-state-to-props-test";
+  describe("identifiers", () => {
+    test("can retrieve the same store Provider with an identifier", () => {
+      const storeIdentifier = Symbol("identifier");
+      const FirstProvider = useProvider(storeIdentifier);
+      const SecondProvider = useProvider(storeIdentifier);
+      expect(FirstProvider).toBe(SecondProvider);
+    });
 
-    function selectName(store: any) {
-      return store.name;
-    }
+    test("can dispose a store and receive a different Provider for the same identifier", () => {
+      const storeIdentifier = "my-destructable-store";
+      const FirstProvider = useProvider(storeIdentifier);
+      disposeStore(storeIdentifier);
+      const SecondProvider = useProvider(storeIdentifier);
+      expect(FirstProvider).not.toBe(SecondProvider);
+    });
 
-    const MyNameDisplay = () => <div>{useStore(storeIdentifier, selectName)}</div>;
-    const TestComponent = () => {
-      const Provider = useProvider(storeIdentifier);
-      const testStore = createStore(() => TestStore.create({ name: firstName }));
-      return (
-        <Provider value={testStore}>
-          <MyNameDisplay />
-        </Provider>
-      );
-    };
-
-    const container = makeContainer(<TestComponent />);
-    expect(container).toHaveTextContent(firstName);
+    test("can use a function as an identifier for a store", () => {
+      const storeIdentifier = function() {
+        console.info("You will never see this. Wait, did you just read that?");
+      };
+      const FirstProvider = useProvider(storeIdentifier);
+      const SecondProvider = useProvider(storeIdentifier);
+      expect(FirstProvider).toBe(SecondProvider);
+    });
   });
 
-  test("can retrieve the same store with an identifier", () => {
-    const storeIdentifier = "some really cool store";
-    const FirstProvider = useProvider(storeIdentifier);
-    const SecondProvider = useProvider(storeIdentifier);
-    expect(FirstProvider).toBe(SecondProvider);
-  });
+  describe("features", () => {
+    test("can use a mapStateToProps selector", () => {
+      const firstName = "Jonathan";
+      const storeIdentifier = "map-state-to-props-test";
 
-  test("can dispose a StoreProvider", () => {
-    const storeIdentifier = "my-destructable-store";
-    const FirstProvider = useProvider(storeIdentifier);
-    disposeStore(storeIdentifier);
-    const SecondProvider = useProvider(storeIdentifier);
-    expect(FirstProvider).not.toBe(SecondProvider);
-  });
+      function selectName(store: any) {
+        return store.name;
+      }
 
-  test("can use something other than a string as an identifier for a StoreProvider", () => {
-    const storeIdentifier = function() {
-      console.info("You will never see this. Wait, did you just read that?");
-    };
-    const FirstProvider = useProvider(storeIdentifier);
-    const SecondProvider = useProvider(storeIdentifier);
-    expect(FirstProvider).toBe(SecondProvider);
+      const MyNameDisplay = () => <div>{useStore(storeIdentifier, selectName)}</div>;
+      const TestComponent = () => {
+        const Provider = useProvider(storeIdentifier);
+        const testStore = createStore(() => TestStore.create({ name: firstName }));
+        return (
+          <Provider value={testStore}>
+            <MyNameDisplay />
+          </Provider>
+        );
+      };
+
+      const container = makeContainer(<TestComponent />);
+      expect(container).toHaveTextContent(firstName);
+    });
   });
 });
