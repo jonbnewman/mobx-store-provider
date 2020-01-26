@@ -32,7 +32,7 @@ const AppStore = types.model({
   name: types.string,
 });
 
-export default () => {
+function App() {
   const Provider = useProvider();
   const appStore = createStore(() => AppStore.create({ name: "Jonathan" }));
   return (
@@ -40,7 +40,9 @@ export default () => {
       <MyNameDisplay />
     </Provider>
   );
-};
+}
+
+export default App;
 ```
 
 ```javascript
