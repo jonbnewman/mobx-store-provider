@@ -6,7 +6,7 @@ function identity(thing: any): any {
   return thing;
 }
 
-export interface StoreProvider {
+interface StoreProvider {
   Provider: any;
   Consumer: any;
   useStore: Function;
@@ -18,7 +18,7 @@ export interface StoreProvider {
  * @param storeFactory Callback used to create your mobx-state-tree store
  * @returns The instance created by your `storeFactory` function
  */
-export function createStore(storeFactory: Function): any {
+function createStore(storeFactory: Function): any {
   const storeRef = useRef(null);
   if (!storeRef.current) {
     storeRef.current = storeFactory();
@@ -27,11 +27,43 @@ export function createStore(storeFactory: Function): any {
 }
 
 /**
- * Create a new StoreProvider instance, which supplies you with a `Provider`, `Consumer`, `useStore` hook, and `dispose` callback
- * @param defaultValue The default value you want supplied to consumers of useStore in the event no Provider is found (null by default)
- * @returns A StoreProvider object which contains the Provider, Consumer, useStore hook, and dispose callback
+ * React Hook to create and/or retrieve the store `Provider` component using the supplied `storeIdentifier`.
+ * Use this wrapper to supply your application with a store.
+ * @param storeIdentifier The identifier you use for your store (optional)
  */
-export default function StoreProvider(storeIdentifier: any = null): StoreProvider {
+function createProvider(storeIdentifier: any = null): any {
+  return retreiveStore(storeIdentifier).Provider;
+}
+
+/**
+ * This will dispose the `store` identified by the `storeIdentifier`.
+ * @param storeIdentifier The identifier you use for your store (optional)
+ */
+function disposeStore(storeIdentifier: any = null): any {
+  return retreiveStore(storeIdentifier).dispose;
+}
+
+/**
+ * React Hook which retrieves and returns the `store` from the `Provider` that supplies it.
+ * @param storeIdentifier The identifier you use for your store (optional)
+ */
+function useStore(storeIdentifier: any = null): any {
+  return retreiveStore(storeIdentifier).useStore;
+}
+
+/**
+ * React Hook whick returns the React `Context.Consumer` component you can use as an alternative to Hooks for consuming your `store`.
+ * @param storeIdentifier The identifier you use for your store (optional)
+ */
+function useConsumer(storeIdentifier: any = null): any {
+  return retreiveStore(storeIdentifier).Consumer;
+}
+
+/**
+ * Creates and/or retreives the store from the internal `stores` Map.
+ * @param storeIdentifier The identifier supplied by the consumer
+ */
+function retreiveStore(storeIdentifier: any = null): StoreProvider {
   if (!stores.has(storeIdentifier)) {
     const StoreContext = React.createContext(null);
     StoreContext.displayName = String(storeIdentifier);
@@ -46,3 +78,5 @@ export default function StoreProvider(storeIdentifier: any = null): StoreProvide
   }
   return stores.get(storeIdentifier);
 }
+
+export { StoreProvider, createStore, createProvider, disposeStore, useStore, useConsumer };
