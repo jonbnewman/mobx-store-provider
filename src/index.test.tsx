@@ -1,10 +1,10 @@
-import { getByTestId, fireEvent } from "@testing-library/dom";
-import { render } from "@testing-library/react";
-import { observer } from "mobx-react";
-import "@testing-library/jest-dom/extend-expect";
-
 import React from "react";
 import { types } from "mobx-state-tree";
+import { observer } from "mobx-react";
+import { getByTestId, fireEvent } from "@testing-library/dom";
+import { render } from "@testing-library/react";
+import "@testing-library/jest-dom/extend-expect";
+
 import { useProvider, createStore, useStore, disposeStore } from "./index";
 
 const TestStore = types
