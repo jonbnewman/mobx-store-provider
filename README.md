@@ -18,7 +18,7 @@ yarn add mobx-store-provider
 
 Using Hooks with mobx-state-tree requires a bit of glue logic, this library provides that.
 
-mobx-store-provide supplies utilities for creating and supplying your React components with a mobx-state-tree store, so they can bind to and trigger actions on it.
+mobx-store-provider supplies utilities for creating and supplying your React components with a mobx-state-tree store, so they can bind to and trigger actions on it.
 
 ```javascript
 // app.js
