@@ -33,7 +33,7 @@ const AppStore = types.model({
 });
 
 export default () => {
-  const Provider = useProvider("app");
+  const Provider = useProvider();
   const appStore = createStore(() => AppStore.create({ name: "Jonathan" }));
   return (
     <Provider value={appStore}>
@@ -50,7 +50,7 @@ import { observer } from "mobx-react";
 import { useStore } from "mobx-store-provider";
 
 export default observer(() => {
-  const appStore = useStore("app");
+  const appStore = useStore();
   return <div>{appStore.name}</div>;
 });
 ```
