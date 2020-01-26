@@ -23,6 +23,7 @@ mobx-store-provider supplies utilities for creating and supplying your React com
 ### Example
 
 ```javascript
+// App.js
 import React from "react";
 import { types } from "mobx-state-tree";
 import { useProvider, createStore } from "mobx-store-provider";
