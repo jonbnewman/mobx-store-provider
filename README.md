@@ -195,6 +195,7 @@ Testing with mobx-state-tree via mobx-store-provider is easy.
 Here are a couple examples, notably using [Jest](https://jestjs.io/) and [react-testing-library](https://github.com/testing-library/react-testing-library):
 
 ```javascript
+// MyTests.tests.jsx
 import React from "react";
 import { types } from "mobx-state-tree";
 import { observer } from "mobx-react";
@@ -244,7 +245,7 @@ describe("my tests", () => {
     expect(container).toHaveTextContent(alternateName);
   });
 
-  // This is not part of mobx-store-provider but as an aside, you could
+  // This is not part of mobx-store-provider but as an aside, you could also
   // test a store separate from React like this:
   test("When I trigger an action the name changes", () => {
     const normalName = "Keanu Reeves";
@@ -253,7 +254,7 @@ describe("my tests", () => {
     const store = TestStore.create({ name: normalName });
     expect(store.name).toBe(normalName);
     store.setName(alternateName);
-    expect(container).toHaveTextContent(alternateName);
+    expect(container).toBe(alternateName);
   });
 });
 ```
