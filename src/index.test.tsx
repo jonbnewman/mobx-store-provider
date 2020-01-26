@@ -96,7 +96,7 @@ describe("mobx-store-provider", () => {
 
     test("can use a function as an identifier for a store", () => {
       const storeIdentifier = function() {
-        console.info("You will never see this. Wait, did you just read that?");
+        throw "You will never see this. Wait, did you just read that?";
       };
       const FirstProvider = useProvider(storeIdentifier);
       const SecondProvider = useProvider(storeIdentifier);
