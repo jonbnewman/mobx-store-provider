@@ -19,15 +19,11 @@ yarn add mobx-store-provider
 ### Example
 
 ```javascript
-// App.js
+// App.js (Component we use to provide the store)
 import React from "react";
-import { types } from "mobx-state-tree";
 import { useProvider, createStore } from "mobx-store-provider";
+import AppStore from "./AppStore";
 import MyNameDisplay from "./MyNameDisplay";
-
-const AppStore = types.model({
-  name: types.string,
-});
 
 function App() {
   const Provider = useProvider();
@@ -43,7 +39,7 @@ export default App;
 ```
 
 ```javascript
-// MyNameDisplay.js
+// MyNameDisplay.js (Your component we use the store inside)
 import React from "react";
 import { observer } from "mobx-react";
 import { useStore } from "mobx-store-provider";
@@ -54,6 +50,17 @@ function MyNameDisplay() {
 }
 
 export default observer(MyNameDisplay);
+```
+
+```javascript
+// AppStore.js (The mobx-state-tree store/root model)
+import { types } from "mobx-state-tree";
+
+const AppStore = types.model({
+  name: types.string,
+});
+
+export default AppStore;
 ```
 
 ## API Details and Examples
