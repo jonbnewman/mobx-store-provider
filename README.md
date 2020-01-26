@@ -92,12 +92,8 @@ export default AppStore;
   It takes a factory `Function` as its input, you should instantiate and return a mobx-state-tree instance within that function.
 
   ```javascript
-  import { types } from "mobx-state-tree";
   import { createStore, useProvider } from "mobx-store-provider";
-
-  const AppStore = types.model({
-    user: "Jonathan",
-  });
+  import AppStore from "./AppStore";
 
   export default function App() {
     const Provider = useProvider();
