@@ -57,7 +57,9 @@ export default observer(() => {
 
 - `useProvider(storeIdentifier: any = null): Provider`
 
-  React Hook which you can use to create and/or retrieve the React `Context.Provider` for a given `storeIdentifier`. This is the wrapper component you can use to provide your application with the store.
+  React Hook which you can use to create and/or retrieve the React `Context.Provider` for a given `storeIdentifier`.
+
+  This is the wrapper component you can use to provide your application with the store.
 
   ```javascript
   import { useProvider } from "mobx-store-provider";
@@ -93,7 +95,7 @@ export default observer(() => {
 
   React Hook which you can use in your other components to retrieve and use a `store` for a given `storeIdentifier`.
 
-  You can optionally pass it a `mapStateToProps` function which you can use to select and return specific slices of data into your components with. This would be analagous to redux selectors.
+  You can optionally pass it a `mapStateToProps` function which you can use to select and return specific slices of the store into your components with.
 
   In the absense of a `mapStateToProps` callback, it will return the store instance.
 
