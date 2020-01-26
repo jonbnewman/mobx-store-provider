@@ -81,6 +81,8 @@ export default observer(() => {
 
   You can optionally (likely should) supply a `storeIdentifier`, this identifier is used when other parts of your application need to use the same store. By supplying the same identifier, you are ensured the same store is being supplied.
 
+  Note: If your application will only ever have one store, then you can omit the `storeIdentifier`.
+
   - Returns a **StoreProvider** instance:
 
     This instance contains four properties:
