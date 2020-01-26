@@ -117,7 +117,7 @@ export default AppStore;
   In the absense of a `mapStateToProps` callback, it will return the store instance.
 
   ```javascript
-  // App.js
+  // App.js (Main App component, we use it to create and provide the store)
   import { useProvider, createStore } from "mobx-store-provider";
   import Header from "./Header";
   import AppStore from "./AppStore";
@@ -136,7 +136,7 @@ export default AppStore;
   ```
 
   ```javascript
-  // Header.js
+  // Header.js (Your component, we use the store inside)
   import { observer } from "mobx-react";
   import { useStore } from "mobx-store-provider";
   import { appStore } from "./App";
