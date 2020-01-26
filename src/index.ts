@@ -71,4 +71,4 @@ function retrieveStore(storeIdentifier: any = null): StoreProvider {
   return stores.get(storeIdentifier);
 }
 
-export { createStore, useProvider, disposeStore, useStore };
+export { createStore, useProvider, useStore, disposeStore };
