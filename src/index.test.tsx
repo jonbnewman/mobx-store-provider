@@ -73,13 +73,13 @@ describe("mobx-store-provider", () => {
     expect(container).toHaveTextContent(lastName);
   });
 
-  test("can use identifier to decouple use Provider and useStore", () => {
-    const identifier = "my-store";
+  test("can use a storeIdentifier to decouple use Provider and useStore", () => {
     const firstName = "Jonathan";
     const lastName = "Newman";
 
-    const { useStore } = StoreProvider(identifier);
+    const storeIdentifier = "my-store";
 
+    const { useStore } = StoreProvider(storeIdentifier);
     const MyNameDisplay = observer(() => {
       const store = useStore();
       return (
@@ -89,8 +89,7 @@ describe("mobx-store-provider", () => {
       );
     });
 
-    const { Provider } = StoreProvider(identifier);
-
+    const { Provider } = StoreProvider(storeIdentifier);
     const TestComponent = () => {
       const testStore = createStore(() => TestStore.create({ name: firstName }));
       return (
