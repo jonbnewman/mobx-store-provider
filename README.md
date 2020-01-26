@@ -170,12 +170,11 @@ export default observer(() => {
 
   You might encounter this scenario if you created a store for a specific component (ie: not a long-lived root store/etc), and that component is removed.
 
-  In that case you need to call `dispose()` so that the store can be fully released and garbage collected.
+  In that case you need to call `disposeStore(storeIdentifier)` so that the store can be fully released and garbage collected.
 
   ```javascript
   import React, { useEffect } from "react";
   import { types } from "mobx-state-tree";
-
   import { createProvider, createStore, disposeStore } from "mobx-store-provider";
 
   const MyStore = types.model({
