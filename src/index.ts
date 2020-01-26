@@ -1,4 +1,4 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef, Consumer, Provider } from "react";
 
 const stores = new Map();
 
@@ -7,8 +7,8 @@ function identity(thing: any): any {
 }
 
 interface StoreProvider {
-  Provider: any;
-  Consumer: any;
+  Provider: Provider<any>;
+  Consumer: Consumer<any>;
   useStore: Function;
   dispose: Function;
 }
@@ -31,7 +31,7 @@ function createStore(storeFactory: Function): any {
  * Use this wrapper to supply your application with a store.
  * @param storeIdentifier The identifier you use for your store (optional)
  */
-function createProvider(storeIdentifier: any = null): any {
+function createProvider(storeIdentifier: any = null): Provider<any> {
   return retreiveStore(storeIdentifier).Provider;
 }
 
@@ -39,7 +39,7 @@ function createProvider(storeIdentifier: any = null): any {
  * This will dispose the `store` identified by the `storeIdentifier`.
  * @param storeIdentifier The identifier you use for your store (optional)
  */
-function disposeStore(storeIdentifier: any = null): any {
+function disposeStore(storeIdentifier: any = null): undefined {
   return retreiveStore(storeIdentifier).dispose();
 }
 
@@ -56,7 +56,7 @@ function useStore(storeIdentifier: any = null, mapStateToProps: Function = ident
  * You can use this as an alternative to Hooks for consuming your `store`.
  * @param storeIdentifier The identifier you use for your store (optional)
  */
-function useConsumer(storeIdentifier: any = null): any {
+function useConsumer(storeIdentifier: any = null): Consumer<any> {
   return retreiveStore(storeIdentifier).Consumer;
 }
 
@@ -80,4 +80,4 @@ function retreiveStore(storeIdentifier: any = null): StoreProvider {
   return stores.get(storeIdentifier);
 }
 
-export { StoreProvider, createStore, createProvider, disposeStore, useStore, useConsumer };
+export { createStore, createProvider, disposeStore, useStore, useConsumer };
