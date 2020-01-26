@@ -139,10 +139,6 @@ export default observer(() => {
   import { types } from "mobx-state-tree";
   const storeIdentifier = "house";
 
-  function selectOwner(store) {
-    return store.owner;
-  }
-
   function House() {
     const Consumer = useConsumer(storeIdentifier);
     return (
