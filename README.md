@@ -192,7 +192,6 @@ export default observer(() => {
     useEffect(() => disposeStore("my-app"), []);
     const Provider = createProvider("my-app");
     const myStore = createStore(() => MyStore.create());
-
     return (
       <Provider value={myStore}>
         <div>...</div>
