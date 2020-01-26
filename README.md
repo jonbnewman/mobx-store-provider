@@ -75,7 +75,7 @@ export default observer(() => {
   }
   ```
 
-- `StoreProvider(storeIdentifier = null): StoreProvider`
+- `StoreProvider(storeIdentifier: any = null): StoreProvider`
 
   Store provider factory. Use this to create a new `StoreProvider` which you can use to supply a store to your application.
 
