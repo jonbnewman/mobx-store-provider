@@ -15,7 +15,7 @@ interface StoreProvider {
 /**
  * React Hook used to instantiate a new store from within a component.
  * @param storeFactory Callback used to create and return a store
- * @returns The instance created by your `storeFactory` function
+ * @returns The instance created by the `storeFactory` function
  */
 function createStore(storeFactory: Function): any {
   const storeRef = useRef(null);
