@@ -143,16 +143,6 @@ export default observer(() => {
     return store.owner;
   }
 
-  export default function Dashboard() {
-    const Provider = createProvider(storeIdentifier);
-    const myStore = createStore(() => types.model({ owner: "Jonathan" }).create());
-    return (
-      <Provider value={myStore}>
-        <House />
-      </Provider>
-    );
-  }
-
   function House() {
     const Consumer = useConsumer(storeIdentifier);
     return (
@@ -164,6 +154,16 @@ export default observer(() => {
           </>
         )}
       </Consumer>
+    );
+  }
+
+  export default function Dashboard() {
+    const Provider = createProvider(storeIdentifier);
+    const myStore = createStore(() => types.model({ owner: "Jonathan" }).create());
+    return (
+      <Provider value={myStore}>
+        <House />
+      </Provider>
     );
   }
   ```
