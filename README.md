@@ -118,17 +118,12 @@ export default AppStore;
 
   ```javascript
   // App.js
-  import { types } from "mobx-state-tree";
   import { useProvider, createStore } from "mobx-store-provider";
   import Header from "./Header";
+  import AppStore from "./AppStore";
 
-  // Export our appStore identifier so other components can use it to
-  // pull in the correct store.
+  // Export our appStore identifier so other components can use it to pull in the store.
   export const appStore = "app-store";
-
-  const AppStore = types.model({
-    user: "Jonathan",
-  });
 
   export default function App() {
     const Provider = useProvider(appStore);
@@ -155,7 +150,18 @@ export default AppStore;
     return <div>User: {user}</div>;
   }
 
-  export default observer(House);
+  export default observer(Header);
+  ```
+
+  ```javascript
+  // AppStore.js (mobx-state-tree store/model)
+  import { types } from "mobx-state-tree";
+
+  const AppStore = types.model({
+    user: types.string,
+  });
+
+  export default AppStore;
   ```
 
 * `disposeStore(storeIdentifier: any = null): undefined`
