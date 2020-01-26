@@ -1,6 +1,6 @@
 {
   "name": "mobx-store-provider",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "Use react hooks to connect a mobx-state-tree store to your components",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

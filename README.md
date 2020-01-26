@@ -87,12 +87,17 @@ export default observer(() => {
 
     This instance contains four properties:
 
-    1. `Provider` - This is the wrapper component you can use to provide your application with the store.
+    1. `<Provider value={store} />`
+
+       This is the wrapper component you can use to provide your application with the store.
+
+       Under the hood, this is the React `Context.Provider`, so it's use is the same. Wrap your application with it, and provide the `value` property, and in this case, our store instance.
 
        ```javascript
        import StoreProvider from "mobx-store-provider";
        const { Provider } = StoreProvider("my-app");
-       function MainApp() {
+       const myStore = MyStore.create();
+       export default function MainApp() {
          return (
            <Provider value={myStore}>
              <div>My awesome app</div>
@@ -101,9 +106,13 @@ export default observer(() => {
        }
        ```
 
-    1. `useStore(mapStateToProps: Function)` - This is the React Hook which you can use in your other components to retrieve and use the store.
+    1. `useStore(mapStateToProps: Function = Identity)`
+
+       This is the React Hook which you can use in your other components to retrieve and use the store.
 
        You can optionally pass it a `mapStateToProps` function which you can use to select and return specific slices of data into your components with. This would be analagous to redux selectors.
+
+       In the absense of a `mapStateToProps` callback, it will return the store instance.
 
        ```javascript
        import StoreProvider from "mobx-store-provider";
@@ -135,7 +144,9 @@ export default observer(() => {
        }
        ```
 
-    1. `Consumer` - You can alternatively use this to consume the store in your components.
+    1. `<Consumer />`
+
+       You can alternatively use this to consume the store in your components.
 
        ```javascript
        import StoreProvider from "mobx-store-provider";
@@ -164,7 +175,7 @@ export default observer(() => {
          name: "Jonathan Newman",
        });
 
-       function MyComponent() {
+       export default function MyComponent() {
          useEffect(() => dispose, []);
          const myStore = createStore(() => MyStore.create());
          return (
@@ -225,13 +236,13 @@ export default class MyNameDisplay extends Component {
 }
 ```
 
-This works well enough, but has a few possible issues:
+If you are using class-based components this works well enough, but (inject in particular) has a few possible issues (especially if you want to use Hooks):
 
-1. Requires the use of decorators for `@inject` and `@observer`.
+1. It requires the use of decorators for `@inject` and `@observer`.
 
    This may be a problem if you don't have control of or know how to add that capability to your bundler. As an example, if you started with a create-react-app base and haven't ejected - then you can't use decorators.
 
-1. In lieu of decorators, it requires you to wrap your components with `inject()` and `observer()`.
+1. In lieu of decorators, or if you want to use Functional components, it requires you to wrap your components with `inject()` and `observer()`.
 
    ```javascript
    import React from "react";
@@ -240,13 +251,11 @@ This works well enough, but has a few possible issues:
    const MyNameDisplay = inject("store")(observer(props => <div>{props.store.name}</div>));
    ```
 
-   That is pretty ugly syntax, quite verbose, and I have to read it a bit to understand it.
+   That is pretty ugly syntax, I kind of have to read it a bit to understand it. And that's a simple example...imagine something more real-worldy...ugh.
 
    In reality, `inject()` in particular works best with a decorator on a class-based component. It isn't ideal for functional/hook-based components.
 
-1. Using `inject()` is not idiomatic apropos to [React Hooks](https://reactjs.org/docs/hooks-reference.html) use (which may matter if you are transitioning to Hooks).
-
-## The solution: Use mobx-store-provider
+## The solution: mobx-store-provider
 
 The same example from above, but using mobx-store-provider with hooks on functional components instead:
 
@@ -268,14 +277,14 @@ const { Provider } = StoreProvider();
 
 // Now we use the hook createStore to create appStore, and then wrap our application with
 // Provider, passing in appStore for the value.
-export default () => {
+export default function App() {
   const appStore = createStore(() => AppStore.create({ name: "Jonathan" }));
   return (
     <Provider value={appStore}>
       <MyNameDisplay />
     </Provider>
   );
-};
+}
 ```
 
 In another file, you have the `MyNameDisplay` component:
@@ -287,7 +296,7 @@ import { observer } from "mobx-react";
 import StoreProvider from "mobx-store-provider";
 const { useStore } = StoreProvider();
 
-export default observer(() => {
+export default observer(function MyNameDisplay() {
   const appStore = useStore();
   return <div>{appStore.name}</div>;
 });
