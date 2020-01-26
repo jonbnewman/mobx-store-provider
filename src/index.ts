@@ -28,6 +28,7 @@ function createStore(storeFactory: Function): any {
 
 /**
  * React Hook to create and/or retrieve the store `Provider` component using the supplied `storeIdentifier`.
+ *
  * Use this wrapper to supply your application with a store.
  * @param storeIdentifier The identifier you use for your store (optional)
  */
@@ -53,6 +54,7 @@ function useStore(storeIdentifier: any = null, mapStateToProps: Function = ident
 
 /**
  * React Hook whick returns the React `Context.Consumer` component.
+ *
  * You can use this as an alternative to Hooks for consuming your `store`.
  * @param storeIdentifier The identifier you use for your store (optional)
  */
