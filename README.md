@@ -102,9 +102,32 @@ export default observer(() => {
   In the absense of a `mapStateToProps` callback, it will return the store instance.
 
   ```javascript
-  import { createStore, useProvider, useStore } from "mobx-store-provider";
+  // App.js
+  import { useProvider, createStore } from "mobx-store-provider";
   import { types } from "mobx-state-tree";
-  const storeIdentifier = "house";
+  import House from "./House";
+
+  // Export our storeIdentifier so other components can use it.
+  export const storeIdentifier = "app";
+
+  export default function App() {
+    const Provider = useProvider(storeIdentifier);
+    const myStore = createStore(() => types.model({ owner: "Jonathan" }).create());
+    return (
+      <Provider value={myStore}>
+        <House />
+      </Provider>
+    );
+  }
+  ```
+
+  ```javascript
+  // House.js
+  import { observer } from "mobx-react";
+  import { useStore } from "mobx-store-provider";
+
+  // Grab the storeIdentifier we defined in the App.js module
+  import { storeIdentifier } from "./App";
 
   function selectOwner(store) {
     return store.owner;
@@ -123,15 +146,7 @@ export default observer(() => {
     );
   }
 
-  export default function Dashboard() {
-    const Provider = useProvider(storeIdentifier);
-    const myStore = createStore(() => types.model({ owner: "Jonathan" }).create());
-    return (
-      <Provider value={myStore}>
-        <House />
-      </Provider>
-    );
-  }
+  export default observer(House);
   ```
 
 * `disposeStore(storeIdentifier: any = null): undefined`
