@@ -73,13 +73,14 @@ export default AppStore;
 
   ```javascript
   import { useProvider } from "mobx-store-provider";
-  const myStore = MyStore.create();
+  import AppStore from "./AppStore";
+  const appStore = AppStore.create();
 
   export default function App() {
     const Provider = useProvider();
     return (
-      <Provider value={myStore}>
-        <MyOtherComponent />
+      <Provider value={appStore}>
+        <MyApplication />
       </Provider>
     );
   }
