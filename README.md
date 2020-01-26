@@ -20,6 +20,8 @@ Using Hooks with mobx-state-tree requires a bit of glue logic, this library prov
 
 mobx-store-provider supplies utilities for creating and supplying your React components with a mobx-state-tree store, so they can bind to and trigger actions on it.
 
+### Example
+
 ```javascript
 import React from "react";
 import { types } from "mobx-state-tree";
