@@ -192,7 +192,7 @@ export default AppStore;
 
 Testing a React app that uses _mobx-state-tree_ and _mobx-store-provider_ is easy.
 
-Here are a couple examples, notably using [Jest](https://jestjs.io/) and [react-testing-library](https://github.com/testing-library/react-testing-library):
+Here are a couple examples, using [Jest](https://jestjs.io/) and [react-testing-library](https://github.com/testing-library/react-testing-library):
 
 ```javascript
 // MyTests.tests.jsx
@@ -203,7 +203,12 @@ import "@testing-library/jest-dom/extend-expect";
 import React from "react";
 import { types } from "mobx-state-tree";
 import { observer } from "mobx-react";
-import { useProvider, createStore, useStore, disposeStore } from "mobx-store-provider";
+import {
+  useProvider,
+  createStore,
+  useStore,
+  disposeStore,
+} from "mobx-store-provider";
 
 const AppStore = types
   .model({
