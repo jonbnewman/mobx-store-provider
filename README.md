@@ -166,9 +166,7 @@ export default observer(() => {
 
        function MyComponent() {
          useEffect(() => destroy, []);
-
          const myStore = createStore(() => MyStore.create());
-
          return (
            <Provider value={myStore}>
              <div>...</div>
