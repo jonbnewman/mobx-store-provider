@@ -239,7 +239,7 @@ describe("my tests", () => {
       );
     };
 
-    const container = makeContainer(<TestComponent />);
+    const container = render(<TestComponent />).container;
     expect(container).toHaveTextContent(normalName);
     fireEvent.click(getByTestId(container, "name-label"));
     expect(container).toHaveTextContent(alternateName);
@@ -254,7 +254,7 @@ describe("my tests", () => {
     const store = TestStore.create({ name: normalName });
     expect(store.name).toBe(normalName);
     store.setName(alternateName);
-    expect(container).toBe(alternateName);
+    expect(store.name).toBe(alternateName);
   });
 });
 ```
