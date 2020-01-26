@@ -107,14 +107,14 @@ export default observer(() => {
   import { types } from "mobx-state-tree";
   import House from "./House";
 
-  // Export our storeIdentifier so other components can use it.
-  export const storeIdentifier = "app";
+  // Export our appStore identifier so other components can use it to pull in the correct store.
+  export const appStore = "app-store";
 
   export default function App() {
-    const Provider = useProvider(storeIdentifier);
-    const myStore = createStore(() => types.model({ owner: "Jonathan" }).create());
+    const Provider = useProvider(appStore);
+    const appStoreInstance = createStore(() => types.model({ owner: "Jonathan" }).create());
     return (
-      <Provider value={myStore}>
+      <Provider value={appStoreInstance}>
         <House />
       </Provider>
     );
@@ -126,15 +126,15 @@ export default observer(() => {
   import { observer } from "mobx-react";
   import { useStore } from "mobx-store-provider";
 
-  // Grab the storeIdentifier we defined in the App.js module
-  import { storeIdentifier } from "./App";
+  // Grab the appStore we defined in the App.js module
+  import { appStore } from "./App";
 
   function selectOwner(store) {
     return store.owner;
   }
 
   function House() {
-    const owner = useStore(storeIdentifier, function mapStateToProps(store) {
+    const owner = useStore(appStore, function mapStateToProps(store) {
       return selectOwner(store);
     });
 
