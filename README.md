@@ -190,7 +190,7 @@ export default AppStore;
 
 ## Testing
 
-Testing with mobx-state-tree via mobx-store-provider is easy.
+Testing with _mobx-state-tree_ via _mobx-store-provider_ is easy.
 
 Here are a couple examples, notably using [Jest](https://jestjs.io/) and [react-testing-library](https://github.com/testing-library/react-testing-library):
 
