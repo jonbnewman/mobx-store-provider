@@ -91,7 +91,7 @@ export default observer(() => {
 
        This is the wrapper component you can use to provide your application with the store.
 
-       Under the hood, this is the React `Context.Provider`, so it's use is the same. Wrap your application with it, and provide the `value` property, and in this case, our store instance.
+       Under the hood, this is the React `Context.Provider`, so it's use is the same. Wrap your application with it, and provide the `value` property, in this case, our store instance.
 
        ```javascript
        import StoreProvider from "mobx-store-provider";
