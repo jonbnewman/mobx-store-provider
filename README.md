@@ -125,8 +125,6 @@ export default observer(() => {
   // House.js
   import { observer } from "mobx-react";
   import { useStore } from "mobx-store-provider";
-
-  // Grab the appStore we defined in the App.js module
   import { appStore } from "./App";
 
   function selectOwner(store) {
