@@ -24,14 +24,14 @@ function makeContainer(contents: any) {
 describe("mobx-store-provider", () => {
   test("can provide a created store", () => {
     const { Provider, useStore } = StoreProvider();
-    const name = "Jonathan";
+    const firstName = "Jonathan";
 
     const MyNameDisplay = () => {
       return <div>{useStore().name}</div>;
     };
 
     const TestComponent = () => {
-      const testStore = createStore(() => TestStore.create({ name }));
+      const testStore = createStore(() => TestStore.create({ name: firstName }));
       return (
         <Provider value={testStore}>
           <MyNameDisplay />
@@ -40,25 +40,25 @@ describe("mobx-store-provider", () => {
     };
 
     const container = makeContainer(<TestComponent />);
-    expect(container).toHaveTextContent(name);
+    expect(container).toHaveTextContent(firstName);
   });
 
   test("can render updates into the UI", () => {
     const { Provider, useStore } = StoreProvider();
-    const name = "Jonathan";
-    const nextName = "Newman";
+    const firstName = "Jonathan";
+    const lastName = "Newman";
 
     const MyNameDisplay = observer(() => {
       const store = useStore();
       return (
-        <div onClick={() => store.setName(nextName)} data-testid="name">
+        <div onClick={() => store.setName(lastName)} data-testid="name">
           {store.name}
         </div>
       );
     });
 
     const TestComponent = () => {
-      const testStore = createStore(() => TestStore.create({ name }));
+      const testStore = createStore(() => TestStore.create({ name: firstName }));
       return (
         <Provider value={testStore}>
           <MyNameDisplay />
@@ -67,9 +67,9 @@ describe("mobx-store-provider", () => {
     };
 
     const container = makeContainer(<TestComponent />);
-    expect(container).toHaveTextContent(name);
+    expect(container).toHaveTextContent(firstName);
 
     fireEvent.click(getByTestId(container, "name"));
-    expect(container).toHaveTextContent(nextName);
+    expect(container).toHaveTextContent(lastName);
   });
 });

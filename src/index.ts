@@ -1,10 +1,12 @@
 import React, { useContext, useRef } from "react";
 
+const stores = new Map();
+
 function identity(thing: any): any {
   return thing;
 }
 
-export interface IStoreProvider {
+export interface StoreProvider {
   Provider: any;
   Consumer: any;
   useStore: Function;
@@ -28,14 +30,18 @@ export function createStore(storeFactory: Function): any {
  * @param defaultValue The default value you want supplied to consumers of useStore in the event no Provider is found (null by default)
  * @returns An IStoreProvider object which contains the Provider, Consumer, and a useStore hook
  */
-export default function StoreProvider(defaultValue = null): IStoreProvider {
-  const StoreContext = React.createContext(defaultValue);
-  return {
-    Provider: StoreContext.Provider,
-    Consumer: StoreContext.Consumer,
-    useStore: (mapStateToProps: Function = identity): any => {
-      const store = useContext(StoreContext);
-      return mapStateToProps(store);
-    },
-  };
+export default function StoreProvider(storeIdentifier: any = null, defaultValue = null): StoreProvider {
+  if (!stores.get(storeIdentifier)) {
+    const StoreContext = React.createContext(defaultValue);
+    stores.set(storeIdentifier, {
+      Provider: StoreContext.Provider,
+      Consumer: StoreContext.Consumer,
+      useStore: (mapStateToProps: Function = identity): any => {
+        const store = useContext(StoreContext);
+        return mapStateToProps(store);
+      },
+    });
+  }
+
+  return stores.get(storeIdentifier);
 }
