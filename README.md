@@ -119,7 +119,7 @@ export default AppStore;
   import Header from "./Header";
   import AppStore from "./AppStore";
 
-  // Export our appStore identifier so other components can use it to pull in the store.
+  // Export our appStore identifier so other components can use it
   export const appStore = "app-store";
 
   export default function App() {
@@ -133,7 +133,7 @@ export default AppStore;
   ```
 
   ```javascript
-  // Header.js (Your component, we use the store inside)
+  // Header.js (A random component, we reference/use the store inside)
   import { observer } from "mobx-react";
   import { useStore } from "mobx-store-provider";
   import { appStore } from "./App";
