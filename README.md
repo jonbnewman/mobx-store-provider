@@ -2,7 +2,7 @@
 
 Use React Hooks with mobx-state-tree.
 
-An easy to use, straight-forward API for using mobx-state-tree with functional React components.
+> An easy to use, straight-forward API for using mobx-state-tree with functional React components.
 
 ## Install
 
