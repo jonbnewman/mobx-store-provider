@@ -72,7 +72,7 @@ export default observer(MyNameDisplay);
   import { useProvider } from "mobx-store-provider";
   const myStore = MyStore.create();
 
-  export default function MainApp() {
+  export default function App() {
     const Provider = useProvider();
     return (
       <Provider value={myStore}>
@@ -91,10 +91,10 @@ export default observer(MyNameDisplay);
   ```javascript
   import { createStore, useProvider } from "mobx-store-provider";
 
-  function MyComponent() {
+  export default function App() {
     const Provider = useProvider();
-    const myStore = createStore(() => MyStore.create());
-    return <Provider value={myStore}>...</Provider>;
+    const appStore = createStore(() => AppStore.create());
+    return <Provider value={appStore}>...</Provider>;
   }
   ```
 
