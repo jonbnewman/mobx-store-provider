@@ -105,4 +105,36 @@ describe("mobx-store-provider", () => {
     fireEvent.click(getByTestId(container, "name"));
     expect(container).toHaveTextContent(lastName);
   });
+
+  test("can retrieve the same store with an identifier", () => {
+    const storeIdentifier = "some really cool store";
+
+    const { Provider: FirstProvider } = StoreProvider(storeIdentifier);
+    const { Provider: SecondProvider } = StoreProvider(storeIdentifier);
+
+    expect(FirstProvider).toBe(SecondProvider);
+  });
+
+  test("can destroy a StoreProvider instance", () => {
+    const storeIdentifier = "my-destructable-store";
+
+    const { Provider: FirstProvider, destroy } = StoreProvider(storeIdentifier);
+
+    destroy();
+
+    const { Provider: SecondProvider } = StoreProvider(storeIdentifier);
+
+    expect(FirstProvider).not.toBe(SecondProvider);
+  });
+
+  test("can use something other than a string as an identifier for a StoreProvider instance", () => {
+    const storeIdentifier = function() {
+      console.info("You will never see this. Wait, did you just read that?");
+    };
+
+    const { Provider: FirstProvider } = StoreProvider(storeIdentifier);
+    const { Provider: SecondProvider } = StoreProvider(storeIdentifier);
+
+    expect(FirstProvider).toBe(SecondProvider);
+  });
 });

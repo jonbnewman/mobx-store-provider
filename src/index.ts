@@ -10,6 +10,7 @@ export interface StoreProvider {
   Provider: any;
   Consumer: any;
   useStore: Function;
+  destroy: Function;
 }
 
 /**
@@ -40,6 +41,7 @@ export default function StoreProvider(storeIdentifier: any = null, defaultValue 
         const store = useContext(StoreContext);
         return mapStateToProps(store);
       },
+      destroy: () => stores.delete(storeIdentifier),
     });
   }
 
