@@ -79,7 +79,7 @@ export default observer(() => {
 
   Store provider factory. Use this to create a new `StoreProvider` which you can use to supply a store to your application.
 
-  You can optionally supply a `storeIdentifier`, this identifier is used when other parts of your application need to use the same store. By supplying the same identifier, you are ensured the same store is being supplied.
+  You can optionally supply a `storeIdentifier`, this identifier is used when other parts of your application need to use the same store. By supplying the same identifier, you are ensured the same `StoreProvider` is being supplied/returned.
 
   **Note:** If your application will only ever have one store, then you can omit the `storeIdentifier`.
 
