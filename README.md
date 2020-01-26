@@ -145,27 +145,27 @@ export default observer(() => {
        }
        ```
 
-    1. `destroy()`
+    1. `dispose()`
 
        Cleanup, if your app doesn't need the store and Provider anymore.
 
        You might encounter this scenario if you created a store for a specific component (ie: not a long-lived root store/etc), and that component is removed.
 
-       In that case you need to call `destroy()` so that the store can be fully released and garbage collected.
+       In that case you need to call `dispose()` so that the store can be fully released and garbage collected.
 
        ```javascript
        import React, { useEffect } from "react";
        import { types } from "mobx-state-tree";
 
        import StoreProvider, { createStore } from "mobx-store-provider";
-       const { destroy, Provider } = StoreProvider("my-app");
+       const { dispose, Provider } = StoreProvider("my-app");
 
        const MyStore = types.model({
          name: "Jonathan Newman",
        });
 
        function MyComponent() {
-         useEffect(() => destroy, []);
+         useEffect(() => dispose, []);
          const myStore = createStore(() => MyStore.create());
          return (
            <Provider value={myStore}>

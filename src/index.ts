@@ -29,7 +29,7 @@ export function createStore(storeFactory: Function): any {
 /**
  * Create a new StoreProvider instance, which supplies you with a `Provider`, `Consumer`, and a `useStore` hook.
  * @param defaultValue The default value you want supplied to consumers of useStore in the event no Provider is found (null by default)
- * @returns An IStoreProvider object which contains the Provider, Consumer, and a useStore hook
+ * @returns A StoreProvider object which contains the Provider, Consumer, useStore hook, and dispose callback
  */
 export default function StoreProvider(storeIdentifier: any = null, defaultValue: any = null): StoreProvider {
   if (!stores.has(storeIdentifier)) {
@@ -41,7 +41,7 @@ export default function StoreProvider(storeIdentifier: any = null, defaultValue:
         const store = useContext(StoreContext);
         return mapStateToProps(store);
       },
-      destroy: () => stores.delete(storeIdentifier),
+      dispose: () => stores.delete(storeIdentifier),
     });
   }
   return stores.get(storeIdentifier);
