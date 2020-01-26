@@ -25,10 +25,7 @@ describe("mobx-store-provider", () => {
   test("can provide a created store using useProvider, createStore, and useStore", () => {
     const firstName = "Jonathan";
 
-    const MyNameDisplay = () => {
-      return <div>{useStore().name}</div>;
-    };
-
+    const MyNameDisplay = () => <div>{useStore().name}</div>;
     const TestComponent = () => {
       const Provider = useProvider();
       const testStore = createStore(() => TestStore.create({ name: firstName }));
@@ -70,6 +67,29 @@ describe("mobx-store-provider", () => {
     expect(container).toHaveTextContent(firstName);
     fireEvent.click(getByTestId(container, "name"));
     expect(container).toHaveTextContent(lastName);
+  });
+
+  test("can use a mapStateToProps selector", () => {
+    const firstName = "Jonathan";
+    const storeIdentifier = "map-state-to-props-test";
+
+    function selectName(store: any) {
+      return store.name;
+    }
+
+    const MyNameDisplay = () => <div>{useStore(storeIdentifier, selectName)}</div>;
+    const TestComponent = () => {
+      const Provider = useProvider(storeIdentifier);
+      const testStore = createStore(() => TestStore.create({ name: firstName }));
+      return (
+        <Provider value={testStore}>
+          <MyNameDisplay />
+        </Provider>
+      );
+    };
+
+    const container = makeContainer(<TestComponent />);
+    expect(container).toHaveTextContent(firstName);
   });
 
   test("can retrieve the same store with an identifier", () => {
