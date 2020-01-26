@@ -77,6 +77,13 @@ describe("mobx-store-provider", () => {
       const FirstProvider = useProvider(storeIdentifier);
       const SecondProvider = useProvider(storeIdentifier);
       expect(FirstProvider).toBe(SecondProvider);
+
+      const DifferentProvider = useProvider("something else");
+      expect(DifferentProvider).not.toBe(FirstProvider);
+
+      const DefaultProvider = useProvider();
+      expect(DefaultProvider).not.toBe(FirstProvider);
+      expect(DefaultProvider).not.toBe(DifferentProvider);
     });
 
     test("can dispose a store and receive a different Provider for the same identifier", () => {
