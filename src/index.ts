@@ -27,7 +27,7 @@ export function createStore(storeFactory: Function): any {
 }
 
 /**
- * Create a new StoreProvider instance, which supplies you with a `Provider`, `Consumer`, and a `useStore` hook.
+ * Create a new StoreProvider instance, which supplies you with a `Provider`, `Consumer`, `useStore` hook, and `dispose` callback
  * @param defaultValue The default value you want supplied to consumers of useStore in the event no Provider is found (null by default)
  * @returns A StoreProvider object which contains the Provider, Consumer, useStore hook, and dispose callback
  */
