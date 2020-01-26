@@ -80,7 +80,7 @@ export default AppStore;
     const Provider = useProvider();
     return (
       <Provider value={appStore}>
-        <MyApplication />
+        <MyComponents />
       </Provider>
     );
   }
