@@ -82,7 +82,7 @@ export default AppStore;
 
 - [useProvider](#useprovider)
 
-  React Hook used to retrieve the React `Context.Provider`.
+  React Hook used to retrieve a store `Context.Provider`.
 
 - [createStore](#createstore)
 
