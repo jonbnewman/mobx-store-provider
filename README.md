@@ -66,9 +66,13 @@ export default AppStore;
 ## API Details and Examples
 
 - [useProvider](#useprovider)
+  React Hook used to retrieve the React `Context.Provider` for a given `storeIdentifier`.
 - [createStore](#createstore)
+  React Hook used to instantiate new mobx-state-tree instances inside of components.
 - [useStore](#usestore)
+  React Hook used to retrieve a `store` for a given `storeIdentifier`.
 - [disposeStore](#disposestore)
+  Used to cleanup the store reference.
 
 ### useProvider
 
@@ -76,7 +80,7 @@ export default AppStore;
 useProvider(storeIdentifier: any = null): Context.Provider`
 ```
 
-React Hook which you can use to create and/or retrieve the React `Context.Provider` for a given `storeIdentifier`.
+React Hook used to retrieve the React `Context.Provider` for a given `storeIdentifier`.
 
 This is a wrapper component you can use to provide your application with the store.
 
@@ -105,7 +109,7 @@ export default App;
 createStore(StoreFactory: Function): any
 ```
 
-React Hook which you can use to instantiate new mobx-state-tree instances inside of components.
+React Hook used to instantiate new mobx-state-tree instances inside of components.
 
 It takes a factory `Function` as its input, you should instantiate and return a mobx-state-tree instance within that function.
 
@@ -128,13 +132,11 @@ export default App;
 useStore(storeIdentifier: any = null, mapStateToProps: Function = identity): any
 ```
 
-React Hook which can be used in components to retrieve and use a `store` for a given `storeIdentifier`.
+React Hook used to retrieve a `store` for a given `storeIdentifier`.
 
 The `storeIdentifier` tells _mobx-store-provider_ which store you want to get access to. The default identifier is `null`.
 
-You can optionally pass it a `mapStateToProps` function which you can use to select and return specific slices of the store into your components with.
-
-In the absense of a `mapStateToProps` callback, it will return the store instance.
+You can optionally pass it a `mapStateToProps` function which you can use to select and return specific slices of the store into your components with. In the absense of a `mapStateToProps` callback, it will return the store instance.
 
 ```javascript
 // App.js (Main App component, we use it to create and provide the store)
@@ -185,11 +187,11 @@ export default observer(Header);
 disposeStore(storeIdentifier: any = null): undefined
 ```
 
-Cleanup, if your app doesn't need the store and Provider anymore.
+Used to cleanup the store reference.
 
-You might encounter this scenario if you created a store for a specific component (ie: not a long-lived root store/etc), and that component is removed.
+You might encounter this scenario if you created a store for a specific component (ie: not a long-lived root store/etc), and that component is removed from the DOM.
 
-In that case you need to call `disposeStore(storeIdentifier)` so that the store can be fully released and garbage collected.
+In that case you need to call `disposeStore(storeIdentifier)` so that the store references can be fully released and garbage collected.
 
 ```javascript
 // MyPet component, it has its own local store, and it is assumed it will
