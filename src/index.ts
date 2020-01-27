@@ -36,8 +36,9 @@ function useProvider(storeIdentifier: any = null): Provider<any> {
 }
 
 /**
- * React Hook which retrieves the `store` from the `Provider` that supplies it.
+ * React Hook which retrieves the `store` from the `Provider` for a given `storeIdentifier`.
  * @param storeIdentifier The identifier used for the store (optional)
+ * @param mapStateToProps Callback which is used to select and return slices of the store (optional)
  */
 function useStore(
   storeIdentifier: any = null,
