@@ -1,7 +1,7 @@
 import { retrieveStore } from "../stores";
 
 /**
- * This will dispose the `store` identified by the `storeIdentifier`.
+ * Dispose the `store` identified by the `storeIdentifier`.
  * @param storeIdentifier The identifier used for the store (optional)
  */
 function disposeStore(storeIdentifier: any = null): undefined {

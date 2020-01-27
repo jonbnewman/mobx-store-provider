@@ -2,7 +2,7 @@ import { Provider } from "react";
 import { retrieveStore } from "../stores";
 
 /**
- * React Hook to retrieve the store `Provider` component for a given `storeIdentifier`.
+ * React Hook to retrieve the store `Provider` for a given `storeIdentifier`.
  *
  * Use this wrapper to supply your application with a store.
  * @param storeIdentifier The identifier used for the store (optional)
