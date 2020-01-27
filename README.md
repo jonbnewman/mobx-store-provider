@@ -66,12 +66,19 @@ export default AppStore;
 ## API Details and Examples
 
 - [useProvider](#useprovider)
+
   React Hook used to retrieve the React `Context.Provider` for a given `storeIdentifier`.
+
 - [createStore](#createstore)
+
   React Hook used to instantiate new mobx-state-tree instances inside of components.
+
 - [useStore](#usestore)
+
   React Hook used to retrieve a `store` for a given `storeIdentifier`.
+
 - [disposeStore](#disposestore)
+
   Used to cleanup the store reference.
 
 ### useProvider
