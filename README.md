@@ -1,6 +1,6 @@
 # mobx-store-provider
 
-React Hooks + [mobx-state-tree](http://mobx-state-tree.js.org/) === ❤️
+React Hooks + [mobx-state-tree](http://mobx-state-tree.js.org/) === 😍
 
 **A straight-forward API for using [mobx-state-tree](http://mobx-state-tree.js.org/) with functional React components.**
 
@@ -69,7 +69,9 @@ export default AppStore;
 
   React Hook which you can use to create and/or retrieve the React `Context.Provider` for a given `storeIdentifier`.
 
-  This is the wrapper component you can use to provide your application with the store.
+  This is a wrapper component you can use to provide your application with the store.
+
+  The `storeIdentifier` tells _mobx-store-provider_ which store you want the Provider for (each store gets it's own). If omitted, the default identifier is `null`.
 
   ```javascript
   import { useProvider } from "mobx-store-provider";
@@ -109,9 +111,9 @@ export default AppStore;
 
 - `useStore(storeIdentifier: any = null, mapStateToProps: Function = identity): any`
 
-  React Hook which you can use in your other components to retrieve and use a `store` for a given `storeIdentifier`.
+  React Hook which can be used in components to retrieve and use a `store` for a given `storeIdentifier`.
 
-  The `storeIdentifier` simply tells mobx-store-provider which store you want to get access to. It is optional, the default identifier is `null`.
+  The `storeIdentifier` tells _mobx-store-provider_ which store you want to get access to. The default identifier is `null`.
 
   You can optionally pass it a `mapStateToProps` function which you can use to select and return specific slices of the store into your components with.
 
