@@ -82,15 +82,15 @@ export default AppStore;
 
 - [useProvider](#useprovider)
 
-  React Hook used to retrieve the React `Context.Provider` for a given `storeIdentifier`.
+  React Hook used to retrieve the React `Context.Provider`.
 
 - [createStore](#createstore)
 
-  React Hook used to instantiate new mobx-state-tree instances inside of components.
+  React Hook used to instantiate new mobx-state-tree instances/models inside of components.
 
 - [useStore](#usestore)
 
-  React Hook used to retrieve a `store` for a given `storeIdentifier`.
+  React Hook used to retrieve a `store`.
 
 - [disposeStore](#disposestore)
 
@@ -99,7 +99,7 @@ export default AppStore;
 ### useProvider
 
 ```javascript
-useProvider(storeIdentifier: any = null): Context.Provider`
+useProvider(storeIdentifier: any = null): Context.Provider
 ```
 
 React Hook used to retrieve the React `Context.Provider` for a given `storeIdentifier`.
