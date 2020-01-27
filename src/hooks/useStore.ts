@@ -1,7 +1,7 @@
 import { retrieveStore, identity } from "../tools";
 
 /**
- * React Hook which retrieves the `store` from the `Provider` for a given `storeIdentifier`.
+ * React Hook which retrieves the `store` for a given `storeIdentifier`.
  * @param storeIdentifier The identifier used for the store (optional)
  * @param mapStateToProps Callback which is used to select and return slices of the store (optional)
  * @returns The store instance
