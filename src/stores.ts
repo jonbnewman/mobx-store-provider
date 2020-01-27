@@ -31,4 +31,4 @@ function retrieveStore(storeIdentifier: any = null): Store {
   return stores.get(storeIdentifier);
 }
 
-export { retrieveStore };
+export { retrieveStore, identity };
