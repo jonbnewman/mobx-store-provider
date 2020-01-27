@@ -34,7 +34,7 @@ yarn add mobx-store-provider
 ## Basic Example
 
 ```javascript
-// App.js (Main App component, we use it to create and provide the store)
+// App.jsx (Main App component, we use it to create and provide the store)
 import React from "react";
 import { useProvider, createStore } from "mobx-store-provider";
 import AppStore from "./AppStore";
@@ -54,7 +54,7 @@ export default App;
 ```
 
 ```javascript
-// UserDisplay.js (A component, we use the store from above inside it)
+// UserDisplay.jsx (A component, we use the store from above inside it)
 import React from "react";
 import { observer } from "mobx-react";
 import { useStore } from "mobx-store-provider";
@@ -161,7 +161,7 @@ The `storeIdentifier` tells _mobx-store-provider_ which store you want to get ac
 You can optionally pass it a `mapStateToProps` function which you can use to select and return specific slices of the store into your components with. In the absense of a `mapStateToProps` callback, it will return the store instance.
 
 ```javascript
-// App.js (Main App component, we use it to create and provide the store)
+// App.jsx (Main App component, we use it to create and provide the store)
 import { useProvider, createStore } from "mobx-store-provider";
 import Header from "./Header";
 import AppStore from "./AppStore";
@@ -182,7 +182,7 @@ export default App;
 ```
 
 ```javascript
-// Header.js (A component, we use the store inside)
+// Header.jsx (A component, we use the store inside)
 import { observer } from "mobx-react";
 import { useStore } from "mobx-store-provider";
 
