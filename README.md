@@ -8,7 +8,14 @@ React Hooks + [mobx-state-tree](http://mobx-state-tree.js.org/)
 
 1. [Installation](#install)
 
+1. [Basic Example](#basic-example)
+
 1. [API Details and Examples](#api-details-and-examples)
+
+   - [useProvider](#useprovider)
+   - [createStore](#createstore)
+   - [useStore](#usestore)
+   - [disposeStore](#disposestore)
 
 1. [Testing](#testing)
 
@@ -24,7 +31,7 @@ npm install mobx-store-provider --save
 yarn add mobx-store-provider
 ```
 
-### Example
+## Basic Example
 
 ```javascript
 // App.js (Main App component, we use it to create and provide the store)
