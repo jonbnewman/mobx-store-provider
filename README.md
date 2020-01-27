@@ -65,135 +65,156 @@ export default AppStore;
 
 ## API Details and Examples
 
-- `useProvider(storeIdentifier: any = null): Provider`
+- [useProvider](#useprovider)
+- [createStore](#createstore)
+- [useStore](#usestore)
+- [disposeStore](#disposestore)
 
-  React Hook which you can use to create and/or retrieve the React `Context.Provider` for a given `storeIdentifier`.
+### useProvider
 
-  This is a wrapper component you can use to provide your application with the store.
+```javascript
+useProvider(storeIdentifier: any = null): Context.Provider`
+```
 
-  The `storeIdentifier` tells _mobx-store-provider_ which store you want the Provider for (each store gets it's own). If omitted, the default identifier is `null`.
+React Hook which you can use to create and/or retrieve the React `Context.Provider` for a given `storeIdentifier`.
 
-  ```javascript
-  import { useProvider } from "mobx-store-provider";
-  import AppStore from "./AppStore";
-  const appStore = AppStore.create();
+This is a wrapper component you can use to provide your application with the store.
 
-  function App() {
-    const Provider = useProvider();
-    return (
-      <Provider value={appStore}>
-        <MyComponents />
-      </Provider>
-    );
-  }
+The `storeIdentifier` tells _mobx-store-provider_ which store you want the Provider for (each store gets it's own). If omitted, the default identifier is `null`.
 
-  export default App;
-  ```
+```javascript
+import { useProvider } from "mobx-store-provider";
+import AppStore from "./AppStore";
+const appStore = AppStore.create();
 
-- `createStore(StoreFactory: Function): any`
+function App() {
+  const Provider = useProvider();
+  return (
+    <Provider value={appStore}>
+      <MyComponents />
+    </Provider>
+  );
+}
 
-  React Hook which you can use to instantiate new mobx-state-tree instances inside of components.
+export default App;
+```
 
-  It takes a factory `Function` as its input, you should instantiate and return a mobx-state-tree instance within that function.
+### createStore
 
-  ```javascript
-  import { createStore, useProvider } from "mobx-store-provider";
-  import AppStore from "./AppStore";
+```javascript
+createStore(StoreFactory: Function): any
+```
 
-  function App() {
-    const Provider = useProvider();
-    const appStore = createStore(() => AppStore.create());
-    return <Provider value={appStore}>...</Provider>;
-  }
+React Hook which you can use to instantiate new mobx-state-tree instances inside of components.
 
-  export default App;
-  ```
+It takes a factory `Function` as its input, you should instantiate and return a mobx-state-tree instance within that function.
 
-- `useStore(storeIdentifier: any = null, mapStateToProps: Function = identity): any`
+```javascript
+import { createStore, useProvider } from "mobx-store-provider";
+import AppStore from "./AppStore";
 
-  React Hook which can be used in components to retrieve and use a `store` for a given `storeIdentifier`.
+function App() {
+  const Provider = useProvider();
+  const appStore = createStore(() => AppStore.create());
+  return <Provider value={appStore}>...</Provider>;
+}
 
-  The `storeIdentifier` tells _mobx-store-provider_ which store you want to get access to. The default identifier is `null`.
+export default App;
+```
 
-  You can optionally pass it a `mapStateToProps` function which you can use to select and return specific slices of the store into your components with.
+### useStore
 
-  In the absense of a `mapStateToProps` callback, it will return the store instance.
+```javascript
+useStore(storeIdentifier: any = null, mapStateToProps: Function = identity): any
+```
 
-  ```javascript
-  // App.js (Main App component, we use it to create and provide the store)
-  import { useProvider, createStore } from "mobx-store-provider";
-  import Header from "./Header";
-  import AppStore from "./AppStore";
+React Hook which can be used in components to retrieve and use a `store` for a given `storeIdentifier`.
 
-  // Export our appStore identifier so other components can use it
-  export const appStore = "app-store";
+The `storeIdentifier` tells _mobx-store-provider_ which store you want to get access to. The default identifier is `null`.
 
-  function App() {
-    const Provider = useProvider(appStore);
-    return (
-      <Provider value={createStore(() => AppStore.create())}>
-        <Header />
-      </Provider>
-    );
-  }
+You can optionally pass it a `mapStateToProps` function which you can use to select and return specific slices of the store into your components with.
 
-  export default App;
-  ```
+In the absense of a `mapStateToProps` callback, it will return the store instance.
 
-  ```javascript
-  // Header.js (A component, we use the store inside)
-  import { observer } from "mobx-react";
-  import { useStore } from "mobx-store-provider";
+```javascript
+// App.js (Main App component, we use it to create and provide the store)
+import { useProvider, createStore } from "mobx-store-provider";
+import Header from "./Header";
+import AppStore from "./AppStore";
 
-  // We import the store identifier from above
-  import { appStore } from "./App";
+// Export our appStore identifier so other components can use it
+export const appStore = "app-store";
 
-  // A selector we use to grab the user from the store
-  function selectUser(store) {
-    return store.user;
-  }
+function App() {
+  const Provider = useProvider(appStore);
+  return (
+    <Provider value={createStore(() => AppStore.create())}>
+      <Header />
+    </Provider>
+  );
+}
 
-  function Header() {
-    // We use the appStore in this component
-    const user = useStore(appStore, selectUser);
-    return <div>User: {user}</div>;
-  }
+export default App;
+```
 
-  export default observer(Header);
-  ```
+```javascript
+// Header.js (A component, we use the store inside)
+import { observer } from "mobx-react";
+import { useStore } from "mobx-store-provider";
 
-* `disposeStore(storeIdentifier: any = null): undefined`
+// We import the store identifier from above
+import { appStore } from "./App";
 
-  Cleanup, if your app doesn't need the store and Provider anymore.
+// A selector we use to grab the user from the store
+function selectUser(store) {
+  return store.user;
+}
 
-  You might encounter this scenario if you created a store for a specific component (ie: not a long-lived root store/etc), and that component is removed.
+function Header() {
+  // We use the appStore in this component
+  const user = useStore(appStore, selectUser);
+  return <div>User: {user}</div>;
+}
 
-  In that case you need to call `disposeStore(storeIdentifier)` so that the store can be fully released and garbage collected.
+export default observer(Header);
+```
 
-  ```javascript
-  // MyPet component, it has its own local store, and it is assumed it will
-  // be removed from the DOM at some point. So we have to worry about disposal.
-  import React, { useEffect } from "react";
-  import { useProvider, createStore, disposeStore } from "mobx-store-provider";
+### disposeStore
 
-  // We import the mobx-state-tree store/model used in the component
-  import MyPetAnimal from "./MyPetAnimal";
+```javascript
+disposeStore(storeIdentifier: any = null): undefined
+```
 
-  // Create and export the identifier for our store
-  export const myPetAnimal = "my-pet-animal";
+Cleanup, if your app doesn't need the store and Provider anymore.
 
-  function MyPet() {
-    useEffect(() => disposeStore(myPetAnimal), []);
-    const Provider = useProvider(myPetAnimal);
-    return (
-      <Provider value={createStore(() => MyPetAnimal.create())}>
-        <>... The rest of the MyPet component ...</>
-      </Provider>
-    );
-  }
+You might encounter this scenario if you created a store for a specific component (ie: not a long-lived root store/etc), and that component is removed.
 
-  export default MyPet;
-  ```
+In that case you need to call `disposeStore(storeIdentifier)` so that the store can be fully released and garbage collected.
+
+```javascript
+// MyPet component, it has its own local store, and it is assumed it will
+// be removed from the DOM at some point. So we have to worry about disposal.
+import React, { useEffect } from "react";
+import { useProvider, createStore, disposeStore } from "mobx-store-provider";
+
+// We import the mobx-state-tree store/model used in the component
+import MyPetAnimal from "./MyPetAnimal";
+
+// Create and export the identifier for our store
+export const myPetAnimal = "my-pet-animal";
+
+function MyPet() {
+  useEffect(() => disposeStore(myPetAnimal), []);
+  const Provider = useProvider(myPetAnimal);
+  return (
+    <Provider value={createStore(() => MyPetAnimal.create())}>
+      <>... The rest of the MyPet component ...</>
+    </Provider>
+  );
+}
+
+export default MyPet;
+```
 
 ## Testing
 
