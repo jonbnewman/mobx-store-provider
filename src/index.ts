@@ -64,10 +64,8 @@ function retrieveStore(storeIdentifier: any = null): Store {
     Context.displayName = String(storeIdentifier);
     stores.set(storeIdentifier, {
       Context,
-      useStore: (mapStateToProps: Function = identity): any => {
-        const store = useContext(Context);
-        return mapStateToProps(store);
-      },
+      useStore: (mapStateToProps: Function = identity): any =>
+        mapStateToProps(useContext(Context)),
       dispose: () => stores.delete(storeIdentifier),
     });
   }
