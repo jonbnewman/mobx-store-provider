@@ -6,7 +6,7 @@ function identity(thing: any): any {
   return thing;
 }
 
-interface StoreProvider {
+interface Store {
   Context: any;
   useStore: Function;
   dispose: Function;
@@ -58,7 +58,7 @@ function disposeStore(storeIdentifier: any = null): undefined {
  * Creates and/or retrieves the `store` from the internal `stores` Map.
  * @param storeIdentifier The identifier supplied by the consumer
  */
-function retrieveStore(storeIdentifier: any = null): StoreProvider {
+function retrieveStore(storeIdentifier: any = null): Store {
   if (!stores.has(storeIdentifier)) {
     const Context = React.createContext(null);
     Context.displayName = String(storeIdentifier);
