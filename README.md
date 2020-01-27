@@ -1,6 +1,6 @@
 # mobx-store-provider
 
-React Hooks + [mobx-state-tree](http://mobx-state-tree.js.org/).
+React Hooks + [mobx-state-tree](http://mobx-state-tree.js.org/) === ❤️
 
 **A straight-forward API for using [mobx-state-tree](http://mobx-state-tree.js.org/) with functional React components.**
 
