@@ -302,8 +302,10 @@ describe("My tests", () => {
     expect(container).toHaveTextContent(altUsername);
   });
 
-  // This is not part of mobx-store-provider but as an aside, you could also
-  // test a store separate from React like this:
+  /**
+   * This is not part of mobx-store-provider but as an aside, you could also
+   * test a store separate from React like this:
+   */
   test("When I trigger the setUser action the user changes", () => {
     const userName = "Keanu Reeves";
     const altUsername = "Neo";
