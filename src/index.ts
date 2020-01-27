@@ -30,6 +30,7 @@ function createStore(storeFactory: Function): any {
  *
  * Use this wrapper to supply your application with a store.
  * @param storeIdentifier The identifier used for the store (optional)
+ * @returns The Provider
  */
 function useProvider(storeIdentifier: any = null): Provider<any> {
   return retrieveStore(storeIdentifier).Context.Provider;
@@ -39,6 +40,7 @@ function useProvider(storeIdentifier: any = null): Provider<any> {
  * React Hook which retrieves the `store` from the `Provider` for a given `storeIdentifier`.
  * @param storeIdentifier The identifier used for the store (optional)
  * @param mapStateToProps Callback which is used to select and return slices of the store (optional)
+ * @returns The store instance
  */
 function useStore(
   storeIdentifier: any = null,
@@ -58,6 +60,7 @@ function disposeStore(storeIdentifier: any = null): undefined {
 /**
  * Creates and/or retrieves the `store` from the internal `stores` Map.
  * @param storeIdentifier The identifier supplied by the consumer
+ * @returns Store
  */
 function retrieveStore(storeIdentifier: any = null): Store {
   if (!stores.has(storeIdentifier)) {
