@@ -1,6 +1,6 @@
 # mobx-store-provider
 
-React Hooks + [mobx-state-tree](http://mobx-state-tree.js.org/) === 😍
+React Hooks + [mobx-state-tree](http://mobx-state-tree.js.org/)
 
 **A straight-forward API for using [mobx-state-tree](http://mobx-state-tree.js.org/) with functional React components.**
 
@@ -39,7 +39,7 @@ export default App;
 ```
 
 ```javascript
-// UserDisplay.js (A component, we use the store inside)
+// UserDisplay.js (A component, we use the store from above inside it)
 import React from "react";
 import { observer } from "mobx-react";
 import { useStore } from "mobx-store-provider";
@@ -144,13 +144,17 @@ export default AppStore;
   // Header.js (A component, we use the store inside)
   import { observer } from "mobx-react";
   import { useStore } from "mobx-store-provider";
+
+  // We import the store identifier from above
   import { appStore } from "./App";
 
+  // A selector we use to grab the user from the store
   function selectUser(store) {
     return store.user;
   }
 
   function Header() {
+    // We use the appStore in this component
     const user = useStore(appStore, selectUser);
     return <div>User: {user}</div>;
   }
@@ -171,8 +175,11 @@ export default AppStore;
   // be removed from the DOM at some point. So we have to worry about disposal.
   import React, { useEffect } from "react";
   import { useProvider, createStore, disposeStore } from "mobx-store-provider";
+
+  // We import the mobx-state-tree store/model used in the component
   import MyPetAnimal from "./MyPetAnimal";
 
+  // Create and export the identifier for our store
   export const myPetAnimal = "my-pet-animal";
 
   function MyPet() {
@@ -186,17 +193,6 @@ export default AppStore;
   }
 
   export default MyPet;
-  ```
-
-  ```javascript
-  // MyPetAnimal.js (mobx-state-tree store/model)
-  import { types } from "mobx-state-tree";
-  const MyPetAnimal = types.model({
-    name: types.optional(types.string, "Barney"),
-    type: types.optional(types.enumeration("type", ["Cat", "Dog"]), "Dog"),
-  });
-
-  export default MyPetAnimal;
   ```
 
 ## Testing
