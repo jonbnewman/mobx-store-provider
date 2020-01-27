@@ -4,11 +4,11 @@ React Hooks + [mobx-state-tree](http://mobx-state-tree.js.org/)
 
 **A straight-forward API for using [mobx-state-tree](http://mobx-state-tree.js.org/) with functional React components.**
 
-[Installation](#install)
+1. [Installation](#install)
 
-[API Details and Examples](#api-details-and-examples)
+1. [API Details and Examples](#api-details-and-examples)
 
-[Testing](#testing)
+1. [Testing](#testing)
 
 ## Install
 
