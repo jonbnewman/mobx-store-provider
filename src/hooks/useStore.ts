@@ -1,4 +1,4 @@
-import { retrieveStore, identity } from "./tools";
+import { retrieveStore, identity } from "../tools";
 
 /**
  * React Hook which retrieves the `store` from the `Provider` for a given `storeIdentifier`.

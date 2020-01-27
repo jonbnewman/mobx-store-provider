@@ -1,4 +1,4 @@
-import { retrieveStore } from "./tools";
+import { retrieveStore } from "../tools";
 
 /**
  * This will dispose the `store` identified by the `storeIdentifier`.

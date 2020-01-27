@@ -1,6 +1,6 @@
-import createStore from "./createStore";
-import useProvider from "./useProvider";
-import useStore from "./useStore";
-import disposeStore from "./disposeStore";
+import createStore from "./hooks/createStore";
+import useProvider from "./hooks/useProvider";
+import useStore from "./hooks/useStore";
+import disposeStore from "./hooks/disposeStore";
 
 export { createStore, useProvider, useStore, disposeStore };
