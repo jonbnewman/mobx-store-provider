@@ -1,5 +1,5 @@
 import { Provider } from "react";
-import { retrieveStore } from "../tools";
+import { retrieveStore } from "../stores";
 
 /**
  * React Hook to retrieve the store `Provider` component for a given `storeIdentifier`.

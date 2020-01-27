@@ -31,4 +31,4 @@ function identity(thing: any): any {
   return thing;
 }
 
-export { retrieveStore, identity };
+export { retrieveStore };
