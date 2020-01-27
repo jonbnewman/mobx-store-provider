@@ -7,7 +7,7 @@ function identity(thing: any): any {
 }
 
 interface StoreProvider {
-  context: any;
+  Context: any;
   useStore: Function;
   dispose: Function;
 }
@@ -32,7 +32,7 @@ function createStore(storeFactory: Function): any {
  * @param storeIdentifier The identifier used for the store (optional)
  */
 function useProvider(storeIdentifier: any = null): Provider<any> {
-  return retrieveStore(storeIdentifier).context.Provider;
+  return retrieveStore(storeIdentifier).Context.Provider;
 }
 
 /**
@@ -63,7 +63,7 @@ function retrieveStore(storeIdentifier: any = null): StoreProvider {
     const Context = React.createContext(null);
     Context.displayName = String(storeIdentifier);
     stores.set(storeIdentifier, {
-      context: Context,
+      Context,
       useStore: (mapStateToProps: Function = identity): any => {
         const store = useContext(Context);
         return mapStateToProps(store);
