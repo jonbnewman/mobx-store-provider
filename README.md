@@ -6,7 +6,7 @@ React Hooks + [mobx-state-tree](http://mobx-state-tree.js.org/)
 
 ---
 
-1. [Installation](#install)
+1. [Installation](#installation)
 
 1. [Basic Example](#basic-example)
 
