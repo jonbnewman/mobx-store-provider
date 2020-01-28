@@ -39,17 +39,12 @@ import { useProvider, createStore } from "mobx-store-provider";
 import AppStore from "./AppStore";
 import MyNameDisplay from "./MyNameDisplay";
 
-// The identifier used for our AppStore (can be anything)
-export const appStoreId = "app-store";
-
 function App() {
   // Get the Provider for our AppStore
-  const Provider = useProvider(appStoreId);
+  const Provider = useProvider();
 
   // Create our AppStore instance
-  const appStore = createStore(() =>
-    AppStore.create(appStoreId, { user: "Jonathan" }),
-  );
+  const appStore = createStore(() => AppStore.create({ user: "Jonathan" }));
 
   // Wrap our application with the Provider passing it the appStore
   return (
@@ -68,12 +63,9 @@ import React from "react";
 import { observer } from "mobx-react";
 import { useStore } from "mobx-store-provider";
 
-// Import our appStore identifier
-import { appStoreId } from "./App";
-
 function UserDisplay() {
-  // Get access to the store via the identifier
-  const appStore = useStore(appStoreId);
+  // Get access to the store
+  const appStore = useStore();
   return <div>{appStore.user}</div>;
 }
 
@@ -107,7 +99,7 @@ React Hook used to retrieve the React `Context.Provider` for a given `storeIdent
 
 Parameters:
 
-- `storeIdentifier` - Tells _mobx-store-provider_ which store you want the Provider for.
+- `storeIdentifier` - _(optional)_ Tells _mobx-store-provider_ which store you want the Provider for.
 
 Example:
 
@@ -131,26 +123,25 @@ export default App;
 ### createStore
 
 ```javascript
-createStore(storeIdentifier: any, factory: FactoryFunction): any
+createStore(factory: Function, storeIdentifier: any): any
 ```
 
-React Hook used to instantiate new mobx-state-tree instances inside of components. It returns the store you instantiate in the `FactoryFunction`.
+React Hook used to instantiate new mobx-state-tree instances inside of components. It returns the store you instantiate and return from the `factory`.
 
 Parameters:
 
-- `storeIdentifier` - Tells _mobx-store-provider_ which store you a creating.
 - `factory` - Function where you instantiate and return a mobx-state-tree instance.
+- `storeIdentifier` - _(optional)_ Tells _mobx-store-provider_ which store you a creating.
 
 Example:
 
 ```javascript
 import { createStore, useProvider } from "mobx-store-provider";
 import AppStore from "./AppStore";
-const appStoreId = "appStore";
 
 function App() {
-  const Provider = useProvider(appStoreId);
-  const appStore = createStore(appStoreId, () => AppStore.create());
+  const Provider = useProvider();
+  const appStore = createStore(() => AppStore.create());
   return <Provider value={appStore}>...</Provider>;
 }
 
@@ -160,15 +151,15 @@ export default App;
 ### useStore
 
 ```javascript
-useStore(storeIdentifier: any = null, mapStateToProps: Function = identity): any
+useStore(mapStateToProps: Function = identity, storeIdentifier: any = null): any
 ```
 
 React Hook used to retrieve a `store` for a given `storeIdentifier`.
 
 Parameters:
 
-- `storeIdentifier` - Tells _mobx-store-provider_ which store you want to get access to.
-- `mapStateToProps` - (optional) Function which you can use to select and return specific slices of the store.
+- `mapStateToProps` - _(optional)_ Function which you can use to select and return specific slices of the store.
+- `storeIdentifier` - _(optional)_ Tells _mobx-store-provider_ which store you want to get access to.
 
 Example:
 

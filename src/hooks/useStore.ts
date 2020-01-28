@@ -11,10 +11,12 @@ function identity(thing: any): any {
  * @returns The store instance
  */
 function useStore(
+  mapStateToProps: MapStateToProps | null = null,
   storeIdentifier: any = null,
-  mapStateToProps: MapStateToProps = identity,
 ): any {
-  return retrieveStore(storeIdentifier).useStore(mapStateToProps);
+  return retrieveStore(storeIdentifier).useStore(
+    mapStateToProps === null ? identity : mapStateToProps,
+  );
 }
 
 export default useStore;
