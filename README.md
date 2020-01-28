@@ -292,8 +292,7 @@ describe("UserForm tests", () => {
       value: submit,
     });
     const container = getTestContainer(<UserForm />, mockStore);
-    const button = getByTestId(container, "button");
-    fireEvent.click(button);
+    fireEvent.click(getByTestId(container, "button"));
     expect(submit).toBeCalled();
   });
 });
