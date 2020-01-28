@@ -247,20 +247,62 @@ Testing a React app that uses _mobx-state-tree_ and _mobx-store-provider_ is eas
 Here is an example using [Jest](https://jestjs.io/) and [react-testing-library](https://github.com/testing-library/react-testing-library):
 
 ```javascript
-// MyTests.tests.jsx
+// MyApp.tests.jsx
 import { getByTestId, fireEvent } from "@testing-library/dom";
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-
 import React from "react";
-import { types } from "mobx-state-tree";
+import { useProvider, createStore } from "mobx-store-provider";
+
+import AppStore from "./AppStore";
+import UserDisplay from "./UserDisplay";
+
+describe("My tests", () => {
+  test("When I click the user name label it changes", () => {
+    const userName = "Keanu Reeves";
+    const altUserName = "Neo";
+
+    function TestWrapper() {
+      const Provider = useProvider();
+      const testAppStore = createStore(() =>
+        AppStore.create({ user: userName }),
+      );
+      return (
+        <Provider value={testAppStore}>
+          <UserDisplay />
+        </Provider>
+      );
+    }
+
+    const container = render(<TestWrapper />).container;
+    expect(container).toHaveTextContent(userName);
+    fireEvent.click(getByTestId(container, "label"));
+    expect(container).toHaveTextContent(altUserName);
+  });
+});
+```
+
+```javascript
+// UserDisplay.jsx (Component we want to test)
+import React from "react";
 import { observer } from "mobx-react";
-import {
-  useProvider,
-  createStore,
-  useStore,
-  disposeStore,
-} from "mobx-store-provider";
+import { useStore } from "mobx-store-provider";
+
+function UserDisplay() {
+  const store = useStore();
+  return (
+    <div onClick={() => store.setUser(altUserName)} data-testid="label">
+      {store.user}
+    </div>
+  );
+}
+
+export default observer(UserDisplay);
+```
+
+```javascript
+// AppStore.js (Our main/root mobx-state-tree store/model)
+import { types } from "mobx-state-tree";
 
 const AppStore = types
   .model({
@@ -272,34 +314,5 @@ const AppStore = types
     },
   }));
 
-describe("My tests", () => {
-  test("When I click the user name label it changes", () => {
-    const userName = "Keanu Reeves";
-    const altUserName = "Neo";
-
-    const UserDisplay = observer(() => {
-      const store = useStore();
-      return (
-        <div onClick={() => store.setUser(altUserName)} data-testid="label">
-          {store.user}
-        </div>
-      );
-    });
-
-    function AppComponent() {
-      const Provider = useProvider();
-      const appStore = createStore(() => AppStore.create({ user: userName }));
-      return (
-        <Provider value={appStore}>
-          <UserDisplay />
-        </Provider>
-      );
-    }
-
-    const container = render(<AppComponent />).container;
-    expect(container).toHaveTextContent(userName);
-    fireEvent.click(getByTestId(container, "label"));
-    expect(container).toHaveTextContent(altUserName);
-  });
-});
+export default AppStore;
 ```
