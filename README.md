@@ -228,9 +228,10 @@ import MyPetAnimal from "./MyPetAnimal";
 export const myPetAnimal = "my-pet-animal";
 
 function MyPet() {
-  useEffect(() => disposeStore(myPetAnimal), []);
   const Provider = useProvider(myPetAnimal);
   const myPetAnimalStore = createStore(() => MyPetAnimal.create());
+  useEffect(() => disposeStore(myPetAnimal), []);
+
   return (
     <Provider value={myPetAnimalStore}>
       <>... The rest of the MyPet component ...</>
