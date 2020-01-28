@@ -39,7 +39,7 @@ import { useProvider, createStore } from "mobx-store-provider";
 import AppStore from "./AppStore";
 import MyNameDisplay from "./MyNameDisplay";
 
-// The identifier used for our AppStore (can be anything, any any type)
+// The identifier used for our AppStore (can be anything, and any type)
 export const appStoreId = "app-store";
 
 function App() {
