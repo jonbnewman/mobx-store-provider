@@ -105,7 +105,11 @@ useProvider(storeIdentifier: any = null): Context.Provider
 
 React Hook used to retrieve the React `Context.Provider` for a given `storeIdentifier`. This is a wrapper component you can use to provide your application with the store.
 
+Parameters:
+
 - `storeIdentifier` - Tells _mobx-store-provider_ which store you want the Provider for.
+
+Example:
 
 ```javascript
 import { useProvider } from "mobx-store-provider";
@@ -127,13 +131,17 @@ export default App;
 ### createStore
 
 ```javascript
-createStore(storeIdentifier: any = null, factory: FactoryFunction): any
+createStore(storeIdentifier: any, factory: FactoryFunction): any
 ```
 
 React Hook used to instantiate new mobx-state-tree instances inside of components. It returns the store you instantiate in the `FactoryFunction`.
 
+Parameters:
+
 - `storeIdentifier` - Tells _mobx-store-provider_ which store you a creating.
-- `FactoryFunction` - A function where you instantiate and return a mobx-state-tree instance.
+- `factory` - A function where you instantiate and return a mobx-state-tree instance.
+
+Example:
 
 ```javascript
 import { createStore, useProvider } from "mobx-store-provider";
@@ -157,8 +165,12 @@ useStore(storeIdentifier: any = null, mapStateToProps: Function = identity): any
 
 React Hook used to retrieve a `store` for a given `storeIdentifier`.
 
+Parameters:
+
 - `storeIdentifier` - Tells _mobx-store-provider_ which store you want to get access to.
 - `mapStateToProps` - (optional) Function which you can use to select and return specific slices of the store.
+
+Example:
 
 ```javascript
 // App.jsx (Main App component, we use it to create and provide the store)
