@@ -7,9 +7,16 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Update Node.js and npm"
+          name: "Update npm"
           command: |
-            curl -sSL "https://nodejs.org/dist/v12.14.1/node-v12.14.1.tar.gz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v12.14.1-linux-x64    /bin/node
-            curl https://www.npmjs.com/install.sh | sudo bash
+            npm install npm@latest
+            sudo rm -rf /usr/local/lib/node_modules/npm
+            sudo mv node_modules/npm /usr/local/lib/node_modules/npm
+            sudo chown -R 500:500 /usr/local/lib/node_modules/npm
+      - run:
+          name: "Checking Versions"
+          command: |
+            node --version
+            npm --version
       - run: npm install
       - run: npm run test
