@@ -292,9 +292,9 @@ describe("UserForm tests", () => {
       value: submitSpy,
     });
     const container = getTestContainer(<UserForm />, mockStore);
-    const submit = getByTestId(container, "submit");
-    fireEvent.click(submit);
-    expect(submitSpy).toBeCalled();
+    const button = getByTestId(container, "button");
+    fireEvent.click(button);
+    expect(buttonSpy).toBeCalled();
   });
 });
 ```
@@ -315,7 +315,7 @@ function UserForm() {
         value={store.name}
         onChange={store.changeName}
       />
-      <button type="submit" data-testid="submit">
+      <button type="submit" data-testid="button">
         Submit
       </button>
     </form>
