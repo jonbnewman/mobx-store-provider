@@ -2,8 +2,16 @@ import React, { useContext } from "react";
 
 interface Store {
   Context: any;
-  useStore: Function;
+  useStore: UseStoreFunction;
   dispose: Function;
+}
+
+interface MapStateToPropsFunction {
+  (thing: any): any;
+}
+
+interface UseStoreFunction {
+  (mapStateToProps: MapStateToPropsFunction): any;
 }
 
 const stores = new Map();
@@ -14,7 +22,7 @@ function registerStore(storeIdentifier: any = null): Store {
 
   const store: Store = {
     Context,
-    useStore: (mapStateToProps: Function): any =>
+    useStore: (mapStateToProps: MapStateToPropsFunction): any =>
       mapStateToProps(useContext(Context)),
     dispose: () => stores.delete(storeIdentifier),
   };
@@ -36,4 +44,4 @@ function retrieveStore(storeIdentifier: any = null): Store {
   return stores.get(storeIdentifier);
 }
 
-export { retrieveStore };
+export { retrieveStore, MapStateToPropsFunction };
