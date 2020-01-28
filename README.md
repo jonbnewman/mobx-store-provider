@@ -294,7 +294,7 @@ describe("UserForm tests", () => {
     const container = getTestContainer(<UserForm />, mockStore);
     const button = getByTestId(container, "button");
     fireEvent.click(button);
-    expect(buttonSpy).toBeCalled();
+    expect(submitSpy).toBeCalled();
   });
 });
 ```
