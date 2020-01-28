@@ -4,7 +4,14 @@
 export interface Store {
   Context: any;
   useStore: UseStore;
-  dispose: Function;
+  dispose: DisposeStore;
+}
+
+/**
+ * Function used to dispose a stores references
+ */
+export interface DisposeStore {
+  (): undefined;
 }
 
 /**
