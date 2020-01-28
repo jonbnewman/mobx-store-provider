@@ -244,10 +244,10 @@ export default MyPet;
 
 Testing a React app that uses _mobx-state-tree_ and _mobx-store-provider_ is easy.
 
-Here is an example using [Jest](https://jestjs.io/) and [react-testing-library](https://github.com/testing-library/react-testing-library):
+Here are a few examples using [Jest](https://jestjs.io/) and [react-testing-library](https://github.com/testing-library/react-testing-library):
 
 ```javascript
-// UserDisplay.tests.jsx
+// UserForm.tests.jsx
 import { getByTestId, fireEvent } from "@testing-library/dom";
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
@@ -255,47 +255,74 @@ import React from "react";
 import { useProvider, createStore } from "mobx-store-provider";
 
 import AppStore from "./AppStore";
-import UserDisplay from "./UserDisplay";
+import UserForm from "./UserForm";
 
-const mockState = { user: userName };
-
-function TestWrapper() {
+function getTestContainer(children, mockStore) {
   const Provider = useProvider();
-  const mockAppStore = createStore(() => AppStore.create(mockState));
-  return (
-    <Provider value={mockAppStore}>
-      <UserDisplay />
-    </Provider>
-  );
+  return render(<Provider value={mockStore}>{children}</Provider>).container;
 }
 
-describe("UserDisplay tests", () => {
-  test("When I click the user name label it changes", () => {
-    const userName = "Keanu Reeves";
-    const container = render(<TestWrapper />).container;
-    expect(container).toHaveTextContent(userName);
-    fireEvent.click(getByTestId(container, "label"));
-    expect(container).not.toHaveTextContent(userName);
+describe("UserForm tests", () => {
+  test("The form loads correctly", () => {
+    const mockState = { name: "Superman" };
+    const mockStore = AppStore.create(mockState);
+    const container = getTestContainer(<UserForm />, mockStore);
+    const input = getByTestId(container, "input");
+    expect(input).toHaveValue(mockState.name);
+  });
+
+  test("When the name changes the store gets updated", () => {
+    const mockState = { name: "Superman" };
+    const mockStore = AppStore.create(mockState);
+    const container = getTestContainer(<UserForm />, mockStore);
+    const input = getByTestId(container, "input");
+    expect(input).toHaveValue(mockState.name);
+    const testName = "Spiderman";
+    fireEvent.change(input, {
+      target: { value: testName },
+    });
+    expect(mockStore.name).toBe(testName);
+  });
+
+  test("When I click the button, the form submit action is triggered", () => {
+    const mockState = { name: "Superman" };
+    const mockStore = AppStore.create(mockState);
+    const submitSpy = jest.fn();
+    Object.defineProperty(mockStore, "submit", {
+      value: submitSpy,
+    });
+    const container = getTestContainer(<UserForm />, mockStore);
+    const submit = getByTestId(container, "submit");
+    fireEvent.click(submit);
+    expect(submitSpy).toBeCalled();
   });
 });
 ```
 
 ```javascript
-// UserDisplay.jsx (Component we want to test)
+// UserForm.jsx (The component we want to test)
 import React from "react";
 import { observer } from "mobx-react";
 import { useStore } from "mobx-store-provider";
 
-function UserDisplay() {
+function UserForm() {
   const store = useStore();
   return (
-    <div onClick={() => store.setUser("Neo")} data-testid="label">
-      {store.user}
-    </div>
+    <form onSubmit={store.submit}>
+      <input
+        type="text"
+        data-testid="input"
+        value={store.name}
+        onChange={store.changeName}
+      />
+      <button type="submit" data-testid="submit">
+        Submit
+      </button>
+    </form>
   );
 }
 
-export default observer(UserDisplay);
+export default observer(UserForm);
 ```
 
 ```javascript
@@ -304,11 +331,14 @@ import { types } from "mobx-state-tree";
 
 const AppStore = types
   .model({
-    user: types.string,
+    name: types.optional(types.string, "Batman"),
   })
   .actions(self => ({
-    setUser(user: string) {
-      self.user = user;
+    changeName(event) {
+      self.name = event.target.value;
+    },
+    submit() {
+      console.info(`Submitted: ${self.name}`);
     },
   }));
 

@@ -29,7 +29,9 @@ describe("mobx-store-provider", () => {
       const MyNameDisplay = () => <div>{useStore().name}</div>;
       const TestComponent = () => {
         const Provider = useProvider();
-        const testStore = createStore(() => TestStore.create({ name: firstName }));
+        const testStore = createStore(() =>
+          TestStore.create({ name: firstName }),
+        );
         return (
           <Provider value={testStore}>
             <MyNameDisplay />
@@ -56,7 +58,9 @@ describe("mobx-store-provider", () => {
 
       const TestComponent = () => {
         const Provider = useProvider();
-        const testStore = createStore(() => TestStore.create({ name: firstName }));
+        const testStore = createStore(() =>
+          TestStore.create({ name: firstName }),
+        );
         return (
           <Provider value={testStore}>
             <MyNameDisplay />
@@ -113,10 +117,14 @@ describe("mobx-store-provider", () => {
         return store.name;
       }
 
-      const MyNameDisplay = () => <div>{useStore(storeIdentifier, selectName)}</div>;
+      const MyNameDisplay = () => (
+        <div>{useStore(storeIdentifier, selectName)}</div>
+      );
       const TestComponent = () => {
         const Provider = useProvider(storeIdentifier);
-        const testStore = createStore(() => TestStore.create({ name: firstName }));
+        const testStore = createStore(() =>
+          TestStore.create({ name: firstName }),
+        );
         return (
           <Provider value={testStore}>
             <MyNameDisplay />
