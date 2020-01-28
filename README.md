@@ -247,7 +247,7 @@ Testing a React app that uses _mobx-state-tree_ and _mobx-store-provider_ is eas
 Here is an example using [Jest](https://jestjs.io/) and [react-testing-library](https://github.com/testing-library/react-testing-library):
 
 ```javascript
-// MyApp.tests.jsx
+// UserDisplay.tests.jsx
 import { getByTestId, fireEvent } from "@testing-library/dom";
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
@@ -257,7 +257,7 @@ import { useProvider, createStore } from "mobx-store-provider";
 import AppStore from "./AppStore";
 import UserDisplay from "./UserDisplay";
 
-describe("My tests", () => {
+describe("UserDisplay tests", () => {
   test("When I click the user name label it changes", () => {
     const userName = "Keanu Reeves";
     const altUserName = "Neo";
