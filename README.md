@@ -267,8 +267,9 @@ describe("UserForm tests", () => {
     const mockState = { name: "Superman" };
     const mockStore = AppStore.create(mockState);
     const container = getTestContainer(<UserForm />, mockStore);
-    expect(getByTestId(container, "input")).toHaveValue(mockState.name);
-    expect(getByTestId(container, "button")).toBeTruthy();
+    expect(queryByTestId(container, "input")).toBeInTheDocument();
+    expect(queryByTestId(container, "button")).toBeInTheDocument();
+    expect(getByTestId(container, "button")).toHaveValue(mockState.name);
   });
 
   test("When the name changes the store gets updated", () => {
@@ -292,7 +293,7 @@ describe("UserForm tests", () => {
       value: submit,
     });
     const container = getTestContainer(<UserForm />, mockStore);
-    fireEvent.click(getByTestId(container, "button"));
+    fireEvent.click(queryByTestId(container, "button"));
     expect(submit).toBeCalled();
   });
 });
