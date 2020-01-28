@@ -215,7 +215,7 @@ function Header() {
 
   return (
     <div>
-      User: {name} ({isLoggedIn ? "👍" : "👎"})
+      User: {name} {isLoggedIn ? "👍" : "👎"}
     </div>
   );
 }
