@@ -2,7 +2,7 @@
 
 React Hooks + [mobx-state-tree](http://mobx-state-tree.js.org/)
 
-**A straight-forward API for using [mobx-state-tree](http://mobx-state-tree.js.org/) with functional React components.**
+**A minimalist, straight-forward API for using [mobx-state-tree](http://mobx-state-tree.js.org/) with functional React components.**
 
 ---
 
@@ -39,13 +39,19 @@ import { useProvider, createStore } from "mobx-store-provider";
 import AppStore from "./AppStore";
 import MyNameDisplay from "./MyNameDisplay";
 
+// The identifier used for our AppStore (can be anything, any any type)
 export const appStoreId = "app-store";
 
 function App() {
+  // Get the Provider for our AppStore
   const Provider = useProvider(appStoreId);
+
+  // Create our AppStore instance
   const appStore = createStore(() =>
     AppStore.create(appStoreId, { user: "Jonathan" }),
   );
+
+  // Wrap our application with the Provider passing it the appStore
   return (
     <Provider value={appStore}>
       <UserDisplay />
@@ -61,9 +67,12 @@ export default App;
 import React from "react";
 import { observer } from "mobx-react";
 import { useStore } from "mobx-store-provider";
+
+// Import our appStore identifier
 import { appStoreId } from "./App";
 
 function UserDisplay() {
+  // Get access to the store via the identifier
   const appStore = useStore(appStoreId);
   return <div>{appStore.user}</div>;
 }
