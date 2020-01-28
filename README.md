@@ -169,13 +169,10 @@ import { useProvider, createStore } from "mobx-store-provider";
 import Header from "./Header";
 import AppStore from "./AppStore";
 
-// Export our appStore identifier so other components can use it
-export const appStoreId = "app-store";
-
 function App() {
-  const Provider = useProvider(appStoreId);
+  const Provider = useProvider();
   return (
-    <Provider value={createStore(appStoreId, () => AppStore.create())}>
+    <Provider value={createStore(() => AppStore.create())}>
       <Header />
     </Provider>
   );
@@ -189,17 +186,14 @@ export default App;
 import { observer } from "mobx-react";
 import { useStore } from "mobx-store-provider";
 
-// We import the store identifier from above
-import { appStoreId } from "./App";
-
 // A selector we use to grab the user from the store
 function selectUser(store) {
   return store.user;
 }
 
 function Header() {
-  // We use the appStore in this component
-  const user = useStore(appStoreId, selectUser);
+  // We use the store in this component
+  const user = useStore(selectUser);
   return <div>User: {user}</div>;
 }
 
