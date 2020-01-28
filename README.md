@@ -166,14 +166,24 @@ Example:
 ```javascript
 // App.jsx (Main App component, we use it to create and provide the store)
 import React from "react";
+import { types } from "mobx-state-tree";
 import { useProvider, createStore } from "mobx-store-provider";
 import Header from "./Header";
-import AppStore from "./AppStore";
+
+const User = types.model({
+  name: "Batman",
+  isLoggedIn: false,
+});
+
+const AppStore = types.model({
+  user: User,
+});
 
 function App() {
   const Provider = useProvider();
+  const appStore = createStore(() => AppStore.create());
   return (
-    <Provider value={createStore(() => AppStore.create())}>
+    <Provider value={appStore}>
       <Header />
     </Provider>
   );
@@ -188,15 +198,26 @@ import React from "react";
 import { observer } from "mobx-react";
 import { useStore } from "mobx-store-provider";
 
-// A selector we use to grab the user from the store
-function selectUser(store) {
-  return store.user;
+function selectUserName(store) {
+  return store.user.name;
+}
+
+function selectedLoginStatus(store) {
+  return store.user.isLoggedIn;
 }
 
 function Header() {
   // We use the store in this component
-  const user = useStore(selectUser);
-  return <div>User: {user}</div>;
+  const { name, isLoggedIn } = useStore(store => {
+    name: selectUserName(store);
+    isLoggedIn: selectedLoginStatus(store);
+  });
+
+  return (
+    <div>
+      User: {name} ({isLoggedIn ? "👍" : "👎"})
+    </div>
+  );
 }
 
 export default observer(Header);
