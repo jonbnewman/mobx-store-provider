@@ -102,6 +102,7 @@ Parameters:
 Example:
 
 ```javascript
+import React from "react";
 import { useProvider } from "mobx-store-provider";
 import AppStore from "./AppStore";
 const appStore = AppStore.create();
@@ -134,6 +135,7 @@ Parameters:
 Example:
 
 ```javascript
+import React from "react";
 import { createStore, useProvider } from "mobx-store-provider";
 import AppStore from "./AppStore";
 
@@ -163,6 +165,7 @@ Example:
 
 ```javascript
 // App.jsx (Main App component, we use it to create and provide the store)
+import React from "react";
 import { useProvider, createStore } from "mobx-store-provider";
 import Header from "./Header";
 import AppStore from "./AppStore";
@@ -181,6 +184,7 @@ export default App;
 
 ```javascript
 // Header.jsx (A component, we use the store inside)
+import React from "react";
 import { observer } from "mobx-react";
 import { useStore } from "mobx-store-provider";
 
