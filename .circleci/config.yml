@@ -6,7 +6,15 @@ jobs:
       - image: circleci/node:7.10
     steps:
       - checkout
-      - run: sudo npm i -g npm
+      - run:
+        name: "Upgrade NPM"
+        command: |
+          mkdir /root/.nvm \
+            && curl https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.2/install.sh | bash \
+            && . /root/.nvm/nvm.sh \
+            && nvm install 13.5.0 \
+            && nvm alias default 13.5.0 \
+            && nvm use default
       - run:
           name: "Checking Versions"
           command: |
