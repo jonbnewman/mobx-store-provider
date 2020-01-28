@@ -202,7 +202,7 @@ function selectUserName(store) {
   return store.user.name;
 }
 
-function selectedLoginStatus(store) {
+function selectLoginStatus(store) {
   return store.user.isLoggedIn;
 }
 
@@ -210,7 +210,7 @@ function Header() {
   // We use the store in this component
   const { name, isLoggedIn } = useStore(store => {
     name: selectUserName(store);
-    isLoggedIn: selectedLoginStatus(store);
+    isLoggedIn: selectLoginStatus(store);
   });
 
   return (
