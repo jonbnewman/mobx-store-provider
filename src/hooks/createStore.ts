@@ -20,14 +20,8 @@ function createStore(
   storeFactory: StoreFactory,
   storeIdentifier: any = null,
 ): any {
-  const storeRef = useRef(null);
-
-  if (!storeRef.current) {
-    storeRef.current = storeFactory();
-  }
-
   useEffect(storeDisposal(storeIdentifier), []);
-
+  const storeRef = useRef(storeFactory());
   return storeRef.current;
 }
 
