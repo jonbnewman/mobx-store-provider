@@ -1,1 +1,1 @@
-service name: circleci
+service_name: circleci
