@@ -3,6 +3,7 @@ export interface Store {
   useStore: UseStore;
   dispose: Function;
 }
+
 export interface UseStore {
   (mapStateToProps: MapStateToProps): any;
 }
