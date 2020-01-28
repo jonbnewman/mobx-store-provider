@@ -287,14 +287,14 @@ describe("UserForm tests", () => {
   test("When I click the button, the form submit action is triggered", () => {
     const mockState = { name: "Superman" };
     const mockStore = AppStore.create(mockState);
-    const submitSpy = jest.fn();
+    const submit = jest.fn();
     Object.defineProperty(mockStore, "submit", {
-      value: submitSpy,
+      value: submit,
     });
     const container = getTestContainer(<UserForm />, mockStore);
     const button = getByTestId(container, "button");
     fireEvent.click(button);
-    expect(submitSpy).toBeCalled();
+    expect(submit).toBeCalled();
   });
 });
 ```
