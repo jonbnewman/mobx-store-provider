@@ -230,8 +230,9 @@ export const myPetAnimal = "my-pet-animal";
 function MyPet() {
   useEffect(() => disposeStore(myPetAnimal), []);
   const Provider = useProvider(myPetAnimal);
+  const myPetAnimalStore = createStore(() => MyPetAnimal.create());
   return (
-    <Provider value={createStore(() => MyPetAnimal.create())}>
+    <Provider value={myPetAnimalStore}>
       <>... The rest of the MyPet component ...</>
     </Provider>
   );
@@ -239,6 +240,8 @@ function MyPet() {
 
 export default MyPet;
 ```
+
+**TIP:** It's good practice to setup proper disposal everytime you `createStore` in a component.
 
 ## Testing
 
