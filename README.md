@@ -15,7 +15,6 @@ React Hooks + [mobx-state-tree](http://mobx-state-tree.js.org/)
    - [useProvider](#useprovider) - Provide your components with a store
    - [createStore](#createstore) - Create a new store inside a component
    - [useStore](#usestore) - Use a store in a component
-   - [disposeStore](#disposestore) - Cleanup when a store and Provider are not needed
 
 1. [Testing](#testing)
 
@@ -91,10 +90,6 @@ export default AppStore;
 - [useStore](#usestore)
 
   React Hook used to retrieve a `store`.
-
-- [disposeStore](#disposestore)
-
-  Used to cleanup the store reference.
 
 ### useProvider
 
@@ -201,45 +196,6 @@ function Header() {
 }
 
 export default observer(Header);
-```
-
-### disposeStore
-
-```javascript
-disposeStore(storeIdentifier: any = null): undefined
-```
-
-Used to cleanup the store reference.
-
-You might encounter this scenario if you created a store for a specific component (ie: not a long-lived root store/etc), and that component is removed from the DOM.
-
-In that case you need to call `disposeStore(storeIdentifier)` so that the store references can be fully released and garbage collected.
-
-```javascript
-// MyPet component, it has its own local store, and it is assumed it will
-// be removed from the DOM at some point. So we have to worry about disposal.
-import React, { useEffect } from "react";
-import { useProvider, createStore, disposeStore } from "mobx-store-provider";
-
-// We import the mobx-state-tree store/model used in the component
-import MyPetAnimal from "./MyPetAnimal";
-
-// Create and export the identifier for our store
-export const myPetAnimal = "my-pet-animal";
-
-function MyPet() {
-  const Provider = useProvider(myPetAnimal);
-  const myPetAnimalStore = createStore(() => MyPetAnimal.create());
-  useEffect(() => disposeStore(myPetAnimal), []);
-
-  return (
-    <Provider value={myPetAnimalStore}>
-      <>... The rest of the MyPet component ...</>
-    </Provider>
-  );
-}
-
-export default MyPet;
 ```
 
 **TIP:** It's good practice to setup proper disposal everytime you `createStore` in a component.

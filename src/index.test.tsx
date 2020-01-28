@@ -108,12 +108,9 @@ describe("mobx-store-provider", () => {
 
       name = "first";
       makeContainer(<TestComponent />);
-
       cleanup();
-
       name = "second";
       makeContainer(<TestComponent />);
-
       cleanup();
 
       expect(stores.get("first")).not.toBe(stores.get("second"));
