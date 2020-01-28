@@ -3,14 +3,6 @@ import { retrieveStore } from "../stores";
 import { StoreFactory } from "../types";
 
 /**
- * useEffect callback which disposes of the store when it is removed from the DOM
- * @param storeIdentifier The identifier supplied by the consumer
- */
-function storeDisposal(storeIdentifier: any = null) {
-  return () => () => retrieveStore(storeIdentifier).dispose();
-}
-
-/**
  * React Hook used to instantiate a new store from within a component.
  * @param storeFactory Callback used to create and return a store
  * @param storeIdentifier The identifier used for the store (optional)
@@ -20,7 +12,7 @@ function createStore(
   storeFactory: StoreFactory,
   storeIdentifier: any = null,
 ): any {
-  useEffect(storeDisposal(storeIdentifier), []);
+  useEffect(() => () => retrieveStore(storeIdentifier).dispose(), []);
   const storeRef = useRef(storeFactory());
   return storeRef.current;
 }
