@@ -7,20 +7,15 @@ const stores = new Map();
  * Register/initialize a store in the internal `stores` Map.
  * @param storeIdentifier The identifier supplied by the consumer
  */
-function registerStore(storeIdentifier: any): Store {
+function registerStore(storeIdentifier: any) {
   const Context = React.createContext(null);
   Context.displayName = String(storeIdentifier);
-
-  const store: Store = {
+  stores.set(storeIdentifier, {
     Context,
     useStore: (mapStateToProps: MapStateToProps): any =>
       mapStateToProps(useContext(Context)),
     dispose: () => stores.delete(storeIdentifier),
-  };
-
-  stores.set(storeIdentifier, store);
-
-  return store;
+  });
 }
 
 /**
