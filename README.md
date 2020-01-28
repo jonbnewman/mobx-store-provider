@@ -139,7 +139,7 @@ React Hook used to instantiate new mobx-state-tree instances inside of component
 Parameters:
 
 - `storeIdentifier` - Tells _mobx-store-provider_ which store you a creating.
-- `factory` - A function where you instantiate and return a mobx-state-tree instance.
+- `factory` - Function where you instantiate and return a mobx-state-tree instance.
 
 Example:
 
