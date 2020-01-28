@@ -8,10 +8,6 @@ interface Store {
 
 const stores = new Map();
 
-function identity(thing: any): any {
-  return thing;
-}
-
 /**
  * Creates and/or retrieves the `store` from the internal `stores` Map.
  * @param storeIdentifier The identifier supplied by the consumer
@@ -23,7 +19,7 @@ function retrieveStore(storeIdentifier: any = null): Store {
     Context.displayName = String(storeIdentifier);
     stores.set(storeIdentifier, {
       Context,
-      useStore: (mapStateToProps: Function = identity): any =>
+      useStore: (mapStateToProps: Function): any =>
         mapStateToProps(useContext(Context)),
       dispose: () => stores.delete(storeIdentifier),
     });
@@ -31,4 +27,4 @@ function retrieveStore(storeIdentifier: any = null): Store {
   return stores.get(storeIdentifier);
 }
 
-export { retrieveStore, identity };
+export { retrieveStore };

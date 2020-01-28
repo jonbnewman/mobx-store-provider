@@ -1,4 +1,8 @@
-import { retrieveStore, identity } from "../stores";
+import { retrieveStore } from "../stores";
+
+function identity(thing: any): any {
+  return thing;
+}
 
 /**
  * React Hook which retrieves the `store` for a given `storeIdentifier`.
