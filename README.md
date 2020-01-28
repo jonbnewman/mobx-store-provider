@@ -257,27 +257,25 @@ import { useProvider, createStore } from "mobx-store-provider";
 import AppStore from "./AppStore";
 import UserDisplay from "./UserDisplay";
 
+const mockState = { user: userName };
+
+function TestWrapper() {
+  const Provider = useProvider();
+  const mockAppStore = createStore(() => AppStore.create(mockState));
+  return (
+    <Provider value={mockAppStore}>
+      <UserDisplay />
+    </Provider>
+  );
+}
+
 describe("UserDisplay tests", () => {
   test("When I click the user name label it changes", () => {
     const userName = "Keanu Reeves";
-    const altUserName = "Neo";
-
-    function TestWrapper() {
-      const Provider = useProvider();
-      const testAppStore = createStore(() =>
-        AppStore.create({ user: userName }),
-      );
-      return (
-        <Provider value={testAppStore}>
-          <UserDisplay />
-        </Provider>
-      );
-    }
-
     const container = render(<TestWrapper />).container;
     expect(container).toHaveTextContent(userName);
     fireEvent.click(getByTestId(container, "label"));
-    expect(container).toHaveTextContent(altUserName);
+    expect(container).not.toHaveTextContent(userName);
   });
 });
 ```
@@ -291,7 +289,7 @@ import { useStore } from "mobx-store-provider";
 function UserDisplay() {
   const store = useStore();
   return (
-    <div onClick={() => store.setUser(altUserName)} data-testid="label">
+    <div onClick={() => store.setUser("Neo")} data-testid="label">
       {store.user}
     </div>
   );
