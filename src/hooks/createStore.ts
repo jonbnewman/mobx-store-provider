@@ -5,12 +5,20 @@ function storeDisposal(storeIdentifier: any = null) {
   return () => retrieveStore(storeIdentifier).dispose();
 }
 
+interface StoreFactory {
+  (...args: any[]): any;
+}
+
 /**
  * React Hook used to instantiate a new store from within a component.
  * @param storeFactory Callback used to create and return a store
+ * @param storeIdentifier The identifier used for the store (optional)
  * @returns The instance created by the `storeFactory` function
  */
-function createStore(storeIdentifier: any = null, storeFactory: Function): any {
+function createStore(
+  storeFactory: StoreFactory,
+  storeIdentifier: any = null,
+): any {
   const storeRef = useRef(null);
 
   if (!storeRef.current) {

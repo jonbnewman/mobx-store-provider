@@ -1,4 +1,4 @@
-import { retrieveStore, MapStateToPropsFunction } from "../stores";
+import { retrieveStore, MapStateToProps } from "../stores";
 
 function identity(thing: any): any {
   return thing;
@@ -12,7 +12,7 @@ function identity(thing: any): any {
  */
 function useStore(
   storeIdentifier: any = null,
-  mapStateToProps: MapStateToPropsFunction = identity,
+  mapStateToProps: MapStateToProps = identity,
 ): any {
   return retrieveStore(storeIdentifier).useStore(mapStateToProps);
 }

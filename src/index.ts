@@ -1,6 +1,4 @@
-import createStore from "./hooks/createStore";
 import useProvider from "./hooks/useProvider";
+import createStore from "./hooks/createStore";
 import useStore from "./hooks/useStore";
-import disposeStore from "./hooks/disposeStore";
-
-export { createStore, useProvider, useStore, disposeStore };
+export { useProvider, createStore, useStore };
