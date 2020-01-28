@@ -275,12 +275,12 @@ const AppStore = types
 describe("My tests", () => {
   test("When I click the user name label it changes", () => {
     const userName = "Keanu Reeves";
-    const altUsername = "Neo";
+    const altUserName = "Neo";
 
     const UserDisplay = observer(() => {
       const store = useStore();
       return (
-        <div onClick={() => store.setUser(altUsername)} data-testid="label">
+        <div onClick={() => store.setUser(altUserName)} data-testid="label">
           {store.user}
         </div>
       );
@@ -299,21 +299,7 @@ describe("My tests", () => {
     const container = render(<AppComponent />).container;
     expect(container).toHaveTextContent(userName);
     fireEvent.click(getByTestId(container, "label"));
-    expect(container).toHaveTextContent(altUsername);
-  });
-
-  /**
-   * This is not part of mobx-store-provider but as an aside, you could also
-   * test a store separate from React like this:
-   */
-  test("When I trigger the setUser action the user changes", () => {
-    const userName = "Keanu Reeves";
-    const altUsername = "Neo";
-
-    const store = AppStore.create({ user: userName });
-    expect(store.user).toBe(userName);
-    store.setUser(altUsername);
-    expect(store.user).toBe(altUsername);
+    expect(container).toHaveTextContent(altUserName);
   });
 });
 ```
