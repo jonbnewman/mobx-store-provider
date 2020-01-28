@@ -8,21 +8,30 @@ interface Store {
 
 const stores = new Map();
 
+function registerStore(storeIdentifier: any = null): Store {
+  const Context = React.createContext(null);
+  Context.displayName = String(storeIdentifier);
+
+  const store: Store = {
+    Context,
+    useStore: (mapStateToProps: Function): any =>
+      mapStateToProps(useContext(Context)),
+    dispose: () => stores.delete(storeIdentifier),
+  };
+
+  stores.set(storeIdentifier, store);
+
+  return store;
+}
+
 /**
- * Creates and/or retrieves the `store` from the internal `stores` Map.
+ * Register and/or retrieve a `store` from the internal `stores` Map.
  * @param storeIdentifier The identifier supplied by the consumer
  * @returns Store
  */
 function retrieveStore(storeIdentifier: any = null): Store {
   if (!stores.has(storeIdentifier)) {
-    const Context = React.createContext(null);
-    Context.displayName = String(storeIdentifier);
-    stores.set(storeIdentifier, {
-      Context,
-      useStore: (mapStateToProps: Function): any =>
-        mapStateToProps(useContext(Context)),
-      dispose: () => stores.delete(storeIdentifier),
-    });
+    registerStore(storeIdentifier);
   }
   return stores.get(storeIdentifier);
 }
