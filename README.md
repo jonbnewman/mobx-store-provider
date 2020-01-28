@@ -208,10 +208,10 @@ function selectLoginStatus(store) {
 
 function Header() {
   // We use the store in this component
-  const { name, isLoggedIn } = useStore(store => {
+  const { name, isLoggedIn } = useStore(store => ({
     name: selectUserName(store);
     isLoggedIn: selectLoginStatus(store);
-  });
+  }));
 
   return (
     <div>
