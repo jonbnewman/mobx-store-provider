@@ -107,7 +107,7 @@ React Hook used to retrieve the React `Context.Provider` for a given `storeIdent
 
 This is a wrapper component you can use to provide your application with the store.
 
-The `storeIdentifier` tells _mobx-store-provider_ which store you want the Provider for (each store gets it's own). If omitted, the default identifier is `null`.
+The `storeIdentifier` tells _mobx-store-provider_ which store you want the Provider for (each store gets it's own).
 
 ```javascript
 import { useProvider } from "mobx-store-provider";
@@ -136,7 +136,7 @@ React Hook used to instantiate new mobx-state-tree instances inside of component
 
 It takes a factory `FactoryFunction` as its input, which is a function where you instantiate and return a mobx-state-tree instance.
 
-The `storeIdentifier` tells _mobx-store-provider_ which store you a creating. If omitted, the default identifier is `null`.
+The `storeIdentifier` tells _mobx-store-provider_ which store you a creating.
 
 ```javascript
 import { createStore, useProvider } from "mobx-store-provider";
@@ -160,7 +160,7 @@ useStore(storeIdentifier: any = null, mapStateToProps: Function = identity): any
 
 React Hook used to retrieve a `store` for a given `storeIdentifier`.
 
-The `storeIdentifier` tells _mobx-store-provider_ which store you want to get access to. The default identifier is `null`.
+The `storeIdentifier` tells _mobx-store-provider_ which store you want to get access to.
 
 You can optionally pass it a `mapStateToProps` function which you can use to select and return specific slices of the store into your components with. In the absense of a `mapStateToProps` callback, it will return the store instance.
 
