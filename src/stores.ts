@@ -1,22 +1,9 @@
 import React, { useContext } from "react";
-
-interface Store {
-  Context: any;
-  useStore: UseStore;
-  dispose: Function;
-}
-
-interface MapStateToProps {
-  (thing: any): any;
-}
-
-interface UseStore {
-  (mapStateToProps: MapStateToProps): any;
-}
+import { MapStateToProps, Store } from "./types";
 
 const stores = new Map();
 
-function registerStore(storeIdentifier: any = null): Store {
+function registerStore(storeIdentifier: any): Store {
   const Context = React.createContext(null);
   Context.displayName = String(storeIdentifier);
 
@@ -44,4 +31,4 @@ function retrieveStore(storeIdentifier: any = null): Store {
   return stores.get(storeIdentifier);
 }
 
-export { retrieveStore, MapStateToProps };
+export { retrieveStore };

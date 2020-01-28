@@ -1,9 +1,6 @@
 import { useRef, useEffect } from "react";
 import { retrieveStore } from "../stores";
-
-interface StoreFactory {
-  (...args: any[]): any;
-}
+import { StoreFactory } from "../types";
 
 function storeDisposal(storeIdentifier: any = null) {
   return () => () => retrieveStore(storeIdentifier).dispose();

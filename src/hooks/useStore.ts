@@ -1,4 +1,5 @@
-import { retrieveStore, MapStateToProps } from "../stores";
+import { retrieveStore } from "../stores";
+import { MapStateToProps } from "../types";
 
 function identity(thing: any): any {
   return thing;
