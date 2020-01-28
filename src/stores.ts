@@ -3,6 +3,10 @@ import { MapStateToProps, Store } from "./types";
 
 const stores = new Map();
 
+/**
+ * Register/initialize a store in the internal `stores` Map.
+ * @param storeIdentifier The identifier supplied by the consumer
+ */
 function registerStore(storeIdentifier: any): Store {
   const Context = React.createContext(null);
   Context.displayName = String(storeIdentifier);
