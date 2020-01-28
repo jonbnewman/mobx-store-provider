@@ -238,7 +238,7 @@ import { getByTestId, fireEvent } from "@testing-library/dom";
 import { render } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 import React from "react";
-import { useProvider, createStore } from "mobx-store-provider";
+import { useProvider } from "mobx-store-provider";
 
 import AppStore from "./AppStore";
 import UserForm from "./UserForm";
