@@ -16,8 +16,8 @@ function storeDisposal(storeIdentifier: any = null) {
  * @returns The instance created by the `storeFactory` function
  */
 function createStore(
-  storeFactory: StoreFactory,
   storeIdentifier: any = null,
+  storeFactory: StoreFactory,
 ): any {
   const storeRef = useRef(null);
 

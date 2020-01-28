@@ -39,9 +39,13 @@ import { useProvider, createStore } from "mobx-store-provider";
 import AppStore from "./AppStore";
 import MyNameDisplay from "./MyNameDisplay";
 
+export const appStoreId = "app-store";
+
 function App() {
-  const Provider = useProvider();
-  const appStore = createStore(() => AppStore.create({ user: "Jonathan" }));
+  const Provider = useProvider(appStoreId);
+  const appStore = createStore(() =>
+    AppStore.create(appStoreId, { user: "Jonathan" }),
+  );
   return (
     <Provider value={appStore}>
       <UserDisplay />
@@ -57,9 +61,10 @@ export default App;
 import React from "react";
 import { observer } from "mobx-react";
 import { useStore } from "mobx-store-provider";
+import { appStoreId } from "./App";
 
 function UserDisplay() {
-  const appStore = useStore();
+  const appStore = useStore(appStoreId);
   return <div>{appStore.user}</div>;
 }
 
@@ -115,7 +120,7 @@ export default App;
 ### createStore
 
 ```javascript
-createStore(factory: FactoryFunction, storeIdentifier: any = null): any
+createStore(storeIdentifier: any = null, factory: FactoryFunction): any
 ```
 
 React Hook used to instantiate new mobx-state-tree instances inside of components. It returns the store you instantiate in the `FactoryFunction`.
@@ -127,10 +132,11 @@ The `storeIdentifier` tells _mobx-store-provider_ which store you a creating. If
 ```javascript
 import { createStore, useProvider } from "mobx-store-provider";
 import AppStore from "./AppStore";
+const appStoreId = "appStore";
 
 function App() {
-  const Provider = useProvider();
-  const appStore = createStore(() => AppStore.create());
+  const Provider = useProvider(appStoreId);
+  const appStore = createStore(appStoreId, () => AppStore.create());
   return <Provider value={appStore}>...</Provider>;
 }
 
@@ -156,12 +162,12 @@ import Header from "./Header";
 import AppStore from "./AppStore";
 
 // Export our appStore identifier so other components can use it
-export const appStore = "app-store";
+export const appStoreId = "app-store";
 
 function App() {
-  const Provider = useProvider(appStore);
+  const Provider = useProvider(appStoreId);
   return (
-    <Provider value={createStore(() => AppStore.create())}>
+    <Provider value={createStore(appStoreId, () => AppStore.create())}>
       <Header />
     </Provider>
   );
@@ -176,7 +182,7 @@ import { observer } from "mobx-react";
 import { useStore } from "mobx-store-provider";
 
 // We import the store identifier from above
-import { appStore } from "./App";
+import { appStoreId } from "./App";
 
 // A selector we use to grab the user from the store
 function selectUser(store) {
@@ -185,14 +191,12 @@ function selectUser(store) {
 
 function Header() {
   // We use the appStore in this component
-  const user = useStore(appStore, selectUser);
+  const user = useStore(appStoreId, selectUser);
   return <div>User: {user}</div>;
 }
 
 export default observer(Header);
 ```
-
-**TIP:** It's good practice to setup proper disposal everytime you `createStore` in a component.
 
 ## Testing
 
