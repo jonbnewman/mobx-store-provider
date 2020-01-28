@@ -1,10 +1,10 @@
 # mobx-store-provider
 
+[![Coverage Status](https://coveralls.io/repos/github/jonbnewman/mobx-store-provider/badge.svg?branch=master)](https://coveralls.io/github/jonbnewman/mobx-store-provider?branch=master)
+
 React Hooks + [mobx-state-tree](http://mobx-state-tree.js.org/)
 
 **A minimalist, straight-forward API for using [mobx-state-tree](http://mobx-state-tree.js.org/) with functional React components.**
-
-[![Coverage Status](https://coveralls.io/repos/github/jonbnewman/mobx-store-provider/badge.svg?branch=master)](https://coveralls.io/github/jonbnewman/mobx-store-provider?branch=master)
 
 1. [Installation](#installation)
 
