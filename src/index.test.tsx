@@ -2,10 +2,10 @@ import React from "react";
 import { types } from "mobx-state-tree";
 import { observer } from "mobx-react";
 import { getByTestId, fireEvent } from "@testing-library/dom";
-import { render } from "@testing-library/react";
+import { render, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
-import { useProvider, createStore, useStore, disposeStore } from "./index";
+import { useProvider, createStore, useStore } from "./index";
 
 const TestStore = types
   .model({
@@ -90,12 +90,33 @@ describe("mobx-store-provider", () => {
       expect(DefaultProvider).not.toBe(DifferentProvider);
     });
 
-    test("can dispose a store and receive a different Provider for the same identifier", () => {
-      const storeIdentifier = "my-destructable-store";
-      const FirstProvider = useProvider(storeIdentifier);
-      disposeStore(storeIdentifier);
-      const SecondProvider = useProvider(storeIdentifier);
-      expect(FirstProvider).not.toBe(SecondProvider);
+    test("can dispose a store and receive a different store for the same identifier", () => {
+      const stores = new Map();
+      let name: string;
+
+      const MyNameDisplay = () => <div>{useStore().name}</div>;
+      const TestComponent = () => {
+        const Provider = useProvider();
+        const testStore = createStore(() => TestStore.create({ name }));
+        stores.set(name, testStore);
+        return (
+          <Provider value={testStore}>
+            <MyNameDisplay />
+          </Provider>
+        );
+      };
+
+      name = "first";
+      makeContainer(<TestComponent />);
+
+      cleanup();
+
+      name = "second";
+      makeContainer(<TestComponent />);
+
+      cleanup();
+
+      expect(stores.get("first")).not.toBe(stores.get("second"));
     });
 
     test("can use a function as an identifier for a store", () => {

@@ -1,12 +1,12 @@
 import { useRef, useEffect } from "react";
 import { retrieveStore } from "../stores";
 
-function storeDisposal(storeIdentifier: any = null) {
-  return () => retrieveStore(storeIdentifier).dispose();
-}
-
 interface StoreFactory {
   (...args: any[]): any;
+}
+
+function storeDisposal(storeIdentifier: any = null) {
+  return () => () => retrieveStore(storeIdentifier).dispose();
 }
 
 /**
