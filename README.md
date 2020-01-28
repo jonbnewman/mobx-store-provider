@@ -244,7 +244,7 @@ export default MyPet;
 
 Testing a React app that uses _mobx-state-tree_ and _mobx-store-provider_ is easy.
 
-Here are a couple examples, using [Jest](https://jestjs.io/) and [react-testing-library](https://github.com/testing-library/react-testing-library):
+Here is an example using [Jest](https://jestjs.io/) and [react-testing-library](https://github.com/testing-library/react-testing-library):
 
 ```javascript
 // MyTests.tests.jsx
