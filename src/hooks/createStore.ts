@@ -13,8 +13,7 @@ function createStore(
   storeIdentifier: any = null,
 ): any {
   useEffect(() => () => retrieveStore(storeIdentifier).dispose(), []);
-  const storeRef = useRef(storeFactory());
-  return storeRef.current;
+  return useRef(storeFactory()).current;
 }
 
 export default createStore;
