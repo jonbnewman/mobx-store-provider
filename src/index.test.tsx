@@ -24,7 +24,58 @@ function makeContainer(contents: any) {
 describe("mobx-store-provider", () => {
   afterEach(cleanup);
 
-  describe("smoke tests", () => {
+  describe("identifiers", () => {
+    test("can be used as store identifiers", () => {
+      const storeIdentifier = Symbol("identifier");
+      const FirstProvider = useProvider(storeIdentifier);
+      const SecondProvider = useProvider(storeIdentifier);
+      expect(FirstProvider).toBe(SecondProvider);
+
+      const DifferentProvider = useProvider("something else");
+      expect(DifferentProvider).not.toBe(FirstProvider);
+
+      const DefaultProvider = useProvider();
+      expect(DefaultProvider).not.toBe(FirstProvider);
+      expect(DefaultProvider).not.toBe(DifferentProvider);
+    });
+
+    test("can dispose a store and receive a different store for the same identifier", () => {
+      const stores = new Map();
+      let name: string;
+
+      const MyNameDisplay = () => <div>{useStore().name}</div>;
+      const TestComponent = () => {
+        const Provider = useProvider();
+        const testStore = createStore(() => TestStore.create({ name }));
+        stores.set(name, testStore);
+        return (
+          <Provider value={testStore}>
+            <MyNameDisplay />
+          </Provider>
+        );
+      };
+
+      name = "first";
+      makeContainer(<TestComponent />);
+      cleanup();
+      name = "second";
+      makeContainer(<TestComponent />);
+      cleanup();
+
+      expect(stores.get("first")).not.toBe(stores.get("second"));
+    });
+
+    test("can use a function as an identifier for a store", () => {
+      const storeIdentifier = function() {
+        throw "You will never see this. Wait, did you just read that?";
+      };
+      const FirstProvider = useProvider(storeIdentifier);
+      const SecondProvider = useProvider(storeIdentifier);
+      expect(FirstProvider).toBe(SecondProvider);
+    });
+  });
+
+  describe("integration tests", () => {
     test("can provide a created store using useProvider, createStore, and useStore", () => {
       const firstName = "Jonathan";
 
@@ -74,57 +125,6 @@ describe("mobx-store-provider", () => {
       expect(container).toHaveTextContent(firstName);
       fireEvent.click(getByTestId(container, "name"));
       expect(container).toHaveTextContent(lastName);
-    });
-  });
-
-  describe("identifiers", () => {
-    test("can retrieve the same store Provider with an identifier", () => {
-      const storeIdentifier = Symbol("identifier");
-      const FirstProvider = useProvider(storeIdentifier);
-      const SecondProvider = useProvider(storeIdentifier);
-      expect(FirstProvider).toBe(SecondProvider);
-
-      const DifferentProvider = useProvider("something else");
-      expect(DifferentProvider).not.toBe(FirstProvider);
-
-      const DefaultProvider = useProvider();
-      expect(DefaultProvider).not.toBe(FirstProvider);
-      expect(DefaultProvider).not.toBe(DifferentProvider);
-    });
-
-    test("can dispose a store and receive a different store for the same identifier", () => {
-      const stores = new Map();
-      let name: string;
-
-      const MyNameDisplay = () => <div>{useStore().name}</div>;
-      const TestComponent = () => {
-        const Provider = useProvider();
-        const testStore = createStore(() => TestStore.create({ name }));
-        stores.set(name, testStore);
-        return (
-          <Provider value={testStore}>
-            <MyNameDisplay />
-          </Provider>
-        );
-      };
-
-      name = "first";
-      makeContainer(<TestComponent />);
-      cleanup();
-      name = "second";
-      makeContainer(<TestComponent />);
-      cleanup();
-
-      expect(stores.get("first")).not.toBe(stores.get("second"));
-    });
-
-    test("can use a function as an identifier for a store", () => {
-      const storeIdentifier = function() {
-        throw "You will never see this. Wait, did you just read that?";
-      };
-      const FirstProvider = useProvider(storeIdentifier);
-      const SecondProvider = useProvider(storeIdentifier);
-      expect(FirstProvider).toBe(SecondProvider);
     });
   });
 
