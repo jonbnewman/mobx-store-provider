@@ -70,7 +70,7 @@ function UserDisplay() {
   return <div>{appStore.user}</div>;
 }
 
-// Wrap it with mobx-react observer(), so it renders updates
+// Wrap it with mobx-react observer(), so updates get rendered
 export default observer(UserDisplay);
 ```
 
@@ -84,6 +84,10 @@ const AppStore = types.model({
 
 export default AppStore;
 ```
+
+_mobx-store-provider_ lets you setup and access your [mobx-state-tree](http://mobx-state-tree.js.org/) models from within functional (hooks-based) React components.
+
+Functionally, it supplies your application mobx observables...and so it integrates seemlessly with standard mobx libraries, such as [mobx-react](https://github.com/mobxjs/mobx-react) used in the example above.
 
 ## API Details and Examples
 
