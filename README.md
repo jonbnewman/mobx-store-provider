@@ -87,7 +87,7 @@ export default AppStore;
 
 _mobx-store-provider_ lets you setup and access your [mobx-state-tree](http://mobx-state-tree.js.org/) models (referred to as `stores` in this context) from within functional (hooks-based) React components.
 
-It supplies your application with standard mobx observables (mobx-state-tree model instances are themselves observables)...and so it integrates seemlessly with all standard [mobx](https://mobx.js.org) and mobx-compatible libraries, such as [mobx-react](https://github.com/mobxjs/mobx-react) (used in the example above).
+It supplies your application with standard [mobx](https://mobx.js.org) observables (mobx-state-tree model instances are themselves observables)...and so it integrates seemlessly with all standard [mobx](https://mobx.js.org) and mobx-compatible libraries, such as [mobx-react](https://github.com/mobxjs/mobx-react) (used in the example above).
 
 ## API Details and Examples
 
