@@ -70,6 +70,7 @@ function UserDisplay() {
   return <div>{appStore.user}</div>;
 }
 
+// Wrap it with mobx-react observer(), so it renders updates
 export default observer(UserDisplay);
 ```
 
