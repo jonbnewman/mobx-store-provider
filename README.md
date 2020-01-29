@@ -91,10 +91,6 @@ It supplies your application with standard [mobx](https://mobx.js.org) observabl
 
 ## API Details and Examples
 
-- [useProvider](#useprovider)
-- [createStore](#createstore)
-- [useStore](#usestore)
-
 ### useProvider
 
 ```javascript
