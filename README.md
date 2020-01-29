@@ -38,7 +38,7 @@ yarn add mobx-store-provider
 import React from "react";
 import { useProvider, createStore } from "mobx-store-provider";
 import AppStore from "./AppStore";
-import MyNameDisplay from "./MyNameDisplay";
+import UserDisplay from "./UserDisplay";
 
 function App() {
   // Get the Provider for our AppStore
