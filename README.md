@@ -175,7 +175,7 @@ import Header from "./Header";
 
 const User = types.model({
   name: "Batman",
-  isLoggedIn: false,
+  isCoolGuy: true,
 });
 
 const AppStore = types.model({
@@ -205,20 +205,20 @@ function selectUserName(store) {
   return store.user.name;
 }
 
-function selectLoginStatus(store) {
-  return store.user.isLoggedIn;
+function selectCoolStatus(store) {
+  return store.user.isCoolGuy;
 }
 
 function Header() {
   // We use the store in this component
-  const { name, isLoggedIn } = useStore(store => ({
+  const { name, isCoolGuy } = useStore(store => ({
     name: selectUserName(store);
-    isLoggedIn: selectLoginStatus(store);
+    isCoolGuy: selectCoolStatus(store);
   }));
 
   return (
     <div>
-      User: {name} {isLoggedIn ? "👍" : "👎"}
+      User: {name} {isCoolGuy ? "👍" : "👎"}
     </div>
   );
 }
