@@ -272,8 +272,7 @@ describe("UserForm tests", () => {
   });
 
   test("When I click the button, the form submit action is triggered", () => {
-    const mockState = { name: "Superman" };
-    const mockStore = AppStore.create(mockState);
+    const mockStore = AppStore.create();
     const submit = jest.fn();
     Object.defineProperty(mockStore, "submit", {
       value: submit,
