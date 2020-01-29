@@ -179,7 +179,7 @@ const User = types.model({
 });
 
 const AppStore = types.model({
-  user: User,
+  user: types.optional(User, {}),
 });
 
 function App() {
