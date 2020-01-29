@@ -7,8 +7,8 @@ function identity(thing: any): any {
 
 /**
  * React Hook which retrieves the `store` for a given `storeIdentifier`.
- * @param storeIdentifier The identifier used for the store (optional)
  * @param mapStateToProps Callback which is used to select and return slices of the store (optional)
+ * @param storeIdentifier The identifier used for the store (optional)
  * @returns The store instance
  */
 function useStore(

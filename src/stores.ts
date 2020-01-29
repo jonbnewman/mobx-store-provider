@@ -23,7 +23,7 @@ function registerStore(storeIdentifier: any) {
  * @param storeIdentifier The identifier supplied by the consumer
  * @returns Store
  */
-function retrieveStore(storeIdentifier: any = null): Store {
+function retrieveStore(storeIdentifier: any): Store {
   if (!stores.has(storeIdentifier)) {
     registerStore(storeIdentifier);
   }
