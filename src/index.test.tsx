@@ -143,8 +143,9 @@ describe("mobx-store-provider", () => {
 
       const TestComponent = () => {
         const Provider = useProvider(storeIdentifier);
-        const testStore = createStore(() =>
-          TestStore.create({ name: firstName }),
+        const testStore = createStore(
+          () => TestStore.create({ name: firstName }),
+          storeIdentifier,
         );
         return (
           <Provider value={testStore}>
