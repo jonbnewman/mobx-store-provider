@@ -9,7 +9,7 @@ import { useProvider, createStore, useStore } from "./index";
 
 const TestStore = types
   .model({
-    name: types.string,
+    name: types.optional(types.string, "TestStore"),
   })
   .actions(self => ({
     setName(name: string) {
@@ -39,28 +39,45 @@ describe("mobx-store-provider", () => {
       expect(DefaultProvider).not.toBe(DifferentProvider);
     });
 
-    test("can dispose a store and receive a different store for the same identifier", () => {
-      const stores = new Map();
-      let name: string;
+    test("can receive the same store Provider for the same identifier when disposal has not occured", () => {
+      const storeProviders = new Map();
 
-      const MyNameDisplay = () => <div>{useStore().name}</div>;
-      const TestComponent = ({ name }: any) => {
+      function TestComponent() {
         const Provider = useProvider();
-        const testStore = createStore(() => TestStore.create({ name }));
-        stores.set(name, testStore);
-        return (
-          <Provider value={testStore}>
-            <MyNameDisplay />
-          </Provider>
+        const testStore = createStore(() => TestStore.create());
+        storeProviders.set(
+          storeProviders.has("first") ? "second" : "first",
+          Provider,
         );
-      };
+        return <Provider value={testStore} />;
+      }
 
-      makeContainer(<TestComponent name="first" />);
-      cleanup();
-      makeContainer(<TestComponent name="second" />);
-      cleanup();
+      makeContainer(<TestComponent />);
+      makeContainer(<TestComponent />);
 
-      expect(stores.get("first")).not.toBe(stores.get("second"));
+      expect(storeProviders.get("first")).toBe(storeProviders.get("second"));
+    });
+
+    test("can dispose a store and receive a different store Provider for the same identifier", () => {
+      const storeProviders = new Map();
+
+      function TestComponent() {
+        const Provider = useProvider();
+        const testStore = createStore(() => TestStore.create());
+        storeProviders.set(
+          storeProviders.has("first") ? "second" : "first",
+          Provider,
+        );
+        return <Provider value={testStore} />;
+      }
+
+      makeContainer(<TestComponent />);
+      cleanup();
+      makeContainer(<TestComponent />);
+
+      expect(storeProviders.get("first")).not.toBe(
+        storeProviders.get("second"),
+      );
     });
 
     test("can use a function as an identifier for a store", () => {
