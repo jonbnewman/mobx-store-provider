@@ -44,7 +44,7 @@ describe("mobx-store-provider", () => {
       let name: string;
 
       const MyNameDisplay = () => <div>{useStore().name}</div>;
-      const TestComponent = () => {
+      const TestComponent = ({ name }: any) => {
         const Provider = useProvider();
         const testStore = createStore(() => TestStore.create({ name }));
         stores.set(name, testStore);
@@ -55,11 +55,9 @@ describe("mobx-store-provider", () => {
         );
       };
 
-      name = "first";
-      makeContainer(<TestComponent />);
+      makeContainer(<TestComponent name="first" />);
       cleanup();
-      name = "second";
-      makeContainer(<TestComponent />);
+      makeContainer(<TestComponent name="second" />);
       cleanup();
 
       expect(stores.get("first")).not.toBe(stores.get("second"));
