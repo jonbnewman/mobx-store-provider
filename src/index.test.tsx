@@ -25,7 +25,7 @@ describe("mobx-store-provider", () => {
   afterEach(cleanup);
 
   describe("identifiers", () => {
-    test("can be used as store identifiers", () => {
+    test("can use store identifiers", () => {
       const storeIdentifier = Symbol("identifier");
       const FirstProvider = useProvider(storeIdentifier);
       const SecondProvider = useProvider(storeIdentifier);
