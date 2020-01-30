@@ -40,44 +40,34 @@ describe("mobx-store-provider", () => {
     });
 
     test("can receive the same store Provider for the same identifier when disposal has not occured", () => {
-      const storeProviders = new Map();
+      const providers = new Map();
 
       function TestComponent() {
         const Provider = useProvider();
-        const testStore = createStore(() => TestStore.create());
-        storeProviders.set(
-          storeProviders.has("first") ? "second" : "first",
-          Provider,
-        );
-        return <Provider value={testStore} />;
+        providers.set(providers.has("first") ? "second" : "first", Provider);
+        return <Provider value={createStore(() => TestStore.create())} />;
       }
 
       makeContainer(<TestComponent />);
       makeContainer(<TestComponent />);
 
-      expect(storeProviders.get("first")).toBe(storeProviders.get("second"));
+      expect(providers.get("first")).toBe(providers.get("second"));
     });
 
     test("can dispose a store and receive a different store Provider for the same identifier", () => {
-      const storeProviders = new Map();
+      const providers = new Map();
 
       function TestComponent() {
         const Provider = useProvider();
-        const testStore = createStore(() => TestStore.create());
-        storeProviders.set(
-          storeProviders.has("first") ? "second" : "first",
-          Provider,
-        );
-        return <Provider value={testStore} />;
+        providers.set(providers.has("first") ? "second" : "first", Provider);
+        return <Provider value={createStore(() => TestStore.create())} />;
       }
 
       makeContainer(<TestComponent />);
       cleanup();
       makeContainer(<TestComponent />);
 
-      expect(storeProviders.get("first")).not.toBe(
-        storeProviders.get("second"),
-      );
+      expect(providers.get("first")).not.toBe(providers.get("second"));
     });
 
     test("can use a function as an identifier for a store", () => {
