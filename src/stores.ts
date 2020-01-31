@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { MapStateToProps, Store } from "./types";
 
-const stores = new Map();
+const stores: Map<any, Store> = new Map();
 
 /**
  * Register/initialize a store in the internal `stores` Map.
@@ -30,7 +30,7 @@ function retrieveStore(storeIdentifier: any): Store {
   if (!stores.has(storeIdentifier)) {
     registerStore(storeIdentifier);
   }
-  return stores.get(storeIdentifier);
+  return <Store>stores.get(storeIdentifier);
 }
 
 export { retrieveStore };
