@@ -5,6 +5,7 @@
 
 ![Typescript](https://img.shields.io/npm/types/mobx-store-provider.svg?logo=typescript)
 ![MIT License](https://img.shields.io/npm/l/mobx-store-provider.svg)
+[![NPM Package](https://img.shields.io/npm/v/mobx-store-provider.svg?logo=npm)](https://www.npmjs.com/package/mobx-store-provider)
 
 React Hooks + [mobx-state-tree](http://mobx-state-tree.js.org/)
 
