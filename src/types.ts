@@ -1,8 +1,10 @@
+import { Context } from "react";
+
 /**
  * Internal Store representation.
  */
 export interface Store {
-  Context: any;
+  Context: Context<any>;
   useStore: UseStore;
   disposeStore: DisposeStore;
 }
