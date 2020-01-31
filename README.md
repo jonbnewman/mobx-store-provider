@@ -236,7 +236,7 @@ export default observer(Header);
 
 Using _mobx-store-provider_ and retaining the [strong typing provided by _mobx-state-tree_](https://mobx-state-tree.js.org/tips/typescript) is simple.
 
-When using [createStore](#createstore) typescript needs to know what type is being returned.
+When using [createStore](#createstore) or [useStore](#useStore) typescript needs to know what type is being returned.
 
 You can specify this with the following:
 
@@ -251,6 +251,11 @@ const AppStore = types.model({
   user: types.optional(types.string, ""),
 });
 
+function UserDisplay() {
+  const appStore: Instance<typeof AppStore> = useStore();
+  return <div>{appStore.user}</div>;
+}
+
 function App() {
   const Provider = useProvider();
 
@@ -260,40 +265,10 @@ function App() {
   );
 
   /**
-   * This will not compile, it will cause a typescript error
+   * The following will not compile, it will cause a typescript error
    * because `.foobar` is not a property of `AppStore`
    */
   console.info(appStore.foobar);
-
-  return <Provider value={appStore}>...</Provider>;
-}
-
-export default App;
-```
-
-Similarly, if you don't use a `mapStateToProps` function then the same should be done for [useStore](#useStore):
-
-```javascript
-// App.jsx (Main App component, we use it to create and provide the store)
-import React from "react";
-import { types, Instance } from "mobx-state-tree";
-import { useProvider, createStore, useStore } from "mobx-store-provider";
-import Header from "./Header";
-
-const AppStore = types.model({
-  user: types.optional(types.string, ""),
-});
-
-function UserDisplay() {
-  const appStore: Instance<typeof AppStore> = useStore();
-  return <div>{appStore.user}</div>;
-}
-
-function App() {
-  const Provider = useProvider();
-  const appStore: Instance<typeof AppStore> = createStore(() =>
-    AppStore.create(),
-  );
 
   return (
     <Provider value={appStore}>
@@ -305,7 +280,7 @@ function App() {
 export default App;
 ```
 
-If you
+It is important to note that the return type of `useStore` depends on whether or not you use a `mapStateToProps` function (and if it returns the entire store).
 
 ## Testing
 
