@@ -10,16 +10,16 @@ export interface Store {
 }
 
 /**
- * Function used to dispose a stores references
- */
-export type DisposeStore = () => void;
-
-/**
  * Function passed to the useStore hook.
  *
  * Specifies a `mapStateToProps` callback which is used to return a subset/slice of the store.
  */
 export type UseStore = (mapStateToProps: MapStateToProps) => any;
+
+/**
+ * Function used to dispose the reference in the stores map
+ */
+export type DisposeStore = () => void;
 
 /**
  * Function the user passes into the createStore hook.
