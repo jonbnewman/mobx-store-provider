@@ -271,6 +271,42 @@ function App() {
 export default App;
 ```
 
+Similarly, if you don't use a `mapStateToProps` function then the same should be done for [useStore](#useStore):
+
+```javascript
+// App.jsx (Main App component, we use it to create and provide the store)
+import React from "react";
+import { types, Instance } from "mobx-state-tree";
+import { useProvider, createStore, useStore } from "mobx-store-provider";
+import Header from "./Header";
+
+const AppStore = types.model({
+  user: types.optional(types.string, ""),
+});
+
+function UserDisplay() {
+  const appStore: Instance<typeof AppStore> = useStore();
+  return <div>{appStore.user}</div>;
+}
+
+function App() {
+  const Provider = useProvider();
+  const appStore: Instance<typeof AppStore> = createStore(() =>
+    AppStore.create(),
+  );
+
+  return (
+    <Provider value={appStore}>
+      <UserDisplay />
+    </Provider>
+  );
+}
+
+export default App;
+```
+
+If you
+
 ## Testing
 
 Testing a React app that uses _mobx-state-tree_ and _mobx-store-provider_ is easy.
