@@ -12,8 +12,9 @@ function registerStore(storeIdentifier: any) {
   Context.displayName = String(storeIdentifier);
   const store: Store = {
     Context,
-    useStore: (mapStateToProps: MapStateToProps): any =>
-      mapStateToProps(useContext(Context)),
+    useStore: (mapStateToProps: MapStateToProps): any => {
+      return mapStateToProps(useContext(Context));
+    },
     disposeStore: () => {
       stores.delete(storeIdentifier);
     },
