@@ -8,12 +8,9 @@ import { StoreFactory } from "../types";
  * @param storeIdentifier The identifier used for the store (optional)
  * @returns The instance created by the `storeFactory` function
  */
-function createStore(
-  storeFactory: StoreFactory,
-  storeIdentifier: any = null,
-): any {
+function createStore(factory: StoreFactory, storeIdentifier: any = null): any {
   useEffect(() => () => retrieveStore(storeIdentifier).disposeStore(), []);
-  return useRef(storeFactory()).current;
+  return useRef(factory()).current;
 }
 
 export default createStore;
