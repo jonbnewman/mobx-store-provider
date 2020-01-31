@@ -4,37 +4,29 @@
 export interface Store {
   Context: any;
   useStore: UseStore;
-  dispose: DisposeStore;
+  disposeStore: DisposeStore;
 }
 
 /**
  * Function used to dispose a stores references
  */
-export interface DisposeStore {
-  (): undefined;
-}
+export type DisposeStore = () => void;
 
 /**
  * Function passed to the useStore hook.
  *
  * Specifies a `mapStateToProps` callback which is used to return a subset/slice of the store.
  */
-export interface UseStore {
-  (mapStateToProps: MapStateToProps): any;
-}
+export type UseStore = (mapStateToProps: MapStateToProps) => any;
 
 /**
  * Function the user passes into the createStore hook.
  *
  * This function should instantiate and return a new instance of a store.
  */
-export interface StoreFactory {
-  (...args: any[]): any;
-}
+export type StoreFactory = (...args: any[]) => any;
 
 /**
  * Function used to return a subset/slice of the store
  */
-export interface MapStateToProps {
-  (store: any): any;
-}
+export type MapStateToProps = (store: any) => any;

@@ -10,12 +10,15 @@ const stores = new Map();
 function registerStore(storeIdentifier: any) {
   const Context = React.createContext(null);
   Context.displayName = String(storeIdentifier);
-  stores.set(storeIdentifier, {
+  const store: Store = {
     Context,
     useStore: (mapStateToProps: MapStateToProps): any =>
       mapStateToProps(useContext(Context)),
-    dispose: () => stores.delete(storeIdentifier),
-  });
+    disposeStore: () => {
+      stores.delete(storeIdentifier);
+    },
+  };
+  stores.set(storeIdentifier, store);
 }
 
 /**
