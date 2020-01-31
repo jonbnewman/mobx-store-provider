@@ -1,5 +1,5 @@
 import React from "react";
-import { types } from "mobx-state-tree";
+import { types, Instance } from "mobx-state-tree";
 import { observer } from "mobx-react";
 import { getByTestId, fireEvent } from "@testing-library/dom";
 import { render, cleanup } from "@testing-library/react";
@@ -87,7 +87,7 @@ describe("mobx-store-provider", () => {
       const MyNameDisplay = () => <div>{useStore().name}</div>;
       const TestComponent = () => {
         const Provider = useProvider();
-        const testStore = createStore(() =>
+        const testStore: Instance<typeof TestStore> = createStore(() =>
           TestStore.create({ name: firstName }),
         );
         return (
@@ -106,7 +106,7 @@ describe("mobx-store-provider", () => {
       const lastName = "Newman";
 
       const MyNameDisplay = observer(() => {
-        const store = useStore();
+        const store: Instance<typeof TestStore> = useStore();
         return (
           <div onClick={() => store.setName(lastName)} data-testid="name">
             {store.name}
@@ -138,7 +138,7 @@ describe("mobx-store-provider", () => {
       const firstName = "Jonathan";
       const storeIdentifier = "map-state-to-props-test";
 
-      function selectName(store: any) {
+      function selectName(store: Instance<typeof TestStore>) {
         return store.name;
       }
 

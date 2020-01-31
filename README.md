@@ -21,6 +21,7 @@ React Hooks + [mobx-state-tree](http://mobx-state-tree.js.org/)
    - [createStore](#createstore) - Create a new store inside a component
    - [useStore](#usestore) - Use a store in a component
 
+1. [Typescript](#typescript)
 1. [Testing](#testing)
 
 ## Installation
@@ -229,6 +230,48 @@ function Header() {
 }
 
 export default observer(Header);
+```
+
+## Typescript
+
+Using _mobx-store-provider_ and retaining the [strong typing provided by _mobx-state-tree_](https://mobx-state-tree.js.org/tips/typescript) is simple.
+
+When using [createStore](#createstore) typescript needs to know what model it is receiving:
+
+```javascript
+// App.jsx (Main App component, we use it to create and provide the store)
+import React from "react";
+import { types, Instance } from "mobx-state-tree";
+import { useProvider, createStore } from "mobx-store-provider";
+import Header from "./Header";
+
+const User = types.model({
+  name: "Batman",
+  isCoolGuy: true,
+});
+
+const AppStore = types.model({
+  user: types.optional(User, {}),
+});
+
+function App() {
+  const Provider = useProvider();
+
+  // With this declaration, typescript knows what your appStore is
+  const appStore: Instance<typeof AppStore> = createStore(() =>
+    AppStore.create(),
+  );
+
+  /**
+   * This will not compile, it will cause a typescript error
+   * because `.foobar` is not a property of `AppStore`
+   */
+  console.info(appStore.foobar);
+
+  return <Provider value={appStore}>...</Provider>;
+}
+
+export default App;
 ```
 
 ## Testing
