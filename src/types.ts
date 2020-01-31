@@ -26,7 +26,7 @@ export type DisposeStore = () => void;
  *
  * This function should instantiate and return a new instance of a store.
  */
-export type StoreFactory = (...args: any[]) => any;
+export type StoreFactory = () => any;
 
 /**
  * Function used to return a subset/slice of the store
