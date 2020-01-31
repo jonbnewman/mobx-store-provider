@@ -252,6 +252,7 @@ const AppStore = types.model({
 });
 
 function UserDisplay() {
+  // With this declaration, typescript knows the appStore is an AppStore
   const appStore: Instance<typeof AppStore> = useStore();
   return <div>{appStore.user}</div>;
 }
