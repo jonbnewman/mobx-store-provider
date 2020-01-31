@@ -236,7 +236,9 @@ export default observer(Header);
 
 Using _mobx-store-provider_ and retaining the [strong typing provided by _mobx-state-tree_](https://mobx-state-tree.js.org/tips/typescript) is simple.
 
-When using [createStore](#createstore) typescript needs to know what type is being returned. You can specify this with the following:
+When using [createStore](#createstore) typescript needs to know what type is being returned.
+
+You can specify this with the following:
 
 ```javascript
 // App.jsx (Main App component, we use it to create and provide the store)
