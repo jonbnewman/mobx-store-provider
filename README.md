@@ -247,13 +247,8 @@ import { types, Instance } from "mobx-state-tree";
 import { useProvider, createStore } from "mobx-store-provider";
 import Header from "./Header";
 
-const User = types.model({
-  name: "Batman",
-  isCoolGuy: true,
-});
-
 const AppStore = types.model({
-  user: types.optional(User, {}),
+  user: types.optional(types.string, ""),
 });
 
 function App() {
