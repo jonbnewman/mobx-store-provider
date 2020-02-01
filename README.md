@@ -168,7 +168,7 @@ export default App;
 ### useStore
 
 ```javascript
-useStore(mapStateToProps: Factory = null, storeIdentifier: any = null): any
+useStore(mapStateToProps: Function | null, storeIdentifier: any = null): any
 ```
 
 React Hook used to retrieve a `store` for a given `storeIdentifier`.
