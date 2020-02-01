@@ -5,7 +5,7 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "test": "jest --watch --config jestconfig.json",
+    "test": "jest --config jestconfig.json",
     "lint": "eslint src/*.ts",
     "build": "tsc",
     "watch": "tsc -w",
