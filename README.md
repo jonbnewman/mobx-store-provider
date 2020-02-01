@@ -265,7 +265,9 @@ interface IAppStore extends Instance<typeof AppStore> {}
 export { AppStore, IAppStore };
 ```
 
-It is important to note that when using [createStore](#createstore) or [useStore](#useStore) typescript needs to be informed what type is being returned. Since it is decided at runtime, you must specify this explicitly.
+It is important to note that when using [createStore](#createstore) or [useStore](#useStore) typescript needs to be informed what type is being returned.
+
+Since it is decided at runtime, you must specify this explicitly.
 
 ```javascript
 // App.tsx
