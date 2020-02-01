@@ -14,8 +14,7 @@
     "preversion": "npm run lint",
     "version": "git add -A src",
     "postversion": "git push && git push --tags",
-    "coverage": "jest --config jestconfig.json --coverage",
-    "coverage-ci": "jest --config jestconfig.json --coverage --coverageReporters=text-lcov"
+    "coverage": "jest --config jestconfig.json --coverage"
   },
   "keywords": [
     "mobx",
