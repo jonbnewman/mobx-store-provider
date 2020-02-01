@@ -242,7 +242,7 @@ When using [createStore](#createstore) or [useStore](#useStore) typescript needs
 You can specify this with the following:
 
 ```javascript
-// App.jsx (Main App component, we use it to create and provide the store)
+// App.tsx (Main App component, we use it to create and provide the store)
 import React from "react";
 import { types, Instance } from "mobx-state-tree";
 import { useProvider, createStore } from "mobx-store-provider";

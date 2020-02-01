@@ -5,9 +5,10 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "test": "jest --config jestconfig.json",
+    "test": "jest --watch --config jestconfig.json",
     "lint": "eslint src/*.ts",
     "build": "tsc",
+    "watch": "tsc -w",
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run lint",
     "preversion": "npm run lint",
