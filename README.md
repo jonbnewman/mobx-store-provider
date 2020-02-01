@@ -249,8 +249,6 @@ export default observer(Header);
 
 Using _mobx-store-provider_ and [retaining the strong typing provided by _mobx-state-tree_](https://mobx-state-tree.js.org/tips/typescript#using-a-mst-type-at-design-time) is simple.
 
-When using [createStore](#createstore) or [useStore](#useStore) typescript needs to know what type is being returned. Since it is decided at runtime, you must specify this explicitly.
-
 You can specify this with the following:
 
 ```javascript
@@ -266,6 +264,8 @@ interface IAppStore extends Instance<typeof AppStore> {}
 
 export { AppStore, IAppStore };
 ```
+
+It is important to note that when using [createStore](#createstore) or [useStore](#useStore) typescript needs to be informed what type is being returned. Since it is decided at runtime, you must specify this explicitly.
 
 ```javascript
 // App.tsx
