@@ -254,7 +254,7 @@ When using [createStore](#createstore) or [useStore](#useStore) typescript needs
 You can specify this with the following:
 
 ```javascript
-/// AppStore.ts
+/// AppStore.ts (mobx-state-tree store/model)
 import { types, Instance } from "mobx-state-tree";
 
 const AppStore = types.model({
