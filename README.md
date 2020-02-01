@@ -302,8 +302,6 @@ function App() {
 export default App;
 ```
 
-It is important to note that the return type of `useStore` depends on whether or not you use a `mapStateToProps` function (and if it returns the entire store).
-
 ## Testing
 
 Testing a React app that uses _mobx-state-tree_ and _mobx-store-provider_ is easy.
