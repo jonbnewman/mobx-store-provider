@@ -107,7 +107,9 @@ React Hook used to retrieve the React `Context.Provider` for a given `storeIdent
 
 Parameters:
 
-- `storeIdentifier` - _(optional)_ Tells _mobx-store-provider_ which store you want the Provider for.
+- `storeIdentifier` _(optional)_
+
+  Tells _mobx-store-provider_ which store you want the Provider for.
 
 Example:
 
@@ -139,8 +141,13 @@ React Hook used to instantiate new mobx-state-tree instances inside of component
 
 Parameters:
 
-- `factory` - Function where you instantiate and return a mobx-state-tree instance.
-- `storeIdentifier` - _(optional)_ Tells _mobx-store-provider_ which store you are creating.
+- `factory`
+
+  Function where you instantiate and return a mobx-state-tree instance.
+
+- `storeIdentifier` _(optional)_
+
+  Tells _mobx-store-provider_ which store you are creating.
 
 Example:
 
@@ -168,8 +175,13 @@ React Hook used to retrieve a `store` for a given `storeIdentifier`.
 
 Parameters:
 
-- `mapStateToProps` - _(optional)_ Function which you can use to select and return specific slices of the store.
-- `storeIdentifier` - _(optional)_ Tells _mobx-store-provider_ which store you want to get access to.
+- `mapStateToProps` _(optional)_
+
+  Function which you can use to select and return specific slices of the store.
+
+- `storeIdentifier` _(optional)_
+
+  Tells _mobx-store-provider_ which store you want to get access to.
 
 Example:
 
