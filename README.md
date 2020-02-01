@@ -268,7 +268,7 @@ function App() {
 
   /**
    * The following will not compile, it will cause a typescript error
-   * because `.foobar` is not a property of `AppStore`
+   * because `foobar` is not a property of an `AppStore`
    */
   console.info(appStore.foobar);
 
