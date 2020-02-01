@@ -175,7 +175,7 @@ React Hook used to retrieve a `store` for a given `storeIdentifier`.
 
 **Parameters:**
 
-- _mapStateToProps_ `(store: any) => any | null` _(optional)_
+- _mapStateToProps_ `(store: any) => any` _(optional)_
 
   Function which you can use to select and return specific slices of the store.
 
