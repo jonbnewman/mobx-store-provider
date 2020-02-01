@@ -264,9 +264,12 @@ const AppStore = types.model({
   user: types.optional(types.string, ""),
 });
 
+// Create an interface to represent an instance of the AppStore
+interface IAppStore extends Instance<typeof AppStore> {}
+
 function UserDisplay() {
   // With this declaration, typescript knows the appStore is an AppStore
-  const appStore: Instance<typeof AppStore> = useStore();
+  const appStore: IAppStore = useStore();
   return <div>{appStore.user}</div>;
 }
 
@@ -274,9 +277,7 @@ function App() {
   const Provider = useProvider();
 
   // With this declaration, typescript knows the appStore is an AppStore
-  const appStore: Instance<typeof AppStore> = createStore(() =>
-    AppStore.create(),
-  );
+  const appStore: IAppStore = createStore(() => AppStore.create());
 
   /**
    * The following will not compile, it will cause a typescript error
