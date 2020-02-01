@@ -254,11 +254,8 @@ When using [createStore](#createstore) or [useStore](#useStore) typescript needs
 You can specify this with the following:
 
 ```javascript
-// App.tsx
-import React from "react";
+/// AppStore.ts
 import { types, Instance } from "mobx-state-tree";
-import { useProvider, createStore } from "mobx-store-provider";
-import Header from "./Header";
 
 const AppStore = types.model({
   user: types.optional(types.string, ""),
@@ -266,6 +263,16 @@ const AppStore = types.model({
 
 // Create an interface to represent an instance of the AppStore
 interface IAppStore extends Instance<typeof AppStore> {}
+
+export { AppStore, IAppStore };
+```
+
+```javascript
+// App.tsx
+import React from "react";
+import { useProvider, createStore } from "mobx-store-provider";
+import Header from "./Header";
+import { AppStore, IAppStore } from "./AppStore";
 
 function UserDisplay() {
   // With this declaration, typescript knows the appStore is an AppStore
