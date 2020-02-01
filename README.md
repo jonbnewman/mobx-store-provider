@@ -100,10 +100,10 @@ It supplies your application with standard [mobx](https://mobx.js.org) observabl
 ### useProvider
 
 ```javascript
-useProvider(storeIdentifier: any = null): Context.Provider
+useProvider(storeIdentifier: any = null): Provider
 ```
 
-React Hook used to retrieve the React `Context.Provider` for a given `storeIdentifier`. This is a wrapper component you can use to provide your application with the store.
+React Hook used to retrieve the `Provider` for a given `storeIdentifier`. This is a wrapper component you can use to provide your application with the store.
 
 **Parameters:**
 
@@ -248,8 +248,6 @@ export default observer(Header);
 ## Typescript
 
 Using _mobx-store-provider_ and [retaining the strong typing provided by _mobx-state-tree_](https://mobx-state-tree.js.org/tips/typescript#using-a-mst-type-at-design-time) is simple.
-
-You can specify this with the following:
 
 ```javascript
 /// AppStore.ts (mobx-state-tree store/model)
