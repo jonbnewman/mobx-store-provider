@@ -16,12 +16,8 @@ function createStore(identifier: Factory | Identifier, factory?: Factory): any {
     factory = identifier;
     identifier = null;
   }
-
-  // @ts-ignore
-  const store = factory();
-
   useEffect(() => () => retrieveStore(identifier).disposeStore(), []);
-  return useRef(store).current;
+  return useRef((<Factory>factory)()).current;
 }
 
 export default createStore;
