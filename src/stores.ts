@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, Provider } from "react";
 import { MapStateToProps, Store, Identifier } from "./types";
 
 const stores: Map<any, Store> = new Map();
@@ -12,7 +12,7 @@ function registerStore(identifier: Identifier) {
   const Context = React.createContext(null);
   Context.displayName = String(identifier);
   const store: Store = {
-    Context,
+    useProvider: (): Provider<any> => Context.Provider,
     useStore: (mapStateToProps: MapStateToProps): any => {
       return mapStateToProps(useContext(Context));
     },

@@ -1,19 +1,12 @@
-import { Context } from "react";
+import { Provider } from "react";
 
 /**
  * Internal Store representation.
  */
 export interface Store {
-  Context: Context<any>;
-  useStore: UseStore;
+  useProvider: () => Provider<any>;
+  useStore: (mapStateToProps: MapStateToProps) => any;
 }
-
-/**
- * Function passed to the useStore hook.
- *
- * Specifies a `mapStateToProps` callback which is used to return a subset/slice of the store.
- */
-export type UseStore = (mapStateToProps: MapStateToProps) => any;
 
 /**
  * Function the user passes into the createStore hook.
@@ -23,11 +16,13 @@ export type UseStore = (mapStateToProps: MapStateToProps) => any;
 export type Factory = () => any;
 
 /**
- * Function used to return a subset/slice of the store
+ * Function the user passes into the useStore hook.
+ *
+ * Used to return a subset/slice of the store
  */
 export type MapStateToProps = (store: any) => any;
 
 /**
- * Identifier used for store access
+ * Identifier used for store identification/access
  */
 export type Identifier = any;
