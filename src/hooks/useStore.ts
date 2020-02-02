@@ -15,7 +15,6 @@ function useStore(): any;
 function useStore(identifer: Identifier): any;
 function useStore(mapStateToProps: MapStateToProps): any;
 function useStore(identifer: Identifier, mapStateToProps: MapStateToProps): any;
-
 function useStore(
   identifer: MapStateToProps | Identifier = defaultId,
   mapStateToProps: MapStateToProps = identity,
