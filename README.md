@@ -136,7 +136,6 @@ export default App;
 
 ```javascript
 createStore(factory: Function): any
-createStore(identifier: any, factory: Function): any
 ```
 
 React Hook used to instantiate new mobx-state-tree instances inside of components. It returns the store you instantiate and return from the `factory`.
@@ -146,10 +145,6 @@ React Hook used to instantiate new mobx-state-tree instances inside of component
 - _factory_ `() => any`
 
   Function where you instantiate and return a mobx-state-tree instance.
-
-- _identifier_ `any` _(optional)_
-
-  Tells _mobx-store-provider_ which store you are creating.
 
 Example:
 

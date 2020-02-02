@@ -16,9 +16,6 @@ function registerStore(identifier: Identifier) {
     useStore: (mapStateToProps: MapStateToProps): any => {
       return mapStateToProps(useContext(Context));
     },
-    disposeStore: () => {
-      stores.delete(identifier);
-    },
   };
   stores.set(identifier, store);
 }

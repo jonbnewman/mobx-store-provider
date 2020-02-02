@@ -40,41 +40,20 @@ describe("store identifiers", () => {
     expect(DefaultProvider).not.toBe(DifferentProvider);
   });
 
-  test("can receive the same store Provider for the same identifier when disposal has not occured", () => {
+  test("can receive the same store Provider for the same identifier", () => {
     const providers = new Map();
     const identifier = "my-store";
 
     function TestComponent() {
       const Provider = useProvider(identifier);
       providers.set(providers.has("first") ? "second" : "first", Provider);
-      return (
-        <Provider value={createStore(identifier, () => TestStore.create())} />
-      );
+      return <Provider value={createStore(() => TestStore.create())} />;
     }
 
     makeContainer(<TestComponent />);
     makeContainer(<TestComponent />);
 
     expect(providers.get("first")).toBe(providers.get("second"));
-  });
-
-  test("can dispose a store and receive a different store Provider for the same identifier", () => {
-    const providers = new Map();
-    const identifier = "my-store";
-
-    function TestComponent() {
-      const Provider = useProvider(identifier);
-      providers.set(providers.has("first") ? "second" : "first", Provider);
-      return (
-        <Provider value={createStore(identifier, () => TestStore.create())} />
-      );
-    }
-
-    makeContainer(<TestComponent />);
-    cleanup();
-    makeContainer(<TestComponent />);
-
-    expect(providers.get("first")).not.toBe(providers.get("second"));
   });
 
   test("can use a function as an identifier for a store", () => {
@@ -169,7 +148,7 @@ describe("hooks api", () => {
       const MyNameDisplay = () => <div>{useStore(identifier).name}</div>;
       const TestComponent = () => {
         const Provider = useProvider(identifier);
-        const testStore = createStore(identifier, () =>
+        const testStore = createStore(() =>
           TestStore.create({ name: firstName }),
         );
         return (
@@ -210,7 +189,7 @@ describe("hooks api", () => {
       const MyNameDisplay = () => <div>{useStore(identifier, selectName)}</div>;
       const TestComponent = () => {
         const Provider = useProvider(identifier);
-        const testStore = createStore(identifier, () =>
+        const testStore = createStore(() =>
           TestStore.create({ name: firstName }),
         );
         return (
@@ -226,30 +205,12 @@ describe("hooks api", () => {
   describe("createStore", () => {
     afterEach(cleanup);
 
-    test("with a factory only", () => {
+    test("with a factory", () => {
       const firstName = "Jonathan";
       const MyNameDisplay = () => <div>{useStore().name}</div>;
       const TestComponent = () => {
         const Provider = useProvider();
         const testStore = createStore(() =>
-          TestStore.create({ name: firstName }),
-        );
-        return (
-          <Provider value={testStore}>
-            <MyNameDisplay />
-          </Provider>
-        );
-      };
-      expect(makeContainer(<TestComponent />)).toHaveTextContent(firstName);
-    });
-
-    test("with an identifier and a factory", () => {
-      const identifier = "identifier";
-      const firstName = "Jonathan";
-      const MyNameDisplay = () => <div>{useStore(identifier).name}</div>;
-      const TestComponent = () => {
-        const Provider = useProvider(identifier);
-        const testStore = createStore(identifier, () =>
           TestStore.create({ name: firstName }),
         );
         return (
@@ -288,7 +249,7 @@ describe("hooks api", () => {
       const MyNameDisplay = () => <div>{useStore(identifier).name}</div>;
       const TestComponent = () => {
         const Provider = useProvider(identifier);
-        const testStore = createStore(identifier, () =>
+        const testStore = createStore(() =>
           TestStore.create({ name: firstName }),
         );
         return (
