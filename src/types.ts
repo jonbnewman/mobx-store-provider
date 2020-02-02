@@ -32,3 +32,8 @@ export type Factory = () => any;
  * Function used to return a subset/slice of the store
  */
 export type MapStateToProps = (store: any) => any;
+
+/**
+ * Identifier used for store access
+ */
+export type Identifier = any;

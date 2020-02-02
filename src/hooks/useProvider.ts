@@ -1,15 +1,19 @@
 import { Provider } from "react";
-import { retrieveStore } from "../stores";
+import { Identifier } from "../types";
+import { retrieveStore, defaultId } from "../stores";
 
 /**
- * React Hook to retrieve the store `Provider` for a given `storeIdentifier`.
+ * React Hook to retrieve the store `Provider` for a given `identifier`.
  *
  * Use this wrapper to supply your application with a store.
- * @param storeIdentifier The identifier used for the store (optional)
+ * @param identifier The identifier used for the store (optional)
  * @returns The Provider
  */
-function useProvider(storeIdentifier: any = null): Provider<any> {
-  return retrieveStore(storeIdentifier).Context.Provider;
+function useProvider(): Provider<any>;
+function useProvider(identifier: Identifier): Provider<any>;
+
+function useProvider(identifier: Identifier = defaultId): Provider<any> {
+  return retrieveStore(identifier).Context.Provider;
 }
 
 export default useProvider;

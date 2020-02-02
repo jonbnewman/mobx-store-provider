@@ -1,5 +1,5 @@
-import { retrieveStore } from "../stores";
-import { MapStateToProps } from "../types";
+import { MapStateToProps, Identifier } from "../types";
+import { retrieveStore, defaultId } from "../stores";
 
 function identity(thing: any): any {
   return thing;
@@ -11,10 +11,23 @@ function identity(thing: any): any {
  * @param storeIdentifier The identifier used for the store (optional)
  * @returns The store instance
  */
+function useStore(): any;
+function useStore(storeIdentifier: Identifier): any;
+function useStore(mapStateToProps: MapStateToProps): any;
 function useStore(
+  storeIdentifier: Identifier,
+  mapStateToProps: MapStateToProps,
+): any;
+
+function useStore(
+  storeIdentifier: MapStateToProps | Identifier = defaultId,
   mapStateToProps: MapStateToProps | null = null,
-  storeIdentifier: any = null,
 ): any {
+  if (typeof storeIdentifier === "function") {
+    mapStateToProps = storeIdentifier;
+    storeIdentifier = null;
+  }
+
   return retrieveStore(storeIdentifier).useStore(
     mapStateToProps === null ? identity : mapStateToProps,
   );

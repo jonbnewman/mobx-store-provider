@@ -1,37 +1,38 @@
 import React, { useContext } from "react";
-import { MapStateToProps, Store } from "./types";
+import { MapStateToProps, Store, Identifier } from "./types";
 
 const stores: Map<any, Store> = new Map();
+const defaultId = Symbol("store");
 
 /**
  * Register/initialize a store in the internal `stores` Map.
- * @param storeIdentifier The identifier supplied by the consumer
+ * @param identifier The identifier supplied by the consumer
  */
-function registerStore(storeIdentifier: any) {
+function registerStore(identifier: Identifier) {
   const Context = React.createContext(null);
-  Context.displayName = String(storeIdentifier);
+  Context.displayName = String(identifier);
   const store: Store = {
     Context,
     useStore: (mapStateToProps: MapStateToProps): any => {
       return mapStateToProps(useContext(Context));
     },
     disposeStore: () => {
-      stores.delete(storeIdentifier);
+      stores.delete(identifier);
     },
   };
-  stores.set(storeIdentifier, store);
+  stores.set(identifier, store);
 }
 
 /**
  * Register and/or retrieve a `store` from the internal `stores` Map.
- * @param storeIdentifier The identifier supplied by the consumer
+ * @param identifier The identifier supplied by the consumer
  * @returns Store
  */
-function retrieveStore(storeIdentifier: any): Store {
-  if (!stores.has(storeIdentifier)) {
-    registerStore(storeIdentifier);
+function retrieveStore(identifier: Identifier): Store {
+  if (!stores.has(identifier)) {
+    registerStore(identifier);
   }
-  return <Store>stores.get(storeIdentifier);
+  return <Store>stores.get(identifier);
 }
 
-export { retrieveStore };
+export { retrieveStore, defaultId };

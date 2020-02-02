@@ -100,14 +100,14 @@ It supplies your application with standard [mobx](https://mobx.js.org) observabl
 ### useProvider
 
 ```javascript
-useProvider(storeIdentifier: any = null): Provider
+useProvider(identifier: any = null): Provider
 ```
 
-React Hook used to retrieve the `Provider` for a given `storeIdentifier`. This is a wrapper component you can use to provide your application with the store.
+React Hook used to retrieve the `Provider` for a given `identifier`. This is a wrapper component you can use to provide your application with the store.
 
 **Parameters:**
 
-- _storeIdentifier_ `any = null` _(optional)_
+- _identifier_ `any = null` _(optional)_ Default is `null` if not specified.
 
   Tells _mobx-store-provider_ which store you want the Provider for.
 
@@ -134,7 +134,8 @@ export default App;
 ### createStore
 
 ```javascript
-createStore(factory: Function, storeIdentifier: any = null): any
+createStore(factory: Function): any
+createStore(identifier: any, factory: Function): any
 ```
 
 React Hook used to instantiate new mobx-state-tree instances inside of components. It returns the store you instantiate and return from the `factory`.
@@ -145,7 +146,7 @@ React Hook used to instantiate new mobx-state-tree instances inside of component
 
   Function where you instantiate and return a mobx-state-tree instance.
 
-- _storeIdentifier_ `any = null` _(optional)_
+- _identifier_ `any` _(optional)_ Default is `null` if not specified.
 
   Tells _mobx-store-provider_ which store you are creating.
 
@@ -168,18 +169,21 @@ export default App;
 ### useStore
 
 ```javascript
-useStore(mapStateToProps: Function | null, storeIdentifier: any = null): any
+useStore(): any
+useStore(identifier: any): any
+useStore(mapStateToProps: Function): any
+useStore(identifier: any, mapStateToProps: Function): any
 ```
 
-React Hook used to retrieve a `store` for a given `storeIdentifier`.
+React Hook used to retrieve a `store` for a given `identifier`.
 
 **Parameters:**
 
 - _mapStateToProps_ `(store: any) => any` _(optional)_
 
-  Function which you can use to select and return specific slices of the store.
+  Function that can be used to select and return slices of the store.
 
-- _storeIdentifier_ `any = null` _(optional)_
+- _identifier_ `any` _(optional)_ Default is `null` if not specified.
 
   Tells _mobx-store-provider_ which store you want to get access to.
 
