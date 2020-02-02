@@ -231,8 +231,8 @@ function selectCoolStatus(store) {
 function Header() {
   // We use the store in this component
   const { name, isCoolGuy } = useStore(store => ({
-    name: selectUserName(store);
-    isCoolGuy: selectCoolStatus(store);
+    name: selectUserName(store),
+    isCoolGuy: selectCoolStatus(store),
   }));
 
   return (
