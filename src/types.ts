@@ -9,6 +9,13 @@ export interface Store {
 }
 
 /**
+ * Identifier the user passes into hooks calls.
+ *
+ * Used for store identification/access.
+ */
+export type Identifier = any;
+
+/**
  * Function the user passes into the createStore hook.
  *
  * This function should instantiate and return a new instance of a store.
@@ -21,10 +28,3 @@ export type Factory = () => any;
  * Used to return a subset/slice of the store.
  */
 export type MapStateToProps = (store: any) => any;
-
-/**
- * Identifier the user passes into the hooks calls.
- *
- * Used for store identification/access.
- */
-export type Identifier = any;
