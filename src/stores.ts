@@ -13,9 +13,8 @@ function registerStore(identifier: Identifier) {
   Context.displayName = String(identifier);
   const store: Store = {
     useProvider: (): Provider<any> => Context.Provider,
-    useStore: (mapStateToProps: MapStateToProps): any => {
-      return mapStateToProps(useContext(Context));
-    },
+    useStore: (mapStateToProps: MapStateToProps): any =>
+      mapStateToProps(useContext(Context)),
   };
   stores.set(identifier, store);
 }
