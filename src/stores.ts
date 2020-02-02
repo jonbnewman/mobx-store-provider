@@ -8,7 +8,7 @@ const defaultId = null;
  * Register/initialize a store in the internal `stores` Map.
  * @param identifier The identifier supplied by the consumer
  */
-function registerStore(identifier: Identifier) {
+function registerStore(identifier: Identifier): void {
   const Context = React.createContext(null);
   Context.displayName = String(identifier);
   const store: Store = {
