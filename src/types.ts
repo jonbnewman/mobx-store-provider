@@ -18,11 +18,13 @@ export type Factory = () => any;
 /**
  * Function the user passes into the useStore hook.
  *
- * Used to return a subset/slice of the store
+ * Used to return a subset/slice of the store.
  */
 export type MapStateToProps = (store: any) => any;
 
 /**
- * Identifier used for store identification/access
+ * Identifier the user passes into the hooks calls.
+ *
+ * Used for store identification/access.
  */
 export type Identifier = any;
