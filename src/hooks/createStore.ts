@@ -6,7 +6,7 @@ import { Factory } from "../types";
  * @param factory Callback used to create and return a store
  * @returns The instance created by the `factory` function
  */
-
+function createStore(factory: Factory): any;
 function createStore(factory: Factory): any {
   return useRef(factory()).current;
 }
