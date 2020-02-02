@@ -108,7 +108,7 @@ React Hook used to retrieve the `Provider` for a given `identifier`. This is a w
 
 **Parameters:**
 
-- _identifier_ `any = null` _(optional)_ Default is `null` if not specified.
+- _identifier_ `any = null` _(optional)_
 
   Tells _mobx-store-provider_ which store you want the Provider for.
 
@@ -147,7 +147,7 @@ React Hook used to instantiate new mobx-state-tree instances inside of component
 
   Function where you instantiate and return a mobx-state-tree instance.
 
-- _identifier_ `any` _(optional)_ Default is `null` if not specified.
+- _identifier_ `any` _(optional)_
 
   Tells _mobx-store-provider_ which store you are creating.
 
@@ -184,7 +184,7 @@ React Hook used to retrieve a `store` for a given `identifier`.
 
   Function that can be used to select and return slices of the store.
 
-- _identifier_ `any` _(optional)_ Default is `null` if not specified.
+- _identifier_ `any` _(optional)_
 
   Tells _mobx-store-provider_ which store you want to get access to.
 
