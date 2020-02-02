@@ -100,7 +100,8 @@ It supplies your application with standard [mobx](https://mobx.js.org) observabl
 ### useProvider
 
 ```javascript
-useProvider(identifier: any = null): Provider
+useProvider(): Provider
+useProvider(identifier: any): Provider
 ```
 
 React Hook used to retrieve the `Provider` for a given `identifier`. This is a wrapper component you can use to provide your application with the store.
