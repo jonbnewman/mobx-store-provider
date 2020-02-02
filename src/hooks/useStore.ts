@@ -22,7 +22,7 @@ function useStore(
 ): any {
   if (typeof identifer === "function") {
     mapStateToProps = identifer;
-    identifer = null;
+    identifer = defaultId;
   }
 
   return retrieveStore(identifer).useStore(
