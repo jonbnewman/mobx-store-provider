@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Store, Identifier } from "./types";
 
 const stores: Map<Identifier, Store> = new Map();
-const defaultId = null;
+const defaultId: Identifier = null;
 
 /**
  * Register/initialize a store in the internal `stores` Map.
