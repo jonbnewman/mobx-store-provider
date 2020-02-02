@@ -1,6 +1,6 @@
 import { useRef, useEffect } from "react";
 import { Factory, Identifier } from "../types";
-import { retrieveStore, defaultId } from "../stores";
+import { retrieveStore } from "../stores";
 
 /**
  * React Hook used to instantiate a new store from within a component.
@@ -11,10 +11,7 @@ import { retrieveStore, defaultId } from "../stores";
 function createStore(factory: Factory): any;
 function createStore(identifier: Identifier, factory: Factory): any;
 
-function createStore(
-  identifier: Factory | Identifier = defaultId,
-  factory?: Factory,
-): any {
+function createStore(identifier: Factory | Identifier, factory?: Factory): any {
   if (typeof identifier === "function") {
     factory = identifier;
     identifier = null;

@@ -142,34 +142,162 @@ describe("integration tests", () => {
   });
 });
 
-describe("features", () => {
-  afterEach(cleanup);
+describe("hooks api", () => {
+  describe("useStore", () => {
+    afterEach(cleanup);
 
-  test("can use a mapStateToProps selector", () => {
-    const firstName = "Jonathan";
-    const storeIdentifier = "map-state-to-props-test";
+    test("with no parameters", () => {
+      const firstName = "Jonathan";
+      const MyNameDisplay = () => <div>{useStore().name}</div>;
+      const TestComponent = () => {
+        const Provider = useProvider();
+        const testStore = createStore(() =>
+          TestStore.create({ name: firstName }),
+        );
+        return (
+          <Provider value={testStore}>
+            <MyNameDisplay />
+          </Provider>
+        );
+      };
+      expect(makeContainer(<TestComponent />)).toHaveTextContent(firstName);
+    });
 
-    function selectName(store: ITestStore) {
-      return store.name;
-    }
+    test("with an identifier", () => {
+      const identifier = "identifier";
+      const firstName = "Jonathan";
+      const MyNameDisplay = () => <div>{useStore(identifier).name}</div>;
+      const TestComponent = () => {
+        const Provider = useProvider(identifier);
+        const testStore = createStore(identifier, () =>
+          TestStore.create({ name: firstName }),
+        );
+        return (
+          <Provider value={testStore}>
+            <MyNameDisplay />
+          </Provider>
+        );
+      };
+      expect(makeContainer(<TestComponent />)).toHaveTextContent(firstName);
+    });
 
-    const MyNameDisplay = () => (
-      <div>{useStore(storeIdentifier, selectName)}</div>
-    );
+    test("with a mapStateToProps callback", () => {
+      const firstName = "Jonathan";
+      function selectName(store: ITestStore) {
+        return store.name;
+      }
+      const MyNameDisplay = () => <div>{useStore(selectName)}</div>;
+      const TestComponent = () => {
+        const Provider = useProvider();
+        const testStore = createStore(() =>
+          TestStore.create({ name: firstName }),
+        );
+        return (
+          <Provider value={testStore}>
+            <MyNameDisplay />
+          </Provider>
+        );
+      };
+      expect(makeContainer(<TestComponent />)).toHaveTextContent(firstName);
+    });
 
-    const TestComponent = () => {
-      const Provider = useProvider(storeIdentifier);
-      const testStore = createStore(storeIdentifier, () =>
-        TestStore.create({ name: firstName }),
-      );
-      return (
-        <Provider value={testStore}>
-          <MyNameDisplay />
-        </Provider>
-      );
-    };
+    test("with an identifier and a mapStateToProps callback", () => {
+      const identifier = "identifier";
+      const firstName = "Jonathan";
+      function selectName(store: ITestStore) {
+        return store.name;
+      }
+      const MyNameDisplay = () => <div>{useStore(identifier, selectName)}</div>;
+      const TestComponent = () => {
+        const Provider = useProvider(identifier);
+        const testStore = createStore(identifier, () =>
+          TestStore.create({ name: firstName }),
+        );
+        return (
+          <Provider value={testStore}>
+            <MyNameDisplay />
+          </Provider>
+        );
+      };
+      expect(makeContainer(<TestComponent />)).toHaveTextContent(firstName);
+    });
+  });
 
-    const container = makeContainer(<TestComponent />);
-    expect(container).toHaveTextContent(firstName);
+  describe("createStore", () => {
+    afterEach(cleanup);
+
+    test("with a factory only", () => {
+      const firstName = "Jonathan";
+      const MyNameDisplay = () => <div>{useStore().name}</div>;
+      const TestComponent = () => {
+        const Provider = useProvider();
+        const testStore = createStore(() =>
+          TestStore.create({ name: firstName }),
+        );
+        return (
+          <Provider value={testStore}>
+            <MyNameDisplay />
+          </Provider>
+        );
+      };
+      expect(makeContainer(<TestComponent />)).toHaveTextContent(firstName);
+    });
+
+    test("with an identifier and a factory", () => {
+      const identifier = "identifier";
+      const firstName = "Jonathan";
+      const MyNameDisplay = () => <div>{useStore(identifier).name}</div>;
+      const TestComponent = () => {
+        const Provider = useProvider(identifier);
+        const testStore = createStore(identifier, () =>
+          TestStore.create({ name: firstName }),
+        );
+        return (
+          <Provider value={testStore}>
+            <MyNameDisplay />
+          </Provider>
+        );
+      };
+      expect(makeContainer(<TestComponent />)).toHaveTextContent(firstName);
+    });
+  });
+
+  describe("useProvider", () => {
+    afterEach(cleanup);
+
+    test("with no parameters", () => {
+      const firstName = "Jonathan";
+      const MyNameDisplay = () => <div>{useStore().name}</div>;
+      const TestComponent = () => {
+        const Provider = useProvider();
+        const testStore = createStore(() =>
+          TestStore.create({ name: firstName }),
+        );
+        return (
+          <Provider value={testStore}>
+            <MyNameDisplay />
+          </Provider>
+        );
+      };
+      expect(makeContainer(<TestComponent />)).toHaveTextContent(firstName);
+    });
+
+    test("with an identifier", () => {
+      const identifier = "identifier";
+      const firstName = "Jonathan";
+      const MyNameDisplay = () => <div>{useStore(identifier).name}</div>;
+      const TestComponent = () => {
+        const Provider = useProvider(identifier);
+        const testStore = createStore(identifier, () =>
+          TestStore.create({ name: firstName }),
+        );
+        return (
+          <Provider value={testStore}>
+            <MyNameDisplay />
+          </Provider>
+        );
+      };
+      expect(makeContainer(<TestComponent />)).toHaveTextContent(firstName);
+    });
   });
 });
