@@ -18,16 +18,13 @@ function useStore(identifer: Identifier, mapStateToProps: MapStateToProps): any;
 
 function useStore(
   identifer: MapStateToProps | Identifier = defaultId,
-  mapStateToProps: MapStateToProps | null = null,
+  mapStateToProps: MapStateToProps = identity,
 ): any {
   if (typeof identifer === "function") {
     mapStateToProps = identifer;
     identifer = defaultId;
   }
-
-  return retrieveStore(identifer).useStore(
-    mapStateToProps === null ? identity : mapStateToProps,
-  );
+  return retrieveStore(identifer).useStore(mapStateToProps);
 }
 
 export default useStore;
