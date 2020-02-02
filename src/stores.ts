@@ -1,5 +1,5 @@
-import React, { useContext, Provider } from "react";
-import { MapStateToProps, Store, Identifier } from "./types";
+import React, { useContext } from "react";
+import { Store, Identifier } from "./types";
 
 const stores: Map<any, Store> = new Map();
 const defaultId = null;
@@ -12,9 +12,8 @@ function registerStore(identifier: Identifier): void {
   const Context = React.createContext(null);
   Context.displayName = String(identifier);
   const store: Store = {
-    useProvider: (): Provider<any> => Context.Provider,
-    useStore: (mapStateToProps: MapStateToProps): any =>
-      mapStateToProps(useContext(Context)),
+    useProvider: () => Context.Provider,
+    useStore: mapStateToProps => mapStateToProps(useContext(Context)),
   };
   stores.set(identifier, store);
 }
