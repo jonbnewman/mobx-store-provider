@@ -13,7 +13,7 @@ describe("useStore", () => {
     const MyNameDisplay = () => <div>{useStore().name}</div>;
     const TestComponent = () => {
       const Provider = useProvider();
-      const testStore = createStore(() =>
+      const testStore: ITestStore = createStore(() =>
         TestStore.create({ name: firstName }),
       );
       return (
@@ -31,7 +31,7 @@ describe("useStore", () => {
     const MyNameDisplay = () => <div>{useStore(identifier).name}</div>;
     const TestComponent = () => {
       const Provider = useProvider(identifier);
-      const testStore = createStore(() =>
+      const testStore: ITestStore = createStore(() =>
         TestStore.create({ name: firstName }),
       );
       return (
@@ -51,7 +51,7 @@ describe("useStore", () => {
     const MyNameDisplay = () => <div>{useStore(selectName)}</div>;
     const TestComponent = () => {
       const Provider = useProvider();
-      const testStore = createStore(() =>
+      const testStore: ITestStore = createStore(() =>
         TestStore.create({ name: firstName }),
       );
       return (
@@ -72,7 +72,7 @@ describe("useStore", () => {
     const MyNameDisplay = () => <div>{useStore(identifier, selectName)}</div>;
     const TestComponent = () => {
       const Provider = useProvider(identifier);
-      const testStore = createStore(() =>
+      const testStore: ITestStore = createStore(() =>
         TestStore.create({ name: firstName }),
       );
       return (
