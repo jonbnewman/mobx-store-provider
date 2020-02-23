@@ -3,7 +3,7 @@ import { cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
 import { useProvider, createStore, useStore } from "../";
-import { TestStore, ITestStore, makeContainer } from "./setup";
+import { TestStore, ITestStore, makeContainer } from "./tooling";
 
 describe("useProvider", () => {
   afterEach(cleanup);
