@@ -31,7 +31,7 @@ function retrieveStore(identifier: Identifier): Store {
 
 /**
  * Identity function, returns what was passed to it.
- * @param thing Thing you want the identity of
+ * @param thing The thing you want the identity of
  */
 function identity(thing: any): any {
   return thing;
