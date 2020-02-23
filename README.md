@@ -291,7 +291,7 @@ function PetDisplay() {
   const cat = useStore(CatStoreId);
   return (
     <div>
-      {owner.name} has a cat named {cat.catName}
+      {owner.name} has a cat named {cat.name}
     </div>
   );
 }
