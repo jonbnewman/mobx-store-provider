@@ -1,6 +1,6 @@
 {
   "name": "mobx-store-provider",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "Use React Hooks with mobx-state-tree",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -33,7 +33,7 @@
   "author": "Jonathan Newman",
   "license": "MIT",
   "dependencies": {
-    "react": ">=16.12"
+    "react": ">=16.8"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.1.1",
