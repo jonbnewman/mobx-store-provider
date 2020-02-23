@@ -1,6 +1,6 @@
 {
   "name": "mobx-store-provider",
-  "version": "1.4.1",
+  "version": "1.4.2",
   "description": "Use React Hooks with mobx-state-tree",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -28,7 +28,7 @@
     "url": "git+https://github.com/jonbnewman/mobx-store-provider.git"
   },
   "files": [
-    "lib/index.*"
+    "lib/**/*"
   ],
   "author": "Jonathan Newman",
   "license": "MIT",
