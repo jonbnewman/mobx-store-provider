@@ -101,14 +101,14 @@ It supplies your application with standard [mobx](https://mobx.js.org) observabl
 
 ```javascript
 useProvider(): Provider
-useProvider(identifier: any): Provider
+useProvider(identifier): Provider
 ```
 
 React Hook used to retrieve the `Provider` for a given `identifier`. This is a wrapper component you can use to provide your application with the store.
 
 **Parameters:**
 
-- _identifier_ `any` _(optional)_
+- _identifier_ `null | undefined | string | number | object | Symbol | BigInteger` _(optional)_
 
   Tells _mobx-store-provider_ which store you want the Provider for.
 
@@ -166,9 +166,9 @@ export default App;
 
 ```javascript
 useStore(): any
-useStore(identifier: any): any
+useStore(identifier): any
 useStore(mapStateToProps: Function): any
-useStore(identifier: any, mapStateToProps: Function): any
+useStore(identifier, mapStateToProps: Function): any
 ```
 
 React Hook used to retrieve a `store` for a given `identifier`.
@@ -179,7 +179,7 @@ React Hook used to retrieve a `store` for a given `identifier`.
 
   Function that can be used to select and return slices of the store.
 
-- _identifier_ `any` _(optional)_
+- _identifier_ `null | undefined | string | number | object | Symbol | BigInteger` _(optional)_
 
   Tells _mobx-store-provider_ which store you want to get access to.
 
