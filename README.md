@@ -22,6 +22,7 @@ React Hooks + [mobx-state-tree](http://mobx-state-tree.js.org/)
    - [createStore](#createstore) - Create a new store inside a component
    - [useStore](#usestore) - Use a store in a component
 
+1. [Using Multiple Stores](#using-multiple-stores)
 1. [Typescript](#typescript)
 1. [Testing](#testing)
 
@@ -243,6 +244,79 @@ function Header() {
 }
 
 export default observer(Header);
+```
+
+## Using Multiple Stores
+
+In the API above, you may have noticed an `identifier` you can use along with [useProvider](#useprovider) and [useStore](#useStore). This optional value can be used to tell `mobx-store-provider` which store you want to use, based on the unique `identifier` you pass it.
+
+Here is a short example:
+
+```javascript
+// App.jsx
+import React from "react";
+import { useProvider, createStore } from "mobx-store-provider";
+import { Owner, CatStore, CatStoreId, DogStore, DogStoreId } from "./stores";
+import PetDisplay from "./PetDisplay";
+
+function App() {
+  const OwnerProvider = useProvider();
+  const ownerStore = createStore(() => Owner.create({ name: "Jonathan" }));
+  const CatProvider = useProvider(CatStoreId);
+  const catStore = createStore(() => CatStore.create({ catName: "Boots" }));
+  const DogProvider = useProvider(DogStoreId);
+  const dogStore = createStore(() => DogStore.create({ catName: "Rusty" }));
+  return (
+    <OwnerProvider value={ownerStore}>
+      <CatProvider value={catStore}>
+        <DogProvider value={dogStore}>
+          <PetDisplay />
+        </DogProvider>
+      </CatProvider>
+    </OwnerProvider>
+  );
+}
+
+export default App;
+```
+
+```javascript
+// PetDisplay.jsx
+import React from "react";
+import { useStore } from "mobx-store-provider";
+import { CatStoreId, DogStoreId } from "./stores";
+
+function PetDisplay() {
+  const owner = useStore();
+  const cat = useStore(CatStoreId);
+  const dog = useStore(DogStoreId);
+  return (
+    <div>
+      {owner.name} has a cat named {cat.catName} and a dog named {dog.dogName}
+    </div>
+  );
+}
+
+export default PetDisplay;
+```
+
+```javascript
+// stores.js
+import { types } from "mobx-state-tree";
+
+export const Owner = types.model({
+  name: types.string,
+});
+
+export const CatStoreId = "CatStore";
+export const CatStore = types.model({
+  catName: types.string,
+});
+
+export const DogStoreId = "DogStore";
+export const DogStore = types.model({
+  dogName: types.string,
+});
 ```
 
 ## Typescript
