@@ -111,7 +111,7 @@ React Hook used to retrieve the `Provider` for a given `identifier`. This is a w
 
 - _identifier_ `null | undefined | string | number | object | Array<any> | Symbol | BigInteger` _(optional)_
 
-  Tells _mobx-store-provider_ which store you want the Provider for.
+  A unique identifier that tells _mobx-store-provider_ which store you want the Provider for.
 
 Example:
 
@@ -178,7 +178,7 @@ React Hook used to retrieve a `store` for a given `identifier`.
 
 - _identifier_ `null | undefined | string | number | object | Array<any> | Symbol | BigInteger` _(optional)_
 
-  Tells _mobx-store-provider_ which store you want to get access to.
+  A unique identifier that tells _mobx-store-provider_ which store you want to get access to.
 
 - _mapStateToProps_ `(store: any) => any` _(optional)_
 
