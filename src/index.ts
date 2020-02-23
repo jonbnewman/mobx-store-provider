@@ -1,7 +1,6 @@
-import { Provider } from "react";
+import { Provider, useRef } from "react";
 import { Identifier, Factory, MapStateToProps } from "./types";
 import { retrieveStore, defaultId, identity } from "./stores";
-import { useRef } from "react";
 
 /**
  * React Hook to retrieve the store `Provider` for a given `identifier`.
