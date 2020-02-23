@@ -1,27 +1,11 @@
 import React from "react";
-import { types, Instance } from "mobx-state-tree";
 import { observer } from "mobx-react";
 import { getByTestId, fireEvent } from "@testing-library/dom";
-import { render, cleanup } from "@testing-library/react";
+import { cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
 import { useProvider, createStore, useStore } from "../index";
-
-const TestStore = types
-  .model({
-    name: types.optional(types.string, "TestStore"),
-  })
-  .actions(self => ({
-    setName(name: string) {
-      self.name = name;
-    },
-  }));
-
-interface ITestStore extends Instance<typeof TestStore> {}
-
-function makeContainer(contents: any) {
-  return render(contents).container;
-}
+import { TestStore, ITestStore, makeContainer } from "./tooling";
 
 describe("integration", () => {
   afterEach(cleanup);
@@ -29,7 +13,11 @@ describe("integration", () => {
   test("can provide a created store using useProvider, createStore, and useStore", () => {
     const firstName = "Jonathan";
 
-    const MyNameDisplay = () => <div>{useStore().name}</div>;
+    const MyNameDisplay = () => {
+      const testStore: ITestStore = useStore();
+      return <div>{testStore.name}</div>;
+    };
+
     const TestComponent = () => {
       const Provider = useProvider();
       const testStore: ITestStore = createStore(() =>
@@ -61,7 +49,7 @@ describe("integration", () => {
 
     const TestComponent = () => {
       const Provider = useProvider();
-      const testStore = createStore(() =>
+      const testStore: ITestStore = createStore(() =>
         TestStore.create({ name: firstName }),
       );
       return (
