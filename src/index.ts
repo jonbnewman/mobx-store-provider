@@ -39,11 +39,9 @@ function useStore(
   identifer: MapStateToProps | Identifier = defaultId,
   mapStateToProps: MapStateToProps = identity,
 ): any {
-  if (typeof identifer === "function") {
-    mapStateToProps = identifer;
-    identifer = defaultId;
-  }
-  return retrieveStore(identifer).useStore(mapStateToProps);
+  return typeof identifer === "function"
+    ? retrieveStore(defaultId).useStore(<MapStateToProps>identifer)
+    : retrieveStore(identifer).useStore(mapStateToProps);
 }
 
 export { useProvider, createStore, useStore };

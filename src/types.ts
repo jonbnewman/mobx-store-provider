@@ -13,7 +13,14 @@ export interface Store {
  *
  * Used for store identification/access.
  */
-export type Identifier = any;
+export type Identifier =
+  | null
+  | undefined
+  | string
+  | number
+  | object
+  | Symbol
+  | BigInteger;
 
 /**
  * Function the user passes into the createStore hook.

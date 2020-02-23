@@ -55,15 +55,6 @@ describe("store identifiers", () => {
 
     expect(providers.get("first")).toBe(providers.get("second"));
   });
-
-  test("can use a function as an identifier for a store", () => {
-    const storeIdentifier = function() {
-      throw "You will never see this. Wait, did you just read that?";
-    };
-    const FirstProvider = useProvider(storeIdentifier);
-    const SecondProvider = useProvider(storeIdentifier);
-    expect(FirstProvider).toBe(SecondProvider);
-  });
 });
 
 describe("integration tests", () => {
