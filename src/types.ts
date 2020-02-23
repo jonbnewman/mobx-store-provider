@@ -4,7 +4,7 @@ import { Provider } from "react";
  * Internal Store representation.
  */
 export interface Store {
-  useProvider: () => Provider<any>;
+  Provider: Provider<any>;
   useStore: (mapStateToProps: MapStateToProps) => any;
 }
 

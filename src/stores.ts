@@ -12,7 +12,7 @@ function registerStore(identifier: Identifier): void {
   const Context = React.createContext(null);
   Context.displayName = String(identifier);
   stores.set(identifier, <Store>{
-    useProvider: () => Context.Provider,
+    Provider: Context.Provider,
     useStore: mapStateToProps => mapStateToProps(useContext(Context)),
   });
 }
