@@ -28,7 +28,7 @@
     "url": "git+https://github.com/jonbnewman/mobx-store-provider.git"
   },
   "files": [
-    "lib/**/*"
+    "lib/index.*"
   ],
   "author": "Jonathan Newman",
   "license": "MIT",
