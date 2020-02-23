@@ -3,7 +3,7 @@ import { cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
 import { useProvider, createStore, useStore } from "../index";
-import { TestStore, makeContainer } from "./setup";
+import { TestStore, ITestStore, makeContainer } from "./setup";
 
 describe("useProvider", () => {
   afterEach(cleanup);
@@ -13,7 +13,7 @@ describe("useProvider", () => {
     const MyNameDisplay = () => <div>{useStore().name}</div>;
     const TestComponent = () => {
       const Provider = useProvider();
-      const testStore = createStore(() =>
+      const testStore: ITestStore = createStore(() =>
         TestStore.create({ name: firstName }),
       );
       return (
@@ -31,7 +31,7 @@ describe("useProvider", () => {
     const MyNameDisplay = () => <div>{useStore(identifier).name}</div>;
     const TestComponent = () => {
       const Provider = useProvider(identifier);
-      const testStore = createStore(() =>
+      const testStore: ITestStore = createStore(() =>
         TestStore.create({ name: firstName }),
       );
       return (
