@@ -29,6 +29,10 @@ function retrieveStore(identifier: Identifier): Store {
   return <Store>stores.get(identifier);
 }
 
+/**
+ * Identity function, returns what was passed to it.
+ * @param thing Thing you want the identity of
+ */
 function identity(thing: any): any {
   return thing;
 }
