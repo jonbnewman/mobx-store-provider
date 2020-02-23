@@ -1,6 +1,6 @@
 import { Provider } from "react";
 import { Identifier, Factory, MapStateToProps } from "./types";
-import { retrieveStore, defaultId } from "./stores";
+import { retrieveStore, defaultId, identity } from "./stores";
 import { useRef } from "react";
 
 /**
@@ -24,10 +24,6 @@ function useProvider(identifier: Identifier = defaultId): Provider<any> {
 function createStore(factory: Factory): any;
 function createStore(factory: Factory): any {
   return useRef(factory()).current;
-}
-
-function identity(thing: any): any {
-  return thing;
 }
 
 /**

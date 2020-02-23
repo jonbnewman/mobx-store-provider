@@ -11,11 +11,10 @@ const defaultId: Identifier = null;
 function registerStore(identifier: Identifier): void {
   const Context = React.createContext(null);
   Context.displayName = String(identifier);
-  const store: Store = {
+  stores.set(identifier, <Store>{
     useProvider: () => Context.Provider,
     useStore: mapStateToProps => mapStateToProps(useContext(Context)),
-  };
-  stores.set(identifier, store);
+  });
 }
 
 /**
@@ -30,4 +29,8 @@ function retrieveStore(identifier: Identifier): Store {
   return <Store>stores.get(identifier);
 }
 
-export { retrieveStore, defaultId };
+function identity(thing: any): any {
+  return thing;
+}
+
+export { retrieveStore, defaultId, identity };
