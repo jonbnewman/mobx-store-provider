@@ -19,6 +19,7 @@ export type Identifier =
   | string
   | number
   | object
+  | Array<any>
   | Symbol
   | BigInteger;
 
