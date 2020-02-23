@@ -1,23 +1,9 @@
 import React from "react";
-import { types } from "mobx-state-tree";
-import { render, cleanup } from "@testing-library/react";
+import { cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
 import { useProvider, createStore } from "../index";
-
-const TestStore = types
-  .model({
-    name: types.optional(types.string, "TestStore"),
-  })
-  .actions(self => ({
-    setName(name: string) {
-      self.name = name;
-    },
-  }));
-
-function makeContainer(contents: any) {
-  return render(contents).container;
-}
+import { TestStore, ITestStore, makeContainer } from "./tooling";
 
 describe("identifier", () => {
   afterEach(cleanup);
@@ -42,8 +28,9 @@ describe("identifier", () => {
 
     function TestComponent() {
       const Provider = useProvider(identifier);
+      const testStore: ITestStore = createStore(() => TestStore.create());
       providers.set(providers.has("first") ? "second" : "first", Provider);
-      return <Provider value={createStore(() => TestStore.create())} />;
+      return <Provider value={testStore} />;
     }
 
     makeContainer(<TestComponent />);
