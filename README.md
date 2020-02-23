@@ -175,13 +175,13 @@ React Hook used to retrieve a `store` for a given `identifier`.
 
 **Parameters:**
 
-- _mapStateToProps_ `(store: any) => any` _(optional)_
-
-  Function that can be used to select and return slices of the store.
-
 - _identifier_ `null | undefined | string | number | object | Symbol | BigInteger` _(optional)_
 
   Tells _mobx-store-provider_ which store you want to get access to.
+
+- _mapStateToProps_ `(store: any) => any` _(optional)_
+
+  Function that can be used to select and return slices of the store.
 
 Example:
 
