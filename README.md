@@ -303,14 +303,16 @@ export default PetDisplay;
 // stores.js
 import { types } from "mobx-state-tree";
 
-export const OwnerStore = types.model({
+const OwnerStore = types.model({
   name: types.string,
 });
 
-export const CatStoreId = "CatStore";
-export const CatStore = types.model({
+const CatStoreId = "CatStore";
+const CatStore = types.model({
   name: types.string,
 });
+
+export { OwnerStore, CatStoreId, CatStore };
 ```
 
 ## Typescript
