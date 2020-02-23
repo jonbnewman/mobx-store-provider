@@ -258,22 +258,20 @@ Here is a short example:
 // App.jsx
 import React from "react";
 import { useProvider, createStore } from "mobx-store-provider";
-import { Owner, CatStore, CatStoreId, DogStore, DogStoreId } from "./stores";
+import { OwnerStore, CatStore, CatStoreId } from "./stores";
 import PetDisplay from "./PetDisplay";
 
 function App() {
   const OwnerProvider = useProvider();
-  const ownerStore = createStore(() => Owner.create({ name: "Jonathan" }));
+  const owner = createStore(() => OwnerStore.create({ name: "Jonathan" }));
+
   const CatProvider = useProvider(CatStoreId);
-  const catStore = createStore(() => CatStore.create({ catName: "Boots" }));
-  const DogProvider = useProvider(DogStoreId);
-  const dogStore = createStore(() => DogStore.create({ catName: "Rusty" }));
+  const cat = createStore(() => CatStore.create({ name: "Cleo" }));
+
   return (
-    <OwnerProvider value={ownerStore}>
-      <CatProvider value={catStore}>
-        <DogProvider value={dogStore}>
-          <PetDisplay />
-        </DogProvider>
+    <OwnerProvider value={owner}>
+      <CatProvider value={cat}>
+        <PetDisplay />
       </CatProvider>
     </OwnerProvider>
   );
@@ -286,15 +284,14 @@ export default App;
 // PetDisplay.jsx
 import React from "react";
 import { useStore } from "mobx-store-provider";
-import { CatStoreId, DogStoreId } from "./stores";
+import { CatStoreId } from "./stores";
 
 function PetDisplay() {
   const owner = useStore();
   const cat = useStore(CatStoreId);
-  const dog = useStore(DogStoreId);
   return (
     <div>
-      {owner.name} has a cat named {cat.catName} and a dog named {dog.dogName}
+      {owner.name} has a cat named {cat.catName}
     </div>
   );
 }
@@ -306,18 +303,13 @@ export default PetDisplay;
 // stores.js
 import { types } from "mobx-state-tree";
 
-export const Owner = types.model({
+export const OwnerStore = types.model({
   name: types.string,
 });
 
 export const CatStoreId = "CatStore";
 export const CatStore = types.model({
   catName: types.string,
-});
-
-export const DogStoreId = "DogStore";
-export const DogStore = types.model({
-  dogName: types.string,
 });
 ```
 
