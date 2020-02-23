@@ -250,7 +250,7 @@ export default observer(Header);
 
 Creating and using multiple stores in a single application is relatively easy using _mobx-store-provider_.
 
-In the API documentation above, you may have noticed an `identifier` you can use along with [useProvider](#useprovider) and [useStore](#useStore). This optional value can be used to tell `mobx-store-provider` which store you want to use, based on the unique `identifier` you pass it.
+In the API documentation above, you may have noticed an `identifier` you can use along with [useProvider](#useprovider) and [useStore](#useStore). This optional value can be used to tell _mobx-store-provider_ which store you want to use, based on the unique `identifier` you pass it.
 
 Here is a short example:
 
