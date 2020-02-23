@@ -19,7 +19,7 @@ function makeContainer(contents: any) {
   return render(contents).container;
 }
 
-describe("store identifiers", () => {
+describe("identifier", () => {
   afterEach(cleanup);
 
   test("can use store identifiers", () => {

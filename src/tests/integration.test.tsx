@@ -23,7 +23,7 @@ function makeContainer(contents: any) {
   return render(contents).container;
 }
 
-describe("integration tests", () => {
+describe("integration", () => {
   afterEach(cleanup);
 
   test("can provide a created store using useProvider, createStore, and useStore", () => {
