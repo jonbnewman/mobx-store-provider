@@ -309,7 +309,7 @@ export const OwnerStore = types.model({
 
 export const CatStoreId = "CatStore";
 export const CatStore = types.model({
-  catName: types.string,
+  name: types.string,
 });
 ```
 
