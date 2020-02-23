@@ -341,7 +341,6 @@ Since it is decided at runtime, you must specify this explicitly:
 // App.tsx
 import React from "react";
 import { useProvider, createStore } from "mobx-store-provider";
-import Header from "./Header";
 import { AppStore, IAppStore } from "./AppStore";
 
 function UserDisplay() {
