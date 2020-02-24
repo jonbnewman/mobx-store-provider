@@ -5,7 +5,7 @@ nav_order: 2
 parent: API details and examples
 ---
 
-### createStore
+# createStore
 
 React Hook used to instantiate new mobx-state-tree instances inside of components. It returns the store you instantiate and return from the `factory`.
 

@@ -5,7 +5,7 @@ nav_order: 1
 parent: API details and examples
 ---
 
-### useProvider
+# useProvider
 
 React Hook used to retrieve the `Provider` for a given `identifier`. This is a wrapper component you can use to provide your application with the store.
 

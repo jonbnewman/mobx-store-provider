@@ -5,7 +5,7 @@ nav_order: 3
 parent: API details and examples
 ---
 
-### useStore
+# useStore
 
 React Hook used to retrieve a `store` for a given `identifier`.
 
