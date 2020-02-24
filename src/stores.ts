@@ -7,6 +7,7 @@ const defaultId: Identifier = Symbol("store");
 /**
  * Register/initialize a store in the internal `stores` Map.
  * @param identifier The identifier supplied by the consumer
+ * @returns void
  */
 function registerStore(identifier: Identifier): void {
   const Context = React.createContext(null);
@@ -32,6 +33,7 @@ function retrieveStore(identifier: Identifier): Store {
 /**
  * Identity function, returns what was passed to it.
  * @param thing The thing you want the identity of
+ * @returns thing
  */
 function identity(thing: any): any {
   return thing;
