@@ -14,19 +14,19 @@ React Hooks + [mobx-state-tree](http://mobx-state-tree.js.org/)
 
 _mobx-store-provider_ lets you setup and use your [mobx-state-tree](http://mobx-state-tree.js.org/) models (referred to as `stores` in this context) from within functional (hooks-based) React components.
 
-1. [Installation](https://jonbnewman.github.io/mobx-store-provider/#installation)
+1. [Installation](http://mobx-store-provider.overfoc.us/installation)
 
-1. [Basic example](https://jonbnewman.github.io/mobx-store-provider/#basic-example)
+1. [Basic example](http://mobx-store-provider.overfoc.us/basic-example)
 
-1. [API details and examples](https://jonbnewman.github.io/mobx-store-provider/#api-details-and-examples)
+1. [API details and examples](http://mobx-store-provider.overfoc.us/api-details-and-examples)
 
-   - [useProvider](https://jonbnewman.github.io/mobx-store-provider/#useprovider) - Provide your components with a store
-   - [createStore](https://jonbnewman.github.io/mobx-store-provider/#createstore) - Create a new store inside a component
-   - [useStore](https://jonbnewman.github.io/mobx-store-provider/#usestore) - Use a store in a component
+   - [useProvider](http://mobx-store-provider.overfoc.us/api-details-and-examples#useprovider) - Provide your components with a store
+   - [createStore](http://mobx-store-provider.overfoc.us/api-details-and-examples#createstore) - Create a new store inside a component
+   - [useStore](http://mobx-store-provider.overfoc.us/api-details-and-examples#usestore) - Use a store in a component
 
-1. [Using multiple stores](https://jonbnewman.github.io/mobx-store-provider/#using-multiple-stores)
-1. [Typescript](https://jonbnewman.github.io/mobx-store-provider/#typescript)
-1. [Testing](https://jonbnewman.github.io/mobx-store-provider/#testing)
+1. [Using multiple stores](http://mobx-store-provider.overfoc.us/using-multiple-stores)
+1. [Typescript](http://mobx-store-provider.overfoc.us/typescript)
+1. [Testing](http://mobx-store-provider.overfoc.us/testing)
 
 ## Installation
 
@@ -92,4 +92,4 @@ const AppStore = types.model({
 export default AppStore;
 ```
 
-**[See the full docs](https://jonbnewman.github.io/mobx-store-provider)**
+**[See the full docs](http://mobx-store-provider.overfoc.us)**
