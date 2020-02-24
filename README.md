@@ -18,7 +18,7 @@ _mobx-store-provider_ lets you setup and use your [mobx-state-tree](http://mobx-
 
 1. [Basic example](http://mobx-store-provider.overfoc.us/basic-example)
 
-1. [API details and examples](http://mobx-store-provider.overfoc.us/api-details-and-examples)
+1. [API details](http://mobx-store-provider.overfoc.us/api-details-and-examples)
 
    - [useProvider](http://mobx-store-provider.overfoc.us/api-details-and-examples/useprovider) - Provide your components with a store
    - [createStore](http://mobx-store-provider.overfoc.us/api-details-and-examples/createstore) - Create a new store inside a component

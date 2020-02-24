@@ -16,7 +16,7 @@ _mobx-store-provider_ lets you setup and use your [mobx-state-tree](http://mobx-
 
 1. [Basic example](/basic-example)
 
-1. [API details and examples](/api-details-and-examples)
+1. [API details](/api-details-and-examples)
 
    - [useProvider](/api-details-and-examples/useprovider) - Provide your components with a store
    - [createStore](/api-details-and-examples/createstore) - Create a new store inside a component
