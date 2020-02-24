@@ -11,7 +11,7 @@ React Hooks + [mobx-state-tree](http://mobx-state-tree.js.org/)
 
 **A straight-forward API for using [mobx-state-tree](http://mobx-state-tree.js.org/) with functional React components.**
 
-_mobx-store-provider_ is a library that provides React Hooks for setting up and using your [mobx-state-tree](http://mobx-state-tree.js.org/) models (referred to as `stores` in this context) from within functional React components.
+_mobx-store-provider_ is a library that provides React Hooks for setting up and using your [mobx-state-tree](http://mobx-state-tree.js.org/) models/stores from within functional React components.
 
 1. [Installation](/installation)
 
