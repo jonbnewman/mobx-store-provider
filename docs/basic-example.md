@@ -40,10 +40,10 @@ export default App;
 Inside of the `App` component we:
 
 - Create the `appStore` instance using the [createStore](/api/createStore) hook
-- Retrieve the `Provider` we will use to supply the application with our `appStore`
+- Retrieve the `Provider` using the [useProvider](/api/useProvider) hook
 - Wrap our application with the `Provider`, supplying it with the `appStore`
 
-This creates our main appStore which is then shared with the rest of our application via its `Provider`.
+This creates our main `appStore` which is then shared with the rest of our application via its `Provider`.
 
 ## Using the store
 
