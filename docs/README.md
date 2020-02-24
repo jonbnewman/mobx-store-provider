@@ -1,8 +1,10 @@
 [![CircleCI](https://circleci.com/gh/jonbnewman/mobx-store-provider.svg?style=svg)](https://circleci.com/gh/jonbnewman/mobx-store-provider)
 [![Coverage Status](https://coveralls.io/repos/github/jonbnewman/mobx-store-provider/badge.svg?branch=master&r=2)](https://coveralls.io/github/jonbnewman/mobx-store-provider?branch=master)
+
 [![NPM Package](https://img.shields.io/npm/v/mobx-store-provider.svg?logo=npm&r=1)](https://www.npmjs.com/package/mobx-store-provider)
 ![Typescript](https://img.shields.io/npm/types/mobx-store-provider.svg?logo=typescript)
 ![Package size](https://img.shields.io/bundlephobia/minzip/mobx-store-provider)
+
 ![MIT License](https://img.shields.io/npm/l/mobx-store-provider.svg)
 
 React Hooks + [mobx-state-tree](http://mobx-state-tree.js.org/)
