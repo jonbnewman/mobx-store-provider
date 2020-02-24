@@ -114,5 +114,10 @@
     "rules": {
       "no-unused-vars": "off"
     }
-  }
+  },
+  "eslintIgnore": [
+    "node_modules",
+    "dist",
+    "coverage"
+  ]
 }
