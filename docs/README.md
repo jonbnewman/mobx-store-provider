@@ -13,19 +13,19 @@ React Hooks + [mobx-state-tree](http://mobx-state-tree.js.org/)
 
 _mobx-store-provider_ is a library that provides React Hooks for setting up and using your [mobx-state-tree](http://mobx-state-tree.js.org/) models/stores from within functional React components.
 
-1. [Installation](/installation)
+1. [Installation](http://mobx-store-provider.overfoc.us/installation)
 
-1. [Basic example](/basic-example)
+1. [Basic example](http://mobx-store-provider.overfoc.us/basic-example)
 
-1. [API details and examples](/api-details-and-examples)
+1. [API details and examples](http://mobx-store-provider.overfoc.us/api-details-and-examples)
 
-   - [useProvider](/api/useProvider) - Provide your components with a store
-   - [createStore](/api/createStore) - Create a new store inside a component
-   - [useStore](/api/useStore) - Use a store in a component
+   - [useProvider](http://mobx-store-provider.overfoc.us/api/useProvider) - Provide your components with a store
+   - [createStore](http://mobx-store-provider.overfoc.us/api/createStore) - Create a new store inside a component
+   - [useStore](http://mobx-store-provider.overfoc.us/api/useStore) - Use a store in a component
 
-1. [Using multiple stores](/using-multiple-stores)
-1. [Typescript](/typescript)
-1. [Testing](/testing)
+1. [Using multiple stores](http://mobx-store-provider.overfoc.us/using-multiple-stores)
+1. [Typescript](http://mobx-store-provider.overfoc.us/typescript)
+1. [Testing](http://mobx-store-provider.overfoc.us/testing)
 
 ---
 
@@ -74,15 +74,15 @@ export default App;
 
 Inside of the `App` component we:
 
-- Retrieve the `Provider` using the [useProvider](/api/useProvider) hook
-- Create the `appStore` instance using the [createStore](/api/createStore) hook
+- Retrieve the `Provider` using the [useProvider](http://mobx-store-provider.overfoc.us/api/useProvider) hook
+- Create the `appStore` instance using the [createStore](http://mobx-store-provider.overfoc.us/api/createStore) hook
 - Wrap our application with the `Provider`, supplying it with the `appStore`
 
 This creates our main `appStore` which is then shared with the rest of our application via its `Provider`.
 
 ### Using the store
 
-In another component somewhere in the application, we want to use or gain access to the `appStore`. To do this, we use the [useStore](/api/useStore) hook:
+In another component somewhere in the application, we want to use or gain access to the `appStore`. To do this, we use the [useStore](http://mobx-store-provider.overfoc.us/api/useStore) hook:
 
 ```javascript
 // UserDisplay.jsx (A component, we use the store from above inside it)
@@ -100,7 +100,7 @@ function UserDisplay() {
 export default observer(UserDisplay);
 ```
 
-In this component, we gain access to the `appStore` using the [useStore](/api/useStore) hook.
+In this component, we gain access to the `appStore` using the [useStore](http://mobx-store-provider.overfoc.us/api/useStore) hook.
 
 Note that we also wrap our component using `observer()` from the [mobx-react](https://github.com/mobxjs/mobx-react#mobx-react) library, this ensures our component renders updates to the store.
 
