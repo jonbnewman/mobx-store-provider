@@ -8,14 +8,14 @@ has_toc: false
 
 ## API details and examples
 
-- [useProvider](useprovider)
+[useProvider](useprovider)
 
-  Provide your components with a store
+Provide your components with a store
 
-- [createStore](createstore)
+[createStore](createstore)
 
-  Create a new store inside a component
+Create a new store inside a component
 
-- [useStore](usestore)
+[useStore](usestore)
 
-  Use a store in a component
+Use a store in a component
