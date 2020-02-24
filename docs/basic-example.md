@@ -71,6 +71,10 @@ Note that we also wrap our component using `observer()` from the [mobx-react](ht
 
 ## Defining the store
 
+The `AppStore` is a normal _mobx-state-tree_ model. In the context of this library, this is referred to as a `store`.
+
+This is what your application and components uses as its state.
+
 ```javascript
 // AppStore.js (mobx-state-tree store/model)
 import { types } from "mobx-state-tree";
@@ -81,7 +85,5 @@ const AppStore = types.model({
 
 export default AppStore;
 ```
-
-The `AppStore` is a normal _mobx-state-tree_ model. In the context of this library, this is referred to as a `store`. It is what your application shares/uses as its state.
 
 If you are new to _mobx-state-tree_, it is highly recommended you read through a bit of [the _mobx-state-tree_ documentation](https://mobx-state-tree.js.org).

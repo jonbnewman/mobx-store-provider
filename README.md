@@ -40,6 +40,12 @@ yarn add mobx-store-provider
 
 ## Basic example
 
+The following shows a simple/basic example application using _mobx-store-provider_:
+
+## The App component
+
+At the core of our application we define the main `App` component. Inside of it, we use the hooks provided by _mobx-store-provider_ to both create the store and then wrap our application with the `Provider`, supplying the `appStore` to its descendents.
+
 ```javascript
 // App.jsx (Main App component, we use it to create and provide the store)
 import React from "react";
@@ -65,6 +71,18 @@ function App() {
 export default App;
 ```
 
+Inside of the `App` component we:
+
+- Create the `appStore` instance using the [createStore](/api/createStore) hook
+- Retrieve the `Provider` using the [useProvider](/api/useProvider) hook
+- Wrap our application with the `Provider`, supplying it with the `appStore`
+
+This creates our main `appStore` which is then shared with the rest of our application via its `Provider`.
+
+## Using the store
+
+In another component somewhere in the application, we want to use or gain access to the `appStore`. To do this, we use the [useStore](/api/useStore) hook:
+
 ```javascript
 // UserDisplay.jsx (A component, we use the store from above inside it)
 import React from "react";
@@ -81,6 +99,16 @@ function UserDisplay() {
 export default observer(UserDisplay);
 ```
 
+In this component, we gain access to the `appStore` using the [useStore](/api/useStore) hook.
+
+Note that we also wrap our component using `observer()` from the [mobx-react](https://github.com/mobxjs/mobx-react#mobx-react) library, this ensures our component renders updates to the store.
+
+## Defining the store
+
+The `AppStore` is a normal _mobx-state-tree_ model. In the context of this library, this is referred to as a `store`.
+
+This is what your application and components uses as its state.
+
 ```javascript
 // AppStore.js (mobx-state-tree store/model)
 import { types } from "mobx-state-tree";
@@ -91,5 +119,9 @@ const AppStore = types.model({
 
 export default AppStore;
 ```
+
+If you are new to _mobx-state-tree_, it is highly recommended you read through a bit of [the _mobx-state-tree_ documentation](https://mobx-state-tree.js.org).
+
+---
 
 **[See the full docs](http://mobx-store-provider.overfoc.us)**
