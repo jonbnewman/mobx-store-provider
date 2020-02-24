@@ -11,7 +11,7 @@ React Hooks + [mobx-state-tree](http://mobx-state-tree.js.org/)
 
 **A straight-forward API for using [mobx-state-tree](http://mobx-state-tree.js.org/) with functional React components.**
 
-_mobx-store-provider_ lets you setup and use your [mobx-state-tree](http://mobx-state-tree.js.org/) models (referred to as `stores` in this context) from within functional (hooks-based) React components.
+_mobx-store-provider_ is a library that provides React Hooks for setting up and using your [mobx-state-tree](http://mobx-state-tree.js.org/) models (referred to as `stores` in this context) from within functional (hooks-based) React components.
 
 1. [Installation](/installation)
 
@@ -74,8 +74,8 @@ export default App;
 
 Inside of the `App` component we:
 
-- Create the `appStore` instance using the [createStore](/api/createStore) hook
 - Retrieve the `Provider` using the [useProvider](/api/useProvider) hook
+- Create the `appStore` instance using the [createStore](/api/createStore) hook
 - Wrap our application with the `Provider`, supplying it with the `appStore`
 
 This creates our main `appStore` which is then shared with the rest of our application via its `Provider`.
