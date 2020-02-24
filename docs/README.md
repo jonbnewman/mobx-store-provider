@@ -43,7 +43,7 @@ yarn add mobx-store-provider
 
 The following shows a simple/basic example application using _mobx-store-provider_:
 
-## App component
+### App component
 
 At the core of our application we define the main `App` component. Inside of it, we use the hooks provided by _mobx-store-provider_ to both create the store and then wrap our application with the `Provider`, supplying the `appStore` to its descendents.
 
@@ -80,7 +80,7 @@ Inside of the `App` component we:
 
 This creates our main `appStore` which is then shared with the rest of our application via its `Provider`.
 
-## Using the store
+### Using the store
 
 In another component somewhere in the application, we want to use or gain access to the `appStore`. To do this, we use the [useStore](/api/useStore) hook:
 
@@ -104,7 +104,7 @@ In this component, we gain access to the `appStore` using the [useStore](/api/us
 
 Note that we also wrap our component using `observer()` from the [mobx-react](https://github.com/mobxjs/mobx-react#mobx-react) library, this ensures our component renders updates to the store.
 
-## Defining the store
+### Defining the store
 
 The `AppStore` is a normal _mobx-state-tree_ model. In the context of this library, this is referred to as a `store`.
 
