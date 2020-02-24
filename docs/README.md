@@ -38,7 +38,7 @@ yarn add mobx-store-provider
 
 ## Basic example
 
-```javascript
+```JSX
 // App.jsx (Main App component, we use it to create and provide the store)
 import React from "react";
 import { useProvider, createStore } from "mobx-store-provider";
@@ -63,7 +63,7 @@ function App() {
 export default App;
 ```
 
-```javascript
+```JSX
 // UserDisplay.jsx (A component, we use the store from above inside it)
 import React from "react";
 import { observer } from "mobx-react";
@@ -113,7 +113,7 @@ React Hook used to retrieve the `Provider` for a given `identifier`. This is a w
 
 Example:
 
-```javascript
+```JSX
 import React from "react";
 import { useProvider } from "mobx-store-provider";
 import AppStore from "./AppStore";
@@ -147,7 +147,7 @@ React Hook used to instantiate new mobx-state-tree instances inside of component
 
 Example:
 
-```javascript
+```JSX
 import React from "react";
 import { createStore, useProvider } from "mobx-store-provider";
 import AppStore from "./AppStore";
@@ -184,7 +184,7 @@ React Hook used to retrieve a `store` for a given `identifier`.
 
 Example:
 
-```javascript
+```JSX
 // App.jsx (Main App component, we use it to create and provide the store)
 import React from "react";
 import { types } from "mobx-state-tree";
@@ -213,7 +213,7 @@ function App() {
 export default App;
 ```
 
-```javascript
+```JSX
 // Header.jsx (A component, we use the store inside)
 import React from "react";
 import { observer } from "mobx-react";
@@ -252,7 +252,7 @@ In the API documentation above, you may have noticed an `identifier` you can use
 
 Here is a short example:
 
-```javascript
+```JSX
 // App.jsx
 import React from "react";
 import { useProvider, createStore } from "mobx-store-provider";
@@ -278,7 +278,7 @@ function App() {
 export default App;
 ```
 
-```javascript
+```JSX
 // PetDisplay.jsx
 import React from "react";
 import { useStore } from "mobx-store-provider";
@@ -335,7 +335,7 @@ It is important to note that when using [createStore](#createstore) or [useStore
 
 Since it is decided at runtime, you must specify this explicitly:
 
-```javascript
+```JSX
 // App.tsx
 import React from "react";
 import { useProvider, createStore } from "mobx-store-provider";
@@ -375,7 +375,7 @@ Testing a React app that uses _mobx-state-tree_ and _mobx-store-provider_ is eas
 
 Here are a few examples using [Jest](https://jestjs.io/) and [react-testing-library](https://github.com/testing-library/react-testing-library#react-testing-library):
 
-```javascript
+```JSX
 // UserForm.tests.jsx
 import { getByTestId, fireEvent } from "@testing-library/dom";
 import { render } from "@testing-library/react";
@@ -427,7 +427,7 @@ describe("UserForm tests", () => {
 });
 ```
 
-```javascript
+```JSX
 // UserForm.jsx (The component we want to test)
 import React from "react";
 import { observer } from "mobx-react";

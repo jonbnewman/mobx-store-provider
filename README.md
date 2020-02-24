@@ -38,7 +38,7 @@ yarn add mobx-store-provider
 
 ## Basic example
 
-```javascript
+```JSX
 // App.jsx (Main App component, we use it to create and provide the store)
 import React from "react";
 import { useProvider, createStore } from "mobx-store-provider";
@@ -63,7 +63,7 @@ function App() {
 export default App;
 ```
 
-```javascript
+```JSX
 // UserDisplay.jsx (A component, we use the store from above inside it)
 import React from "react";
 import { observer } from "mobx-react";
