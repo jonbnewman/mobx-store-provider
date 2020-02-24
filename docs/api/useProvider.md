@@ -20,7 +20,7 @@ useProvider(identifier): Provider
 
   A unique identifier that tells _mobx-store-provider_ which store you want the Provider for.
 
-## Example:
+## Example
 
 ```javascript
 import React from "react";

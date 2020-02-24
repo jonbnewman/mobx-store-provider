@@ -19,7 +19,7 @@ createStore(factory): any
 
   Function where you instantiate and return a mobx-state-tree instance.
 
-## Example:
+## Example
 
 ```javascript
 import React from "react";
