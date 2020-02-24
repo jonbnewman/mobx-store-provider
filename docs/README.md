@@ -1,3 +1,9 @@
+---
+layout: default
+title: mobx-store-provider
+nav_exclude: true
+---
+
 # mobx-store-provider
 
 [![CircleCI](https://circleci.com/gh/jonbnewman/mobx-store-provider.svg?style=svg)](https://circleci.com/gh/jonbnewman/mobx-store-provider)
