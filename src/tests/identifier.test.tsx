@@ -8,34 +8,66 @@ import { TestStore, ITestStore, makeContainer } from "./integration.test";
 describe("identifier", () => {
   afterEach(cleanup);
 
-  test("can use store identifiers", () => {
-    const storeIdentifier = Symbol("identifier");
-    const FirstProvider = useProvider(storeIdentifier);
-    const SecondProvider = useProvider(storeIdentifier);
-    expect(FirstProvider).toBe(SecondProvider);
+  interface TestComponentInterface {
+    identifier: string;
+  }
 
-    const DifferentProvider = useProvider("something else");
-    expect(DifferentProvider).not.toBe(FirstProvider);
-
-    const DefaultProvider = useProvider();
-    expect(DefaultProvider).not.toBe(FirstProvider);
-    expect(DefaultProvider).not.toBe(DifferentProvider);
-  });
-
-  test("can receive the same store Provider for the same identifier", () => {
-    const providers = new Map();
+  test("return the same store for the same identifier", () => {
+    const stores = new Map();
     const identifier = "my-store";
 
     function TestComponent() {
       const Provider = useProvider(identifier);
       const testStore: ITestStore = createStore(() => TestStore.create());
-      providers.set(providers.has("first") ? "second" : "first", Provider);
+      stores.set(stores.has("first") ? "second" : "first", testStore);
       return <Provider value={testStore} />;
     }
 
     makeContainer(<TestComponent />);
     makeContainer(<TestComponent />);
 
-    expect(providers.get("first")).toBe(providers.get("second"));
+    expect(stores.get("first")).toStrictEqual(stores.get("second"));
+  });
+
+  test("return a different store for a different identifier", () => {
+    const stores = new Map();
+    const firstId = "my-store";
+    const secondId = "my-other-store";
+
+    function TestComponent({ identifier }: TestComponentInterface) {
+      const Provider = useProvider(identifier);
+      const testStore: ITestStore = createStore(() => TestStore.create());
+      stores.set(stores.has("first") ? "second" : "first", testStore);
+      return <Provider value={testStore} />;
+    }
+
+    makeContainer(<TestComponent identifier={firstId} />);
+    makeContainer(<TestComponent identifier={secondId} />);
+
+    expect(stores.get("first")).not.toBe(stores.get("second"));
+  });
+
+  test("return a different store for default vs a specified identifier", () => {
+    const stores = new Map();
+    const secondId = "my-other-store";
+
+    function DefaultTestComponent() {
+      const Provider = useProvider();
+      const testStore: ITestStore = createStore(() => TestStore.create());
+      stores.set(stores.has("first") ? "second" : "first", testStore);
+      return <Provider value={testStore} />;
+    }
+
+    function TestComponent({ identifier }: TestComponentInterface) {
+      const Provider = useProvider(identifier);
+      const testStore: ITestStore = createStore(() => TestStore.create());
+      stores.set(stores.has("first") ? "second" : "first", testStore);
+      return <Provider value={testStore} />;
+    }
+
+    makeContainer(<DefaultTestComponent />);
+    makeContainer(<TestComponent identifier={secondId} />);
+
+    expect(stores.get("first")).not.toBe(stores.get("second"));
   });
 });
