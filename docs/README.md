@@ -1,7 +1,6 @@
 ---
 layout: default
-title: mobx-store-provider
-nav_exclude: true
+title: Home
 ---
 
 # mobx-store-provider
