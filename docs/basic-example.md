@@ -6,6 +6,8 @@ nav_order: 3
 
 ## Basic example
 
+The following shows a simple/basic example using _mobx-store-provider_:
+
 ```javascript
 // App.jsx (Main App component, we use it to create and provide the store)
 import React from "react";
@@ -31,6 +33,14 @@ function App() {
 export default App;
 ```
 
+In the above block, we define the main `App` component. Inside of the `App` component we:
+
+- Create the `appStore` instance using the [createStore](/api/createStore) hook
+- Retrieve the `Provider` we will use to supply the application with our `appStore`
+- Wrap our application with the `Provider`, supplying it with the `appStore`
+
+This creates our main appStore which is then shared with the rest of our application via its `Provider`.
+
 ```javascript
 // UserDisplay.jsx (A component, we use the store from above inside it)
 import React from "react";
@@ -47,6 +57,10 @@ function UserDisplay() {
 export default observer(UserDisplay);
 ```
 
+In this component, we gain access to the `appStore` using the [useStore](/api/createStore) hook.
+
+Note that we also wrap our component using `observer()` from the [mobx-react](https://github.com/mobxjs/mobx-react#mobx-react) library, this ensures our component renders updates to the store.
+
 ```javascript
 // AppStore.js (mobx-state-tree store/model)
 import { types } from "mobx-state-tree";
@@ -57,3 +71,7 @@ const AppStore = types.model({
 
 export default AppStore;
 ```
+
+The `AppStore` is a normal _mobx-state-tree_ model. In the context of this library, this is referred to as a `store`. It is what your application shares/uses as its state.
+
+If you are new to _mobx-state-tree_, it is highly recommended you read through a bit of [the _mobx-state-tree_ documentation](https://mobx-state-tree.js.org).
