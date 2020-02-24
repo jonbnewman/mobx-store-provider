@@ -17,7 +17,7 @@ _mobx-store-provider_ is a library that provides React Hooks for setting up and 
 
 1. [Basic example](/basic-example)
 
-1. [API details](/api-details-and-examples)
+1. [API details and examples](/api-details-and-examples)
 
    - [useProvider](/api/useProvider) - Provide your components with a store
    - [createStore](/api/createStore) - Create a new store inside a component
