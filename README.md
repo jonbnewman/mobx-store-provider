@@ -25,3 +25,73 @@ React Hooks + [mobx-state-tree](http://mobx-state-tree.js.org/)
 1. [Using Multiple Stores](https://jonbnewman.github.io/mobx-store-provider/#using-multiple-stores)
 1. [Typescript](https://jonbnewman.github.io/mobx-store-provider/#typescript)
 1. [Testing](https://jonbnewman.github.io/mobx-store-provider/#testing)
+
+## Installation
+
+```bash
+npm i mobx-store-provider
+```
+
+```bash
+yarn add mobx-store-provider
+```
+
+## Basic Example
+
+```javascript
+// App.jsx (Main App component, we use it to create and provide the store)
+import React from "react";
+import { useProvider, createStore } from "mobx-store-provider";
+import AppStore from "./AppStore";
+import UserDisplay from "./UserDisplay";
+
+function App() {
+  // Get the Provider for our AppStore
+  const Provider = useProvider();
+
+  // Create our AppStore instance
+  const appStore = createStore(() => AppStore.create({ user: "Jonathan" }));
+
+  // Wrap our application with the Provider passing it the appStore
+  return (
+    <Provider value={appStore}>
+      <UserDisplay />
+    </Provider>
+  );
+}
+
+export default App;
+```
+
+```javascript
+// UserDisplay.jsx (A component, we use the store from above inside it)
+import React from "react";
+import { observer } from "mobx-react";
+import { useStore } from "mobx-store-provider";
+
+function UserDisplay() {
+  // Get access to the store
+  const appStore = useStore();
+  return <div>{appStore.user}</div>;
+}
+
+// Wrap it with mobx-react observer(), so updates get rendered
+export default observer(UserDisplay);
+```
+
+```javascript
+// AppStore.js (mobx-state-tree store/model)
+import { types } from "mobx-state-tree";
+
+const AppStore = types.model({
+  user: types.string,
+});
+
+export default AppStore;
+```
+
+_mobx-store-provider_ lets you setup and access your [mobx-state-tree](http://mobx-state-tree.js.org/) models (referred to as `stores` in this context) from within functional (hooks-based) React components.
+
+It supplies your application with standard [mobx](https://mobx.js.org) observables (mobx-state-tree model instances are themselves observables)...and so it integrates seamlessly with all standard [mobx](https://mobx.js.org) and mobx-compatible libraries, such as [mobx-react](https://github.com/mobxjs/mobx-react#mobx-react) (used in the example above).
+
+**[See the full docs](https://jonbnewman.github.io/mobx-store-provider)**

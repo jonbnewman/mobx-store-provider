@@ -29,12 +29,10 @@ React Hooks + [mobx-state-tree](http://mobx-state-tree.js.org/)
 ## Installation
 
 ```bash
-# via NPM
-npm install mobx-store-provider --save
+npm i mobx-store-provider
 ```
 
 ```bash
-# via Yarn
 yarn add mobx-store-provider
 ```
 
