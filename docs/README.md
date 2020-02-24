@@ -1,4 +1,4 @@
-# Intro
+# Introduction
 
 [![CircleCI](https://circleci.com/gh/jonbnewman/mobx-store-provider.svg?style=svg)](https://circleci.com/gh/jonbnewman/mobx-store-provider)
 [![Coverage Status](https://coveralls.io/repos/github/jonbnewman/mobx-store-provider/badge.svg?branch=master&r=2)](https://coveralls.io/github/jonbnewman/mobx-store-provider?branch=master)
