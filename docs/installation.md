@@ -4,7 +4,7 @@ title: Installation
 nav_order: 2
 ---
 
-## Installation
+# Installation
 
 You can install _mobx-store-provider_ via NPM or Yarn:
 
