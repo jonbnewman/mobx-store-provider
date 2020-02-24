@@ -7,14 +7,14 @@ parent: API details and examples
 
 ### useStore
 
+React Hook used to retrieve a `store` for a given `identifier`.
+
 ```javascript
 useStore(): any
 useStore(identifier): any
 useStore(mapStateToProps): any
 useStore(identifier, mapStateToProps): any
 ```
-
-React Hook used to retrieve a `store` for a given `identifier`.
 
 **Parameters:**
 

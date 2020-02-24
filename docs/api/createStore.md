@@ -7,11 +7,11 @@ parent: API details and examples
 
 ### createStore
 
+React Hook used to instantiate new mobx-state-tree instances inside of components. It returns the store you instantiate and return from the `factory`.
+
 ```javascript
 createStore(factory): any
 ```
-
-React Hook used to instantiate new mobx-state-tree instances inside of components. It returns the store you instantiate and return from the `factory`.
 
 **Parameters:**
 
