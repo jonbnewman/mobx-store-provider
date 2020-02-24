@@ -10,7 +10,7 @@ The following shows a simple/basic example application using _mobx-store-provide
 
 ## The App component
 
-At the core of our application we define the main `App` component. Inside of it, we use the hooks provided by _mobx-store-provider_ to both create the store and then wrap our application, supplying it to its descendents.
+At the core of our application we define the main `App` component. Inside of it, we use the hooks provided by _mobx-store-provider_ to both create the store and then wrap our application with the `Provider`, supplying the `appStore` to its descendents.
 
 ```javascript
 // App.jsx (Main App component, we use it to create and provide the store)
