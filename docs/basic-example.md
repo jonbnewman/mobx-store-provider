@@ -8,9 +8,7 @@ nav_order: 3
 
 The following shows a simple/basic example application using _mobx-store-provider_:
 
-{:toc}
-
-## The App component
+## App component
 
 At the core of our application we define the main `App` component. Inside of it, we use the hooks provided by _mobx-store-provider_ to both create the store and then wrap our application with the `Provider`, supplying the `appStore` to its descendents.
 
@@ -88,4 +86,4 @@ const AppStore = types.model({
 export default AppStore;
 ```
 
-If you are new to _mobx-state-tree_, it is highly recommended you read through a bit of [the _mobx-state-tree_ documentation](https://mobx-state-tree.js.org).
+If you are new to _mobx-state-tree_, it is highly recommended you read through a bit of the [_mobx-state-tree_ documentation](https://mobx-state-tree.js.org).

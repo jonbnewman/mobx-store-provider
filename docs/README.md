@@ -121,4 +121,4 @@ const AppStore = types.model({
 export default AppStore;
 ```
 
-If you are new to _mobx-state-tree_, it is highly recommended you read through a bit of [the _mobx-state-tree_ documentation](https://mobx-state-tree.js.org).
+If you are new to _mobx-state-tree_, it is highly recommended you read through a bit of the [_mobx-state-tree_ documentation](https://mobx-state-tree.js.org).
