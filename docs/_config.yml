@@ -1,4 +1,5 @@
 remote_theme: pmarsceill/just-the-docs
+color_scheme: "dark"
 aux_links:
   "mobx-store-provider on GitHub":
     - "//github.com/jonbnewman/mobx-store-provider"
