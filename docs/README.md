@@ -12,6 +12,10 @@ React Hooks + [mobx-state-tree](http://mobx-state-tree.js.org/)
 
 **A straight-forward API for using [mobx-state-tree](http://mobx-state-tree.js.org/) with functional React components.**
 
+_mobx-store-provider_ lets you setup and access your [mobx-state-tree](http://mobx-state-tree.js.org/) models (referred to as `stores` in this context) from within functional (hooks-based) React components.
+
+It supplies your application with standard [mobx](https://mobx.js.org) observables (mobx-state-tree model instances are themselves observables)...and so it integrates seamlessly with all standard [mobx](https://mobx.js.org) and mobx-compatible libraries, such as [mobx-react](https://github.com/mobxjs/mobx-react#mobx-react) (used in the example above).
+
 1. [Installation](#installation)
 
 1. [Basic example](#basic-example)
@@ -89,10 +93,6 @@ const AppStore = types.model({
 
 export default AppStore;
 ```
-
-_mobx-store-provider_ lets you setup and access your [mobx-state-tree](http://mobx-state-tree.js.org/) models (referred to as `stores` in this context) from within functional (hooks-based) React components.
-
-It supplies your application with standard [mobx](https://mobx.js.org) observables (mobx-state-tree model instances are themselves observables)...and so it integrates seamlessly with all standard [mobx](https://mobx.js.org) and mobx-compatible libraries, such as [mobx-react](https://github.com/mobxjs/mobx-react#mobx-react) (used in the example above).
 
 ## API details and examples
 
