@@ -10,8 +10,13 @@ describe("useProvider", () => {
 
   test("with no parameters", () => {
     const firstName = "Jonathan";
-    const MyNameDisplay = () => <div>{useStore().name}</div>;
-    const TestComponent = () => {
+
+    function MyNameDisplay() {
+      const testStore: ITestStore = useStore();
+      return <div>{testStore.name}</div>;
+    }
+
+    function TestComponent() {
       const Provider = useProvider();
       const testStore: ITestStore = createStore(() =>
         TestStore.create({ name: firstName }),
@@ -21,15 +26,21 @@ describe("useProvider", () => {
           <MyNameDisplay />
         </Provider>
       );
-    };
+    }
+
     expect(makeContainer(<TestComponent />)).toHaveTextContent(firstName);
   });
 
   test("with an identifier", () => {
     const identifier = "identifier";
     const firstName = "Jonathan";
-    const MyNameDisplay = () => <div>{useStore(identifier).name}</div>;
-    const TestComponent = () => {
+
+    function MyNameDisplay() {
+      const testStore: ITestStore = useStore(identifier);
+      return <div>{testStore.name}</div>;
+    }
+
+    function TestComponent() {
       const Provider = useProvider(identifier);
       const testStore: ITestStore = createStore(() =>
         TestStore.create({ name: firstName }),
@@ -39,7 +50,8 @@ describe("useProvider", () => {
           <MyNameDisplay />
         </Provider>
       );
-    };
+    }
+
     expect(makeContainer(<TestComponent />)).toHaveTextContent(firstName);
   });
 });

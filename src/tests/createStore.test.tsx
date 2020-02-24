@@ -10,8 +10,13 @@ describe("createStore", () => {
 
   test("with a factory", () => {
     const firstName = "Jonathan";
-    const MyNameDisplay = () => <div>{useStore().name}</div>;
-    const TestComponent = () => {
+
+    function MyNameDisplay() {
+      const testStore: ITestStore = useStore();
+      return <div>{testStore.name}</div>;
+    }
+
+    function TestComponent() {
       const Provider = useProvider();
       const testStore: ITestStore = createStore(() =>
         TestStore.create({ name: firstName }),
@@ -21,7 +26,8 @@ describe("createStore", () => {
           <MyNameDisplay />
         </Provider>
       );
-    };
+    }
+
     expect(makeContainer(<TestComponent />)).toHaveTextContent(firstName);
   });
 });
