@@ -14,15 +14,15 @@ React Hooks + [mobx-state-tree](http://mobx-state-tree.js.org/)
 
 1. [Installation](#installation)
 
-1. [Basic Example](#basic-example)
+1. [Basic example](#basic-example)
 
-1. [API Details and Examples](#api-details-and-examples)
+1. [API details and examples](#api-details-and-examples)
 
    - [useProvider](#useprovider) - Provide your components with a store
    - [createStore](#createstore) - Create a new store inside a component
    - [useStore](#usestore) - Use a store in a component
 
-1. [Using Multiple Stores](#using-multiple-stores)
+1. [Using multiple stores](#using-multiple-stores)
 1. [Typescript](#typescript)
 1. [Testing](#testing)
 
@@ -36,7 +36,7 @@ npm i mobx-store-provider
 yarn add mobx-store-provider
 ```
 
-## Basic Example
+## Basic example
 
 ```javascript
 // App.jsx (Main App component, we use it to create and provide the store)
@@ -94,7 +94,7 @@ _mobx-store-provider_ lets you setup and access your [mobx-state-tree](http://mo
 
 It supplies your application with standard [mobx](https://mobx.js.org) observables (mobx-state-tree model instances are themselves observables)...and so it integrates seamlessly with all standard [mobx](https://mobx.js.org) and mobx-compatible libraries, such as [mobx-react](https://github.com/mobxjs/mobx-react#mobx-react) (used in the example above).
 
-## API Details and Examples
+## API details and examples
 
 ### useProvider
 
@@ -244,7 +244,7 @@ function Header() {
 export default observer(Header);
 ```
 
-## Using Multiple Stores
+## Using multiple stores
 
 Creating and using multiple stores in a single application is relatively easy using _mobx-store-provider_.
 

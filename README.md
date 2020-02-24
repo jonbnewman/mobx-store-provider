@@ -14,15 +14,15 @@ React Hooks + [mobx-state-tree](http://mobx-state-tree.js.org/)
 
 1. [Installation](https://jonbnewman.github.io/mobx-store-provider/#installation)
 
-1. [Basic Example](https://jonbnewman.github.io/mobx-store-provider/#basic-example)
+1. [Basic example](https://jonbnewman.github.io/mobx-store-provider/#basic-example)
 
-1. [API Details and Examples](https://jonbnewman.github.io/mobx-store-provider/#api-details-and-examples)
+1. [API details and examples](https://jonbnewman.github.io/mobx-store-provider/#api-details-and-examples)
 
    - [useProvider](https://jonbnewman.github.io/mobx-store-provider/#useprovider) - Provide your components with a store
    - [createStore](https://jonbnewman.github.io/mobx-store-provider/#createstore) - Create a new store inside a component
    - [useStore](https://jonbnewman.github.io/mobx-store-provider/#usestore) - Use a store in a component
 
-1. [Using Multiple Stores](https://jonbnewman.github.io/mobx-store-provider/#using-multiple-stores)
+1. [Using multiple stores](https://jonbnewman.github.io/mobx-store-provider/#using-multiple-stores)
 1. [Typescript](https://jonbnewman.github.io/mobx-store-provider/#typescript)
 1. [Testing](https://jonbnewman.github.io/mobx-store-provider/#testing)
 
@@ -36,7 +36,7 @@ npm i mobx-store-provider
 yarn add mobx-store-provider
 ```
 
-## Basic Example
+## Basic example
 
 ```javascript
 // App.jsx (Main App component, we use it to create and provide the store)
