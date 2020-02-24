@@ -14,13 +14,13 @@ useProvider(): Provider
 useProvider(identifier): Provider
 ```
 
-**Parameters:**
+## Parameters
 
 - _identifier_ `string | number | object | symbol | null | Array<any>` _(optional)_
 
   A unique identifier that tells _mobx-store-provider_ which store you want the Provider for.
 
-Example:
+## Example:
 
 ```javascript
 import React from "react";

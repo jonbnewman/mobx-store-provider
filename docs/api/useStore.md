@@ -16,7 +16,7 @@ useStore(mapStateToProps): any
 useStore(identifier, mapStateToProps): any
 ```
 
-**Parameters:**
+## Parameters
 
 - _identifier_ `string | number | object | symbol | null | Array<any>` _(optional)_
 
@@ -26,7 +26,7 @@ useStore(identifier, mapStateToProps): any
 
   Function that can be used to select and return slices of the store.
 
-Example:
+## Example:
 
 ```javascript
 // App.jsx (Main App component, we use it to create and provide the store)

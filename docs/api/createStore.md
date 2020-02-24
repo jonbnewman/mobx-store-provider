@@ -13,13 +13,13 @@ React Hook used to instantiate new mobx-state-tree instances inside of component
 createStore(factory): any
 ```
 
-**Parameters:**
+## Parameters
 
 - _factory_ `() => any`
 
   Function where you instantiate and return a mobx-state-tree instance.
 
-Example:
+## Example:
 
 ```javascript
 import React from "react";
