@@ -1,1 +1,4 @@
 remote_theme: pmarsceill/just-the-docs
+aux_links:
+  "mobx-store-provider on GitHub":
+    - "//github.com/jonbnewman/mobx-store-provider"

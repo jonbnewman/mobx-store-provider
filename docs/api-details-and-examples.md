@@ -3,6 +3,7 @@ layout: default
 title: API details and examples
 nav_order: 3
 has_children: true
+has_toc: false
 ---
 
 ## API details and examples
