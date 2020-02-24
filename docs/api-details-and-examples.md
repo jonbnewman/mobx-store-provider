@@ -6,7 +6,7 @@ has_children: true
 has_toc: false
 ---
 
-## API details and examples
+# API details and examples
 
 [useProvider](/api/useProvider)
 
