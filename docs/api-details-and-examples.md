@@ -1,7 +1,7 @@
 ---
 layout: default
 title: API details and examples
-nav_order: 2
+nav_order: 3
 ---
 
 ## API details and examples
