@@ -1,11 +1,29 @@
 import React from "react";
 import { observer } from "mobx-react";
+import { types, Instance } from "mobx-state-tree";
 import { getByTestId, fireEvent } from "@testing-library/dom";
-import { cleanup } from "@testing-library/react";
+import { render, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
 import { useProvider, createStore, useStore } from "../";
-import { TestStore, ITestStore, makeContainer } from "./tooling";
+
+const TestStore = types
+  .model({
+    name: types.optional(types.string, "TestStore"),
+  })
+  .actions(self => ({
+    setName(name: string) {
+      self.name = name;
+    },
+  }));
+
+interface ITestStore extends Instance<typeof TestStore> {}
+
+function makeContainer(contents: any) {
+  return render(contents).container;
+}
+
+export { TestStore, ITestStore, makeContainer };
 
 describe("integration", () => {
   afterEach(cleanup);
