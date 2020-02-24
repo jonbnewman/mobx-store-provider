@@ -4,7 +4,7 @@ title: Testing
 nav_order: 7
 ---
 
-## Testing
+# Testing
 
 Testing a React app that uses _mobx-state-tree_ and _mobx-store-provider_ is easy.
 

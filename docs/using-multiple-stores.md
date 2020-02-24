@@ -4,7 +4,7 @@ title: Using multiple stores
 nav_order: 5
 ---
 
-## Using multiple stores
+# Using multiple stores
 
 Creating and using multiple stores in a single application is relatively easy using _mobx-store-provider_.
 

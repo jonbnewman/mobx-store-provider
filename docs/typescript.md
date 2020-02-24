@@ -4,7 +4,7 @@ title: Typescript
 nav_order: 6
 ---
 
-## Typescript
+# Typescript
 
 Using _mobx-store-provider_ and [retaining the strong typing provided by _mobx-state-tree_](https://mobx-state-tree.js.org/tips/typescript#using-a-mst-type-at-design-time) is simple.
 
