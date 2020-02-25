@@ -35,7 +35,12 @@ import { AppStore, IAppStore } from "./AppStore";
 function UserDisplay() {
   // With this declaration, typescript knows the appStore is an AppStore
   const appStore: IAppStore = useStore();
-  return <div>{appStore.user}</div>;
+
+  /**
+   * The following will not compile, it will cause a typescript error
+   * because `foobar` is not a property of an `AppStore`
+   */
+  return <div>{appStore.foober}</div>;
 }
 
 function App() {
@@ -43,12 +48,6 @@ function App() {
 
   // With this declaration, typescript knows the appStore is an AppStore
   const appStore: IAppStore = createStore(() => AppStore.create());
-
-  /**
-   * The following will not compile, it will cause a typescript error
-   * because `foobar` is not a property of an `AppStore`
-   */
-  console.info(appStore.foobar);
 
   return (
     <Provider value={appStore}>
