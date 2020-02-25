@@ -88,8 +88,8 @@ import { observer } from "mobx-react";
 import { useStore } from "mobx-store-provider";
 
 function Header() {
-  // We use the store in this component
-  const appStore = useStore("storeIdentifier");
+  // We use the store in this component with a unique identifier
+  const appStore = useStore("AppStore");
   return (
     <div>
       User: {appStore.user.name} {appStore.user.isCoolGuy ? "👍" : "👎"}
