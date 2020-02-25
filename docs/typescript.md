@@ -6,7 +6,9 @@ nav_order: 6
 
 # Typescript
 
-Using _mobx-store-provider_ and [retaining the strong typing provided by _mobx-state-tree_](https://mobx-state-tree.js.org/tips/typescript#using-a-mst-type-at-design-time) is simple.
+When using [createStore](/api/createStore) or [useStore](/api/useStore) typescript needs to be informed what type is being returned.
+
+To do this you must first define an `interface` for the `store`.
 
 ```javascript
 /// AppStore.ts (mobx-state-tree store/model)
@@ -22,9 +24,7 @@ interface IAppStore extends Instance<typeof AppStore> {}
 export { AppStore, IAppStore };
 ```
 
-It is important to note that when using [createStore](/api/createStore) or [useStore](/api/useStore) typescript needs to be informed what type is being returned.
-
-Since it is decided at runtime, you must specify this explicitly.
+In your components you can tell typescript what type a `store` is by using that `interface`.
 
 ```javascript
 // App.tsx
