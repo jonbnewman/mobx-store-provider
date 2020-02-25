@@ -46,9 +46,7 @@ Using this hook you can instantiate/create _mobx-state-tree_ models/stores insid
 
 ### Local state
 
-With _mobx-store-provider_ ad-hoc/local state is a snap.
-
-You can just define the model in the same `createStore` callback that instantiates it:
+The recommended method is to define the `store` next to the component it is for:
 
 ```javascript
 import React from "react";
@@ -56,16 +54,13 @@ import { observer } from "mobx-react";
 import { types } from "mobx-state-tree";
 import { createStore } from "mobx-store-provider";
 
-function PetComponent() {
-  const localStore = createStore(() =>
-    types
-      .model({
-        name: "Rusty",
-        type: "Dog",
-      })
-      .create(),
-  );
+const PetStore = types.model({
+  name: "Rusty",
+  type: "Dog",
+});
 
+function PetComponent() {
+  const localStore = createStore(() => PetStore.create());
   return (
     <div>
       {localStore.name} is a {localStore.type}
