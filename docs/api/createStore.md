@@ -26,7 +26,7 @@ createStore(factory): any
 - [Basic example](#basic-example)
 - [Local state](#local-state)
 
-### Basic example
+## Basic example
 
 ```javascript
 import React from "react";
@@ -44,7 +44,7 @@ export default App;
 
 Using this hook you can instantiate/create _mobx-state-tree_ models/stores inside of any component.
 
-### Local state
+## Local state
 
 For local or ephemeral state the recommended method is to define the `store` next to the component it will be used in.
 
