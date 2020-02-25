@@ -44,7 +44,7 @@ Using this hook you can instantiate/create _mobx-state-tree_ models/stores insid
 
 ### Local state
 
-Using an alternative state mechanisms for local state creates inconsistent code within your application. This is less than ideal.
+Using an alternative mechanisms for local state creates inconsistent code within your application. This is less than ideal.
 
 Using _mobx-store-provider_, ad-hoc/local state is a snap.
 
