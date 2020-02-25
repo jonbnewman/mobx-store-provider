@@ -48,8 +48,8 @@ At the core of the application we define the main `App` component.
 
 Inside of it, we use hooks provided by _mobx-store-provider_ to:
 
-- Retrieve the `Provider` using the [useProvider](http://mobx-store-provider.overfoc.us/api/useProvider) hook
-- Create the `appStore` instance using the [createStore](http://mobx-store-provider.overfoc.us/api/createStore) hook
+1. Create the `appStore` instance using the [createStore](http://mobx-store-provider.overfoc.us/api/createStore) hook
+1. Retrieve the store `Provider` using the [useProvider](http://mobx-store-provider.overfoc.us/api/useProvider) hook
 
 ```javascript
 // App.jsx (Main App component, we use it to create and provide the store)
@@ -59,11 +59,11 @@ import AppStore from "./AppStore";
 import UserDisplay from "./UserDisplay";
 
 function App() {
-  // Get the Provider for the AppStore
-  const Provider = useProvider();
-
   // Create the AppStore instance
   const appStore = createStore(() => AppStore.create({ user: "Jonathan" }));
+
+  // Get the Provider for the AppStore
+  const Provider = useProvider();
 
   // Wrap the application with the Provider passing it the appStore
   return (
@@ -76,7 +76,7 @@ function App() {
 export default App;
 ```
 
-Note that we wrap the application with the `Provider`, supplying it with the `appStore` as its value.
+Note that we wrap the application with the `Provider`, supplying it the `appStore` as its value.
 
 This makes the `appStore` available to the rest of the application.
 
