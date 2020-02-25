@@ -6,7 +6,7 @@ nav_order: 6
 
 # Typescript
 
-Typescript definitions are [supplied by **mobx-state-tree**](https://mobx-state-tree.js.org/tips/typescript#using-a-mst-type-at-design-time) for your stores/models by default.
+Typescript definitions are [supplied by mobx-state-tree](https://mobx-state-tree.js.org/tips/typescript#using-a-mst-type-at-design-time) for your stores/models by default.
 
 The one thing of note with respect to **mobx-store-provider** is that when you use [createStore](/api/createStore) or [useStore](/api/useStore) typescript needs to be informed what type is being returned. This is because the values returned from these hooks is dynamic and decided at runtime. Typescript cannot infer what they return.
 
