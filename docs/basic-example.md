@@ -12,7 +12,7 @@ The following shows an example application using _mobx-store-provider_.
 
 At the core of the application we define the main `App` component.
 
-Inside of it, we use hooks provided by _mobx-store-provider_ to:
+Inside of the `App` we use hooks provided by _mobx-store-provider_ to:
 
 1. Create the `appStore` instance using the [createStore](http://mobx-store-provider.overfoc.us/api/createStore) hook
 1. Retrieve the store `Provider` using the [useProvider](http://mobx-store-provider.overfoc.us/api/useProvider) hook
