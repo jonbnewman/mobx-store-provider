@@ -43,11 +43,9 @@ const User = types.model({
   isCoolGuy: true,
 });
 
-const AppStore = types.model({
+export default AppStore = types.model({
   user: types.optional(User, {}),
 });
-
-export default AppStore;
 ```
 
 ### Basic example
