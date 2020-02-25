@@ -22,7 +22,7 @@ createStore(factory): any
 ## Examples
 
 - [Basic example](#basic-example)
-- [Local component state](#local-component-state)
+- [Local component state](#local-state)
 
 ### Basic example
 
@@ -42,9 +42,11 @@ export default App;
 
 Using this hook you can instantiate/create _mobx-state-tree_ models/stores inside of any component.
 
-### Local component state
+### Local state
 
-Using an alternative state mechanisms for local state creates inconsistent code and is less than ideal. Using _mobx-store-provider_ ad-hoc/local state is a snap, and easy to keep consistent with the rest of your application.
+Using an alternative state mechanisms for local state creates inconsistent code within your application. This is less than ideal.
+
+Using _mobx-store-provider_, ad-hoc/local state is a snap.
 
 You can just define the model in the same `createStore` callback that instantiates it:
 
