@@ -15,7 +15,7 @@ At the core of the application we define the main `App` component.
 Inside of the `App` we use hooks provided by _mobx-store-provider_ to:
 
 1. Create the `appStore` instance with the [createStore](http://mobx-store-provider.overfoc.us/api/createStore) hook
-1. Retrieve the store `Provider` with the [useProvider](http://mobx-store-provider.overfoc.us/api/useProvider) hook
+1. Retrieve the `Provider` with the [useProvider](http://mobx-store-provider.overfoc.us/api/useProvider) hook
 
 ```javascript
 // App.jsx (Main App component, we use it to create and provide the store)
@@ -70,7 +70,7 @@ export default observer(UserDisplay);
 
 Note that we also wrap our component using `observer()` from the [mobx-react](https://github.com/mobxjs/mobx-react#mobx-react) library.
 
-This is critical, as it ensures the component will render any updates made to the `appStore`. For more information, see the [observer documentation](https://mobx.js.org/refguide/observer-component.html#observer) in the [mobx-react](https://github.com/mobxjs/mobx-react#mobx-react) library.
+This is critical, as it ensures the component will render any updates made to the `appStore`. For more information, see the [observer documentation](https://mobx.js.org/refguide/observer-component.html#observer) for the [mobx-react](https://github.com/mobxjs/mobx-react#mobx-react) library.
 
 ## Defining the store
 
@@ -86,7 +86,5 @@ const AppStore = types.model({
 
 export default AppStore;
 ```
-
-In the context of _mobx-store-provider_, this is referred to as a `store`. This is what your application and components use for state and state-related actions.
 
 If you are new to _mobx-state-tree_, it is recommended you read through the [_mobx-state-tree_ documentation](https://mobx-state-tree.js.org).
