@@ -6,7 +6,7 @@ nav_order: 5
 
 # Using multiple stores
 
-In the [API documentation](/api-details-and-examples), you may have noticed an `identifier` you can use along with [useProvider](/api/useprovider) and [useStore](/api/useStore). This optional value tells _mobx-store-provider_ which store you want to use based on the unique `identifier` you pass to it.
+In the [API documentation](/api-details-and-examples), you may have noticed an `identifier` you can use along with [useProvider](/api/useProvider) and [useStore](/api/useStore). This optional value tells _mobx-store-provider_ which store you want to use based on the unique `identifier` you pass to it.
 
 ## Example
 
