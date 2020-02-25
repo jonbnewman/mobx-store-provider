@@ -22,7 +22,8 @@
     "mobx",
     "mobx-state-tree",
     "hooks",
-    "react"
+    "react",
+    "functional"
   ],
   "repository": {
     "type": "git",
