@@ -73,6 +73,8 @@ function Header() {
 export default observer(Header);
 ```
 
+If you have a single or root `store` then this is likely how you will want to access it.
+
 ### Using an identifier
 
 By passing a unique `identifier`, the `store` associated with it is returned (assuming you used the same `identifier` with the `Provider` supplying it).
