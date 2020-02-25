@@ -14,8 +14,8 @@ At the core of the application we define the main `App` component.
 
 Inside of the `App` we use hooks provided by _mobx-store-provider_ to:
 
-1. Create the `appStore` instance using the [createStore](http://mobx-store-provider.overfoc.us/api/createStore) hook
-1. Retrieve the store `Provider` using the [useProvider](http://mobx-store-provider.overfoc.us/api/useProvider) hook
+1. Create the `appStore` instance with the [createStore](http://mobx-store-provider.overfoc.us/api/createStore) hook
+1. Retrieve the store `Provider` with the [useProvider](http://mobx-store-provider.overfoc.us/api/useProvider) hook
 
 ```javascript
 // App.jsx (Main App component, we use it to create and provide the store)
