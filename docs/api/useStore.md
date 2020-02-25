@@ -122,7 +122,7 @@ export default observer(Header);
 
 ### Using a mapStateToProps callback
 
-Using the `mapStateToProps` callback, you can return slices of the store, or do additional processing before the component accesses it.
+Using the `mapStateToProps` callback, you can return slices of the store with a selector function or do additional processing before the component accesses it.
 
 ```javascript
 // Header.jsx (component we access the appStore inside)
@@ -130,10 +130,10 @@ import React from "react";
 import { observer } from "mobx-react";
 import { useStore } from "mobx-store-provider";
 
+// Selector functions
 function selectUserName(store) {
   return store.user.name;
 }
-
 function selectCoolStatus(store) {
   return store.user.isCoolGuy;
 }
