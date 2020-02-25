@@ -19,7 +19,12 @@ createStore(factory): any
 
   Function where you instantiate and return a mobx-state-tree instance.
 
-## Example
+## Examples
+
+- [Basic example](#basic-example)
+- [Local component state](#local-component-state)
+
+### Basic example
 
 ```javascript
 import React from "react";
@@ -36,3 +41,35 @@ export default App;
 ```
 
 Using this hook you can instantiate/create _mobx-state-tree_ models/stores inside of any component.
+
+### Local component state
+
+Using an alternative state mechanisms for local state creates inconsistent code and is less than ideal. Using _mobx-store-provider_ ad-hoc/local state is a snap, and easy to keep consistent with the rest of your application.
+
+You can just define the model in the same `createStore` callback that instantiates it:
+
+```javascript
+import React from "react";
+import { observer } from "mobx-react";
+import { types } from "mobx-state-tree";
+import { createStore } from "mobx-store-provider";
+
+function PetComponent() {
+  const localStore = createStore(() =>
+    types
+      .model({
+        name: "Rusty",
+        type: "Dog",
+      })
+      .create(),
+  );
+
+  return (
+    <div>
+      {localStore.name} is a {localStore.type}
+    </div>
+  );
+}
+
+export default observer(PetComponent);
+```
