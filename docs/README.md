@@ -2,8 +2,6 @@
 
 _mobx-store-provider_ is a library that provides React Hooks for setting up and using [mobx-state-tree](http://mobx-state-tree.js.org/) models/stores from within functional React components.
 
-A straight-forward API for using mobx-state-tree with functional React components.
-
 1. [Installation](http://mobx-store-provider.overfoc.us/installation)
 
 1. [Basic example](http://mobx-store-provider.overfoc.us/basic-example)
