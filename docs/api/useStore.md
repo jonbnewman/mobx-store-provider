@@ -32,7 +32,7 @@ useStore(identifier, mapStateToProps): any
 - [Using an identifier](#use-an-identifer)
 - [Using a mapStateToProps callback](#using-a-mapstatetoprops-callback)
 
-First, here is the `AppStore` model/store and main `App` component used with the examples below:
+First, here is the `AppStore` model/store used with the examples below:
 
 ```javascript
 // AppStore.js
@@ -48,28 +48,6 @@ const AppStore = types.model({
 });
 
 export default AppStore;
-```
-
-and the main `App` component using the `Provider` to supply the application with the `AppStore`:
-
-```javascript
-// App.jsx (App component used to create and provide the store)
-import React from "react";
-import { useProvider, createStore } from "mobx-store-provider";
-import Header from "./Header";
-import AppStore from "./AppStore";
-
-function App() {
-  const Provider = useProvider();
-  const appStore = createStore(() => AppStore.create());
-  return (
-    <Provider value={appStore}>
-      <Header />
-    </Provider>
-  );
-}
-
-export default App;
 ```
 
 ### Basic example
