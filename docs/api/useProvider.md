@@ -108,4 +108,4 @@ const AppStore = types.model({
 export { appStoreId, AppStore };
 ```
 
-It is important to note, that in order to access this `store` in another component you will need to supply the [useStore](/api/useStore) hook with that same `identifier`.
+It is important to note, that in order to access this `store` in another component you will need to supply the [useStore](/api/useStore#using-an-identifier) hook with that same `identifier`.
