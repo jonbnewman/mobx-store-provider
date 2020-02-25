@@ -45,10 +45,7 @@ function UserDisplay() {
 
 function App() {
   const Provider = useProvider();
-
-  // With this declaration, typescript knows the appStore is an AppStore
   const appStore: IAppStore = createStore(() => AppStore.create());
-
   return (
     <Provider value={appStore}>
       <UserDisplay />
