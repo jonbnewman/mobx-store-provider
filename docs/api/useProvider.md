@@ -52,9 +52,12 @@ export default App;
 ```javascript
 // AppStore.js
 import { types } from "mobx-state-tree";
-export default types.model({
+
+const AppStore = types.model({
   username: "",
 });
+
+export default AppStore;
 ```
 
 Getting access to the `store` in other components is accomplished with the [useStore](/api/useStore) hook.
