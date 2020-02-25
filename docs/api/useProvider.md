@@ -101,5 +101,6 @@ const AppStore = types.model({
   username: "",
 });
 
+// Export both the identifier and the model/store
 export { appStoreId, AppStore };
 ```
