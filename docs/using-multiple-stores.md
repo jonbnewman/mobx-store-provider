@@ -8,13 +8,11 @@ nav_order: 5
 
 Creating and using multiple stores in a single application is relatively easy using _mobx-store-provider_.
 
-In the [API documentation](/api-details-and-examples), you may have noticed an `identifier` you can use along with [useProvider](/api/useprovider) and [useStore](/api/useStore).
-
-This optional value tells _mobx-store-provider_ which store you want to use based on the unique `identifier` you pass to it.
+In the [API documentation](/api-details-and-examples), you may have noticed an `identifier` you can use along with [useProvider](/api/useprovider) and [useStore](/api/useStore). This optional value tells _mobx-store-provider_ which store you want to use based on the unique `identifier` you pass to it.
 
 ## Example
 
-In the `App` component, we create both the `cat` and `owner`, which are then provided to the rest of the application via their `Provider`.
+In the `App` component, we create both the `cat` and `owner`, which are then provided to the rest of the application via their respective `Provider`.
 
 ```javascript
 // App.jsx
@@ -42,7 +40,7 @@ function App() {
 export default App;
 ```
 
-Note that each `Provider` must be retrieved using its own `identifier`. In the case of the owner, we just use the default one supplied by _mobx-store-provider_.
+Note that each `Provider` must be retrieved using its own `identifier`. In the case of the `owner`, we just use the default one supplied by _mobx-store-provider_.
 
 In the `PedDisplay` component we retrieve each store with [useStore](/api/useStore) making sure to pass the same identifier that we used in their respective `Provider`.
 
