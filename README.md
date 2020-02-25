@@ -120,7 +120,7 @@ export default AppStore;
 
 This is what your application and components use for state and state-related actions.
 
-If you are new to _mobx-state-tree_, it is highly recommended you read through a bit of the [_mobx-state-tree_ documentation](https://mobx-state-tree.js.org).
+If you are new to _mobx-state-tree_, it is recommended you read through the [_mobx-state-tree_ documentation](https://mobx-state-tree.js.org).
 
 ---
 
