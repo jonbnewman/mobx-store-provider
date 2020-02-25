@@ -65,8 +65,6 @@ function UserDisplay() {
 export default observer(UserDisplay);
 ```
 
-In this component, we gain access to the `appStore` using the [useStore](/api/useStore) hook.
-
 Note that we also wrap our component using `observer()` from the [mobx-react](https://github.com/mobxjs/mobx-react#mobx-react) library, this ensures our component renders updates to the store.
 
 ## Defining the store
