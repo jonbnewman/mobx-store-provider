@@ -16,7 +16,6 @@ Inside of it, we use hooks provided by _mobx-store-provider_ to:
 
 - Retrieve the `Provider` using the [useProvider](http://mobx-store-provider.overfoc.us/api/useProvider) hook
 - Create the `appStore` instance using the [createStore](http://mobx-store-provider.overfoc.us/api/createStore) hook
-- Wrap the application with the `Provider`, supplying it with the `appStore`
 
 ```javascript
 // App.jsx (Main App component, we use it to create and provide the store)
@@ -43,7 +42,9 @@ function App() {
 export default App;
 ```
 
-This creates the `appStore` which is then shared with the rest of the application via the `Provider`.
+Note that we wrap the application with the `Provider`, supplying it with the `appStore` as its value.
+
+This makes the `appStore` available to the rest of the application.
 
 ## Using the store
 
