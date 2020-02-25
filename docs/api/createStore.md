@@ -46,7 +46,7 @@ Using this hook you can instantiate/create _mobx-state-tree_ models/stores insid
 
 ### Local state
 
-For local or ephemeral state, the recommended method is to define the `store` next to the component it is for.
+For local or ephemeral state the recommended method is to define the `store` next to the component it will be used in.
 
 ```javascript
 import React from "react";
