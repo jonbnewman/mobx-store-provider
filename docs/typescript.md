@@ -6,9 +6,11 @@ nav_order: 6
 
 # Typescript
 
-When using [createStore](/api/createStore) or [useStore](/api/useStore) typescript needs to be informed what type is being returned.
+Typescript definitions are [supplied by **mobx-state-tree**](https://mobx-state-tree.js.org/tips/typescript#using-a-mst-type-at-design-time) for your stores/models by default.
 
-To do this you must first define an `interface` for the `store`.
+The one thing of note with respect to **mobx-store-provider** is that when you use [createStore](/api/createStore) or [useStore](/api/useStore) typescript needs to be informed what type is being returned. This is because the values returned from these hooks is dynamic and decided at runtime. Typescript cannot infer what they return.
+
+To do this you must first define an `interface` for your `store`:
 
 ```javascript
 /// AppStore.ts (mobx-state-tree store/model)
@@ -18,13 +20,14 @@ const AppStore = types.model({
   user: types.optional(types.string, ""),
 });
 
-// Create an interface to represent an instance of the AppStore
+// Create the interface to represent an instance of the AppStore
 interface IAppStore extends Instance<typeof AppStore> {}
 
+// Export it and the store so other components can use them
 export { AppStore, IAppStore };
 ```
 
-In your components when you call [useStore](/api/useStore) you must inform typescript what type of `store` is being returned by using that `interface`:
+Then, in your components when calling [useStore](/api/useStore) you must inform typescript what type of `store` is being returned by using that stores associated `interface`:
 
 ```javascript
 // UserDisplay.tsx
@@ -44,7 +47,7 @@ function UserDisplay() {
 }
 ```
 
-The same thing must be done when using the [createStore](/api/createStore) hook as well:
+The same thing must also be done when using the [createStore](/api/createStore) hook as well:
 
 ```javascript
 // App.tsx
@@ -54,7 +57,10 @@ import { AppStore, IAppStore } from "./AppStore";
 
 function App() {
   const Provider = useProvider();
+
+  // With this declaration, typescript knows the appStore is an AppStore
   const appStore: IAppStore = createStore(() => AppStore.create());
+
   return (
     <Provider value={appStore}>
       <UserDisplay />
