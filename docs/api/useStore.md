@@ -100,7 +100,7 @@ export default observer(Header);
 
 A unique `identifier` must be used when your application has more than one `store`.
 
-See: [Using multiple stores](/using-multiple-stores).
+For more information on multiple stores, see: [Using multiple stores](/using-multiple-stores)
 
 ### Using a mapStateToProps callback
 
