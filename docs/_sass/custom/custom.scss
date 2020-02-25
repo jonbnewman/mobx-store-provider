@@ -3,5 +3,9 @@ footer .text-small {
 }
 
 a {
-  background: none;
+  background: none !important;
+
+  &:hover {
+    background: none !important;
+  }
 }
