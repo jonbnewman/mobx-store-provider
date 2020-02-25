@@ -28,7 +28,7 @@ createStore(factory): any
 
 ## Basic example
 
-Using this hook you can instantiate/create _mobx-state-tree_ models/stores inside of any component.
+Using this hook you can instantiate/create **mobx-state-tree** models/stores inside of any component.
 
 ```javascript
 import React from "react";

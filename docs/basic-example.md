@@ -6,13 +6,13 @@ nav_order: 3
 
 # Basic example
 
-The following shows an example application using _mobx-store-provider_.
+The following shows an example application using **mobx-store-provider**.
 
 ## App component
 
 At the core of the application we define the main `App` component.
 
-Inside of the `App` we use hooks provided by _mobx-store-provider_ to:
+Inside of the `App` we use hooks provided by **mobx-store-provider** to:
 
 1. Create the `appStore` instance with the [createStore](http://mobx-store-provider.overfoc.us/api/createStore) hook
 1. Retrieve the `Provider` with the [useProvider](http://mobx-store-provider.overfoc.us/api/useProvider) hook
@@ -74,7 +74,7 @@ This is critical, as it ensures the component will render any updates made to th
 
 ## Defining the store
 
-The code above uses the `AppStore` _mobx-state-tree_ model. In the context of _mobx-store-provider_ this is referred to as a `store`.
+The code above uses the `AppStore` **mobx-state-tree** model. In the context of **mobx-store-provider** this is referred to as a `store`.
 
 ```javascript
 // AppStore.js (mobx-state-tree store/model)

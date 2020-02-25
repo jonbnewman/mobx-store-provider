@@ -6,7 +6,7 @@ nav_order: 7
 
 # Testing
 
-You can test an app that uses _mobx-store-provider_ like any other React application.
+You can test an app that uses **mobx-store-provider** like any other React application.
 
 Here are a few examples using [Jest](https://jestjs.io/) and [react-testing-library](https://github.com/testing-library/react-testing-library#react-testing-library).
 

@@ -6,7 +6,7 @@ nav_order: 5
 
 # Using multiple stores
 
-In the [API documentation](/api-details-and-examples), you may have noticed an `identifier` you can use along with [useProvider](/api/useProvider) and [useStore](/api/useStore). This optional value tells _mobx-store-provider_ which store you want to use based on the unique `identifier` you pass to it.
+In the [API documentation](/api-details-and-examples), you may have noticed an `identifier` you can use along with [useProvider](/api/useProvider) and [useStore](/api/useStore). This optional value tells **mobx-store-provider** which store you want to use based on the unique `identifier` you pass to it.
 
 ## Example
 
@@ -15,7 +15,7 @@ In the `App` component, we create both the `cat` and `owner`, which are then pro
 ```javascript
 // App.jsx
 import React from "react";
-import { useProvider, createStore } from "mobx-store-provider";
+import { useProvider, createStore } from "**mobx-store-provider**";
 import { OwnerStore, CatStore, CatStoreId } from "./stores";
 import PetDisplay from "./PetDisplay";
 
@@ -38,14 +38,14 @@ function App() {
 export default App;
 ```
 
-Note that each `Provider` must be retrieved using its own `identifier`. In the case of the `owner`, we just use the default one supplied by _mobx-store-provider_.
+Note that each `Provider` must be retrieved using its own `identifier`. In the case of the `owner`, we just use the default one supplied by _**mobx-store-provider**_.
 
 In the `PedDisplay` component we retrieve each store with [useStore](/api/useStore) making sure to pass the same identifier that we used in their respective `Provider`.
 
 ```javascript
 // PetDisplay.jsx
 import React from "react";
-import { useStore } from "mobx-store-provider";
+import { useStore } from "**mobx-store-provider**";
 import { CatStoreId } from "./stores";
 
 function PetDisplay() {

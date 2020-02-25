@@ -6,7 +6,7 @@ nav_order: 2
 
 # Installation
 
-You can install _mobx-store-provider_ via NPM or Yarn:
+You can install **mobx-store-provider** via NPM or Yarn:
 
 NPM:
 
