@@ -6,9 +6,9 @@ nav_order: 7
 
 # Testing
 
-Testing a React app that uses _mobx-state-tree_ and _mobx-store-provider_ is easy.
+You can test an app that uses _mobx-store-provider_ like any other React application.
 
-Here are a few examples using [Jest](https://jestjs.io/) and [react-testing-library](https://github.com/testing-library/react-testing-library#react-testing-library):
+Here are a few examples using [Jest](https://jestjs.io/) and [react-testing-library](https://github.com/testing-library/react-testing-library#react-testing-library).
 
 ```javascript
 // UserForm.tests.jsx
@@ -62,6 +62,8 @@ describe("UserForm tests", () => {
 });
 ```
 
+Below is the component we are testing, a typical HTML form with a text field and a submit button.
+
 ```javascript
 // UserForm.jsx (The component we want to test)
 import React from "react";
@@ -107,3 +109,5 @@ const AppStore = types
 
 export default AppStore;
 ```
+
+By testing the form and its submit action above, we are testing the `store` and its actions as well.
