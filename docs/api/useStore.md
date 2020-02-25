@@ -98,6 +98,10 @@ function Header() {
 export default observer(Header);
 ```
 
+Using a unique `identifier` is often done when your application has more than one `store`.
+
+See: [Using multiple stores](/using-multiple-stores).
+
 ### Using a mapStateToProps callback
 
 With this callback you can return slices of the store with a selector function, or do additional processing before the component accesses it.
