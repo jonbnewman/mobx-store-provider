@@ -47,7 +47,9 @@ This creates our main `appStore` which is then shared with the rest of our appli
 
 ## Using the store
 
-In another component somewhere in the application, we want to use or gain access to the `appStore`. To do this, we use the [useStore](/api/useStore) hook:
+In another component somewhere in the application, we want to use or gain access to the `appStore`.
+
+To do this, we use the [useStore](/api/useStore) hook:
 
 ```javascript
 // UserDisplay.jsx (A component, we use the store from above inside it)
