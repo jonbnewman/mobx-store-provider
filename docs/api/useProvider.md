@@ -49,8 +49,6 @@ function App() {
 export default App;
 ```
 
-Below is a basic _mobx-state-tree_ model/store:
-
 ```javascript
 // AppStore.js
 import { types } from "mobx-state-tree";
