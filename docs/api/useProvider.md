@@ -22,7 +22,9 @@ useProvider(identifier): Provider
 
 ## Example
 
-If your application has a single/root `store` then you can call `useProvider` without any options (a unique `identifier` will be supplied for you).
+For single/root store use-cases, you can call `useProvider` without any options.
+
+A unique `identifier` will be supplied for you.
 
 ```javascript
 import React from "react";
