@@ -9,6 +9,8 @@ parent: API details and examples
 
 React Hook used to retrieve a `store` for a given `identifier`.
 
+This hook is used to access a `store` from within your components. It must be passed the same `identifier` that was used with the `Provider` supplying it.
+
 ```javascript
 useStore(): any
 useStore(identifier): any
