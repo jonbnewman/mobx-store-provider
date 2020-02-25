@@ -10,7 +10,9 @@ Creating and using multiple stores in a single application is relatively easy us
 
 In the API documentation above, you may have noticed an `identifier` you can use along with [useProvider](#useprovider) and [useStore](#useStore). This optional value tells _mobx-store-provider_ which store you want to use based on the unique `identifier` you pass it.
 
-Here is a short example:
+## Example
+
+In the `App` component, we create both the `cat` and `owner`, which are then provided to the rest of the application via their `Provider`.
 
 ```javascript
 // App.jsx
@@ -20,11 +22,11 @@ import { OwnerStore, CatStore, CatStoreId } from "./stores";
 import PetDisplay from "./PetDisplay";
 
 function App() {
-  const OwnerProvider = useProvider();
   const owner = createStore(() => OwnerStore.create({ name: "Jonathan" }));
+  const OwnerProvider = useProvider();
 
-  const CatProvider = useProvider(CatStoreId);
   const cat = createStore(() => CatStore.create({ name: "Cleo" }));
+  const CatProvider = useProvider(CatStoreId);
 
   return (
     <OwnerProvider value={owner}>
@@ -37,6 +39,10 @@ function App() {
 
 export default App;
 ```
+
+Note that each `Provider` must be retrieved using its own `identifier`. In the case of the owner, we just use the default one supplied by _mobx-store-provider_.
+
+In the `PedDisplay` component we retrieve each store with [useStore](/api/useStore) making sure to pass the same identifier that we used in their respective `Provider`.
 
 ```javascript
 // PetDisplay.jsx
@@ -56,6 +62,8 @@ function PetDisplay() {
 
 export default PetDisplay;
 ```
+
+To keep things clean we define the stores in a separate module.
 
 ```javascript
 // stores.js
