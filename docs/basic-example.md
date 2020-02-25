@@ -67,11 +67,11 @@ function UserDisplay() {
 export default observer(UserDisplay);
 ```
 
-Note that we also wrap our component using `observer()` from the [mobx-react](https://github.com/mobxjs/mobx-react#mobx-react) library, this ensures our component renders any updates made to the store.
+Note that we also wrap our component using `observer()` from the [mobx-react](https://github.com/mobxjs/mobx-react#mobx-react) library, this ensures our component renders any updates made to the `store`.
 
 ## Defining the store
 
-The `AppStore` is a normal _mobx-state-tree_ model. In the context of this library, this is referred to as a `store`.
+The `AppStore` is a normal _mobx-state-tree_ model:
 
 ```javascript
 // AppStore.js (mobx-state-tree store/model)
@@ -84,6 +84,6 @@ const AppStore = types.model({
 export default AppStore;
 ```
 
-This is what your application and components use for state and state-related actions.
+In the context of _mobx-store-provider_, this is referred to as a `store`. This is what your application and components use for state and state-related actions.
 
 If you are new to _mobx-state-tree_, it is recommended you read through the [_mobx-state-tree_ documentation](https://mobx-state-tree.js.org).

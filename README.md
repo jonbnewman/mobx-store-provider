@@ -118,7 +118,7 @@ const AppStore = types.model({
 export default AppStore;
 ```
 
-This is what your application and components use for state and state-related actions.
+In the context of _mobx-store-provider_, this is referred to as a `store`. This is what your application and components use for state and state-related actions.
 
 If you are new to _mobx-state-tree_, it is recommended you read through the [_mobx-state-tree_ documentation](https://mobx-state-tree.js.org).
 
