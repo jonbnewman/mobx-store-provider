@@ -90,6 +90,8 @@ function UserForm() {
 export default observer(UserForm);
 ```
 
+By testing the form and its submit action above, we are testing the `AppStore` and its actions as well.
+
 ```javascript
 // AppStore.js (Our main/root mobx-state-tree store/model)
 import { types } from "mobx-state-tree";
@@ -109,5 +111,3 @@ const AppStore = types
 
 export default AppStore;
 ```
-
-By testing the form and its submit action above, we are testing the `store` and its actions as well.
