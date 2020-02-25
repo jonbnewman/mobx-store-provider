@@ -32,7 +32,7 @@ useStore(identifier, mapStateToProps): any
 - [Using an identifier](#use-an-identifer)
 - [Using a mapStateToProps callback](#using-a-mapstatetoprops-callback)
 
-First, here is the `AppStore` model/store used with the examples below:
+This is the `AppStore` model/store used with the examples below:
 
 ```javascript
 // AppStore.js
