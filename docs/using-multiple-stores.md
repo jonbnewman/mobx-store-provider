@@ -61,7 +61,7 @@ function PetDisplay() {
 export default PetDisplay;
 ```
 
-To keep things clean we define the stores and their respecive `identifier` in a separate module.
+To keep things clean we define the `stores` and their `identifier` in a separate module.
 
 ```javascript
 // stores.js
