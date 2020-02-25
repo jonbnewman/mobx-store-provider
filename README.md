@@ -102,7 +102,9 @@ function UserDisplay() {
 export default observer(UserDisplay);
 ```
 
-Note that we also wrap our component using `observer()` from the [mobx-react](https://github.com/mobxjs/mobx-react#mobx-react) library, this ensures our component renders any updates made to the store.
+Note that we also wrap our component using `observer()` from the [mobx-react](https://github.com/mobxjs/mobx-react#mobx-react) library.
+
+This is critical, as it ensures the component renders any updates made to the store.
 
 ### Defining the store
 
