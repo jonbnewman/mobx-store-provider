@@ -98,7 +98,7 @@ function Header() {
 export default observer(Header);
 ```
 
-Using a unique `identifier` is often done when your application has more than one `store`.
+A unique `identifier` must be used when your application has more than one `store`.
 
 See: [Using multiple stores](/using-multiple-stores).
 
