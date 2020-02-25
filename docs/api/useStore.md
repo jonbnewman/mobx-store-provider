@@ -26,14 +26,17 @@ useStore(identifier, mapStateToProps): any
 
   Function that can be used to select and return slices of the store.
 
-## Example
+## Examples
+
+- [Basic example](#basic-example)
+- [Using an identifier](#use-an-identifer)
+- [Using a mapStateToProps callback](#using-a-mapstatetoprops-callback)
+
+First, here is the `AppStore` model/store and main `App` component used with the examples below:
 
 ```javascript
-// App.jsx (Main App component, we use it to create and provide the store)
-import React from "react";
+// AppStore.js
 import { types } from "mobx-state-tree";
-import { useProvider, createStore } from "mobx-store-provider";
-import Header from "./Header";
 
 const User = types.model({
   name: "Batman",
@@ -43,6 +46,18 @@ const User = types.model({
 const AppStore = types.model({
   user: types.optional(User, {}),
 });
+
+export default AppStore;
+```
+
+and the main `App` component using the `Provider` to supply the application with the `AppStore`:
+
+```javascript
+// App.jsx (App component used to create and provide the store)
+import React from "react";
+import { useProvider, createStore } from "mobx-store-provider";
+import Header from "./Header";
+import AppStore from "./AppStore";
 
 function App() {
   const Provider = useProvider();
@@ -57,8 +72,60 @@ function App() {
 export default App;
 ```
 
+### Basic example
+
+The following shows an example of calling `useStore` without any parameters.
+
+The unique `identifier` is supplied for you.
+
 ```javascript
-// Header.jsx (A component, we use the store inside)
+// Header.jsx (component we access the appStore inside)
+import React from "react";
+import { observer } from "mobx-react";
+import { useStore } from "mobx-store-provider";
+
+function Header() {
+  // We use the store in this component
+  const appStore = useStore();
+  return (
+    <div>
+      User: {appStore.user.name} {appStore.user.isCoolGuy ? "👍" : "👎"}
+    </div>
+  );
+}
+
+export default observer(Header);
+```
+
+### Using an identifier
+
+By passing a unique `identifier`, the `store` associated with it is returned (assuming you used the same `identifier` with the `Provider` supplying it).
+
+```javascript
+// Header.jsx (component we access the appStore inside)
+import React from "react";
+import { observer } from "mobx-react";
+import { useStore } from "mobx-store-provider";
+
+function Header() {
+  // We use the store in this component
+  const appStore = useStore("storeIdentifier");
+  return (
+    <div>
+      User: {appStore.user.name} {appStore.user.isCoolGuy ? "👍" : "👎"}
+    </div>
+  );
+}
+
+export default observer(Header);
+```
+
+### Using a mapStateToProps callback
+
+Using the `mapStateToProps` callback, you can return slices of the store, or do additional processing before the component accesses it.
+
+```javascript
+// Header.jsx (component we access the appStore inside)
 import React from "react";
 import { observer } from "mobx-react";
 import { useStore } from "mobx-store-provider";
@@ -87,3 +154,5 @@ function Header() {
 
 export default observer(Header);
 ```
+
+Note that it is recommended you extract complex/derived using a view function, see [derived values](https://mobx-state-tree.js.org/concepts/views) in the _mobx-state-tree_ docs.
