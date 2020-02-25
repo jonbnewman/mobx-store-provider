@@ -88,8 +88,6 @@ export default App;
 
 In the code above, we pass `appStoreId` to `useProvider`. The `Provider` returned will work for that `identifier`.
 
-To access this `store` in another component you will then need to supply the [useStore](/api/useStore) hook with that same `identifier`.
-
 ```javascript
 // AppStore.js
 import { types } from "mobx-state-tree";
@@ -102,3 +100,5 @@ const AppStore = types.model({
 // Export both the identifier and the model/store
 export { appStoreId, AppStore };
 ```
+
+It is important to note, that in order to access this `store` in another component you will need to supply the [useStore](/api/useStore) hook with that same `identifier`.
