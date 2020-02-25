@@ -24,13 +24,13 @@ interface IAppStore extends Instance<typeof AppStore> {}
 export { AppStore, IAppStore };
 ```
 
-In your components you can tell typescript what type a `store` is by using that `interface`.
+In your components when you call [useStore](/api/useStore) you must inform typescript what type of `store` is being returned by using that `interface`:
 
 ```javascript
-// App.tsx
+// UserDisplay.tsx
 import React from "react";
-import { useProvider, createStore } from "mobx-store-provider";
-import { AppStore, IAppStore } from "./AppStore";
+import { useStore } from "mobx-store-provider";
+import { IAppStore } from "./AppStore";
 
 function UserDisplay() {
   // With this declaration, typescript knows the appStore is an AppStore
@@ -42,6 +42,15 @@ function UserDisplay() {
    */
   return <div>{appStore.foober}</div>;
 }
+```
+
+The same thing must be done when using the [createStore](/api/createStore) hook as well:
+
+```javascript
+// App.tsx
+import React from "react";
+import { useProvider, createStore } from "mobx-store-provider";
+import { AppStore, IAppStore } from "./AppStore";
 
 function App() {
   const Provider = useProvider();
@@ -55,3 +64,5 @@ function App() {
 
 export default App;
 ```
+
+By telling typescript what type of model/store you are using you are able to retain the [type information provided by mobx-store-provider](https://mobx-state-tree.js.org/tips/typescript#using-a-mst-type-at-design-time) properly.
