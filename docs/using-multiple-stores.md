@@ -6,8 +6,6 @@ nav_order: 5
 
 # Using multiple stores
 
-Creating and using multiple stores in a single application is relatively easy using _mobx-store-provider_.
-
 In the [API documentation](/api-details-and-examples), you may have noticed an `identifier` you can use along with [useProvider](/api/useprovider) and [useStore](/api/useStore). This optional value tells _mobx-store-provider_ which store you want to use based on the unique `identifier` you pass to it.
 
 ## Example
@@ -63,7 +61,7 @@ function PetDisplay() {
 export default PetDisplay;
 ```
 
-To keep things clean we define the stores in a separate module.
+To keep things clean we define the stores and their respecive `identifier` in a separate module.
 
 ```javascript
 // stores.js
