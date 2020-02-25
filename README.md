@@ -104,7 +104,7 @@ export default observer(UserDisplay);
 
 Note that we also wrap our component using `observer()` from the [mobx-react](https://github.com/mobxjs/mobx-react#mobx-react) library.
 
-This is critical, as it ensures the component renders any updates made to the store.
+This is critical, as it ensures the component renders any updates made to the store. For more information, see the [observer documentation](https://mobx.js.org/refguide/observer-component.html#observer) in the [mobx-react](https://github.com/mobxjs/mobx-react#mobx-react) library.
 
 ### Defining the store
 
