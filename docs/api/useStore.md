@@ -155,4 +155,4 @@ function Header() {
 export default observer(Header);
 ```
 
-Note that it is recommended you extract complex/derived using a view function, see [derived values](https://mobx-state-tree.js.org/concepts/views) in the _mobx-state-tree_ docs.
+Note that it is recommended you extract complex/derived values using a view function as these are cached, see [derived values](https://mobx-state-tree.js.org/concepts/views) in the _mobx-state-tree_ docs.
