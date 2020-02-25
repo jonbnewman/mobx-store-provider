@@ -34,3 +34,5 @@ function App() {
 
 export default App;
 ```
+
+Using this hook you can instantiate/create _mobx-state-tree_ models/stores inside of any component.

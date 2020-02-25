@@ -89,7 +89,9 @@ function App() {
 export default App;
 ```
 
-In the code above, we pass `appStoreId` to `useProvider`. The `Provider` returned will work for that `identifier`.
+In the code above, we pass `appStoreId` to `useProvider`.
+
+The `Provider` returned will work for that `identifier`.
 
 ```javascript
 // AppStore.js
