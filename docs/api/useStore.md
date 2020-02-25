@@ -98,7 +98,7 @@ export default observer(Header);
 
 ### Using a mapStateToProps callback
 
-Using the `mapStateToProps` callback, you can return slices of the store with a selector function or do additional processing before the component accesses it.
+With this callback you can return slices of the store with a selector function, or do additional processing before the component accesses it.
 
 ```javascript
 // Header.jsx (component we access the appStore inside)
@@ -131,4 +131,4 @@ function Header() {
 export default observer(Header);
 ```
 
-Note that it is recommended you extract complex/derived values using a view function as these are cached, see [derived values](https://mobx-state-tree.js.org/concepts/views) in the _mobx-state-tree_ docs.
+It is recommended you extract complex/derived values using a view function, as these are cached (see [derived values](https://mobx-state-tree.js.org/concepts/views) in the _mobx-state-tree_ docs).
