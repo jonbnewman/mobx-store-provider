@@ -6,7 +6,7 @@ nav_order: 3
 
 # Basic example
 
-The following shows a simple/basic example application using _mobx-store-provider_:
+The following shows an example application using _mobx-store-provider_.
 
 ## App component
 
