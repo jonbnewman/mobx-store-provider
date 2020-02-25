@@ -24,7 +24,7 @@ createStore(factory): any
 ## Examples
 
 - [Basic example](#basic-example)
-- [Local component state](#local-state)
+- [Local state](#local-state)
 
 ### Basic example
 
@@ -46,7 +46,7 @@ Using this hook you can instantiate/create _mobx-state-tree_ models/stores insid
 
 ### Local state
 
-The recommended method is to define the `store` next to the component it is for:
+For local or ephemeral state, the recommended method is to define the `store` next to the component it is for.
 
 ```javascript
 import React from "react";
@@ -54,11 +54,13 @@ import { observer } from "mobx-react";
 import { types } from "mobx-state-tree";
 import { createStore } from "mobx-store-provider";
 
+// Define the local store here
 const PetStore = types.model({
   name: "Rusty",
   type: "Dog",
 });
 
+// Use the store in this component
 function PetComponent() {
   const localStore = createStore(() => PetStore.create());
   return (
@@ -71,4 +73,4 @@ function PetComponent() {
 export default observer(PetComponent);
 ```
 
-This avoids the need to use an alternative mechanism for local state, which creates inconsistent code within your application.
+This avoids the need to use an alternative mechanism for local state which can create inconsistent code within your application.
