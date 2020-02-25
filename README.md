@@ -82,7 +82,7 @@ This makes the `appStore` available to the rest of the application.
 
 ### Using the store
 
-In another component somewhere in the application, we want to use or gain access to the `appStore`.
+In another component somewhere in the application we want to use or gain access to the `appStore`.
 
 To do this, we use the [useStore](http://mobx-store-provider.overfoc.us/api/useStore) hook:
 
@@ -108,7 +108,7 @@ This is critical, as it ensures the component will render any updates made to th
 
 ### Defining the store
 
-The `AppStore` is a normal _mobx-state-tree_ model. In the context of this library, this is referred to as a `store`.
+The code above uses the `AppStore` _mobx-state-tree_ model. In the context of this _mobx-store-provider_ this is referred to as a `store`.
 
 ```javascript
 // AppStore.js (mobx-state-tree store/model)
