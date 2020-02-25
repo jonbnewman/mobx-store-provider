@@ -27,7 +27,7 @@ useProvider(identifier): Provider
 - [Basic example](#basic-example)
 - [Using an identifier](#using-an-identifier)
 
-### Basic example
+## Basic example
 
 For single or root `store` use-cases you can call `useProvider` without any options.
 
@@ -53,7 +53,7 @@ A unique `identifier` will be supplied for you.
 
 Getting access to the `store` in other components is accomplished with the [useStore](/api/useStore) hook.
 
-### Using an identifier
+## Using an identifier
 
 You can also use a unique `identifier` to tell _mobx-store-provider_ which `store` you want the `Provider` for.
 

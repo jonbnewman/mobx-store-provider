@@ -50,7 +50,7 @@ export default AppStore = types.model({
 });
 ```
 
-### Basic example
+## Basic example
 
 The following shows an example of calling `useStore` without any parameters.
 
@@ -77,7 +77,7 @@ The unique `identifier` is supplied for you.
 
 If you have a single (or root) `store` then this is likely how you will want to access it.
 
-### Using an identifier
+## Using an identifier
 
 If you pass a unique `identifier` then the `store` associated with it is returned (assuming you used the same `identifier` with the `Provider` supplying it, see [useProvider](/api/useProvider)).
 
@@ -104,7 +104,7 @@ A unique `identifier` must be used when your application has more than one `stor
 
 For more information on multiple stores, see: [Using multiple stores](/using-multiple-stores)
 
-### Using a mapStateToProps callback
+## Using a mapStateToProps callback
 
 With this callback you can return slices of the store with a selector function or do additional processing before the component accesses it.
 
