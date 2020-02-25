@@ -10,7 +10,13 @@ The following shows a simple/basic example application using _mobx-store-provide
 
 ## App component
 
-At the core of our application we define the main `App` component. Inside of it, we use the hooks provided by _mobx-store-provider_ to both create the store and then wrap our application with the `Provider`, supplying the `appStore` to its descendents.
+At the core of the application we define the main `App` component.
+
+Inside of it, we use hooks provided by _mobx-store-provider_ to:
+
+- Retrieve the `Provider` using the [useProvider](http://mobx-store-provider.overfoc.us/api/useProvider) hook
+- Create the `appStore` instance using the [createStore](http://mobx-store-provider.overfoc.us/api/createStore) hook
+- Wrap the application with the `Provider`, supplying it with the `appStore`
 
 ```javascript
 // App.jsx (Main App component, we use it to create and provide the store)
@@ -20,13 +26,13 @@ import AppStore from "./AppStore";
 import UserDisplay from "./UserDisplay";
 
 function App() {
-  // Get the Provider for our AppStore
+  // Get the Provider for the AppStore
   const Provider = useProvider();
 
-  // Create our AppStore instance
+  // Create the AppStore instance
   const appStore = createStore(() => AppStore.create({ user: "Jonathan" }));
 
-  // Wrap our application with the Provider passing it the appStore
+  // Wrap the application with the Provider passing it the appStore
   return (
     <Provider value={appStore}>
       <UserDisplay />
@@ -37,13 +43,7 @@ function App() {
 export default App;
 ```
 
-Inside of the `App` component we:
-
-- Create the `appStore` instance using the [createStore](/api/createStore) hook
-- Retrieve the `Provider` using the [useProvider](/api/useProvider) hook
-- Wrap our application with the `Provider`, supplying it with the `appStore`
-
-This creates our main `appStore` which is then shared with the rest of our application via its `Provider`.
+This creates the `appStore` which is then shared with the rest of the application via the `Provider`.
 
 ## Using the store
 
