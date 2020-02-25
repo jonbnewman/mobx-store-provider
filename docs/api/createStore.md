@@ -7,7 +7,9 @@ parent: API details and examples
 
 # createStore
 
-React Hook used to instantiate new mobx-state-tree instances inside of components. It returns the store you instantiate and return from the `factory`.
+React Hook used to instantiate new mobx-state-tree instances inside of components.
+
+It returns the store you instantiate and return from the `factory`.
 
 ```javascript
 createStore(factory): any
@@ -44,9 +46,7 @@ Using this hook you can instantiate/create _mobx-state-tree_ models/stores insid
 
 ### Local state
 
-Using an alternative mechanism for local state creates inconsistent code within your application. This is less than ideal.
-
-Using _mobx-store-provider_, ad-hoc/local state is a snap.
+With _mobx-store-provider_ ad-hoc/local state is a snap.
 
 You can just define the model in the same `createStore` callback that instantiates it:
 
@@ -75,3 +75,5 @@ function PetComponent() {
 
 export default observer(PetComponent);
 ```
+
+This avoids the need to use an alternative mechanism for local state, which creates inconsistent code within your application.

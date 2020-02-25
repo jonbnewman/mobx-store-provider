@@ -108,7 +108,7 @@ This is critical, as it ensures the component will render any updates made to th
 
 ### Defining the store
 
-The code above uses the `AppStore` _mobx-state-tree_ model. In the context of this _mobx-store-provider_ this is referred to as a `store`.
+The code above uses the `AppStore` _mobx-state-tree_ model. In the context of _mobx-store-provider_ this is referred to as a `store`.
 
 ```javascript
 // AppStore.js (mobx-state-tree store/model)

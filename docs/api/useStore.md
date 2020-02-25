@@ -54,8 +54,6 @@ export default AppStore = types.model({
 
 The following shows an example of calling `useStore` without any parameters.
 
-The unique `identifier` is supplied for you.
-
 ```javascript
 // Header.jsx (component we access the appStore inside)
 import React from "react";
@@ -75,11 +73,13 @@ function Header() {
 export default observer(Header);
 ```
 
-If you have a single or root `store` then this is likely how you will want to access it.
+The unique `identifier` is supplied for you.
+
+If you have a single (or root) `store` then this is likely how you will want to access it.
 
 ### Using an identifier
 
-By passing a unique `identifier`, the `store` associated with it is returned (assuming you used the same `identifier` with the `Provider` supplying it).
+If you pass a unique `identifier` then the `store` associated with it is returned (assuming you used the same `identifier` with the `Provider` supplying it, see [useProvider](/api/useProvider)).
 
 ```javascript
 // Header.jsx (component we access the appStore inside)
@@ -106,7 +106,7 @@ For more information on multiple stores, see: [Using multiple stores](/using-mul
 
 ### Using a mapStateToProps callback
 
-With this callback you can return slices of the store with a selector function, or do additional processing before the component accesses it.
+With this callback you can return slices of the store with a selector function or do additional processing before the component accesses it.
 
 ```javascript
 // Header.jsx (component we access the appStore inside)
@@ -139,4 +139,4 @@ function Header() {
 export default observer(Header);
 ```
 
-It is recommended you extract complex/derived values using a view function, as these are cached (see [derived values](https://mobx-state-tree.js.org/concepts/views) in the _mobx-state-tree_ docs).
+It is recommended you derive complex values using a view function, as these are cached (see [derived values](https://mobx-state-tree.js.org/concepts/views) in the _mobx-state-tree_ docs).

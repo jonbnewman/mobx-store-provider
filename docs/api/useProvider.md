@@ -29,9 +29,7 @@ useProvider(identifier): Provider
 
 ### Basic example
 
-For single or root `store` use-cases, you can call `useProvider` without any options.
-
-A unique `identifier` will be supplied for you.
+For single or root `store` use-cases you can call `useProvider` without any options.
 
 ```javascript
 import React from "react";
@@ -51,16 +49,7 @@ function App() {
 export default App;
 ```
 
-```javascript
-// AppStore.js
-import { types } from "mobx-state-tree";
-
-const AppStore = types.model({
-  username: "",
-});
-
-export default AppStore;
-```
+A unique `identifier` will be supplied for you.
 
 Getting access to the `store` in other components is accomplished with the [useStore](/api/useStore) hook.
 
@@ -91,21 +80,6 @@ function App() {
 export default App;
 ```
 
-In the code above, we pass `appStoreId` to `useProvider`.
-
-The `Provider` returned will work for that `identifier`.
-
-```javascript
-// AppStore.js
-import { types } from "mobx-state-tree";
-
-const appStoreId = "AppStore";
-const AppStore = types.model({
-  username: "",
-});
-
-// Export both the identifier and the model/store
-export { appStoreId, AppStore };
-```
+In the code above, we pass `appStoreId` to `useProvider`. The `Provider` returned will work for that `identifier`.
 
 It is important to note, that in order to access this `store` in another component you will need to supply the [useStore](/api/useStore#using-an-identifier) hook with that same `identifier`.
