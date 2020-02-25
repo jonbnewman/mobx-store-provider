@@ -11,7 +11,7 @@ React Hook used to retrieve a `store` for a given `identifier`.
 
 After supplying your application with a store via the [useProvider hook](/api/useProvider) you can then call `useStore` inside of a component to access the `store`.
 
-It must be passed the same `identifier` that was used with the `Provider` supplying it (if you used one).
+It must be passed the same `identifier` that was used with the `Provider` supplying it.
 
 ```javascript
 useStore(): any
