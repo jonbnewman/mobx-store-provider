@@ -92,7 +92,9 @@ function UserForm() {
 export default observer(UserForm);
 ```
 
-It is important to note that by testing the form and its submit action above, we are testing the `AppStore` and its actions as well. You can of course create tests for the store by itself as well.
+It is important to note that by testing the form and its submit action above, we are testing the `AppStore` and its actions as well.
+
+You can of course create tests for the store by itself, independent of the component it is used in.
 
 ```javascript
 // AppStore.js (Our main/root mobx-state-tree store/model)
