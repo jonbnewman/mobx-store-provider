@@ -1,5 +1,7 @@
 # Introduction
 
+[Get started: Installation](http://mobx-store-provider.overfoc.us/installation){: .btn .btn-blue }
+
 **mobx-store-provider** is a library that provides [React Hooks](https://reactjs.org/docs/hooks-intro.html) to setup and access [mobx-state-tree](http://mobx-state-tree.js.org/) models from within [React Function Components](https://www.robinwieruch.de/react-function-component).
 
 1. [Installation](http://mobx-store-provider.overfoc.us/installation)
@@ -16,8 +18,6 @@
 1. [Local state](http://mobx-store-provider.overfoc.us/local-state)
 1. [Typescript](http://mobx-store-provider.overfoc.us/typescript)
 1. [Testing](http://mobx-store-provider.overfoc.us/testing)
-
-[Get started: Installation](http://mobx-store-provider.overfoc.us/installation){: .btn .btn-green }
 
 ---
 
