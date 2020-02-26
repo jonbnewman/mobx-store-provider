@@ -10,7 +10,7 @@ _How should I handle local state? Should I use this for my small component too?_
 
 - Answer:
 
-  **It is recommended.**
+  **It is recommended, but it depends.**
 
 - Reasoning:
 
