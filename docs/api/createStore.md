@@ -41,7 +41,7 @@ const AppStore = types.model({
 });
 
 function App() {
-  // Instantiate it using createStore
+  // Instantiate it inside the App component using createStore
   const appStore = createStore(() => AppStore.create());
   const Provider = useProvider();
   return <Provider value={appStore}>...</Provider>;
