@@ -27,6 +27,20 @@ useProvider(identifier): Provider
 - [Basic example](#basic-example)
 - [Using an identifier](#using-an-identifier)
 
+This is the `AppStore` model/store used with the examples below:
+
+```javascript
+// AppStore.js
+import { types } from "mobx-state-tree";
+
+const appStoreId = "AppStore";
+const AppStore = types.model({
+  user: types.maybe(types.string),
+});
+
+export { AppStore, appStoreId };
+```
+
 ## Basic example
 
 For single or root `store` use-cases you can call `useProvider` without any options.
@@ -49,9 +63,7 @@ function App() {
 export default App;
 ```
 
-A unique `identifier` will be supplied for you.
-
-Getting access to the `store` in other components is accomplished with the [useStore](/api/useStore) hook.
+This supplies the `appStore` to its descendants and allows us to access it using the [useStore hook](/api/useStore#using-an-identifier) in an inner component.
 
 ## Using an identifier
 
@@ -80,8 +92,6 @@ function App() {
 export default App;
 ```
 
-In the code above, we pass `appStoreId` to [useProvider](#useprovider), the `Provider` component it returns will work for that particular `identifier` (`appStoreId`).
+In the code above, we pass `appStoreId` to the [useProvider hook](#useprovider), the `Provider` component it returns will work for that particular `identifier` (`appStoreId`).
 
-We can then wrap our application with that `Provider` and pass it the `appStore` as its value.
-
-This supplies the `appStore` to its descendants and allows us to access it using that same `identifier` when we retrieve it with the [useStore hook](/api/useStore#using-an-identifier) in an inner component.
+We can then wrap our application with that `Provider` and pass it the `appStore` as its value. This supplies the `appStore` to its descendants allowing us to access it using that same unique `identifier` passed to the [useStore hook](/api/useStore#using-an-identifier) in an inner component.
