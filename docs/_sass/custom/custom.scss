@@ -6,10 +6,13 @@ footer .text-small {
   margin-top: 1rem;
 }
 
-.navigation-list-item:first-child {
+.navigation-list > .navigation-list-item:first-child {
   margin-bottom: 0.5rem;
-}
+  position: relative;
 
-.navigation-list-child-list .navigation-list-item {
-  margin-bottom: 0;
+  &:before {
+    content: "💡";
+    position: absolute;
+    right: 100%;
+  }
 }
