@@ -62,7 +62,9 @@ describe("UserForm tests", () => {
 });
 ```
 
-Below is the component we are testing, a typical HTML form with a text field and a submit button.
+Below is the component we are testing.
+
+A typical HTML form with a text field and a submit button. In the test above we are able to test the full functionality of the form, including submission.
 
 ```javascript
 // UserForm.jsx (The component we want to test)
@@ -90,7 +92,7 @@ function UserForm() {
 export default observer(UserForm);
 ```
 
-By testing the form and its submit action above, we are testing the `AppStore` and its actions as well.
+It is important to note that by testing the form and its submit action above, we are testing the `AppStore` and its actions as well. You can of course create tests for the store by itself as well.
 
 ```javascript
 // AppStore.js (Our main/root mobx-state-tree store/model)
