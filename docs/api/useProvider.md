@@ -48,6 +48,8 @@ For single or root `store` use-cases you can call `useProvider` without any opti
 ```javascript
 import React from "react";
 import { useProvider } from "mobx-store-provider";
+
+// Import the AppStore and create it
 import AppStore from "./AppStore";
 const appStore = AppStore.create();
 
@@ -62,6 +64,8 @@ function App() {
 
 export default App;
 ```
+
+Note that since we didn't create the `appStore` inside of the component we did not use the [createStore hook](/api/createStore) (that is only necessary when instantiating a `store` from within a [React Function Component](https://www.robinwieruch.de/react-function-component)).
 
 This supplies the `appStore` to its descendants and allows us to access it using the [useStore hook](/api/useStore) in an inner component.
 
