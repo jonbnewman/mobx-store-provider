@@ -20,4 +20,4 @@ Create a new store inside a component
 
 Use a store in a component
 
-[Next: **createStore**](/api/createStore){: .btn .btn-blue }
+[Next: **useProvider**](/api/useProvider){: .btn .btn-blue }
