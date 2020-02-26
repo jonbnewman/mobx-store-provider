@@ -43,7 +43,7 @@ export { AppStore, appStoreId };
 
 ## Basic example
 
-The **useProvider** hook is used to retrieve a `Provider` component which we then use to supply the application with a `store`.
+We call the **useProvider** hook to retrieve a `Provider` component. This lets us share the `appStore` with the rest of the application.
 
 ```javascript
 import React from "react";
@@ -68,7 +68,7 @@ function App() {
 export default App;
 ```
 
-This supplies the `appStore` to its descendants and allows us to access it using the [useStore hook](/api/useStore) in an inner component.
+This supplies the `appStore` to its descendants, allowing us to access it using the [useStore hook](/api/useStore) in an inner component.
 
 Note that since we didn't create the `appStore` inside of the component we did not use the [createStore hook](/api/createStore) (that is only necessary when instantiating a `store` from within a [React Function Component](https://www.robinwieruch.de/react-function-component)).
 
