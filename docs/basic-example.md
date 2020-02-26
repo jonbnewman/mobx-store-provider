@@ -89,4 +89,4 @@ export default AppStore;
 
 If you are new to _mobx-state-tree_, it is recommended you read through the [_mobx-state-tree_ documentation](https://mobx-state-tree.js.org).
 
-[Next: API details and examples](/api-details-and-examples){: .btn .btn-blue }
+[Next: **API details and examples**](/api-details-and-examples){: .btn .btn-blue }

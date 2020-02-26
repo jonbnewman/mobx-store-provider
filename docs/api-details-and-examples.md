@@ -20,4 +20,4 @@ Create a new store inside a component
 
 Use a store in a component
 
-[Next: Multiple stores](/multiple-stores){: .btn .btn-blue }
+[Next: **Multiple stores**](/multiple-stores){: .btn .btn-blue }

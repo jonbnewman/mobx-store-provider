@@ -105,4 +105,4 @@ In the code above, we pass `appStoreId` to the **useProvider** hook, the `Provid
 
 We can then wrap our application with that `Provider` and pass it the `appStore` as its value. This supplies the `appStore` to its descendants allowing us to access it using that unique `identifier` passed to the [useStore hook](/api/useStore) in an inner component.
 
-[Next: createStore](/api/createStore){: .btn .btn-blue }
+[Next: **createStore**](/api/createStore){: .btn .btn-blue }

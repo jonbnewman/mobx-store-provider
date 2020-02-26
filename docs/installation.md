@@ -20,4 +20,4 @@ Yarn:
 yarn add mobx-store-provider
 ```
 
-[Next: Basic Example](/basic-example){: .btn .btn-blue }
+[Next: **Basic example**](/basic-example){: .btn .btn-blue }
