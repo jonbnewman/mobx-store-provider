@@ -8,7 +8,9 @@ nav_order: 6
 
 Typescript definitions are [supplied by mobx-state-tree](https://mobx-state-tree.js.org/tips/typescript#using-a-mst-type-at-design-time) for your stores/models.
 
-The one thing of note with respect to **mobx-store-provider** is that when you use [createStore](/api/createStore) or [useStore](/api/useStore) typescript needs to be informed what type is being returned. This is because the values returned from these hooks are dynamic and decided at runtime. Typescript cannot infer what they return.
+The one thing of note with respect to **mobx-store-provider** is that when you use the [createStore hook](/api/createStore) or the [useStore hook](/api/useStore) typescript needs to be informed what type is being returned.
+
+This is because the values returned from these hooks are dynamic and decided at runtime. Typescript is unable to infer what they return.
 
 To do this you must first define an `interface` for your `store`:
 
