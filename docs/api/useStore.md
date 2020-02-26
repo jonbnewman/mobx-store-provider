@@ -75,6 +75,8 @@ function Header() {
 export default observer(Header);
 ```
 
+Calling the [useStore hook](#usestore) retrieves the corresponding `store` that was provided via the [useProvider hook](/api/useProvider).
+
 ## Using an identifier
 
 If you pass a unique `identifier` then the `store` associated with it is returned (assuming you used the same `identifier` with the `Provider` supplying it, see [useProvider](/api/useProvider)).
