@@ -69,17 +69,17 @@ const appStore = AppStore.create();
 
 function App() {
   // use the id when getting the Provider
-  const AppProvider = useProvider(appStoreId);
+  const Provider = useProvider(appStoreId);
   return (
-    <AppProvider value={appStore}>
+    <Provider value={appStore}>
       <MyComponents />
-    </AppProvider>
+    </Provider>
   );
 }
 
 export default App;
 ```
 
-In the code above, we pass `appStoreId` to `useProvider`. The `Provider` returned will work for that `identifier`.
+In the code above, we pass `appStoreId` to `useProvider`, the `Provider` it returns will work for that particular `identifier` (`appStoreId`).
 
-It is important to note, that in order to access this `store` in another component you will need to supply the [useStore](/api/useStore#using-an-identifier) hook with that same `identifier`.
+In order to access the `appStore` in another component we will need to supply the same `identifier` to the [useStore hook](/api/useStore#using-an-identifier).
