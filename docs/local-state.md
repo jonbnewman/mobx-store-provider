@@ -32,7 +32,7 @@ const PetStore = types.model({
   type: "Dog",
 });
 
-// Use the store in this component
+// Create and use the store in this component
 function PetComponent() {
   const localStore = createStore(() => PetStore.create());
   return (
