@@ -54,7 +54,7 @@ export default AppStore = types.model({
 
 ## Basic example
 
-The following shows an example of calling `useStore` without any parameters.
+The following shows an example of calling **useStore** without any parameters.
 
 ```javascript
 // Header.jsx (component we access the appStore inside)
@@ -75,7 +75,7 @@ function Header() {
 export default observer(Header);
 ```
 
-Calling the [useStore hook](#usestore) retrieves the corresponding `store` that was provided via the [useProvider hook](/api/useProvider).
+Calling the **useStore** hook retrieves the corresponding `store` that was provided via the [useProvider hook](/api/useProvider).
 
 ## Using an identifier
 

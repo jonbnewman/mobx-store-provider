@@ -38,7 +38,7 @@ const AppStore = types.model({
 });
 ```
 
-Inside of the `App` we create the `appStore` using the [createStore hook](#createstore).
+Inside of the `App` we create the `appStore` using the **createStore** hook.
 
 ```javascript
 import React from "react";
@@ -59,7 +59,7 @@ function App() {
 export default App;
 ```
 
-The `Provider` component returned from the [useProvider hook](/api/useProvider) is used to supply the `appStore` to the rest of the application.
+In this example we also use the `Provider` component returned from the [useProvider hook](/api/useProvider) to supply the `appStore` to the rest of the application.
 
 ## Local state
 

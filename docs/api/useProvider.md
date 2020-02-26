@@ -43,7 +43,7 @@ export { AppStore, appStoreId };
 
 ## Basic example
 
-For single or root `store` use-cases you can call `useProvider` without any options.
+For single or root `store` use-cases you can call **useProvider** without any options.
 
 ```javascript
 import React from "react";
