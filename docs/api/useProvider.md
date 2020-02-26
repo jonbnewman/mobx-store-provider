@@ -54,7 +54,10 @@ import AppStore from "./AppStore";
 const appStore = AppStore.create();
 
 function App() {
+  // Get the Provider via the useProvider hook
   const Provider = useProvider();
+
+  // Wrap the application with the Provider, passing the appStore as a value
   return (
     <Provider value={appStore}>
       <MyComponents />
