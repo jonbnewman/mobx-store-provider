@@ -46,7 +46,7 @@ function App() {
   const Provider = useProvider();
   return (
     <Provider value={appStore}>
-      <!-- the rest of the app -->
+      {/* ------- The rest of your app ------- */}
     </Provider>
   );
 }
