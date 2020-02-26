@@ -44,6 +44,10 @@ function App() {
 export default App;
 ```
 
+In the above example the `appStore` is created using the [createStore hook](#createstore).
+
+We then used the `Provider` from the associated [useProvider hook](/api/useProvider) to supply the `appStore` to the rest of the application.
+
 ## Local state
 
 For local or ephemeral state, it is recommended to define the `store` next to the component it will be used in.
