@@ -94,4 +94,4 @@ The principal difference between the [local state](#local-state) example and the
 
 This avoids the need to use an alternative mechanism for local state, which can create inconsistent code within your application. Having your state managed the same way throughout your application makes it easier to reason about.
 
-With a more complex component (which may have children components itself) you might want to supply its descendants with the store, you can of course do so using the [useProvider hook](/api/useProvider).
+With a more complex component (such as one that may have children components itself) you might want to supply its descendants with the store, you can of course do so using the [useProvider hook](/api/useProvider).
