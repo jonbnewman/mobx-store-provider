@@ -75,10 +75,6 @@ function Header() {
 export default observer(Header);
 ```
 
-The unique `identifier` is supplied for you.
-
-If you have a single (or root) `store` then this is likely how you will want to access it.
-
 ## Using an identifier
 
 If you pass a unique `identifier` then the `store` associated with it is returned (assuming you used the same `identifier` with the `Provider` supplying it, see [useProvider](/api/useProvider)).
