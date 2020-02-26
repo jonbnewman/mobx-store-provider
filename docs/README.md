@@ -17,6 +17,8 @@
 1. [Typescript](http://mobx-store-provider.overfoc.us/typescript)
 1. [Testing](http://mobx-store-provider.overfoc.us/testing)
 
+[Get started: Installation](http://mobx-store-provider.overfoc.us/installation){: .btn .btn-green }
+
 ---
 
 [![CircleCI](https://circleci.com/gh/jonbnewman/mobx-store-provider.svg?style=svg)](https://circleci.com/gh/jonbnewman/mobx-store-provider)
