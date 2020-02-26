@@ -46,8 +46,7 @@ function App() {
   const Provider = useProvider();
   return (
     <Provider value={appStore}>
-      <Header />
-      <Dashboard />
+      <!-- the rest of the app -->
     </Provider>
   );
 }
