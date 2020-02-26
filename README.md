@@ -8,11 +8,7 @@
 ![Package size](https://img.shields.io/bundlephobia/minzip/mobx-store-provider)
 ![MIT License](https://img.shields.io/npm/l/mobx-store-provider.svg)
 
-React Hooks + [mobx-state-tree](http://mobx-state-tree.js.org/)
-
-**A straight-forward API for using mobx-state-tree with functional React components.**
-
-_mobx-store-provider_ is a library that provides React Hooks for setting up and using [mobx-state-tree](http://mobx-state-tree.js.org/) models/stores from within functional React components.
+**mobx-store-provider** is a library that provides [React Hooks](https://reactjs.org/docs/hooks-intro.html) for setting up and accessing [mobx-state-tree](http://mobx-state-tree.js.org/) models from within [React Function Components](https://www.robinwieruch.de/react-function-component).
 
 1. [Installation](http://mobx-store-provider.overfoc.us/installation)
 
@@ -27,6 +23,8 @@ _mobx-store-provider_ is a library that provides React Hooks for setting up and 
 1. [Using multiple stores](http://mobx-store-provider.overfoc.us/using-multiple-stores)
 1. [Typescript](http://mobx-store-provider.overfoc.us/typescript)
 1. [Testing](http://mobx-store-provider.overfoc.us/testing)
+
+---
 
 ## Installation
 
