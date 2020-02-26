@@ -6,13 +6,13 @@ nav_order: 6
 
 # Local state
 
-A common question when state management comes up is the question of:
-
 _How should I handle local state? Should I use this for my small component too?_
 
-- Quick answer: **It is recommended.**
+- Answer:
 
-- The reasoning
+  **It is recommended.**
+
+- Reasoning:
 
   Doing so avoids the need to use an alternative mechanism for local state, and having your state managed the same way throughout your application makes it easier to reason about.
 
