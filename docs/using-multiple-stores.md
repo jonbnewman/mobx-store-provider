@@ -40,7 +40,7 @@ export default App;
 
 Note that each `Provider` must be retrieved using its own `identifier`. In the case of the `owner`, we just use the default one supplied by **mobx-store-provider**.
 
-In the `PedDisplay` component we get each store with the [useStore hook](/api/useStore) making sure to pass the same `identifier` that we used to retreive their respective `Provider`.
+In the `PedDisplay` component we get each store with the [useStore hook](/api/useStore) making sure to pass the same `identifier` used when retreiving their respective `Provider`.
 
 ```javascript
 // PetDisplay.jsx
