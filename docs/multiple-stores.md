@@ -6,7 +6,9 @@ nav_order: 5
 
 # Multiple stores
 
-In the [API documentation](/api-details-and-examples), you may have noticed an `identifier` you can use along with [useProvider](/api/useProvider) and [useStore](/api/useStore). This optional value tells **mobx-store-provider** which store you want to use based on the unique `identifier` you pass to it.
+You may have a need to instantiate multiple stores for your particular application. **mobx-store-provider** supports this use case via a unique `identifier` you can pass into [useProvider](/api/useProvider) and [useStore](/api/useStore) calls.
+
+This optional value tells **mobx-store-provider** which store you want to use based on the unique `identifier` you pass to it.
 
 ## Example
 
