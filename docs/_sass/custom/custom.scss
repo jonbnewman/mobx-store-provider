@@ -5,3 +5,8 @@ footer .text-small {
 .btn.btn-blue {
   margin-top: 1rem;
 }
+
+.navigation-list-item:first-child {
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #44434d;
+}
