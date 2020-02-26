@@ -17,7 +17,7 @@ createStore(factory): any
 
 ## Parameters
 
-- _factory_ `() => any`
+- **factory** `() => any`
 
   Function where you instantiate and return a mobx-state-tree instance.
 

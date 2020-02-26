@@ -22,11 +22,11 @@ useStore(identifier, mapStateToProps): any
 
 ## Parameters
 
-- _identifier_ `string | number | object | symbol | null | Array<any>` _(optional)_
+- **identifier** _(optional)_ `string | number | object | symbol | null | Array<any>`
 
   A unique identifier that tells _mobx-store-provider_ which store you want to get access to.
 
-- _mapStateToProps_ `(store: any) => any` _(optional)_
+- **mapStateToProps** _(optional)_ `(store: any) => any`
 
   Function that can be used to select and return slices of the store.
 

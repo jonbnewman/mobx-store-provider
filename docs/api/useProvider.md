@@ -18,7 +18,7 @@ useProvider(identifier): Provider
 
 ## Parameters
 
-- _identifier_ `string | number | object | symbol | null | Array<any>` _(optional)_
+- **identifier** _(optional)_ `string | number | object | symbol | null | Array<any>`
 
   A unique identifier that tells _mobx-store-provider_ which store you want the Provider for.
 
@@ -67,7 +67,7 @@ This supplies the `appStore` to its descendants and allows us to access it using
 
 ## Using an identifier
 
-You can also use a unique `identifier` to tell _mobx-store-provider_ which `store` you want the `Provider` for.
+You can also use a unique `identifier` to tell **mobx-store-provider** which `store` you want the `Provider` for.
 
 ```javascript
 // App.jsx
