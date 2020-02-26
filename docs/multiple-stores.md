@@ -80,3 +80,5 @@ const CatStore = types.model({
 
 export { OwnerStore, CatStoreId, CatStore };
 ```
+
+[Next: Local state](/local-state){: .btn .btn-blue }

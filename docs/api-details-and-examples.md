@@ -19,3 +19,5 @@ Create a new store inside a component
 [useStore](/api/useStore)
 
 Use a store in a component
+
+[Next: Multiple stores](/multiple-stores){: .btn .btn-blue }

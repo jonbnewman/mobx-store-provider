@@ -63,3 +63,5 @@ export default App;
 ```
 
 Note that in this example we also use the `Provider` component returned from the [useProvider hook](/api/useProvider) to supply the `appStore` to the rest of the application.
+
+[Next: useStore](/api/useStore){: .btn .btn-blue }

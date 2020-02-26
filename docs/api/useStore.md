@@ -140,3 +140,5 @@ export default observer(Header);
 ```
 
 It is recommended you derive complex values using a view function, as these are cached (see [derived values](https://mobx-state-tree.js.org/concepts/views) in the **mobx-state-tree** docs).
+
+[Next: Multiple stores](/multiple-stores){: .btn .btn-blue }
