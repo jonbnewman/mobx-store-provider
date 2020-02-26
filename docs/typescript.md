@@ -10,9 +10,9 @@ Typescript definitions are [supplied by mobx-state-tree](https://mobx-state-tree
 
 The one thing of note with respect to **mobx-store-provider** is that when you use the [createStore hook](/api/createStore) or the [useStore hook](/api/useStore) typescript needs to be informed what type is being returned.
 
-This is because the values returned from these hooks are dynamic and decided at runtime. Typescript is unable to infer what they return.
+This is because the values returned from these hooks are dynamic and decided at runtime. Typescript is unable to infer them.
 
-To do this you must first define an `interface` for your `store`:
+To specify this you must first define an `interface` for your `store`:
 
 ```javascript
 /// AppStore.ts (mobx-state-tree store/model)
@@ -29,7 +29,7 @@ interface IAppStore extends Instance<typeof AppStore> {}
 export { AppStore, IAppStore };
 ```
 
-Then, in your component when calling [createStore](/api/createStore) you must inform typescript what type of `store` is being returned by using that stores associated `interface`:
+Then, in your component when calling the [createStore hook](/api/createStore) you must inform typescript what type is being returned by using that stores associated `interface` you defined for it:
 
 ```javascript
 // App.tsx
@@ -53,7 +53,7 @@ function App() {
 export default App;
 ```
 
-The same thing must also be done when using the [useStore](/api/useStore) hook in your components as well:
+Likewise, the same thing must also be done when using the [useStore hook](/api/useStore) in your components as well:
 
 ```javascript
 // UserDisplay.tsx
