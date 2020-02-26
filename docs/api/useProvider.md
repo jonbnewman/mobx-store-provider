@@ -43,7 +43,7 @@ export { AppStore, appStoreId };
 
 ## Basic example
 
-For single or root `store` use-cases you can call **useProvider** without any options.
+The **useProvider** hook is used to retrieve a `Provider` component which we then use to supply the application with a `store`.
 
 ```javascript
 import React from "react";
