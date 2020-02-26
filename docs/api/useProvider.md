@@ -80,6 +80,8 @@ function App() {
 export default App;
 ```
 
-In the code above, we pass `appStoreId` to `useProvider`, the `Provider` it returns will work for that particular `identifier` (`appStoreId`).
+In the code above, we pass `appStoreId` to [useProvider](#useprovider), the `Provider` component it returns will work for that particular `identifier` (`appStoreId`).
 
-In order to access the `appStore` in another component we will need to supply the same `identifier` to the [useStore hook](/api/useStore#using-an-identifier).
+We can then wrap our application with that `Provider` and pass it the `appStore` as its value.
+
+This supplies the `appStore` to its descendants and allows us to access it using that same `identifier` when we retrieve it with the [useStore hook](/api/useStore#using-an-identifier) in an inner component.
