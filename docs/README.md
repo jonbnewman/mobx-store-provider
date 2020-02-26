@@ -4,6 +4,8 @@
 
 [Get started: **Installation**](http://mobx-store-provider.overfoc.us/installation){: .btn .btn-blue }
 
+---
+
 1. [Installation](http://mobx-store-provider.overfoc.us/installation)
 
 1. [Basic example](http://mobx-store-provider.overfoc.us/basic-example)
