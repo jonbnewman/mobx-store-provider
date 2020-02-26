@@ -45,7 +45,7 @@ function PetComponent() {
 export default observer(PetComponent);
 ```
 
-With a more complex component (such as one that may have child components itself) you might want to supply its descendants with the store, you can of course do so using the [useProvider hook](/api/useProvider).
+With a more complex component (ie: one that has child components itself) you might want to supply its descendants with this `store`, you can of course do so using another [useProvider hook](/api/useProvider).
 
 Just remember that if you end up using multiple stores, they must be provided and retreived using their respective unique `identifier`. For more information see [multiple stores](/multiple-stores).
 
