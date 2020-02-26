@@ -52,7 +52,7 @@ export default App;
 
 In the above example the `appStore` is created using the [createStore hook](#createstore).
 
-We then used the `Provider` from the associated [useProvider hook](/api/useProvider) to supply the `appStore` to the rest of the application.
+We then used the `Provider` component returned from the [useProvider hook](/api/useProvider) to supply the `appStore` to the rest of the application.
 
 ## Local state
 
