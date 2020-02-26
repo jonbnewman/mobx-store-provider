@@ -64,7 +64,7 @@ describe("UserForm tests", () => {
 
 Below is the component we are testing.
 
-A typical HTML form with a text field and a submit button. In the test above we are able to test the full functionality of the form, including submission.
+A typical HTML form with a text field and a submit button. In the tests above we are able to test the full functionality of the form, including submission.
 
 ```javascript
 // UserForm.jsx (The component we want to test)
