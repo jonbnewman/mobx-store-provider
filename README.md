@@ -10,7 +10,7 @@
 
 **mobx-store-provider** is a library that provides [React Hooks](https://reactjs.org/docs/hooks-intro.html) to setup and access [mobx-state-tree](http://mobx-state-tree.js.org/) models from within [React Function Components](https://www.robinwieruch.de/react-function-component).
 
-1. [Installation](http://mobx-store-provider.overfoc.us/installation)
+1. [Installation](http://mobx-store-provider.overfoc.us/)
 
 1. [Basic example](http://mobx-store-provider.overfoc.us/basic-example)
 
