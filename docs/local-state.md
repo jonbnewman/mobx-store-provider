@@ -18,7 +18,7 @@ _How should I handle local state? Should I use this for my small component too?_
 
 ## Example
 
-For local or ephemeral state, it is recommended to use define the `store` next to the component it will be used in:
+For local or ephemeral state, it is recommended to define the `store` next to the component it will be used in:
 
 ```javascript
 import React from "react";
