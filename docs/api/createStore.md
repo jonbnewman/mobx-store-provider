@@ -28,6 +28,8 @@ createStore(factory): any
 
 ## Basic example
 
+Define our `AppStore` **mobx-state-tree** store/model.
+
 ```javascript
 // AppStore.js (mobx-state-tree model)
 import { types } from "mobx-state-tree";
@@ -36,7 +38,7 @@ const AppStore = types.model({
 });
 ```
 
-In the following example the `appStore` is created using the [createStore hook](#createstore).
+Inside of the `App` we create the `appStore` using the [createStore hook](#createstore).
 
 ```javascript
 import React from "react";
