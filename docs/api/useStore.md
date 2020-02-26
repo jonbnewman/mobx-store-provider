@@ -24,7 +24,7 @@ useStore(identifier, mapStateToProps): any
 
 - **identifier** _(optional)_ `string | number | object | symbol | null | Array<any>`
 
-  A unique identifier that tells _mobx-store-provider_ which store you want to get access to.
+  A unique identifier that tells **mobx-store-provider** which store you want to get access to.
 
 - **mapStateToProps** _(optional)_ `(store: any) => any`
 
