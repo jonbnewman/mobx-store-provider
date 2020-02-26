@@ -71,4 +71,4 @@ function UserDisplay() {
 }
 ```
 
-By telling typescript what type of model/store you are using you are able to retain the [type information provided by mobx-state-tree](https://mobx-state-tree.js.org/tips/typescript#using-a-mst-type-at-design-time) properly.
+By telling typescript what type of model/store you are using you are able to retain the [type information provided by mobx-state-tree](https://mobx-state-tree.js.org/tips/typescript#using-a-mst-type-at-design-time).
