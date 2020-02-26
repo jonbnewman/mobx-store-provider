@@ -25,7 +25,7 @@ const AppStore = types.model({
 // Create the interface to represent an instance of the AppStore
 interface IAppStore extends Instance<typeof AppStore> {}
 
-// Export it and the store so components can use them
+// Export the AppStore and its interface so components can use them
 export { AppStore, IAppStore };
 ```
 
