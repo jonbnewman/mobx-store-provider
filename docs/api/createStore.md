@@ -46,7 +46,7 @@ export default App;
 
 ## Local state
 
-For local or ephemeral state the recommended method is to define the `store` next to the component it will be used in.
+For local or ephemeral state, it is recommended to define the `store` next to the component it will be used in.
 
 ```javascript
 import React from "react";
