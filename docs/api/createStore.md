@@ -32,12 +32,18 @@ Using this hook you can instantiate/create **mobx-state-tree** models/stores ins
 
 ```javascript
 import React from "react";
+import { types } from "mobx-state-tree";
 import { createStore, useProvider } from "mobx-store-provider";
-import AppStore from "./AppStore";
+
+// mobx-state-tree model
+const AppStore = types.model({
+  user: types.maybe(types.string),
+});
 
 function App() {
-  const Provider = useProvider();
+  // Instantiate it using createStore
   const appStore = createStore(() => AppStore.create());
+  const Provider = useProvider();
   return <Provider value={appStore}>...</Provider>;
 }
 
