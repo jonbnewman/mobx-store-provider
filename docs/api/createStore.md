@@ -7,7 +7,7 @@ parent: API details and examples
 
 # createStore
 
-React Hook used to instantiate new **mobx-state-tree** instances inside of components.
+React Hook used to instantiate new **mobx-state-tree** instances inside of [React Function Components](https://www.robinwieruch.de/react-function-component).
 
 It returns the store you instantiate and return from the `factory`.
 
@@ -28,7 +28,7 @@ createStore(factory): any
 
 ## Basic example
 
-Using this hook you can instantiate/create **mobx-state-tree** models/stores inside of any component.
+In the following example the `appStore` is created using the [createStore hook](#createstore).
 
 ```javascript
 import React from "react";
@@ -54,9 +54,7 @@ function App() {
 export default App;
 ```
 
-In the above example the `appStore` is created using the [createStore hook](#createstore).
-
-We then used the `Provider` component returned from the [useProvider hook](/api/useProvider) to supply the `appStore` to the rest of the application.
+The `Provider` component returned from the [useProvider hook](/api/useProvider) is used to supply the `appStore` to the rest of the application.
 
 ## Local state
 
