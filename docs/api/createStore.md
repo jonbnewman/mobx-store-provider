@@ -28,17 +28,20 @@ createStore(factory): any
 
 ## Basic example
 
+```javascript
+// AppStore.js (mobx-state-tree model)
+import { types } from "mobx-state-tree";
+const AppStore = types.model({
+  user: types.maybe(types.string),
+});
+```
+
 In the following example the `appStore` is created using the [createStore hook](#createstore).
 
 ```javascript
 import React from "react";
-import { types } from "mobx-state-tree";
 import { createStore, useProvider } from "mobx-store-provider";
-
-// mobx-state-tree model
-const AppStore = types.model({
-  user: types.maybe(types.string),
-});
+import AppStore from "./AppStore";
 
 function App() {
   // Instantiate appStore inside the App component using createStore
