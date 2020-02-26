@@ -77,4 +77,4 @@ The principal difference between the [local state](#local-state) example and the
 
 This store is local to this component only.
 
-This avoids the need to use an alternative mechanism for local state which can create inconsistent code within your application. If you state is all managed the same way throughout your application it makes it easier to reason about.
+This avoids the need to use an alternative mechanism for local state, which can create inconsistent code within your application. Having your state managed the same way throughout your application makes it easier to reason about.
