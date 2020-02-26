@@ -65,9 +65,9 @@ function App() {
 export default App;
 ```
 
-Note that since we didn't create the `appStore` inside of the component we did not use the [createStore hook](/api/createStore) (that is only necessary when instantiating a `store` from within a [React Function Component](https://www.robinwieruch.de/react-function-component)).
-
 This supplies the `appStore` to its descendants and allows us to access it using the [useStore hook](/api/useStore) in an inner component.
+
+Note that since we didn't create the `appStore` inside of the component we did not use the [createStore hook](/api/createStore) (that is only necessary when instantiating a `store` from within a [React Function Component](https://www.robinwieruch.de/react-function-component)).
 
 ## Using an identifier
 
