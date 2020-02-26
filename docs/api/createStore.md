@@ -73,6 +73,8 @@ function PetComponent() {
 export default observer(PetComponent);
 ```
 
-The principal difference between this example and the [basic example](#basic-example) is that this one does not use a `Provider` to supply the `store` to the rest of the application. It is local to this component only.
+The principal difference between the [local state](#local-state) example and the [basic example](#basic-example) is that the local state example does not use a `Provider` to supply the `store` to the rest of the application.
+
+Its state is local to this component only.
 
 This avoids the need to use an alternative mechanism for local state which can create inconsistent code within your application.
