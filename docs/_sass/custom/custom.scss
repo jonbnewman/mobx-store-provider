@@ -19,17 +19,10 @@ footer .text-small {
   }
 }
 
-@media all and (max-width: 800px) {
+@media screen and (max-width: 800px) {
   .navigation-list > .navigation-list-item:first-child {
-    margin-bottom: 0.5rem;
-    position: relative;
-
     &:before {
-      content: "💡";
-      position: absolute;
-      right: 100%;
-      top: 0.25rem;
-      margin-right: 0.25rem;
+      display: none;
     }
   }
 }
