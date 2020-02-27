@@ -8,23 +8,6 @@ footer .text-small {
 
 .navigation-list > .navigation-list-item:first-child {
   margin-bottom: 0.5rem;
-  position: relative;
-
-  &:before {
-    content: "💡";
-    position: absolute;
-    right: 100%;
-    top: 0.25rem;
-    margin-right: 0.25rem;
-  }
-}
-
-@media screen and (max-width: 800px) {
-  .navigation-list > .navigation-list-item:first-child {
-    &:before {
-      display: none;
-    }
-  }
 }
 
 li > p:first-child {
