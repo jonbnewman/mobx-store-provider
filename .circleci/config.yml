@@ -1,5 +1,5 @@
 jobs:
-  deploy:
+  build:
     executor:
       name: node/default
       tag: "10.4"
