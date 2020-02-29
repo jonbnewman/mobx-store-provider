@@ -1,5 +1,5 @@
 jobs:
-  build:
+  deploy:
     executor:
       name: node/default
       tag: "10.4"
@@ -14,3 +14,4 @@ jobs:
 orbs:
   node: circleci/node@1.1
 version: 2.1
+# f9aae1627b855fa670f94b2923e39c4b06e9d92b
