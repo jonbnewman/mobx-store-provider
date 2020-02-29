@@ -18,15 +18,13 @@ To specify this you must first define an `interface` for your `store`:
 /// AppStore.ts (mobx-state-tree store/model)
 import { types, Instance } from "mobx-state-tree";
 
-const AppStore = types.model({
+// Define and export the AppStore
+export const AppStore = types.model({
   user: types.optional(types.string, ""),
 });
 
-// Create the interface to represent an instance of the AppStore
-interface IAppStore extends Instance<typeof AppStore> {}
-
-// Export the AppStore and its interface so components can use them
-export { AppStore, IAppStore };
+// Define and export the interface to represent an AppStore
+export interface IAppStore extends Instance<typeof AppStore> {}
 ```
 
 Then, in your component when calling the [createStore hook](/api/createStore) you must inform typescript what type is being returned by using that stores associated `interface` you defined for it:
