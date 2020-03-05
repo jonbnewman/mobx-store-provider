@@ -16,7 +16,9 @@ _How should I handle local state? Should I use this for my small component too?_
 
   1. Doing so avoids the need to use an alternative mechanism for local state. Having your state managed the same way throughout your application makes it easier to reason about.
 
-  1. Sometimes 'local' state needs to be migrated to or merged in with a more 'permanent' and accessible model. If your state is already contained in a `store` it makes it easier to refactor and move around.
+  1. Sometimes, what you thought should be 'local only' or 'small' in scope actually isn't really 'local' or 'small'...and should be in another `store` or model within your application.
+
+     In that scenario, if your state is already contained in a `store` it makes it much easier to refactor and move around as needed.
 
 ## Example
 
