@@ -34,6 +34,7 @@
   ],
   "author": "Jonathan Newman",
   "license": "MIT",
+  "sideEffects": false,
   "devDependencies": {
     "@testing-library/jest-dom": "^5.1.1",
     "@testing-library/react": "^9.5.0",
