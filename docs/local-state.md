@@ -18,7 +18,7 @@ _How should I handle local state? Should I use this for my small component too?_
 
      Having your state managed the same way throughout your application makes it easier to reason about.
 
-  1. **You wrote some state logic that really belongs to another store/model within your application.**
+  1. **You wrote some local state logic that really belongs to another store/model within your application.**
 
      If your state is already contained in a `store` it makes it much easier to refactor and move around.
 
