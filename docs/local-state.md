@@ -16,9 +16,15 @@ _How should I handle local state? Should I use this for my small component too?_
 
   1. **Doing so avoids the need to use an alternative mechanism for local state.**
 
+     ***
+
      Having your state managed the same way throughout your application makes it easier to reason about.
 
-  1. **Sometimes what you thought should be 'local' or 'small' in scope isn't 'local' or 'small'...and really belongs in another `store` or model within your application.**
+  1. **Sometimes what you thought should be 'local' or 'small' in scope isn't 'local' or 'small'**
+
+     ***
+
+     You wrote some state logic that you thought was local but it really belongs or is better maintained in another `store` or model within your application.
 
      If your state is already contained in a `store` it makes it much easier to refactor and move around.
 
