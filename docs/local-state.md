@@ -16,9 +16,9 @@ _How should I handle local state? Should I use this for my small component too?_
 
   1. **Doing so avoids the need to use an alternative mechanism for local state.**
 
-     Having your state managed the same way throughout your application makes it easier to reason about.
+     Managing your state the same way throughout your app makes it easier to reason about.
 
-  1. **You wrote some local state logic that really belongs to another store/model within your application.**
+  1. **You wrote some local state logic that you realize belongs to another store/model.**
 
      If your state is already contained in a `store` it makes it much easier to refactor and move around.
 
