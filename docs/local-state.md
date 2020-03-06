@@ -22,6 +22,8 @@ _How should I handle local state? Should I use this for my small component too?_
 
      If your state is already contained in a `store` it makes it much easier to refactor and move around.
 
+That said, this may not fit you, your team, or your projects needs for one reason or another.
+
 ## Example
 
 For local or ephemeral state, it is recommended to define the `store` next to (or at least in the same directory as) the component it will be used in:
