@@ -78,4 +78,6 @@ Yes, as an alternative you _can use_ the [React Context](https://reactjs.org/doc
 
    The hooks provided by **mobx-store-provider** supply you with a much more idiomatic React Hook interface to your state and its related logic.
 
+These are the problems **mobx-store-provider** was written to solve.
+
 [Back to **Introduction**](/){: .btn .btn-blue }
