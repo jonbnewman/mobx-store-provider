@@ -8,7 +8,7 @@ nav_order: 9
 
 _Why does mobx-store-provider exist?_
 
-- Quick answer:
+- Answer:
 
   **There are no libraries which provide React Hooks to use mobx-state-tree models in React Function Components**.
 
