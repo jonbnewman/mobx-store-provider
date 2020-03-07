@@ -33,7 +33,7 @@ Yes, as an alternative you _can use_ the React Context API directly.
 
   - Maintaining the imports and exports of the `Provider` and `Context`.
 
-    This is especially cumbersome if you have multiple models.
+  Both of these are especially cumbersome if you have multiple models.
 
   With **mobx-store-provider** model instances as well as access to their `Provider` and `Context` are managed for you through a simplified and terse API.
 
