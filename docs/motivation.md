@@ -23,13 +23,15 @@ nav_order: 9
 
 ## Should I just use React Context?
 
-As an alternative you _can use_ the React Context API directly, however there are a couple issues to consider with this:
+Yes, as an alternative you _can use_ the React Context API directly.
 
-- Manual Context management, which includes:
+...but there are a couple of issues to consider:
+
+- Manual React Context management, which includes:
 
   - Creating and instrumenting the React Context.
 
-  - Maintaining the imports and exports of the `Provider` and `Context`.
+  - Maintaining the imports and exports of the `Provider` and `Context` (especially cumbersome if you have multiple models).
 
   With **mobx-store-provider** model instances as well as access to their `Provider` and `Context` are managed for you through a simplified and terse API.
 
