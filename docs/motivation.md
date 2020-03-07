@@ -12,7 +12,7 @@ _Why does this exist?_
 
 - [What are the benefits?](#what-are-the-benefits)
 - [Can't I just use React Context?](#cant-i-just-use-react-context)
-- [How mobx-store-provider works](#how-mobx-store-provider-works)
+- [How does mobx-store-provider work?](#how-mobx-store-provider-works)
 - [A personal note on 'why'](#a-personal-note-on-why)
 
 ## What are the benefits?
@@ -41,11 +41,11 @@ Yes, as an alternative you _can use_ the React Context API directly.
 
   The hooks provided by **mobx-store-provider** supply you with a much more idiomatic React Hook interface to your state and its related logic.
 
-## How mobx-store-provider works
+## How does mobx-store-provider work?
 
-The goal is to provide a simple API that allows you to use mobx-state-tree from within [React Function Components](https://www.robinwieruch.de/react-function-component), while also giving a couple additional features to help with application development and cover common use cases.
+It uses React Context, wrapping a developer friendly hooks-based interface around it for use in functional components.
 
-It accomplishes this by providing React hooks designed specifically to help manage **mobx-state-tree** models (using native React Context underneath) from within your components. Essentially, it uses the same React Context API you would use directly - but it provides a developer friendly interface for use in functional components.
+The goal is to provide a simple API that allows you to use mobx-state-tree from within [React Function Components](https://www.robinwieruch.de/react-function-component) while also giving a couple additional features to help with application development and cover common use cases.
 
 ## A personal note on 'why'
 
