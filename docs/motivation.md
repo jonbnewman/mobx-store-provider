@@ -39,8 +39,8 @@ It accomplishes this by providing React hooks designed specifically to help mana
 In a short bullet-listed summary, the benefits are:
 
 - Cleaner, simpler, more intuitive and straight-forward API for use in [React Function Components](https://www.robinwieruch.de/react-function-component).
-- [mapStateToProps](/api/useStore#using-a-mapstatetoprops-callback) (analagous to [Redux mapStateToProps](https://react-redux.js.org/using-react-redux/connect-mapstate))
-- [multiple stores](/multiple-stores) support
+- [mapStateToProps](/api/useStore#using-a-mapstatetoprops-callback) (analogous to [Redux mapStateToProps](https://react-redux.js.org/using-react-redux/connect-mapstate))
+- [Multiple stores](/multiple-stores) support
 
 ## A personal note on 'why'
 
