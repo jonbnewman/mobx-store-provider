@@ -28,7 +28,7 @@ _Why was mobx-store-provider created?_
 
   - There was no React Hooks API to manage **mobx-state-tree** models directly from within functional components like I was expecting.
 
-  So I ended up making what I thought should have already existed.
+  So I ended up creating what I thought should have already existed.
 
 ## Common Questions
 
