@@ -6,11 +6,11 @@ nav_order: 9
 
 # Motivation
 
-_Why does mobx-store-provider exist?_
+_Why was mobx-store-provider created?_
 
 - Answer:
 
-  **There is no library or API to use mobx-state-tree in React Function Components**.
+  **There was no React Hook API available to use mobx-state-tree in functional components**.
 
 - Long answer:
 
@@ -18,7 +18,7 @@ _Why does mobx-store-provider exist?_
 
   _How do I use mobx-state-tree in my functional components?_
 
-  After some extensive google-fu, and a lot of reading, I was surprised to find no library or API to handle **mobx-state-tree** models in functional components.
+  After some extensive google-fu, and a lot of reading, I was surprised to find no library or hooks API to handle **mobx-state-tree** in React Function Components.
 
   Here is what I did find out:
 
