@@ -8,7 +8,7 @@ nav_order: 9
 
 **Why does this exist?**
 
-**In summary:** There are no tools provided by the core **mobx** or **mobx-state-tree** teams which provide direct hooks support for **mobx-state-tree** models.
+**Quick answer:** There are no tools provided by the core **mobx** or **mobx-state-tree** teams which provide direct hooks support for **mobx-state-tree** models.
 
 - [What are the benefits?](#what-are-the-benefits)
 - [Using React Context](#using-react-context)
