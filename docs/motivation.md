@@ -8,9 +8,9 @@ nav_order: 9
 
 _Why does this exist?_
 
-- Quick answer
+- Quick answer:
 
-  **There are no tools provided by the core mobx or mobx-state-tree teams which provide direct hooks support for mobx-state-tree models**.
+  **There are no libraries which provide React Hooks to use mobx-state-tree models in React Function Components**.
 
 * [What are the benefits?](#what-are-the-benefits)
 * [Can't I just use React Context?](#cant-i-just-use-react-context)
@@ -53,7 +53,7 @@ The goal is to provide a simple API that allows you to use **mobx-state-tree** f
 
 I have been a long time user and lover of **mobx** and especially **mobx-state-tree**...so when I went to start incorporating functional components (the new, modern way to write React) I was surprised to find no library (or API provided by the core team) to handle **mobx-state-tree** models.
 
-- There are hooks to create and manage **mobx** observables (and related) using the core supported [mobx-react](https://github.com/mobxjs/mobx-react#mobx-react) and [mobx-react-lite](https://github.com/mobxjs/mobx-react-lite) libraries.
+- There are existing hooks to create and manage **mobx** observables (and related) using the core supported [mobx-react](https://github.com/mobxjs/mobx-react#mobx-react) and [mobx-react-lite](https://github.com/mobxjs/mobx-react-lite) libraries.
 
 - There is [an example](https://dev.to/margaretkrutikova/how-to-mobx-state-tree-react-typescript-3d5j) as well as a [discussion](https://dev.to/margaretkrutikova/how-to-mobx-state-tree-react-typescript-3d5j/comments) and a [github issue](https://github.com/mobxjs/mobx-state-tree/issues/1363) which talk about using React Context.
 
