@@ -10,6 +10,19 @@ nav_order: 9
 
 **In summary:** There are no tools provided by the core **mobx** or **mobx-state-tree** teams which provide direct hooks support for **mobx-state-tree** models.
 
+- [What are the benefits?](#what-are-the-benefits)
+- [Using React Context](#using-react-context)
+- [How mobx-store-provider works](#how-mobx-store-provider-works)
+- [A personal note on 'why'](#a-personal-note-on-why)
+
+## What are the benefits?
+
+In a short bullet-listed summary, the benefits are:
+
+- A clean, simple, and straight-forward API.
+- [mapStateToProps](/api/useStore#using-a-mapstatetoprops-callback) support (analogous to [Redux mapStateToProps](https://react-redux.js.org/using-react-redux/connect-mapstate)).
+- [Multiple stores](/multiple-stores) support.
+
 ## Using React Context
 
 You can use the React Context API directly, and various online sources encourage this. There are a couple issues to consider with this:
@@ -25,14 +38,6 @@ You can use the React Context API directly, and various online sources encourage
 - Using the Context API (directly) in a modern functional React component is clunky.
 
   The hooks provided by **mobx-store-provider** supply you with a much more idiomatic React Hook interface to your state and its related logic.
-
-## What are the benefits?
-
-In a short bullet-listed summary, the benefits are:
-
-- Cleaner, simpler, more intuitive and straight-forward API for use in [React Function Components](https://www.robinwieruch.de/react-function-component).
-- [mapStateToProps](/api/useStore#using-a-mapstatetoprops-callback) support (analogous to [Redux mapStateToProps](https://react-redux.js.org/using-react-redux/connect-mapstate)).
-- [Multiple stores](/multiple-stores) support.
 
 ## How mobx-store-provider works
 
