@@ -46,7 +46,7 @@ Compared to using the React Context API directly, using **mobx-store-provider** 
 - [mapStateToProps](/api/useStore#using-a-mapstatetoprops-callback) support (analogous to [Redux mapStateToProps](https://react-redux.js.org/using-react-redux/connect-mapstate)).
 - [Multiple stores](/multiple-stores) support.
 
-**mobx-store-provider** aims to be a focused library, and limited in scope. This gives it an extremely small footprint:
+**mobx-store-provider** aims to be a focused library, minimalist, and limited in scope. This gives it an extremely small footprint:
 
 ![Package size](https://img.shields.io/bundlephobia/minzip/mobx-store-provider)
 
