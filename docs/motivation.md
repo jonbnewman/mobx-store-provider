@@ -24,8 +24,6 @@ You can use the React Context API directly, and various online sources encourage
 
 - Using the Context API (directly) in a modern functional React component is clunky.
 
-  The Context API isn't really consistent or clean (_idiomatic_) when used with React Function Components.
-
   The hooks provided by **mobx-store-provider** supply you with a much more idiomatic React Hook interface to your state and its related logic.
 
 ## How mobx-store-provider works
