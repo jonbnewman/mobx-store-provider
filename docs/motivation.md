@@ -20,11 +20,9 @@ You can use the React Context API directly, and various online sources encourage
 
   - Maintaining the imports and exports of the `Provider` and `Context`
 
-  This extra bit of housekeeping just isn't necessary with **mobx-store-provider**.
+  With **mobx-store-provider** model instances as well as access to their `Provider` and `Context` are managed for you through a simplified and terse API.
 
-  Model instances and access to their `Provider` or `Context` are handled for you through a straight-forward and terse API.
-
-- Using the Context API in a modern functional React component is clunky.
+- Using the Context API (directly) in a modern functional React component is clunky.
 
   The Context API isn't really consistent or clean (_idiomatic_) when used with React Function Components.
 
