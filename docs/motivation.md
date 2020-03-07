@@ -10,7 +10,7 @@ _Why was mobx-store-provider created?_
 
 - Answer:
 
-  **There was no React Hook API available to use mobx-state-tree in functional components**.
+  **There was no React Hook API to use mobx-state-tree in functional components**.
 
 - Long answer:
 
