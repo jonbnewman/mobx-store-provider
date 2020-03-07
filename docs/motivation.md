@@ -6,7 +6,7 @@ nav_order: 9
 
 # Motivation
 
-**Why does this exist?**
+_Why does this exist?_
 
 **Quick answer:** There are no tools provided by the core **mobx** or **mobx-state-tree** teams which provide direct hooks support for **mobx-state-tree** models.
 
