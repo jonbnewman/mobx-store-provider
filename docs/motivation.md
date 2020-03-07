@@ -10,7 +10,7 @@ _Why does mobx-store-provider exist?_
 
 - Answer:
 
-  **There are no libraries which provide React Hooks to use mobx-state-tree models in React Function Components**.
+  **There are no (other) libraries to use mobx-state-tree models in React Function Components**.
 
 - Long answer:
 
