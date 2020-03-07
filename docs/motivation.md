@@ -11,21 +11,19 @@ nav_order: 9
 **Quick answer:** There are no tools provided by the core **mobx** or **mobx-state-tree** teams which provide direct hooks support for **mobx-state-tree** models.
 
 - [What are the benefits?](#what-are-the-benefits)
-- [Using React Context](#using-react-context)
+- [Should I just use React Context?](#should-i-just-use-react-context)
 - [How mobx-store-provider works](#how-mobx-store-provider-works)
 - [A personal note on 'why'](#a-personal-note-on-why)
 
 ## What are the benefits?
 
-In a short bullet-listed summary, the benefits are:
-
 - A clean, simple, and straight-forward API.
 - [mapStateToProps](/api/useStore#using-a-mapstatetoprops-callback) support (analogous to [Redux mapStateToProps](https://react-redux.js.org/using-react-redux/connect-mapstate)).
 - [Multiple stores](/multiple-stores) support.
 
-## Using React Context
+## Should I just use React Context?
 
-You can use the React Context API directly, and various online sources encourage this. There are a couple issues to consider with this:
+As an alternative you _can use_ the React Context API directly, however there are a couple issues to consider with this:
 
 - Manual Context management, which includes:
 
