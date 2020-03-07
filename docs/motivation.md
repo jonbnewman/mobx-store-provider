@@ -38,7 +38,7 @@ _Why does **mobx-store-provider** exist?_
 
 ## What are the benefits?
 
-- A clean, simple, and straight-forward API.
+- A clean, simple, and straight-forward hooks-based API.
 - [mapStateToProps](/api/useStore#using-a-mapstatetoprops-callback) support (analogous to [Redux mapStateToProps](https://react-redux.js.org/using-react-redux/connect-mapstate)).
 - [Multiple stores](/multiple-stores) support.
 
