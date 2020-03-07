@@ -8,27 +8,37 @@ nav_order: 9
 
 **Why does this exist?**
 
-There are no tools provided by the core mobx or mobx-state-tree team which provide direct hooks support for mobx-state-tree models.
+**In summary:** There are no tools provided by the core **mobx** or **mobx-state-tree** teams which provide direct hooks support for **mobx-state-tree** models.
 
-## Issues with React Context
+## Using React Context
 
-Up until mobx-store-provider all indications were that others were using the React Context API directly, and online sources were encouraging others to do the same.
+You can use the React Context API directly, and various online sources encourage this. There are a couple issues to consider with this:
 
-This will work...however there are a couple shortcomings/issues to consider with using the Context API directly:
+- Manual Context management, which includes
 
-- Having to maintain imports/exports of the `Provider` manually, for each model you want to create.
+  - Creating and instrumenting the React Context
 
-  This extra bit of housekeeping just isn't necessary with mobx-store-provider. Model instances and access to their `Provider` or `Context` is handled for you through a straight-forward and terse API.
+  - Maintaining the imports and exports of the `Provider` and `Context`
+
+  This extra bit of housekeeping just isn't necessary with mobx-store-provider. Model instances and access to their `Provider` or `Context` are handled for you through a straight-forward and terse API.
 
 - Using the Context API in a modern functional React component is clunky.
 
-  Function components, along with hooks provide a much cleaner and direct interface to the state and its related logic.
+  The Context API isn't really consistent or clean (_idiomatic_) when used with React Function Components. Hooks can provide a much cleaner and direct interface to state and its related logic.
 
-## How does mobx-store-provider work
+## How mobx-store-provider works
 
-The goal is to provide a simple API that allows you to use mobx-state-tree from within [React Function Components](https://www.robinwieruch.de/react-function-component).
+The goal is to provide a simple API that allows you to use mobx-state-tree from within [React Function Components](https://www.robinwieruch.de/react-function-component), while also giving a couple additional features to help with application development and cover common use cases.
 
-It accomplishes this by providing React hooks designed specifically to help manage **mobx-state-tree** models (using React Context underneath) from within your components. Essentially, it uses the same React Context API you would use directly - but it provides a developer friendly interface for use in functional components.
+It accomplishes this by providing React hooks designed specifically to help manage **mobx-state-tree** models (using native React Context underneath) from within your components. Essentially, it uses the same React Context API you would use directly - but it provides a developer friendly interface for use in functional components.
+
+## What are the benefits?
+
+In a short bullet-listed summary, the benefits are:
+
+- Cleaner, simpler, more intuitive and straight-forward API for use in [React Function Components](https://www.robinwieruch.de/react-function-component).
+- [mapStateToProps](/api/useStore#using-a-mapstatetoprops-callback) (analagous to [Redux mapStateToProps](https://react-redux.js.org/using-react-redux/connect-mapstate))
+- [multiple stores](/multiple-stores) support
 
 ## A personal note on 'why'
 

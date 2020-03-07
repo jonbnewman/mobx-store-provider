@@ -28,6 +28,7 @@ yarn add mobx-store-provider
 1. [Local state](http://mobx-store-provider.overfoc.us/local-state)
 1. [Typescript](http://mobx-store-provider.overfoc.us/typescript)
 1. [Testing](http://mobx-store-provider.overfoc.us/testing)
+1. [Motivation](http://mobx-store-provider.overfoc.us/motivation)
 
 ---
 
