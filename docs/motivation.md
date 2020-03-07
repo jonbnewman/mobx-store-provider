@@ -58,7 +58,7 @@ The main difference is that it wraps a developer friendly hooks-based API around
 
 ## Can't I just use React Context?
 
-Yes, as an alternative you _can use_ the React Context API directly.
+Yes, as an alternative you _can use_ the [React Context](https://reactjs.org/docs/context.html) API directly.
 
 ...but there are a couple of issues to consider:
 
