@@ -14,7 +14,7 @@ _Why does **mobx-store-provider** exist?_
 
 - Long answer:
 
-  I have been a long time user and lover of **mobx** and especially **mobx-state-tree**...so when I went to start incorporating functional components (the new, sexy, modern way to write React) I asked myself:
+  I have been a long time user and fan of **mobx** and especially **mobx-state-tree**...so when I went to start incorporating functional components (the new, sexy, modern way to write React) I asked myself:
 
   _How do I use mobx-state-tree in my functional components?_
 
