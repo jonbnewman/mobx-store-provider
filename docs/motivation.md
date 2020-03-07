@@ -45,7 +45,7 @@ Yes, as an alternative you _can use_ the React Context API directly.
 
 It uses React Context, wrapping a developer friendly hooks-based interface around it for use in functional components.
 
-The goal is to provide a simple API that allows you to use mobx-state-tree from within [React Function Components](https://www.robinwieruch.de/react-function-component) while also giving a couple additional features to help with application development and cover common use cases.
+The goal is to provide a simple API that allows you to use mobx-state-tree from within [React Function Components](https://www.robinwieruch.de/react-function-component) while also giving a couple additional features to help with application development and cover common use cases (such as [multiple stores](/multiple-stores) and selectors via [mapStateToProps](/api/useStore#using-a-mapstatetoprops-callback)).
 
 ## A personal note on 'why'
 
