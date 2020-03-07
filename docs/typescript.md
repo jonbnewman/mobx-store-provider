@@ -6,7 +6,7 @@ nav_order: 7
 
 # Typescript'
 
-Interfaces and type definitions for the **mobx-store-provider** interface are provied by the library.
+Interfaces and type definitions for the **mobx-store-provider** API are provied by the library.
 
 Beyond that, typescript definitions are [supplied by mobx-state-tree](https://mobx-state-tree.js.org/tips/typescript#using-a-mst-type-at-design-time) for your stores/models.
 
