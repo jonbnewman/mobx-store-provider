@@ -24,9 +24,11 @@ _Why does **mobx-store-provider** exist?_
 
   So I ended up just making what I thought should have already existed.
 
-* [What are the benefits?](#what-are-the-benefits)
-* [How does mobx-store-provider work?](#how-does-mobx-store-provider-work)
-* [Can't I just use React Context?](#cant-i-just-use-react-context)
+## Common Questions
+
+- [What are the benefits?](#what-are-the-benefits)
+- [How does mobx-store-provider work?](#how-does-mobx-store-provider-work)
+- [Can't I just use React Context?](#cant-i-just-use-react-context)
 
 ## What are the benefits?
 
