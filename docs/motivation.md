@@ -52,7 +52,9 @@ Compared to using the React Context API directly, using **mobx-store-provider** 
 
 ## How does mobx-store-provider work?
 
-It uses React Context, wrapping a developer friendly hooks-based interface around it for use in functional components.
+Underneath the API it uses React Context - similar to what is suggested in the [example](https://dev.to/margaretkrutikova/how-to-mobx-state-tree-react-typescript-3d5j), [discussion](https://dev.to/margaretkrutikova/how-to-mobx-state-tree-react-typescript-3d5j/comments), and [github issue](https://github.com/mobxjs/mobx-state-tree/issues/1363) mentioned prior.
+
+The main difference is that it wraps a developer friendly hooks-based interface around it for use in functional components.
 
 ## Can't I just use React Context?
 
