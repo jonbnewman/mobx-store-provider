@@ -116,4 +116,4 @@ const AppStore = types
 export default AppStore;
 ```
 
-[Back to **Introduction**](/){: .btn .btn-blue }
+[Next: **Motivation**](/motivation){: .btn .btn-blue }
