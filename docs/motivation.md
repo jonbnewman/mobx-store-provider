@@ -42,7 +42,7 @@ The goal is to provide a simple API that allows you to use **mobx-state-tree** f
 
 Compared to using the React Context API directly, using **mobx-store-provider** gives you:
 
-- A clean, simple, and straight-forward hooks-based API.
+- A clean, simple, and straight-forward modern hooks-based API.
 - [mapStateToProps](/api/useStore#using-a-mapstatetoprops-callback) support (analogous to [Redux mapStateToProps](https://react-redux.js.org/using-react-redux/connect-mapstate)).
 - [Multiple stores](/multiple-stores) support.
 
