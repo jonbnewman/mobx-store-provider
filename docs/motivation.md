@@ -6,7 +6,7 @@ nav_order: 9
 
 # Motivation
 
-_Why does **mobx-store-provider** exist?_
+_Why does mobx-store-provider exist?_
 
 - Quick answer:
 
