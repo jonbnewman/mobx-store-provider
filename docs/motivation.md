@@ -46,11 +46,11 @@ In a short bullet-listed summary, the benefits are:
 
 I have been a long time user and lover of **mobx** and especially **mobx-state-tree**...so when I went to start incorporating functional components (the new, modern way to write React) I was surprised to find no library (or API provided by the core team) to handle **mobx-state-tree** models.
 
-- There are hooks to create and manage **mobx** observables (and related) using the core supported [mobx-react](https://github.com/mobxjs/mobx-react#mobx-react) library...but nothing for **mobx-state-tree**.
+- There are hooks to create and manage **mobx** observables (and related) using the core supported [mobx-react](https://github.com/mobxjs/mobx-react#mobx-react) library.
 
 - There are [examples](https://dev.to/margaretkrutikova/how-to-mobx-state-tree-react-typescript-3d5j) as well as a [discussions](https://dev.to/margaretkrutikova/how-to-mobx-state-tree-react-typescript-3d5j/comments) and [github issue](https://github.com/mobxjs/mobx-state-tree/issues/1363) talking about using React Context directly.
 
-- There is no React Hook API to use **mobx-state-tree** from within functional components like I was expecting.
+- There is (was) no React Hook API to use/manage **mobx-state-tree** models from within functional components like I was expecting.
 
 So I ended up just making what I thought should have already existed.
 
