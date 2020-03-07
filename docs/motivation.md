@@ -14,7 +14,11 @@ _Why does **mobx-store-provider** exist?_
 
 - Long answer:
 
-  I have been a long time user and lover of **mobx** and especially **mobx-state-tree**...so when I went to start incorporating functional components (the new, modern way to write React) I was surprised to find no library (or API provided by the core team) to handle **mobx-state-tree** models.
+  I have been a long time user and lover of **mobx** and especially **mobx-state-tree**...so when I went to start incorporating functional components (the new, modern way to write React) I asked myself: _How should I do this?_
+
+  After some extensive google-fu, and a lot of reading, I was surprised to find no library (or API provided by the core team) to handle **mobx-state-tree** models.
+
+  Here is what I did find out:
 
   - There are existing hooks to create and manage **mobx** observables (and related) using the core supported [mobx-react](https://github.com/mobxjs/mobx-react#mobx-react) and [mobx-react-lite](https://github.com/mobxjs/mobx-react-lite) libraries.
 
@@ -22,7 +26,7 @@ _Why does **mobx-store-provider** exist?_
 
   - There was no React Hook API to use/manage **mobx-state-tree** models from within functional components like I was expecting.
 
-  So I ended up just making what I thought should have already existed.
+  So I ended up making what I thought should have already existed.
 
 ## Common Questions
 
