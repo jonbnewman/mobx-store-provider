@@ -12,7 +12,7 @@ _Why does this exist?_
 
 - [What are the benefits?](#what-are-the-benefits)
 - [Can't I just use React Context?](#cant-i-just-use-react-context)
-- [How does mobx-store-provider work?](#how-mobx-store-provider-works)
+- [How does mobx-store-provider work?](#how-does-mobx-store-provider-work)
 - [A personal note on 'why'](#a-personal-note-on-why)
 
 ## What are the benefits?
