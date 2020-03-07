@@ -4,7 +4,7 @@ title: Typescript
 nav_order: 7
 ---
 
-# Typescript'
+# Typescript
 
 Interfaces and type definitions for the **mobx-store-provider** API are provied by the library.
 
