@@ -14,11 +14,11 @@ nav_order: 9
 
 You can use the React Context API directly, and various online sources encourage this. There are a couple issues to consider with this:
 
-- Manual Context management, which includes
+- Manual Context management, which includes:
 
-  - Creating and instrumenting the React Context
+  - Creating and instrumenting the React Context.
 
-  - Maintaining the imports and exports of the `Provider` and `Context`
+  - Maintaining the imports and exports of the `Provider` and `Context`.
 
   With **mobx-store-provider** model instances as well as access to their `Provider` and `Context` are managed for you through a simplified and terse API.
 
