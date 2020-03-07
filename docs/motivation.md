@@ -26,7 +26,7 @@ _Why was mobx-store-provider created?_
 
   - There is [an example](https://dev.to/margaretkrutikova/how-to-mobx-state-tree-react-typescript-3d5j) as well as a [discussion](https://dev.to/margaretkrutikova/how-to-mobx-state-tree-react-typescript-3d5j/comments) and a [github issue](https://github.com/mobxjs/mobx-state-tree/issues/1363) which talk about using React Context to access **mobx-state-tree** models within React Function Components.
 
-  - There was no React Hook API to manage **mobx-state-tree** models directly from within functional components like I was expecting.
+  - There was no React Hooks API to manage **mobx-state-tree** models directly from within functional components like I was expecting.
 
   So I ended up making what I thought should have already existed.
 
