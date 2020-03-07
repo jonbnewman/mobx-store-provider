@@ -26,19 +26,19 @@ You can use the React Context API directly, and various online sources encourage
 
   The hooks provided by **mobx-store-provider** supply you with a much more idiomatic React Hook interface to your state and its related logic.
 
-## How mobx-store-provider works
-
-The goal is to provide a simple API that allows you to use mobx-state-tree from within [React Function Components](https://www.robinwieruch.de/react-function-component), while also giving a couple additional features to help with application development and cover common use cases.
-
-It accomplishes this by providing React hooks designed specifically to help manage **mobx-state-tree** models (using native React Context underneath) from within your components. Essentially, it uses the same React Context API you would use directly - but it provides a developer friendly interface for use in functional components.
-
 ## What are the benefits?
 
 In a short bullet-listed summary, the benefits are:
 
 - Cleaner, simpler, more intuitive and straight-forward API for use in [React Function Components](https://www.robinwieruch.de/react-function-component).
-- [mapStateToProps](/api/useStore#using-a-mapstatetoprops-callback) (analogous to [Redux mapStateToProps](https://react-redux.js.org/using-react-redux/connect-mapstate))
-- [Multiple stores](/multiple-stores) support
+- [mapStateToProps](/api/useStore#using-a-mapstatetoprops-callback) support (analogous to [Redux mapStateToProps](https://react-redux.js.org/using-react-redux/connect-mapstate)).
+- [Multiple stores](/multiple-stores) support.
+
+## How mobx-store-provider works
+
+The goal is to provide a simple API that allows you to use mobx-state-tree from within [React Function Components](https://www.robinwieruch.de/react-function-component), while also giving a couple additional features to help with application development and cover common use cases.
+
+It accomplishes this by providing React hooks designed specifically to help manage **mobx-state-tree** models (using native React Context underneath) from within your components. Essentially, it uses the same React Context API you would use directly - but it provides a developer friendly interface for use in functional components.
 
 ## A personal note on 'why'
 
