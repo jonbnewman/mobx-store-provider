@@ -43,7 +43,7 @@ _Why was mobx-store-provider created?_
 - [Multiple stores](/multiple-stores) support.
 - Extremely small footprint:
 
-  [![Package size][https://img.shields.io/bundlephobia/minzip/mobx-store-provider]][https://bundlephobia.com/result?p=mobx-store-provider]
+  ![Package size](https://img.shields.io/bundlephobia/minzip/mobx-store-provider)
 
 ## How does mobx-store-provider work?
 
