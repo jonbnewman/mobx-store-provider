@@ -8,12 +8,14 @@ nav_order: 9
 
 _Why does this exist?_
 
-**Quick answer:** There are no tools provided by the core **mobx** or **mobx-state-tree** teams which provide direct hooks support for **mobx-state-tree** models.
+- Quick answer
 
-- [What are the benefits?](#what-are-the-benefits)
-- [Can't I just use React Context?](#cant-i-just-use-react-context)
-- [How does mobx-store-provider work?](#how-does-mobx-store-provider-work)
-- [A personal note on 'why'](#a-personal-note-on-why)
+  **There are no tools provided by the core mobx or mobx-state-tree teams which provide direct hooks support for mobx-state-tree models**.
+
+* [What are the benefits?](#what-are-the-benefits)
+* [Can't I just use React Context?](#cant-i-just-use-react-context)
+* [How does mobx-store-provider work?](#how-does-mobx-store-provider-work)
+* [A personal note on 'why'](#a-personal-note-on-why)
 
 ## What are the benefits?
 
