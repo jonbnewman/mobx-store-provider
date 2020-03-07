@@ -18,7 +18,7 @@ _Why does **mobx-store-provider** exist?_
 
   _How do I use mobx-state-tree in my functional components?_
 
-  After some extensive google-fu, and a lot of reading, I was surprised to find no library (or API provided by the core team) to handle **mobx-state-tree** models.
+  After some extensive google-fu, and a lot of reading, I was surprised to find no library (or API provided by the core team) to handle **mobx-state-tree** models in functional components.
 
   Here is what I did find out:
 
