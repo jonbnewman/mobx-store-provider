@@ -41,7 +41,7 @@ _Why was mobx-store-provider created?_
 - A clean, simple, and straight-forward hooks-based API.
 - [mapStateToProps](/api/useStore#using-a-mapstatetoprops-callback) support (analogous to [Redux mapStateToProps](https://react-redux.js.org/using-react-redux/connect-mapstate)).
 - [Multiple stores](/multiple-stores) support.
-- Extremely small footprint.
+- Extremely small footprint (![Package size](https://img.shields.io/bundlephobia/minzip/mobx-store-provider)).
 
 ## How does mobx-store-provider work?
 
