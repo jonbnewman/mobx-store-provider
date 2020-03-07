@@ -70,13 +70,13 @@ Yes, as an alternative you _can use_ the [React Context](https://reactjs.org/doc
 
    - Maintaining the imports and exports of the `Provider` and `Context`.
 
-   Both of these are especially cumbersome if you have multiple models.
+   Both of these are especially cumbersome if you have multiple **mobx-state-tree** models to contend with.
 
    With **mobx-store-provider** model instances as well as access to their `Provider` and `Context` are managed for you through a simplified and terse API.
 
 1. Using the Context API (directly) in a modern functional React component is clunky.
 
-   The hooks provided by **mobx-store-provider** supply you with a much more idiomatic React Hook interface to your state and its related logic.
+   The API provided by **mobx-store-provider** supplies you with a much more idiomatic React Hooks based interface to your state and its related logic.
 
 These are the problems **mobx-store-provider** was written to solve.
 
