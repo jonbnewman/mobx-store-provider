@@ -14,7 +14,7 @@ function registerStore(identifier: Identifier): void {
   Context.displayName = String(identifier);
   stores.set(identifier, <Store>{
     Provider: Context.Provider,
-    useStore: mapStateToProps => mapStateToProps(useContext(Context)),
+    useStore: (mapStateToProps) => mapStateToProps(useContext(Context)),
   });
 }
 
