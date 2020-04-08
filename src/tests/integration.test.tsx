@@ -1,4 +1,5 @@
 import React from "react";
+import "mobx-react-lite/batchingForReactDom";
 import { observer } from "mobx-react";
 import { types, Instance } from "mobx-state-tree";
 import { getByTestId, fireEvent } from "@testing-library/dom";
@@ -11,7 +12,7 @@ const TestStore = types
   .model({
     name: types.optional(types.string, "TestStore"),
   })
-  .actions(self => ({
+  .actions((self) => ({
     setName(name: string) {
       self.name = name;
     },
