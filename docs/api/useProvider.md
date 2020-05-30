@@ -70,7 +70,7 @@ export default App;
 
 This supplies the `appStore` to its descendants, allowing us to access it using the [useStore hook](/api/useStore) in an inner component.
 
-Note that since we didn't create the `appStore` inside of the component we did not use the [createStore hook](/api/createStore) (that is only necessary when instantiating a `store` from within a [React Function Component](https://www.robinwieruch.de/react-function-component)).
+Note that since we didn't create the `appStore` inside of the component we did not use the [useCreateStore hook](/api/useCreateStore) (that is only necessary when instantiating a `store` from within a [React Function Component](https://www.robinwieruch.de/react-function-component)).
 
 ## Using an identifier
 
@@ -105,4 +105,4 @@ In the code above, we pass `appStoreId` to the **useProvider** hook, the `Provid
 
 We can then wrap our application with that `Provider` and pass it the `appStore` as its value. This supplies the `appStore` to its descendants allowing us to access it using that unique `identifier` passed to the [useStore hook](/api/useStore) in an inner component.
 
-[Next: **createStore**](/api/createStore){: .btn .btn-blue }
+[Next: **useCreateStore**](/api/useCreateStore){: .btn .btn-blue }

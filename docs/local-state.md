@@ -32,7 +32,7 @@ For local or ephemeral state, it is recommended to define the `store` next to (o
 import React from "react";
 import { observer } from "mobx-react";
 import { types } from "mobx-state-tree";
-import { createStore } from "mobx-store-provider";
+import { useCreateStore } from "mobx-store-provider";
 
 // Define the local store here
 const PetStore = types.model({
@@ -42,7 +42,7 @@ const PetStore = types.model({
 
 // Create and use the store in this component
 function PetComponent() {
-  const localStore = createStore(() => PetStore.create());
+  const localStore = useCreateStore(() => PetStore.create());
   return (
     <div>
       {localStore.name} is a {localStore.type}

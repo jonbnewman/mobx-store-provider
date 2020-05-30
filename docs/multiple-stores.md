@@ -17,15 +17,15 @@ In the `App` component, we create both the `cat` and `owner`, which are then pro
 ```javascript
 // App.jsx
 import React from "react";
-import { useProvider, createStore } from "**mobx-store-provider**";
+import { useProvider, useCreateStore } from "**mobx-store-provider**";
 import { OwnerStore, CatStore, CatStoreId } from "./stores";
 import PetDisplay from "./PetDisplay";
 
 function App() {
-  const owner = createStore(() => OwnerStore.create({ name: "Jonathan" }));
+  const owner = useCreateStore(() => OwnerStore.create({ name: "Jonathan" }));
   const OwnerProvider = useProvider();
 
-  const cat = createStore(() => CatStore.create({ name: "Cleo" }));
+  const cat = useCreateStore(() => CatStore.create({ name: "Cleo" }));
   const CatProvider = useProvider(CatStoreId);
 
   return (
