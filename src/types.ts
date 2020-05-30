@@ -16,7 +16,7 @@ export interface Store {
 export type Identifier = string | number | object | symbol | null | Array<any>;
 
 /**
- * Function the user passes into the createStore hook.
+ * Function the user passes into the useCreateStore hook.
  *
  * This function should instantiate and return a new instance of a store.
  */
