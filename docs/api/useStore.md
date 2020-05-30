@@ -16,8 +16,8 @@ It must be passed the same `identifier` that was used with the `Provider` supply
 ```javascript
 useStore(): any
 useStore(identifier): any
-useStore(mapStateToProps): any
-useStore(identifier, mapStateToProps): any
+useStore(mapStore): any
+useStore(identifier, mapStore): any
 ```
 
 ## Parameters
@@ -26,7 +26,7 @@ useStore(identifier, mapStateToProps): any
 
   A unique identifier that tells **mobx-store-provider** which store you want to get access to.
 
-- **mapStateToProps** _(optional)_ `(store: any) => any`
+- **mapStore** _(optional)_ `(store: any) => any`
 
   Function that can be used to select and return slices of the store.
 
@@ -34,7 +34,7 @@ useStore(identifier, mapStateToProps): any
 
 - [Basic example](#basic-example)
 - [Using an identifier](#use-an-identifer)
-- [Using a mapStateToProps callback](#using-a-mapstatetoprops-callback)
+- [Using a mapStore callback](#using-a-mapstatetoprops-callback)
 
 This is the `AppStore` model/store used with the examples below:
 
@@ -104,7 +104,7 @@ A unique `identifier` must be used when your application has more than one `stor
 
 For more information on multiple stores, see: [Using multiple stores](/using-multiple-stores)
 
-## Using a mapStateToProps callback
+## Using a mapStore callback
 
 With this callback you can return slices of the store with a selector function or do additional processing before the component accesses it.
 
@@ -124,7 +124,7 @@ function selectCoolStatus(store) {
 
 function Header() {
   // We use the store in this component
-  const { name, isCoolGuy } = useStore(store => ({
+  const { name, isCoolGuy } = useStore((store) => ({
     name: selectUserName(store),
     isCoolGuy: selectCoolStatus(store),
   }));

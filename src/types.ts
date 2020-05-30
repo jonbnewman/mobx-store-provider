@@ -5,7 +5,7 @@ import { Provider } from "react";
  */
 export interface Store {
   Provider: Provider<any>;
-  useStore: (mapStateToProps: MapStateToProps) => any;
+  useStore: (mapStore: MapStore) => any;
 }
 
 /**
@@ -27,4 +27,4 @@ export type Factory = () => any;
  *
  * Used to return a subset/slice of the store.
  */
-export type MapStateToProps = (store: any) => any;
+export type MapStore = (store: any) => any;

@@ -56,7 +56,7 @@ describe("useStore", () => {
     expect(makeContainer(<TestComponent />)).toHaveTextContent(firstName);
   });
 
-  test("with a mapStateToProps callback", () => {
+  test("with a mapStore callback", () => {
     const firstName = "Jonathan";
     function selectName(store: ITestStore) {
       return store.name;
@@ -82,7 +82,7 @@ describe("useStore", () => {
     expect(makeContainer(<TestComponent />)).toHaveTextContent(firstName);
   });
 
-  test("with an identifier and a mapStateToProps callback", () => {
+  test("with an identifier and a mapStore callback", () => {
     const identifier = "identifier";
     const firstName = "Jonathan";
     function selectName(store: ITestStore) {

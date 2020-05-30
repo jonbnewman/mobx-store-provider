@@ -1,5 +1,5 @@
 import { Provider, useRef } from "react";
-import { Identifier, Factory, MapStateToProps } from "./types";
+import { Identifier, Factory, MapStore } from "./types";
 import { retrieveStore, defaultId, identity } from "./stores";
 
 declare var process: {
@@ -46,20 +46,20 @@ function useCreateStore(factory: Factory): any {
 /**
  * React Hook which retrieves the `store` for a given `identifer`.
  * @param identifer The identifier used for the store (optional)
- * @param mapStateToProps Callback which is used to select and return slices of the store (optional)
+ * @param mapStore Callback which is used to select and return slices of the store (optional)
  * @returns The store instance
  */
 function useStore(): any;
 function useStore(identifer: Identifier): any;
-function useStore(mapStateToProps: MapStateToProps): any;
-function useStore(identifer: Identifier, mapStateToProps: MapStateToProps): any;
+function useStore(mapStore: MapStore): any;
+function useStore(identifer: Identifier, mapStore: MapStore): any;
 function useStore(
-  identifer: MapStateToProps | Identifier = defaultId,
-  mapStateToProps: MapStateToProps = identity,
+  identifer: MapStore | Identifier = defaultId,
+  mapStore: MapStore = identity,
 ): any {
   return typeof identifer === "function"
-    ? retrieveStore(defaultId).useStore(<MapStateToProps>identifer)
-    : retrieveStore(identifer).useStore(mapStateToProps);
+    ? retrieveStore(defaultId).useStore(<MapStore>identifer)
+    : retrieveStore(identifer).useStore(mapStore);
 }
 
 export { useProvider, createStore, useCreateStore, useStore };
