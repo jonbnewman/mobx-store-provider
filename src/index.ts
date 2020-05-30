@@ -1,12 +1,6 @@
 import { Provider, useRef } from "react";
 import { Identifier, Factory, MapStore } from "./types";
-import { retrieveStore, defaultId, identity } from "./stores";
-
-declare var process: {
-  env: {
-    NODE_ENV: string;
-  };
-};
+import { retrieveStore, defaultId, identity, warning } from "./stores";
 
 /**
  * React Hook to retrieve the store `Provider` for a given `identifier`.
@@ -22,14 +16,13 @@ function useProvider(identifier: Identifier = defaultId): Provider<any> {
 }
 
 /**
- * Deprecated - to be removed in 1.5.1
+ * Deprecated, switch to useCreateStore - to be removed.
  */
 function createStore(factory: Factory): any;
 function createStore(factory: Factory): any {
-  process.env.NODE_ENV.match(/^(test|dev).*/) &&
-    console.warn(
-      "createStore() has been deprecated and will be removed in the next release, please migrate to useCreateStore soon",
-    );
+  warning(
+    "createStore is deprecated and will be removed, migrate to useCreateStore soon",
+  );
   return useRef(factory()).current;
 }
 
