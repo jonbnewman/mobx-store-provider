@@ -4,6 +4,20 @@ import { Store, Identifier } from "./types";
 const stores: Map<Identifier, Store> = new Map();
 const defaultId: Identifier = Symbol("store");
 
+declare var process: {
+  env: {
+    NODE_ENV: string;
+  };
+};
+
+function warning(message: string) {
+  process &&
+    process.env &&
+    process.env.NODE_ENV &&
+    process.env.NODE_ENV.match(/^(test|dev).*/) &&
+    console.warn(message);
+}
+
 /**
  * Register/initialize a store in the internal `stores` Map.
  * @param identifier The identifier supplied by the consumer
@@ -14,7 +28,7 @@ function registerStore(identifier: Identifier): void {
   Context.displayName = String(identifier);
   stores.set(identifier, <Store>{
     Provider: Context.Provider,
-    useStore: (mapStateToProps) => mapStateToProps(useContext(Context)),
+    useStore: (mapStore) => mapStore(useContext(Context)),
   });
 }
 
@@ -39,4 +53,4 @@ function identity(thing: any): any {
   return thing;
 }
 
-export { retrieveStore, defaultId, identity };
+export { retrieveStore, defaultId, identity, warning };

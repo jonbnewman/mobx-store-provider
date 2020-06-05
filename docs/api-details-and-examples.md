@@ -12,7 +12,7 @@ has_toc: false
 
 Provide your components with a store
 
-[createStore](/api/createStore)
+[useCreateStore](/api/useCreateStore)
 
 Create a new store inside a component
 

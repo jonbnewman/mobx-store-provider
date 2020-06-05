@@ -3,7 +3,7 @@ import "mobx-react-lite/batchingForReactDom";
 import { cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
-import { useProvider, createStore } from "../";
+import { useProvider, useCreateStore } from "../";
 import { TestStore, ITestStore, makeContainer } from "./integration.test";
 
 describe("identifier", () => {
@@ -19,7 +19,7 @@ describe("identifier", () => {
 
     function TestComponent() {
       const Provider = useProvider(identifier);
-      const testStore: ITestStore = createStore(() => TestStore.create());
+      const testStore: ITestStore = useCreateStore(() => TestStore.create());
       stores.set(stores.has("first") ? "second" : "first", testStore);
       return <Provider value={testStore} />;
     }
@@ -37,7 +37,7 @@ describe("identifier", () => {
 
     function TestComponent({ identifier }: TestComponentInterface) {
       const Provider = useProvider(identifier);
-      const testStore: ITestStore = createStore(() => TestStore.create());
+      const testStore: ITestStore = useCreateStore(() => TestStore.create());
       stores.set(stores.has("first") ? "second" : "first", testStore);
       return <Provider value={testStore} />;
     }
@@ -54,14 +54,14 @@ describe("identifier", () => {
 
     function DefaultTestComponent() {
       const Provider = useProvider();
-      const testStore: ITestStore = createStore(() => TestStore.create());
+      const testStore: ITestStore = useCreateStore(() => TestStore.create());
       stores.set(stores.has("first") ? "second" : "first", testStore);
       return <Provider value={testStore} />;
     }
 
     function TestComponent({ identifier }: TestComponentInterface) {
       const Provider = useProvider(identifier);
-      const testStore: ITestStore = createStore(() => TestStore.create());
+      const testStore: ITestStore = useCreateStore(() => TestStore.create());
       stores.set(stores.has("first") ? "second" : "first", testStore);
       return <Provider value={testStore} />;
     }

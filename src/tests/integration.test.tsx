@@ -6,7 +6,7 @@ import { getByTestId, fireEvent } from "@testing-library/dom";
 import { render, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
-import { useProvider, createStore, useStore } from "../";
+import { useProvider, useCreateStore, useStore } from "../";
 
 const TestStore = types
   .model({
@@ -29,7 +29,7 @@ export { TestStore, ITestStore, makeContainer };
 describe("integration", () => {
   afterEach(cleanup);
 
-  test("can provide a created store using useProvider, createStore, and useStore", () => {
+  test("can provide a created store using useProvider, useCreateStore, and useStore", () => {
     const firstName = "Jonathan";
 
     const MyNameDisplay = () => {
@@ -39,7 +39,7 @@ describe("integration", () => {
 
     const TestComponent = () => {
       const Provider = useProvider();
-      const testStore: ITestStore = createStore(() =>
+      const testStore: ITestStore = useCreateStore(() =>
         TestStore.create({ name: firstName }),
       );
       return (
@@ -68,7 +68,7 @@ describe("integration", () => {
 
     const TestComponent = () => {
       const Provider = useProvider();
-      const testStore: ITestStore = createStore(() =>
+      const testStore: ITestStore = useCreateStore(() =>
         TestStore.create({ name: firstName }),
       );
       return (

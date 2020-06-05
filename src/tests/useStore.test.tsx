@@ -3,7 +3,7 @@ import "mobx-react-lite/batchingForReactDom";
 import { cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
-import { useProvider, createStore, useStore } from "../";
+import { useProvider, useCreateStore, useStore } from "../";
 import { TestStore, ITestStore, makeContainer } from "./integration.test";
 
 describe("useStore", () => {
@@ -19,7 +19,7 @@ describe("useStore", () => {
 
     function TestComponent() {
       const Provider = useProvider();
-      const testStore: ITestStore = createStore(() =>
+      const testStore: ITestStore = useCreateStore(() =>
         TestStore.create({ name: firstName }),
       );
       return (
@@ -43,7 +43,7 @@ describe("useStore", () => {
 
     function TestComponent() {
       const Provider = useProvider(identifier);
-      const testStore: ITestStore = createStore(() =>
+      const testStore: ITestStore = useCreateStore(() =>
         TestStore.create({ name: firstName }),
       );
       return (
@@ -56,7 +56,7 @@ describe("useStore", () => {
     expect(makeContainer(<TestComponent />)).toHaveTextContent(firstName);
   });
 
-  test("with a mapStateToProps callback", () => {
+  test("with a mapStore callback", () => {
     const firstName = "Jonathan";
     function selectName(store: ITestStore) {
       return store.name;
@@ -69,7 +69,7 @@ describe("useStore", () => {
 
     function TestComponent() {
       const Provider = useProvider();
-      const testStore: ITestStore = createStore(() =>
+      const testStore: ITestStore = useCreateStore(() =>
         TestStore.create({ name: firstName }),
       );
       return (
@@ -82,7 +82,7 @@ describe("useStore", () => {
     expect(makeContainer(<TestComponent />)).toHaveTextContent(firstName);
   });
 
-  test("with an identifier and a mapStateToProps callback", () => {
+  test("with an identifier and a mapStore callback", () => {
     const identifier = "identifier";
     const firstName = "Jonathan";
     function selectName(store: ITestStore) {
@@ -96,7 +96,7 @@ describe("useStore", () => {
 
     function TestComponent() {
       const Provider = useProvider(identifier);
-      const testStore: ITestStore = createStore(() =>
+      const testStore: ITestStore = useCreateStore(() =>
         TestStore.create({ name: firstName }),
       );
       return (

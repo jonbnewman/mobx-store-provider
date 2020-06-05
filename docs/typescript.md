@@ -10,7 +10,7 @@ Interfaces and type definitions for the **mobx-store-provider** API are provided
 
 Beyond that, typescript definitions are [supplied by mobx-state-tree](https://mobx-state-tree.js.org/tips/typescript#using-a-mst-type-at-design-time) for your stores/models.
 
-The one thing of note with respect to typescript and **mobx-store-provider** is that when you use the [createStore hook](/api/createStore) or the [useStore hook](/api/useStore) typescript needs to be informed what type is being returned.
+The one thing of note with respect to typescript and **mobx-store-provider** is that when you use the [useCreateStore hook](/api/useCreateStore) or the [useStore hook](/api/useStore) typescript needs to be informed what type is being returned.
 
 This is because the values returned from these hooks are dynamic and decided at runtime. Typescript is unable to infer them.
 
@@ -29,19 +29,19 @@ export const AppStore = types.model({
 export interface IAppStore extends Instance<typeof AppStore> {}
 ```
 
-Then, in your component when calling the [createStore hook](/api/createStore) you must inform typescript what type is being returned by using that stores associated `interface` you defined for it:
+Then, in your component when calling the [useCreateStore hook](/api/useCreateStore) you must inform typescript what type is being returned by using that stores associated `interface` you defined for it:
 
 ```javascript
 // App.tsx
 import React from "react";
-import { useProvider, createStore } from "mobx-store-provider";
+import { useProvider, useCreateStore } from "mobx-store-provider";
 import { AppStore, IAppStore } from "./AppStore";
 
 function App() {
   const Provider = useProvider();
 
   // With this declaration, typescript knows the appStore is an AppStore
-  const appStore: IAppStore = createStore(() => AppStore.create());
+  const appStore: IAppStore = useCreateStore(() => AppStore.create());
 
   return (
     <Provider value={appStore}>

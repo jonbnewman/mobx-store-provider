@@ -19,7 +19,7 @@ Its goal is to provide a straight-forward, minimalist, and terse API that allows
 1. [API details and examples](http://mobx-store-provider.overfoc.us/api-details-and-examples)
 
    - [useProvider](http://mobx-store-provider.overfoc.us/api/useProvider) - Provide your components with a store
-   - [createStore](http://mobx-store-provider.overfoc.us/api/createStore) - Create a new store inside a component
+   - [useCreateStore](http://mobx-store-provider.overfoc.us/api/useCreateStore) - Create a new store inside a component
    - [useStore](http://mobx-store-provider.overfoc.us/api/useStore) - Use a store in a component
 
 1. [Multiple stores](http://mobx-store-provider.overfoc.us/multiple-stores)
@@ -50,19 +50,19 @@ At the core of the application we define the main `App` component.
 
 Inside of the `App` we use hooks provided by **mobx-store-provider** to:
 
-1. Create the `appStore` instance with the [createStore](http://mobx-store-provider.overfoc.us/api/createStore) hook
+1. Create the `appStore` instance with the [useCreateStore](http://mobx-store-provider.overfoc.us/api/useCreateStore) hook
 1. Retrieve the `Provider` with the [useProvider](http://mobx-store-provider.overfoc.us/api/useProvider) hook
 
 ```javascript
 // App.jsx (Main App component, we use it to create and provide the store)
 import React from "react";
-import { useProvider, createStore } from "mobx-store-provider";
+import { useProvider, useCreateStore } from "mobx-store-provider";
 import AppStore from "./AppStore";
 import UserDisplay from "./UserDisplay";
 
 function App() {
   // Create the AppStore instance
-  const appStore = createStore(() => AppStore.create({ user: "Jonathan" }));
+  const appStore = useCreateStore(() => AppStore.create({ user: "Jonathan" }));
 
   // Get the Provider for the AppStore
   const Provider = useProvider();

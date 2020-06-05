@@ -1,18 +1,18 @@
 ---
 layout: default
-title: createStore
+title: useCreateStore
 nav_order: 2
 parent: API details and examples
 ---
 
-# createStore
+# useCreateStore
 
 React Hook used to instantiate new **mobx-state-tree** models inside of [React Function Components](https://www.robinwieruch.de/react-function-component).
 
 It returns the `store` you instantiate and return from the `factory`.
 
 ```javascript
-createStore(factory): any
+useCreateStore(factory): any
 ```
 
 ## Parameters
@@ -38,16 +38,16 @@ const AppStore = types.model({
 });
 ```
 
-Inside of the `App` we create the `appStore` using the **createStore** hook.
+Inside of the `App` we create the `appStore` using the **useCreateStore** hook.
 
 ```javascript
 import React from "react";
-import { createStore, useProvider } from "mobx-store-provider";
+import { useCreateStore, useProvider } from "mobx-store-provider";
 import AppStore from "./AppStore";
 
 function App() {
-  // Instantiate appStore inside the App component using createStore
-  const appStore = createStore(() => AppStore.create());
+  // Instantiate appStore inside the App component using useCreateStore
+  const appStore = useCreateStore(() => AppStore.create());
 
   // Retrieve the Provider for the appStore
   const Provider = useProvider();

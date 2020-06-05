@@ -5,7 +5,7 @@ import { Provider } from "react";
  */
 export interface Store {
   Provider: Provider<any>;
-  useStore: (mapStateToProps: MapStateToProps) => any;
+  useStore: (mapStore: MapStore) => any;
 }
 
 /**
@@ -16,7 +16,7 @@ export interface Store {
 export type Identifier = string | number | object | symbol | null | Array<any>;
 
 /**
- * Function the user passes into the createStore hook.
+ * Function the user passes into the useCreateStore hook.
  *
  * This function should instantiate and return a new instance of a store.
  */
@@ -27,4 +27,4 @@ export type Factory = () => any;
  *
  * Used to return a subset/slice of the store.
  */
-export type MapStateToProps = (store: any) => any;
+export type MapStore = (store: any) => any;

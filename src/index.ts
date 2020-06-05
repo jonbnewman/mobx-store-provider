@@ -1,6 +1,6 @@
 import { Provider, useRef } from "react";
-import { Identifier, Factory, MapStateToProps } from "./types";
-import { retrieveStore, defaultId, identity } from "./stores";
+import { Identifier, Factory, MapStore } from "./types";
+import { retrieveStore, defaultId, identity, warning } from "./stores";
 
 /**
  * React Hook to retrieve the store `Provider` for a given `identifier`.
@@ -16,32 +16,43 @@ function useProvider(identifier: Identifier = defaultId): Provider<any> {
 }
 
 /**
+ * Deprecated, switch to useCreateStore - to be removed.
+ */
+function createStore(factory: Factory): any;
+function createStore(factory: Factory): any {
+  warning(
+    "createStore is deprecated and will be removed, migrate to useCreateStore soon",
+  );
+  return useRef(factory()).current;
+}
+
+/**
  * React Hook used to instantiate a new store from within a component.
  * @param factory Callback used to create and return a store
  * @returns The instance created by the `factory` function
  */
-function createStore(factory: Factory): any;
-function createStore(factory: Factory): any {
+function useCreateStore(factory: Factory): any;
+function useCreateStore(factory: Factory): any {
   return useRef(factory()).current;
 }
 
 /**
  * React Hook which retrieves the `store` for a given `identifer`.
  * @param identifer The identifier used for the store (optional)
- * @param mapStateToProps Callback which is used to select and return slices of the store (optional)
+ * @param mapStore Callback which is used to select and return slices of the store (optional)
  * @returns The store instance
  */
 function useStore(): any;
 function useStore(identifer: Identifier): any;
-function useStore(mapStateToProps: MapStateToProps): any;
-function useStore(identifer: Identifier, mapStateToProps: MapStateToProps): any;
+function useStore(mapStore: MapStore): any;
+function useStore(identifer: Identifier, mapStore: MapStore): any;
 function useStore(
-  identifer: MapStateToProps | Identifier = defaultId,
-  mapStateToProps: MapStateToProps = identity,
+  identifer: MapStore | Identifier = defaultId,
+  mapStore: MapStore = identity,
 ): any {
   return typeof identifer === "function"
-    ? retrieveStore(defaultId).useStore(<MapStateToProps>identifer)
-    : retrieveStore(identifer).useStore(mapStateToProps);
+    ? retrieveStore(defaultId).useStore(<MapStore>identifer)
+    : retrieveStore(identifer).useStore(mapStore);
 }
 
-export { useProvider, createStore, useStore };
+export { useProvider, createStore, useCreateStore, useStore };
