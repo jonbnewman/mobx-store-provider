@@ -21,11 +21,6 @@ useCreateStore(factory): any
 
   Function where you instantiate and return a mobx-state-tree instance.
 
-## Examples
-
-- [Basic example](#basic-example)
-- [Local state](#local-state)
-
 ## Basic example
 
 Define our `AppStore` **mobx-state-tree** store/model.

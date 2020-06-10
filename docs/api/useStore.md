@@ -33,8 +33,8 @@ useStore(identifier, mapStore): any
 ## Examples
 
 - [Basic example](#basic-example)
-- [Using an identifier](#use-an-identifer)
-- [Using a mapStore callback](#using-a-mapstatetoprops-callback)
+- [Using an identifier](#using-an-identifer)
+- [Using a mapStore callback](#using-a-mapstore-callback)
 
 This is the `AppStore` model/store used with the examples below:
 
