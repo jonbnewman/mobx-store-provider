@@ -1,4 +1,4 @@
-import { Provider, useRef } from "react";
+import { Provider, useMemo } from "react";
 import { Identifier, Factory, MapStore } from "./types";
 import { retrieveStore, defaultId, identity, warning } from "./stores";
 
@@ -23,7 +23,7 @@ function createStore(factory: Factory): any {
   warning(
     "createStore is deprecated and will be removed, migrate to useCreateStore soon",
   );
-  return useRef(factory()).current;
+  return useMemo(factory, []);
 }
 
 /**
@@ -33,7 +33,7 @@ function createStore(factory: Factory): any {
  */
 function useCreateStore(factory: Factory): any;
 function useCreateStore(factory: Factory): any {
-  return useRef(factory()).current;
+  return useMemo(factory, []);
 }
 
 /**
