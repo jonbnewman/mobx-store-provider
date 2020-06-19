@@ -4,7 +4,7 @@ import { Store, Identifier } from "./types";
 const stores: Map<Identifier, Store> = new Map();
 const defaultId: Identifier = Symbol("store");
 
-declare var process: {
+declare let process: {
   env: {
     NODE_ENV: string;
   };
