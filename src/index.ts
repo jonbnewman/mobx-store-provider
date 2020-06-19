@@ -23,7 +23,7 @@ function createStore(factory: Factory): any {
   warning(
     "createStore is deprecated and will be removed, migrate to useCreateStore soon",
   );
-  return useMemo(factory, []);
+  return useCreateStore(factory);
 }
 
 /**
