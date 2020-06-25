@@ -17,7 +17,7 @@ In the `App` component, we create both the `cat` and `owner`, which are then pro
 ```javascript
 // App.jsx
 import React from "react";
-import { useProvider, useCreateStore } from "**mobx-store-provider**";
+import { useProvider, useCreateStore } from "mobx-store-provider";
 import { OwnerStore, CatStore, CatStoreId } from "./stores";
 import PetDisplay from "./PetDisplay";
 
@@ -47,7 +47,7 @@ In the `PetDisplay` component we get each store with the [useStore hook](/api/us
 ```javascript
 // PetDisplay.jsx
 import React from "react";
-import { useStore } from "**mobx-store-provider**";
+import { useStore } from "mobx-store-provider";
 import { CatStoreId } from "./stores";
 
 function PetDisplay() {
