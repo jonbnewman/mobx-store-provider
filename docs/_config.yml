@@ -1,6 +1,6 @@
 remote_theme: pmarsceill/just-the-docs
 color_scheme: "light"
-logo: "/logo-light.png"
+logo: "/logo.png"
 heading_anchors: true
 footer_content: ""
 aux_links:
