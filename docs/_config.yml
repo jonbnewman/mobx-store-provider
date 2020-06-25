@@ -1,4 +1,4 @@
-remote_theme: tomjoht/documentation-theme-jekyll
+remote_theme: pmarsceill/just-the-docs
 color_scheme: "light"
 logo: "/logo.png"
 heading_anchors: true
