@@ -1,7 +1,7 @@
 ---
 layout: default
 title: useCreateStore
-nav_order: 2
+nav_order: 5
 parent: API details and examples
 ---
 

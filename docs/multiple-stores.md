@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Multiple stores
-nav_order: 5
+nav_order: 7
 ---
 
 # Multiple stores

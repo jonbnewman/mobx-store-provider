@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Local state
-nav_order: 6
+nav_order: 8
 ---
 
 # Local state

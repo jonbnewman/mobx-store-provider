@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Testing
-nav_order: 8
+nav_order: 10
 ---
 
 # Testing
@@ -104,7 +104,7 @@ const AppStore = types
   .model({
     name: types.optional(types.string, "Batman"),
   })
-  .actions(self => ({
+  .actions((self) => ({
     changeName(event) {
       self.name = event.target.value;
     },
