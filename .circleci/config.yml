@@ -3,9 +3,6 @@ jobs:
     executor: node/default
     steps:
       - checkout
-      - node/with-cache:
-          steps:
-            - run: npm install
       - run:
           name: Run coverage
           command: npm run coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
