@@ -1,11 +1,11 @@
 # mobx-store-provider
 
 [![CircleCI](https://circleci.com/gh/jonbnewman/mobx-store-provider.svg?style=svg)](https://circleci.com/gh/jonbnewman/mobx-store-provider)
-[![Coverage Status](https://coveralls.io/repos/github/jonbnewman/mobx-store-provider/badge.svg?branch=master&r=4)](https://coveralls.io/github/jonbnewman/mobx-store-provider?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/jonbnewman/mobx-store-provider/badge.svg?branch=master&r=5)](https://coveralls.io/github/jonbnewman/mobx-store-provider?branch=master)
 
-[![NPM Package](https://img.shields.io/npm/v/mobx-store-provider.svg?logo=npm&r=1)](https://www.npmjs.com/package/mobx-store-provider)
+[![NPM Package](https://img.shields.io/npm/v/mobx-store-provider.svg?logo=npm&r=5)](https://www.npmjs.com/package/mobx-store-provider)
 ![Typescript](https://img.shields.io/npm/types/mobx-store-provider.svg?logo=typescript)
-![Package size](https://img.shields.io/bundlephobia/minzip/mobx-store-provider)
+![Package size](https://img.shields.io/bundlephobia/minzip/mobx-store-provider?r=5)
 ![MIT License](https://img.shields.io/npm/l/mobx-store-provider.svg)
 
 **mobx-store-provider** is a library that provides [React Hooks](https://reactjs.org/docs/hooks-intro.html) to setup and access [mobx-state-tree](http://mobx-state-tree.js.org/) models from within [React Function Components](https://www.robinwieruch.de/react-function-component).
