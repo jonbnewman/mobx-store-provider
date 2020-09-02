@@ -16,17 +16,6 @@ function useProvider(identifier: Identifier = defaultId): Provider<any> {
 }
 
 /**
- * Deprecated, switch to useCreateStore - to be removed.
- */
-function createStore(factory: Factory): any;
-function createStore(factory: Factory): any {
-  warning(
-    "createStore is deprecated and will be removed, migrate to useCreateStore soon",
-  );
-  return useCreateStore(factory);
-}
-
-/**
  * React Hook used to instantiate a new store from within a component.
  * @param factory Callback used to create and return a store
  * @returns The instance created by the `factory` function
@@ -55,4 +44,4 @@ function useStore(
     : retrieveStore(identifer).useStore(mapStore);
 }
 
-export { useProvider, createStore, useCreateStore, useStore };
+export { useProvider, useCreateStore, useStore };
