@@ -10,14 +10,6 @@ declare let process: {
   };
 };
 
-function warning(message: string) {
-  process &&
-    process.env &&
-    process.env.NODE_ENV &&
-    process.env.NODE_ENV.match(/^(test|dev).*/) &&
-    console.warn(message);
-}
-
 /**
  * Register/initialize a store in the internal `stores` Map.
  * @param identifier The identifier supplied by the consumer
@@ -53,4 +45,4 @@ function identity(thing: any): any {
   return thing;
 }
 
-export { retrieveStore, defaultId, identity, warning };
+export { retrieveStore, defaultId, identity };

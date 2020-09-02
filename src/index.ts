@@ -1,6 +1,6 @@
 import { Provider, useMemo } from "react";
 import { Identifier, Factory, MapStore } from "./types";
-import { retrieveStore, defaultId, identity, warning } from "./stores";
+import { retrieveStore, defaultId, identity } from "./stores";
 
 /**
  * React Hook to retrieve the store `Provider` for a given `identifier`.
