@@ -1,8 +1,6 @@
 jobs:
   build:
-    executor:
-      name: node/default
-      tag: "10.4"
+    executor: node/default
     steps:
       - checkout
       - node/with-cache:
@@ -12,5 +10,5 @@ jobs:
           name: Run coverage
           command: npm run coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
 orbs:
-  node: circleci/node@1.1
+  node: circleci/node@4.0.0
 version: 2.1
