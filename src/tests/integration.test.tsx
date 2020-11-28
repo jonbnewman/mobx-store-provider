@@ -20,7 +20,7 @@ const TestStore = types
 interface ITestStore extends Instance<typeof TestStore> {}
 
 function makeContainer(contents: any) {
-  return render(contents).container;
+  return render(contents).container as HTMLElement;
 }
 
 export { TestStore, ITestStore, makeContainer };
