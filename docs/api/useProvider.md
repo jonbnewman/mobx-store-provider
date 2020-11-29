@@ -108,4 +108,10 @@ In the code above, we pass `appStoreId` to the **useProvider** hook, the `Provid
 
 We can then wrap our application with that `Provider` and pass it the `appStore` as its value. This supplies the `appStore` to its descendants allowing us to access it using that unique `identifier` passed to the [useStore hook](/api/useStore) in an inner component.
 
+## When is using an identifier useful?
+
+When your application needs more than one instance of the same store. In that situation a unique `identifier` must be used to identify which one your application is providing/requesting.
+
+For more information on multiple stores, see: [Using multiple stores](/using-multiple-stores)
+
 [Next: **useCreateStore**](/api/useCreateStore){: .btn .btn-blue }
