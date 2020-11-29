@@ -32,7 +32,6 @@ To explain the change from 1.x to 2.x, please see the following examples:
 ## Old v1.x API
 
 ```javascript
-// AppStore.ts (mobx-state-tree store/model)
 import { types, Instance } from "mobx-state-tree";
 
 // Define and the AppStore
@@ -64,7 +63,6 @@ When using v2.x of **mobx-store-provider** and later, the typing is correctly in
 This can be seen in the following:
 
 ```javascript
-// AppStore.ts (mobx-state-tree store/model)
 import { types } from "mobx-state-tree";
 
 // Define the AppStore
