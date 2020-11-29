@@ -12,15 +12,15 @@ describe("useCreateStore", () => {
     const firstName = "Jonathan";
 
     function MyNameDisplay() {
-      const testStore: ITestStore = useStore();
+      const testStore = useStore(TestStore);
       return <div>{testStore.name}</div>;
     }
 
     function TestComponent() {
-      const Provider = useProvider();
-      const testStore: ITestStore = useCreateStore(() =>
-        TestStore.create({ name: firstName }),
-      );
+      const Provider = useProvider(TestStore);
+      const testStore: ITestStore = useCreateStore(TestStore, {
+        name: firstName,
+      });
       return (
         <Provider value={testStore}>
           <MyNameDisplay />
