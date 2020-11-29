@@ -12,7 +12,7 @@ React Hook used to instantiate new **mobx-state-tree** models inside of [React F
 It returns the `store` you instantiate and return from the `factory`.
 
 ```javascript
-useCreateStore(model: IAnyModelType, snapshot? = {}): Instance<typeof model>
+useCreateStore(model: IAnyModelType, snapshot?: any, env?: any): Instance<typeof model>
 ```
 
 ## Parameters
@@ -23,7 +23,11 @@ useCreateStore(model: IAnyModelType, snapshot? = {}): Instance<typeof model>
 
 - **snapshot** _(optional)_ `any`
 
-  The snapshot used to instantiate the model (optional)
+  The snapshot used to instantiate the model
+
+- **env** _(optional)_ `any`
+
+  Environment specific data used when instantiating the model, see: [Dependency injection](https://mobx-state-tree.js.org/concepts/dependency-injection)
 
 ## Basic example
 
