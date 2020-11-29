@@ -6,7 +6,7 @@ nav_order: 9
 
 # Typescript
 
-The biggest change to v2.x of **mobx-store-provider** is the addition of automatic type inferrance.
+The biggest change to v2.x of **mobx-store-provider** is the addition of automatic type inferrence.
 
 **What does that mean?**
 
@@ -22,6 +22,8 @@ export interface IAppStore extends Instance<typeof AppStore> {}
  */
 const appStore: IAppStore = useStore();
 ```
+
+This works, and is [the standard way it is handled in mobx-state-tree](https://mobx-state-tree.js.org/tips/typescript#using-a-mst-type-at-design-time) applications - however it is cumbersome, verbose, and error prone.
 
 The good news is that as of version 2.0 of **mobx-store-provider** your type definitions are correctly passed back automatically for you.
 
@@ -53,7 +55,7 @@ function UserDisplay() {
 }
 ```
 
-As demonstrated above, you have to explicitly create the interface that describes the model you want typescript to handle correcly. This is cumbersome and error prone because you have to ensure to do this every place you use your model. This is [the standard way it is handled in mobx-state-tree](https://mobx-state-tree.js.org/tips/typescript#using-a-mst-type-at-design-time) applications.
+As demonstrated above, you have to explicitly create the interface that describes the model you want typescript to handle correcly. This is cumbersome and error prone because you have to ensure to do this every place you use your model.
 
 ## New v2.x API
 
@@ -63,7 +65,7 @@ This can be seen in the following:
 
 ```javascript
 // AppStore.ts (mobx-state-tree store/model)
-import { types, Instance } from "mobx-state-tree";
+import { types } from "mobx-state-tree";
 
 // Define the AppStore
 const AppStore = types.model({
