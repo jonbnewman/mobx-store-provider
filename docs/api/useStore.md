@@ -119,6 +119,8 @@ function App() {
 export default App;
 ```
 
+In the above code, we use `TheAppStore` as the `identifier` for the store...we will have to use that same `identifier` when we call `useStore` below:
+
 ```javascript
 // Header.jsx (component we access the appStore inside)
 import React from "react";
