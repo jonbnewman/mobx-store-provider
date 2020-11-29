@@ -143,7 +143,7 @@ function Header() {
 export default observer(Header);
 ```
 
-## When is this useful?
+## When is using an identifier useful?
 
 When your application needs more than one instance of the same store. In that situation a unique `identifier` must be used to identify which one your application is providing/requesting.
 
