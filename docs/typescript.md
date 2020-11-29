@@ -6,7 +6,7 @@ nav_order: 9
 
 # Typescript
 
-The biggest change to v2.x of **mobx-store-provider** is automatic type inferrance.
+The biggest change to v2.x of **mobx-store-provider** is the addition of automatic type inferrance.
 
 **What does that mean?**
 

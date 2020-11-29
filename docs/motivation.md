@@ -43,7 +43,7 @@ The goal is to provide a simple API that allows you to use **mobx-state-tree** f
 Compared to using the React Context API directly, using **mobx-store-provider** gives you:
 
 - A clean, simple, and straight-forward hooks-based API.
-- [mapStore](/api/useStore#using-a-mapstore-callback) support (analogous to [Redux mapStateToProps](https://react-redux.js.org/using-react-redux/connect-mapstate)).
+- [Automatic type inferrence](/typescript) (this is [manually handled in normal mobx-state-tree applications](https://mobx-state-tree.js.org/tips/typescript#using-a-mst-type-at-design-time)).
 - [Multiple stores](/multiple-stores) support.
 
 **mobx-store-provider** aims to be a focused library, minimalist, and limited in scope.
@@ -77,6 +77,8 @@ Yes, as an alternative you _can use_ the [React Context](https://reactjs.org/doc
 1. Using the Context API (directly) in a modern functional React component is clunky.
 
    The API provided by **mobx-store-provider** supplies you with a much more idiomatic React Hooks based interface to your state and its related logic.
+
+1. If you are using typescript, you will have to [manage your model types manually](https://mobx-state-tree.js.org/tips/typescript#using-a-mst-type-at-design-time).
 
 These are the problems **mobx-store-provider** was written to solve.
 
