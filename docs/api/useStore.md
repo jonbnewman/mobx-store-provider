@@ -106,6 +106,7 @@ import AppStore from "./AppStore";
 import Header from './Header';
 
 function App() {
+  // Here we use TheAppStore as the identifier
   const Provider = useProvider(AppStore, "TheAppStore");
   const appStore = useCreateStore(AppStore);
   return (
@@ -126,7 +127,7 @@ import { useStore } from "mobx-store-provider";
 import AppStore from "./AppStore";
 
 function Header() {
-  // We use the store in this component with a unique identifier
+  // We retrieve the store in this component using the same TheAppStore identifier
   const appStore = useStore(AppStore, "TheAppStore");
   return (
     <div>
