@@ -1,7 +1,6 @@
 import { Provider, useMemo } from "react";
-import { IModelType, Instance } from "mobx-state-tree";
-import { Identifier, Factory } from "./types";
-import { retrieveStore, defaultId } from "./stores";
+import { Instance } from "mobx-state-tree";
+import { retrieveStore } from "./stores";
 
 /**
  * React Hook to retrieve the store `Provider` for a given `identifier`.
@@ -10,8 +9,8 @@ import { retrieveStore, defaultId } from "./stores";
  * @param identifier The identifier used for the store (optional)
  * @returns The Provider
  */
-function useProvider(identifier: Identifier = defaultId): Provider<any> {
-  return retrieveStore(identifier).Provider;
+function useProvider<M>(Model: M): Provider<Instance<typeof Model>> {
+  return retrieveStore(Model).Provider;
 }
 
 /**
@@ -19,7 +18,7 @@ function useProvider(identifier: Identifier = defaultId): Provider<any> {
  * @param factory Callback used to create and return a store
  * @returns The instance created by the `factory` function
  */
-function useCreateStore<T, S>(Model: T, snapshot: S): Instance<typeof Model> {
+function useCreateStore<M, S>(Model: M, snapshot: S) {
   return useMemo(() => {
     return (Model as any).create(snapshot);
   }, []) as Instance<typeof Model>;
@@ -31,8 +30,8 @@ function useCreateStore<T, S>(Model: T, snapshot: S): Instance<typeof Model> {
  * @param mapStore Callback which is used to select and return slices of the store (optional)
  * @returns The store instance
  */
-function useStore<T>(identifer: T): Instance<T> {
-  return retrieveStore(identifer).useStore() as Instance<typeof identifer>;
+function useStore<M>(Model: M) {
+  return retrieveStore(Model).useStore() as Instance<typeof Model>;
 }
 
 export { useProvider, useCreateStore, useStore };
