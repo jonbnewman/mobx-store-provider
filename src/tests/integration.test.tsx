@@ -1,6 +1,6 @@
 import React from "react";
 import { observer } from "mobx-react";
-import { types, Instance } from "mobx-state-tree";
+import { types } from "mobx-state-tree";
 import { getByTestId, fireEvent } from "@testing-library/dom";
 import { render, cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
@@ -17,13 +17,11 @@ const TestStore = types
     },
   }));
 
-interface ITestStore extends Instance<typeof TestStore> {}
-
 function makeContainer(contents: any) {
   return render(contents).container as HTMLElement;
 }
 
-export { TestStore, ITestStore, makeContainer };
+export { TestStore, makeContainer };
 
 describe("integration", () => {
   afterEach(cleanup);
