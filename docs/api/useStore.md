@@ -72,6 +72,8 @@ function App() {
 export default App;
 ```
 
+In the above code, we use the `AppStore` model to both create and provide the store to the application.
+
 ```javascript
 // Header.jsx (component we access the appStore inside)
 import React from "react";
@@ -92,7 +94,7 @@ function Header() {
 export default observer(Header);
 ```
 
-Calling the **useStore** hook retrieves the corresponding `store` that was provided via the [useProvider hook](/api/useProvider).
+Calling the **useStore** hook with the `AppStore` model retrieves the corresponding `AppStore` that was provided via the [useProvider hook](/api/useProvider).
 
 ## Using an identifier
 
