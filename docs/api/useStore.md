@@ -14,7 +14,10 @@ After supplying your application with a store via the [useProvider hook](/api/us
 It must be passed the same `identifier` that was used with the `Provider` supplying it (if one was supplied).
 
 ```javascript
-useStore(model: IAnyModelType, identifier?: any): Instance<typeof model>
+useStore(
+  model: IAnyModelType,
+  identifier?: any
+): Instance<typeof model>
 ```
 
 ## Parameters

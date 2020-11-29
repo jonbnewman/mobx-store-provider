@@ -12,7 +12,10 @@ React Hook used to retrieve the `Provider` for a given store `identifier`.
 This hook returns a wrapper component you can use to provide your application with a `store`.
 
 ```javascript
-useProvider(model: IAnyModelType, identifier?: any): Provider
+useProvider(
+  model: IAnyModelType,
+  identifier?: any
+): Provider
 ```
 
 ## Parameters
