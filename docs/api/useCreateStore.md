@@ -9,7 +9,7 @@ parent: API details and examples
 
 React Hook used to instantiate new **mobx-state-tree** models inside of [React Function Components](https://www.robinwieruch.de/react-function-component).
 
-It returns the `store` created from the `model` specified.
+It returns the instance created from the `model` specified.
 
 ```javascript
 useCreateStore(
