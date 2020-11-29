@@ -18,7 +18,7 @@ describe("identifier", () => {
 
     function TestComponent() {
       const Provider = useProvider(identifier);
-      const testStore: ITestStore = useCreateStore(() => TestStore.create());
+      const testStore: ITestStore = useCreateStore(TestStore);
       stores.set(stores.has("first") ? "second" : "first", testStore);
       return <Provider value={testStore} />;
     }

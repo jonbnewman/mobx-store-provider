@@ -4,12 +4,6 @@ import { Store, Identifier } from "./types";
 const stores: Map<Identifier, Store> = new Map();
 const defaultId: Identifier = Symbol("store");
 
-declare let process: {
-  env: {
-    NODE_ENV: string;
-  };
-};
-
 /**
  * Register/initialize a store in the internal `stores` Map.
  * @param identifier The identifier supplied by the consumer
@@ -20,7 +14,7 @@ function registerStore(identifier: Identifier): void {
   Context.displayName = String(identifier);
   stores.set(identifier, <Store>{
     Provider: Context.Provider,
-    useStore: (mapStore) => mapStore(useContext(Context)),
+    useStore: () => useContext(Context),
   });
 }
 
@@ -29,7 +23,7 @@ function registerStore(identifier: Identifier): void {
  * @param identifier The identifier supplied by the consumer
  * @returns Store
  */
-function retrieveStore(identifier: Identifier): Store {
+function retrieveStore<T>(identifier: T): Store {
   if (!stores.has(identifier)) {
     registerStore(identifier);
   }
