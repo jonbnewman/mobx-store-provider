@@ -30,14 +30,12 @@ describe("identifier", () => {
   });
 
   test("return a different store for a different identifier", () => {
-    const stores = new Map();
     const firstId = "my-store";
     const secondId = "my-other-store";
 
     function TestComponent({ identifier }: TestComponentInterface) {
       const Provider = useProvider(TestStore, identifier);
       const testStore = useCreateStore(TestStore);
-      stores.set(stores.has("first") ? "second" : "first", testStore);
       return <Provider value={testStore} />;
     }
 
