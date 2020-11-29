@@ -3,7 +3,7 @@ import React, { useContext, Provider } from "react";
 /**
  * Internal Store representation.
  */
-export interface Store {
+interface Store {
   Provider: Provider<any>;
   useStore: () => any;
 }
