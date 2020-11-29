@@ -112,6 +112,6 @@ We can then wrap our application with that `Provider` and pass it the `appStore`
 
 When your application needs more than one instance of the same store. In that situation a unique `identifier` must be used to identify which one your application is providing/requesting.
 
-For more information on multiple stores, see: [Using multiple stores](/multiple-stores)
+For more information on multiple stores, see: [Multiple stores](/multiple-stores)
 
 [Next: **useCreateStore**](/api/useCreateStore){: .btn .btn-blue }
