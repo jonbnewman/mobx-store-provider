@@ -17,16 +17,26 @@ describe("identifier", () => {
     const stores = new Map();
 
     function TestComponent() {
-      const Provider = useProvider(TestStore);
-      const testStore = useCreateStore(TestStore);
+      const testStore = useStore(TestStore);
       stores.set(stores.has("first") ? "second" : "first", testStore);
-      return <Provider value={testStore} />;
+      if (stores.has("first") && stores.has("second")) {
+        expect(stores.get("first")).toStrictEqual(stores.get("second"));
+      }
+      return null;
     }
 
-    makeContainer(<TestComponent />);
-    makeContainer(<TestComponent />);
+    function WrapperComponent() {
+      const Provider = useProvider(TestStore);
+      const testStore = useCreateStore(TestStore);
+      return (
+        <Provider value={testStore}>
+          <TestComponent />
+          <TestComponent />
+        </Provider>
+      );
+    }
 
-    expect(stores.get("first")).toStrictEqual(stores.get("second"));
+    makeContainer(<WrapperComponent />);
   });
 
   test("return a different store for a different identifier", () => {
