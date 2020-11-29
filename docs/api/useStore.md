@@ -147,6 +147,6 @@ export default observer(Header);
 
 When your application needs more than one instance of the same store. In that situation a unique `identifier` must be used to identify which one your application is providing/requesting.
 
-For more information on multiple stores, see: [Using multiple stores](/using-multiple-stores)
+For more information on multiple stores, see: [Using multiple stores](/multiple-stores)
 
 [Next: **Multiple stores**](/multiple-stores){: .btn .btn-blue }
