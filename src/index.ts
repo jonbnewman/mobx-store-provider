@@ -1,37 +1,44 @@
 import { Provider, useMemo } from "react";
 import { Instance } from "mobx-state-tree";
-import { retrieveStore } from "./stores";
+import { defaultId, retrieveStore } from "./stores";
 
 /**
  * React Hook to retrieve the store `Provider` for a given `identifier`.
  *
  * Use this wrapper to supply your application with a store.
+ * @param model mobx-state-tree types.model()
  * @param identifier The identifier used for the store (optional)
  * @returns The Provider
  */
-function useProvider<M>(Model: M): Provider<Instance<typeof Model>> {
-  return retrieveStore(Model).Provider;
+function useProvider<M>(
+  model: M,
+  identifier: any = defaultId,
+): Provider<Instance<typeof model>> {
+  return retrieveStore(identifier ? identifier : model).Provider;
 }
 
 /**
  * React Hook used to instantiate a new store from within a component.
- * @param factory Callback used to create and return a store
+ * @param model mobx-state-tree types.model()
+ * @param snapshot input snapshot used during creation (optional)
  * @returns The instance created by the `factory` function
  */
-function useCreateStore<M, S>(Model: M, snapshot: S) {
-  return useMemo(() => {
-    return (Model as any).create(snapshot);
-  }, []) as Instance<typeof Model>;
+function useCreateStore<M>(model: M, snapshot = {}) {
+  return useMemo(() => (model as any).create(snapshot), []) as Instance<
+    typeof model
+  >;
 }
 
 /**
  * React Hook which retrieves the `store` for a given `identifer`.
- * @param identifer The identifier used for the store (optional)
- * @param mapStore Callback which is used to select and return slices of the store (optional)
+ * @param model mobx-state-tree types.model()
+ * @param identifier The identifier used for the store (optional)
  * @returns The store instance
  */
-function useStore<M>(Model: M) {
-  return retrieveStore(Model).useStore() as Instance<typeof Model>;
+function useStore<M>(model: M, identifier: any = defaultId) {
+  return retrieveStore(identifier ? identifier : model).useStore() as Instance<
+    typeof model
+  >;
 }
 
 export { useProvider, useCreateStore, useStore };
