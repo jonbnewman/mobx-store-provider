@@ -23,8 +23,14 @@ function useProvider<M extends IAnyModelType>(
  * @param snapshot input snapshot used during creation (optional)
  * @returns The instance created by the `factory` function
  */
-function useCreateStore<M extends IAnyModelType>(model: M, snapshot?: any) {
-  return useMemo(() => model.create(snapshot), []) as Instance<typeof model>;
+function useCreateStore<M extends IAnyModelType>(
+  model: M,
+  snapshot?: any,
+  env?: any,
+) {
+  return useMemo(() => model.create(snapshot, env), []) as Instance<
+    typeof model
+  >;
 }
 
 /**

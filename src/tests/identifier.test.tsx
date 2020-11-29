@@ -8,11 +8,6 @@ import { TestStore, makeContainer } from "./integration.test";
 describe("identifier", () => {
   afterEach(cleanup);
 
-  interface TestComponentInterface {
-    identifier: string;
-    children: any;
-  }
-
   test("return the same store for the same model", () => {
     const stores = new Map();
 
@@ -43,7 +38,12 @@ describe("identifier", () => {
     const firstId = "my-store";
     const secondId = "my-other-store";
 
-    function TestComponent({ identifier }: TestComponentInterface) {
+    function TestComponent({
+      identifier,
+    }: {
+      identifier: string;
+      children: any;
+    }) {
       const Provider = useProvider(TestStore, identifier);
       const testStore = useCreateStore(TestStore);
       return <Provider value={testStore} />;

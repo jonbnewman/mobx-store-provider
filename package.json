@@ -1,6 +1,6 @@
 {
   "name": "mobx-store-provider",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Use React Hooks with mobx-state-tree",
   "homepage": "http://mobx-store-provider.overfoc.us/",
   "main": "lib/index.js",
