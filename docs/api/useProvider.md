@@ -12,13 +12,16 @@ React Hook used to retrieve the `Provider` for a given store `identifier`.
 This hook returns a wrapper component you can use to provide your application with a `store`.
 
 ```javascript
-useProvider(): Provider
-useProvider(identifier): Provider
+useProvider(model: IAnyModelType, identifier?: any): Provider
 ```
 
 ## Parameters
 
-- **identifier** _(optional)_ `string | number | object | symbol | null | Array<any>`
+- **model** `IAnyModelType`
+
+  The mobx-state-tree model you want to instantiate.
+
+- **identifier** _(optional)_ `any`
 
   A unique identifier that tells **mobx-store-provider** which store you want the Provider for.
 
@@ -55,7 +58,7 @@ const appStore = AppStore.create();
 
 function App() {
   // Get the Provider via the useProvider hook
-  const Provider = useProvider();
+  const Provider = useProvider(AppStore);
 
   // Wrap the application with the Provider, passing the appStore as a value
   return (
@@ -84,13 +87,13 @@ import React from "react";
 import { useProvider } from "mobx-store-provider";
 
 // Import both the store and the id
-import { appStoreId, AppStore } from "./AppStore";
+import { AppStore, appStoreId } from "./AppStore";
 
 const appStore = AppStore.create();
 
 function App() {
   // use the id when getting the Provider
-  const Provider = useProvider(appStoreId);
+  const Provider = useProvider(AppStore, appStoreId);
   return (
     <Provider value={appStore}>
       <MyComponents />

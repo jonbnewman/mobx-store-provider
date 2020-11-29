@@ -12,14 +12,18 @@ React Hook used to instantiate new **mobx-state-tree** models inside of [React F
 It returns the `store` you instantiate and return from the `factory`.
 
 ```javascript
-useCreateStore(factory): any
+useCreateStore(model: IAnyModelType, snapshot? = {}): Instance<typeof model>
 ```
 
 ## Parameters
 
-- **factory** `() => any`
+- **model** `IAnyModelType`
 
-  Function where you instantiate and return a mobx-state-tree instance.
+  The mobx-state-tree model you want to instantiate.
+
+- **snapshot** _(optional)_ `any`
+
+  The snapshot used to instantiate the model (optional)
 
 ## Basic example
 
@@ -42,10 +46,10 @@ import AppStore from "./AppStore";
 
 function App() {
   // Instantiate appStore inside the App component using useCreateStore
-  const appStore = useCreateStore(() => AppStore.create());
+  const appStore = useCreateStore(AppStore);
 
   // Retrieve the Provider for the appStore
-  const Provider = useProvider();
+  const Provider = useProvider(AppStore);
 
   return (
     <Provider value={appStore}>

@@ -63,7 +63,7 @@ function PersonDisplay() {
 export default PersonDisplay;
 ```
 
-To keep things clean in this example we define the `stores` and their `identifier` in a separate module.
+To keep things clean in this example we define the `PersonStore` and the identifiers in a separate module.
 
 ```javascript
 // stores.js
