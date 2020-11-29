@@ -1,5 +1,5 @@
 import { Provider, useMemo } from "react";
-import { Instance } from "mobx-state-tree";
+import { IAnyModelType, Instance } from "mobx-state-tree";
 import { retrieveStore } from "./stores";
 
 /**
@@ -10,7 +10,7 @@ import { retrieveStore } from "./stores";
  * @param identifier The identifier used for the store (optional)
  * @returns The Provider
  */
-function useProvider<M>(
+function useProvider<M extends IAnyModelType>(
   model: M,
   identifier?: any,
 ): Provider<Instance<typeof model>> {
@@ -24,10 +24,8 @@ function useProvider<M>(
  * @param snapshot input snapshot used during creation (optional)
  * @returns The instance created by the `factory` function
  */
-function useCreateStore<M>(model: M, snapshot = {}) {
-  return useMemo(() => (model as any).create(snapshot), []) as Instance<
-    typeof model
-  >;
+function useCreateStore<M extends IAnyModelType>(model: M, snapshot = {}) {
+  return useMemo(() => model.create(snapshot), []) as Instance<typeof model>;
 }
 
 /**
@@ -36,7 +34,7 @@ function useCreateStore<M>(model: M, snapshot = {}) {
  * @param identifier The identifier used for the store (optional)
  * @returns The store instance
  */
-function useStore<M>(model: M, identifier?: any) {
+function useStore<M extends IAnyModelType>(model: M, identifier?: any) {
   return retrieveStore(
     typeof identifier !== "undefined" ? identifier : model,
   ).useStore() as Instance<typeof model>;

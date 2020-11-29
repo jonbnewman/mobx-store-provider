@@ -12,13 +12,12 @@ describe("identifier", () => {
     identifier: string;
   }
 
-  test("return the same store for the same identifier", () => {
+  test("return the same store for the same model", () => {
     const stores = new Map();
-    const identifier = "my-store";
 
     function TestComponent() {
-      const Provider = useProvider(identifier);
-      const testStore: ITestStore = useCreateStore(TestStore);
+      const Provider = useProvider(TestStore);
+      const testStore = useCreateStore(TestStore);
       stores.set(stores.has("first") ? "second" : "first", testStore);
       return <Provider value={testStore} />;
     }
