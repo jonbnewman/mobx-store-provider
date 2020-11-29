@@ -1,6 +1,6 @@
 import { Provider, useMemo } from "react";
 import { Instance } from "mobx-state-tree";
-import { defaultId, retrieveStore } from "./stores";
+import { retrieveStore } from "./stores";
 
 /**
  * React Hook to retrieve the store `Provider` for a given `identifier`.
@@ -12,9 +12,10 @@ import { defaultId, retrieveStore } from "./stores";
  */
 function useProvider<M>(
   model: M,
-  identifier: any = defaultId,
+  identifier?: any,
 ): Provider<Instance<typeof model>> {
-  return retrieveStore(identifier ? identifier : model).Provider;
+  return retrieveStore(typeof identifier !== "undefined" ? identifier : model)
+    .Provider;
 }
 
 /**
@@ -35,10 +36,10 @@ function useCreateStore<M>(model: M, snapshot = {}) {
  * @param identifier The identifier used for the store (optional)
  * @returns The store instance
  */
-function useStore<M>(model: M, identifier: any = defaultId) {
-  return retrieveStore(identifier ? identifier : model).useStore() as Instance<
-    typeof model
-  >;
+function useStore<M>(model: M, identifier?: any) {
+  return retrieveStore(
+    typeof identifier !== "undefined" ? identifier : model,
+  ).useStore() as Instance<typeof model>;
 }
 
 export { useProvider, useCreateStore, useStore };
