@@ -1,5 +1,12 @@
-import React, { useContext } from "react";
-import { Store } from "./types";
+import React, { useContext, Provider } from "react";
+
+/**
+ * Internal Store representation.
+ */
+export interface Store {
+  Provider: Provider<any>;
+  useStore: () => any;
+}
 
 const stores: Map<any, Store> = new Map();
 
