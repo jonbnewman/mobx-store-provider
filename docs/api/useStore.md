@@ -50,7 +50,27 @@ export default AppStore = types.model({
 
 ## Basic example
 
-The following shows an example of calling **useStore** without any parameters.
+The following shows a basic example use of **useStore**.
+
+```javascript
+// App.jsx
+import React from "react";
+import { useCreateStore, useProvider } from "mobx-store-provider";
+import AppStore from "./AppStore";
+import Header from './Header';
+
+function App() {
+  const Provider = useProvider(AppStore);
+  const appStore = useCreateStore(AppStore);
+  return (
+    <Provider value={appStore}>
+      <Header>
+    </Provider>
+  )
+}
+
+export default App;
+```
 
 ```javascript
 // Header.jsx (component we access the appStore inside)
@@ -77,6 +97,26 @@ Calling the **useStore** hook retrieves the corresponding `store` that was provi
 ## Using an identifier
 
 If you pass a unique `identifier` then the `store` associated with it is returned (assuming you used the same `identifier` with the `Provider` supplying it, see [useProvider](/api/useProvider)).
+
+```javascript
+// App.jsx
+import React from "react";
+import { useCreateStore, useProvider } from "mobx-store-provider";
+import AppStore from "./AppStore";
+import Header from './Header';
+
+function App() {
+  const Provider = useProvider(AppStore, "TheAppStore");
+  const appStore = useCreateStore(AppStore);
+  return (
+    <Provider value={appStore}>
+      <Header>
+    </Provider>
+  )
+}
+
+export default App;
+```
 
 ```javascript
 // Header.jsx (component we access the appStore inside)
