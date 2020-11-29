@@ -22,7 +22,7 @@ import AppStore from "./AppStore";
 import UserForm from "./UserForm";
 
 function getTestContainer(children, mockStore) {
-  const Provider = useProvider();
+  const Provider = useProvider(AppStore);
   return render(<Provider value={mockStore}>{children}</Provider>).container;
 }
 
@@ -71,9 +71,10 @@ A typical HTML form with a text field and a submit button. In the tests above we
 import React from "react";
 import { observer } from "mobx-react";
 import { useStore } from "mobx-store-provider";
+import AppStore from "./AppStore";
 
 function UserForm() {
-  const store = useStore();
+  const store = useStore(AppStore);
   return (
     <form onSubmit={store.submit}>
       <input

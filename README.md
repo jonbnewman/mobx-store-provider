@@ -62,10 +62,10 @@ import UserDisplay from "./UserDisplay";
 
 function App() {
   // Create the AppStore instance
-  const appStore = useCreateStore(() => AppStore.create({ user: "Jonathan" }));
+  const appStore = useCreateStore(AppStore, { user: "Jonathan" });
 
   // Get the Provider for the AppStore
-  const Provider = useProvider();
+  const Provider = useProvider(AppStore);
 
   // Wrap the application with the Provider passing it the appStore
   return (
@@ -93,10 +93,11 @@ To do this, we use the [useStore](http://mobx-store-provider.overfoc.us/api/useS
 import React from "react";
 import { observer } from "mobx-react";
 import { useStore } from "mobx-store-provider";
+import AppStore from "./AppStore";
 
 function UserDisplay() {
   // Get access to the store
-  const appStore = useStore();
+  const appStore = useStore(AppStore);
   return <div>{appStore.user}</div>;
 }
 

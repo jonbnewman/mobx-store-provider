@@ -12,28 +12,28 @@ This optional value tells **mobx-store-provider** which store you want to use ba
 
 ## Example
 
-In the `App` component, we create both the `cat` and `owner`, which are then provided to the rest of the application via their respective `Provider`.
+In the `App` component, we create both `Doug` and `Kevin`, which are then provided to the rest of the application via their respective `Provider`.
 
 ```javascript
 // App.jsx
 import React from "react";
 import { useProvider, useCreateStore } from "mobx-store-provider";
-import { OwnerStore, CatStore, CatStoreId } from "./stores";
-import PetDisplay from "./PetDisplay";
+import { PersonStore, dougId, kevinId } from "./stores";
+import PersonDisplay from "./PersonDisplay";
 
 function App() {
-  const owner = useCreateStore(() => OwnerStore.create({ name: "Jonathan" }));
-  const OwnerProvider = useProvider();
+  const doug = useCreateStore(PersonStore, { name: "Doug" });
+  const DougProvider = useProvider(PersonStore, dougId);
 
-  const cat = useCreateStore(() => CatStore.create({ name: "Cleo" }));
-  const CatProvider = useProvider(CatStoreId);
+  const kevin = useCreateStore(PersonStore, { name: "Kevin" });
+  const KevinProvider = useProvider(PersonStore, kevinId);
 
   return (
-    <OwnerProvider value={owner}>
-      <CatProvider value={cat}>
-        <PetDisplay />
-      </CatProvider>
-    </OwnerProvider>
+    <DougProvider value={doug}>
+      <KevinProvider value={kevin}>
+        <PersonDisplay />
+      </KevinProvider>
+    </DougProvider>
   );
 }
 
@@ -42,25 +42,25 @@ export default App;
 
 Note that each `Provider` must be retrieved using its own `identifier`. In the case of the `owner`, we just use the default one supplied by **mobx-store-provider**.
 
-In the `PetDisplay` component we get each store with the [useStore hook](/api/useStore), making sure to pass the same `identifier` used when retreiving their respective `Provider`:
+In the `PersonDisplay` component we get each store with the [useStore hook](/api/useStore), making sure to pass the same `identifier` used when retreiving their respective `Provider`:
 
 ```javascript
-// PetDisplay.jsx
+// PersonDisplay.jsx
 import React from "react";
 import { useStore } from "mobx-store-provider";
-import { CatStoreId } from "./stores";
+import { PersonStore, dougId, kevinId } from "./stores";
 
-function PetDisplay() {
-  const owner = useStore();
-  const cat = useStore(CatStoreId);
+function PersonDisplay() {
+  const doug = useStore(PersonStore, dougId);
+  const kevin = useStore(PersonStore, kevinId);
   return (
     <div>
-      {owner.name} has a cat named {cat.name}
+      {doug.name} and {kevin.name} are here.
     </div>
   );
 }
 
-export default PetDisplay;
+export default PersonDisplay;
 ```
 
 To keep things clean in this example we define the `stores` and their `identifier` in a separate module.
@@ -69,16 +69,14 @@ To keep things clean in this example we define the `stores` and their `identifie
 // stores.js
 import { types } from "mobx-state-tree";
 
-const OwnerStore = types.model({
+const PersonStore = types.model({
   name: types.string,
 });
 
-const CatStoreId = "CatStore";
-const CatStore = types.model({
-  name: types.string,
-});
+const dougId = "doug";
+const kevinId = "kevin";
 
-export { OwnerStore, CatStoreId, CatStore };
+export { PersonStore, dougId, kevinId };
 ```
 
 [Next: **Local state**](/local-state){: .btn .btn-blue }
