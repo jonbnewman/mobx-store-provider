@@ -27,21 +27,19 @@ The good news is that as of version 2.0 of **mobx-store-provider** your type def
 
 To explain the change from 1.x to 2.x, please see the following examples:
 
-## Old v1.x
+## Old v1.x API
 
 ```javascript
-/**
- * Old v1.x of mobx-store-provider
- */
-
 // AppStore.ts (mobx-state-tree store/model)
 import { types, Instance } from "mobx-state-tree";
+
 // Define and the AppStore
 export const AppStore = types.model({
   user: types.optional(types.string, ""),
 });
+
 // Because types are not inferred, we have to explicitely define the interface
-export interface IAppStore extends Instance<typeof AppStore> {}
+interface IAppStore extends Instance<typeof AppStore> {}
 
 // This is a component which uses the AppStore
 function UserDisplay() {
@@ -57,21 +55,18 @@ function UserDisplay() {
 
 As demonstrated above, you have to explicitly create the interface that describes the model you want typescript to handle correcly. This is cumbersome and error prone because you have to ensure to do this every place you use your model. This is [the standard way it is handled in mobx-state-tree](https://mobx-state-tree.js.org/tips/typescript#using-a-mst-type-at-design-time) applications.
 
-## New v2.x
+## New v2.x API
 
 When using v2.x of **mobx-store-provider** and later, the typing is correctly inferred for you through the use of typescript generics and some minorish (but breaking) API changes/adjustments.
 
 This can be seen in the following:
 
 ```javascript
-/**
- * New v2.x of mobx-store-provider
- */
-
 // AppStore.ts (mobx-state-tree store/model)
 import { types, Instance } from "mobx-state-tree";
+
 // Define the AppStore
-export const AppStore = types.model({
+const AppStore = types.model({
   user: types.optional(types.string, ""),
 });
 
