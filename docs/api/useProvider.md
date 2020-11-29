@@ -19,7 +19,7 @@ useProvider(model: IAnyModelType, identifier?: any): Provider
 
 - **model** `IAnyModelType`
 
-  The mobx-state-tree model you want to instantiate.
+  The mobx-state-tree model you want to provide.
 
 - **identifier** _(optional)_ `any`
 

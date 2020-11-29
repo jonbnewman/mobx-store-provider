@@ -21,7 +21,7 @@ useStore(model: IAnyModelType, identifier?: any): Instance<typeof model>
 
 - **model** `IAnyModelType`
 
-  The mobx-state-tree model you want to instantiate.
+  The mobx-state-tree model you want to use/retrieve.
 
 - **identifier** _(optional)_ `any`
 
