@@ -32,15 +32,15 @@ describe("integration", () => {
     const firstName = "Jonathan";
 
     const MyNameDisplay = () => {
-      const testStore: ITestStore = useStore();
+      const testStore = useStore(TestStore);
       return <div>{testStore.name}</div>;
     };
 
     const TestComponent = () => {
-      const Provider = useProvider();
-      const testStore: ITestStore = useCreateStore(() =>
-        TestStore.create({ name: firstName }),
-      );
+      const Provider = useProvider(TestStore);
+      const testStore = useCreateStore(TestStore, {
+        name: firstName,
+      });
       return (
         <Provider value={testStore}>
           <MyNameDisplay />
@@ -57,7 +57,7 @@ describe("integration", () => {
     const lastName = "Newman";
 
     const MyNameDisplay = observer(() => {
-      const store: ITestStore = useStore();
+      const store = useStore(TestStore);
       return (
         <div onClick={() => store.setName(lastName)} data-testid="name">
           {store.name}
@@ -66,10 +66,8 @@ describe("integration", () => {
     });
 
     const TestComponent = () => {
-      const Provider = useProvider();
-      const testStore: ITestStore = useCreateStore(() =>
-        TestStore.create({ name: firstName }),
-      );
+      const Provider = useProvider(TestStore);
+      const testStore = useCreateStore(TestStore, { name: firstName });
       return (
         <Provider value={testStore}>
           <MyNameDisplay />
