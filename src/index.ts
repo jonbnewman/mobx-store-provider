@@ -14,8 +14,7 @@ function useProvider<M extends IAnyModelType>(
   model: M,
   identifier?: any,
 ): Provider<Instance<typeof model>> {
-  return retrieveStore(typeof identifier !== "undefined" ? identifier : model)
-    .Provider;
+  return retrieveStore(arguments.length === 2 ? identifier : model).Provider;
 }
 
 /**
@@ -36,7 +35,7 @@ function useCreateStore<M extends IAnyModelType>(model: M, snapshot?: any) {
  */
 function useStore<M extends IAnyModelType>(model: M, identifier?: any) {
   return retrieveStore(
-    typeof identifier !== "undefined" ? identifier : model,
+    arguments.length === 2 ? identifier : model,
   ).useStore() as Instance<typeof model>;
 }
 
