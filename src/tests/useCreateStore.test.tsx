@@ -3,7 +3,7 @@ import { cleanup } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
 
 import { useProvider, useCreateStore, useStore } from "../";
-import { TestStore, ITestStore, makeContainer } from "./integration.test";
+import { TestStore, makeContainer } from "./integration.test";
 
 describe("useCreateStore", () => {
   afterEach(cleanup);
@@ -18,7 +18,7 @@ describe("useCreateStore", () => {
 
     function TestComponent() {
       const Provider = useProvider(TestStore);
-      const testStore: ITestStore = useCreateStore(TestStore, {
+      const testStore = useCreateStore(TestStore, {
         name: firstName,
       });
       return (
