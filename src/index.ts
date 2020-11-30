@@ -10,11 +10,9 @@ import { retrieveStore } from "./stores";
  * @param identifier The identifier used for the store (optional)
  * @returns The Provider
  */
-function useProvider<M extends IAnyModelType>(
-  model: M,
-  identifier?: any,
-): Provider<Instance<typeof model>> {
-  return retrieveStore(arguments.length === 2 ? identifier : model).Provider;
+function useProvider<M extends IAnyModelType>(model: M, identifier?: any) {
+  return retrieveStore(arguments.length === 2 ? identifier : model)
+    .Provider as Provider<Instance<typeof model>>;
 }
 
 /**
