@@ -13,7 +13,10 @@ The biggest change to v2.x of **mobx-store-provider** is the addition of automat
 In previous (pre 2.x) versions of **mobx-store-provider** you would have to explicitely define the interface for your stores/models in order to take advantage of typescript during development (type hinting, validation, etc).
 
 ```javascript
-// The AppStore model
+import { types, Instance } from "mobx-state-tree";
+import { useStore } from "mobx-store-provider";
+
+// The AppStore mobx-state-tree model
 const AppStore = types.model({
   user: types.optional(types.string, ""),
 });
