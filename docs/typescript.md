@@ -95,6 +95,6 @@ function UserDisplay() {
 }
 ```
 
-Note that in the v2.x example above, we do not have to explicitely define the interface for our model, this makes our code more concise and it also makes opting in for typescript definitions a no-effort ordeal. **mobx-store-provider** is able to correctly infer the typings for you automatically.
+Note that in the v2.x example above, we do not have to explicitly define the interface for our model, this makes our code more concise and it also makes opting in for typescript definitions a no-effort ordeal. **mobx-store-provider** is able to correctly infer the typings for you automatically.
 
 [Next: **Testing**](/testing){: .btn .btn-blue }
