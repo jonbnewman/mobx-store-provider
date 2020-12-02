@@ -52,7 +52,7 @@ export const AppStore = types.model({
   user: types.optional(types.string, ""),
 });
 
-// Because types are not inferred, we have to explicitely define the interface
+// Because types are not inferred, we have to explicitly define the interface
 interface IAppStore extends Instance<typeof AppStore> {}
 
 // This is a component which uses the AppStore
