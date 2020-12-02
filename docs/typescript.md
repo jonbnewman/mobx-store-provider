@@ -13,17 +13,27 @@ The biggest change to v2.x of **mobx-store-provider** is the addition of automat
 In previous (pre 2.x) versions of **mobx-store-provider** you would have to explicitely define the interface for your stores/models in order to take advantage of typescript during development (type hinting, validation, etc).
 
 ```javascript
-// Cumbersome, verbose, and error prone
-export interface IAppStore extends Instance<typeof AppStore> {}
+// The AppStore model
+const AppStore = types.model({
+  user: types.optional(types.string, ""),
+});
 
 /**
- * You would then have to import and explicitely define this for both
- * useCreateStore and useStore hook calls (also cumbersome and error prone):
+ * Here we explicitly create the interface that represents the model.
+ */
+interface IAppStore extends Instance<typeof AppStore> {}
+
+/**
+ * Then we explicitly tell typescript what the useStore() hook is
+ * returning, since it cannot be inferred (required for both
+ * useCreateStore and useStore hook calls).
  */
 const appStore: IAppStore = useStore();
 ```
 
-This works, and is [the standard way it is handled in mobx-state-tree](https://mobx-state-tree.js.org/tips/typescript#using-a-mst-type-at-design-time) applications - however it is cumbersome, verbose, and error prone.
+This works, and is [the standard way it is handled in mobx-state-tree](https://mobx-state-tree.js.org/tips/typescript#using-a-mst-type-at-design-time) applications.
+
+It also creates additional (unnecessary) technical debt. Dealing with these interfaces requires extra boilerplate, it is error prone, and in general it is simply a pain.
 
 The good news is that as of version 2.0 of **mobx-store-provider** your type definitions are correctly passed back automatically for you.
 
