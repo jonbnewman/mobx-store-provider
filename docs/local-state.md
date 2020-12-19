@@ -10,23 +10,21 @@ _How should I handle local state? Should I use this for my small component too?_
 
 - Answer:
 
-  **It is recommended, but it depends.**
+  **Maybe, it depends.**
 
-- Reasoning:
+- Here are some possible scenarios and my suggestions:
 
-  1. **Doing so avoids the need to use an alternative mechanism for local state.**
+  1. **Does my state have a lot of related business logic?**
 
-     Managing your state the same way throughout your app makes it easier to reason about.
+     If so, I would use **mobx-store-provider** for local state.
 
-  1. **Sometimes you create local state that you later realize belongs in a store.**
+  1. **Is my state basic and has little related logic?**
 
-     If your state is already contained in a `store` it makes it much easier to refactor and move around.
-
-With that said this may not fit you, your team, or your projects needs for one reason or another.
+     If so, I would use React `useState`.
 
 ## Example
 
-For local or ephemeral state, it is recommended to define the `store` next to (or at least in the same directory as) the component it will be used in:
+The following shows an example of local state with **mobx-store-provider**:
 
 ```javascript
 import React from "react";
@@ -34,15 +32,13 @@ import { observer } from "mobx-react";
 import { types } from "mobx-state-tree";
 import { useCreateStore } from "mobx-store-provider";
 
-// Define the local store here
-const PetStore = types.model({
-  name: "Rusty",
-  type: "Dog",
-});
-
-// Create and use the store in this component
 function PetComponent() {
-  const localStore = useCreateStore(PetStore);
+  const localStore = useCreateStore(
+    types.model({
+      name: "Rusty",
+      type: "Dog",
+    }),
+  );
   return (
     <div>
       {localStore.name} is a {localStore.type}
