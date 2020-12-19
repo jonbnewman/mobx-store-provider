@@ -18,6 +18,10 @@ _How should I handle local state? Should I use this for my small component too?_
 
      If so, I would use **mobx-store-provider** for local state.
 
+  1. **Is it likely I will want to pull this logic out of this component?**
+
+     If so, I would use **mobx-store-provider** for local state.
+
   1. **Is my state basic and has little related logic?**
 
      If so, I would use React `useState`.
