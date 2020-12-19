@@ -33,15 +33,22 @@ import { types } from "mobx-state-tree";
 import { useCreateStore } from "mobx-store-provider";
 
 function PetComponent() {
-  const localStore = useCreateStore(
-    types.model({
-      name: "Rusty",
-      type: "Dog",
-    }),
+  const pet = useCreateStore(
+    types
+      .model({
+        name: "Rusty",
+        type: "Dog",
+      })
+      .actions((self) => ({
+        action() {
+          console.log("Ruff!");
+        },
+      })),
   );
   return (
     <div>
-      {localStore.name} is a {localStore.type}
+      {pet.name} is a {pet.type}
+      <button onClick={pet.action}>Make noise</button>
     </div>
   );
 }
