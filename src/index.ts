@@ -9,7 +9,7 @@ interface Store {
 const stores = new Map<any, Store>();
 
 /**
- * Register and/or retrieve a `store` from the internal `stores` Map.
+ * Register and/or retrieve a `store`.
  * @param identifier The identifier supplied by the consumer
  * @returns Store
  */
