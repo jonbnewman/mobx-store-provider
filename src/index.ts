@@ -1,6 +1,29 @@
-import { Provider, useMemo } from "react";
+import { createContext, useContext, useMemo, Provider } from "react";
 import { IAnyModelType, Instance } from "mobx-state-tree";
-import { retrieveStore } from "./stores";
+
+interface Store {
+  Provider: Provider<any>;
+  useStore: () => any;
+}
+
+const stores = new Map<any, Store>();
+
+/**
+ * Register and/or retrieve a `store` from the internal `stores` Map.
+ * @param identifier The identifier supplied by the consumer
+ * @returns Store
+ */
+function retrieveStore(identifier: any): Store {
+  if (!stores.has(identifier)) {
+    const Context = createContext<any>(null);
+    Context.displayName = String(identifier);
+    stores.set(identifier, <Store>{
+      Provider: Context.Provider,
+      useStore: () => useContext(Context),
+    });
+  }
+  return <Store>stores.get(identifier);
+}
 
 /**
  * React Hook to retrieve the store `Provider` for a given `identifier`.
