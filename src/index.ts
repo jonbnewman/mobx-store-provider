@@ -26,7 +26,7 @@ function retrieveStore(identifier: any): Store {
 }
 
 /**
- * React Hook to retrieve a stores `Provider`.
+ * React Hook to retrieve a store `Provider`.
  * @param model mobx-state-tree types.model()
  * @param identifier The identifier used for the store (optional)
  * @returns The Provider
@@ -53,7 +53,7 @@ function useCreateStore<M extends IAnyModelType>(
 }
 
 /**
- * React Hook which retrieves the `store` for a given `identifer`.
+ * React Hook used to retrieve a store.
  * @param model mobx-state-tree types.model()
  * @param identifier The identifier used for the store (optional)
  * @returns The store instance
