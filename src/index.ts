@@ -2,7 +2,7 @@ import { useMemo, createContext, useContext, Context, Provider } from "react";
 import { IAnyModelType, Instance } from "mobx-state-tree";
 
 interface Store {
-  Provider: Provider<IAnyModelType>;
+  provider: Provider<IAnyModelType>;
   context: Context<IAnyModelType>;
 }
 
@@ -18,7 +18,7 @@ function retrieveStore(identifier: any): Store {
     const Context = createContext<any>(null);
     Context.displayName = String(identifier);
     stores.set(identifier, {
-      get Provider() {
+      get provider() {
         return Context.Provider;
       },
       get context() {
@@ -37,7 +37,7 @@ function retrieveStore(identifier: any): Store {
  */
 function useProvider<M extends IAnyModelType>(model: M, identifier?: any) {
   return retrieveStore(arguments.length === 2 ? identifier : model)
-    .Provider as Provider<Instance<typeof model>>;
+    .provider as Provider<Instance<typeof model>>;
 }
 
 /**
