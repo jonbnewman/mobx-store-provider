@@ -1,9 +1,9 @@
-import { createContext, useContext, useMemo, Provider } from "react";
+import { useMemo, createContext, useContext, Context, Provider } from "react";
 import { IAnyModelType, Instance } from "mobx-state-tree";
 
 interface Store {
   Provider: Provider<any>;
-  useStore: () => any;
+  context: Context<any>;
 }
 
 const stores = new Map<any, Store>();
@@ -17,16 +17,20 @@ function retrieveStore(identifier: any): Store {
   if (!stores.has(identifier)) {
     const Context = createContext<any>(null);
     Context.displayName = String(identifier);
-    stores.set(identifier, <Store>{
-      Provider: Context.Provider,
-      useStore: () => useContext(Context),
+    stores.set(identifier, {
+      get Provider() {
+        return Context.Provider;
+      },
+      get context() {
+        return useContext(Context);
+      },
     });
   }
   return <Store>stores.get(identifier);
 }
 
 /**
- * React Hook to retrieve a store `Provider`.
+ * React Hook used to retrieve a store `Provider`.
  * @param model mobx-state-tree types.model()
  * @param identifier The identifier used for the store (optional)
  * @returns The Provider
@@ -59,9 +63,8 @@ function useCreateStore<M extends IAnyModelType>(
  * @returns The store instance
  */
 function useStore<M extends IAnyModelType>(model: M, identifier?: any) {
-  return retrieveStore(
-    arguments.length === 2 ? identifier : model,
-  ).useStore() as Instance<typeof model>;
+  return retrieveStore(arguments.length === 2 ? identifier : model)
+    .context as Instance<typeof model>;
 }
 
 export { useProvider, useCreateStore, useStore };
