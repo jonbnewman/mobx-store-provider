@@ -2,8 +2,8 @@ import { useMemo, createContext, useContext, Context, Provider } from "react";
 import { IAnyModelType, Instance } from "mobx-state-tree";
 
 interface Store {
-  Provider: Provider<any>;
-  context: Context<any>;
+  Provider: Provider<IAnyModelType>;
+  context: Context<IAnyModelType>;
 }
 
 const stores = new Map<any, Store>();
