@@ -42,7 +42,7 @@ function useProvider<M extends IAnyModelType>(model: M, identifier?: any) {
 
 /**
  * React Hook used to instantiate a new store from within a component.
- * @param model mobx-state-tree types.model()
+ * @param model mobx-state-tree model
  * @param snapshot input snapshot used during creation (optional)
  * @returns The store instance
  */
@@ -58,7 +58,7 @@ function useCreateStore<M extends IAnyModelType>(
 
 /**
  * React Hook used to retrieve a store.
- * @param model mobx-state-tree types.model()
+ * @param model mobx-state-tree model
  * @param identifier The identifier used for the store (optional)
  * @returns The store instance
  */
