@@ -33,7 +33,7 @@ function retrieveStore(identifier: any): Store {
  * React Hook used to retrieve a store `Provider`.
  * @param model mobx-state-tree types.model()
  * @param identifier The identifier used for the store (optional)
- * @returns The Provider
+ * @returns The store Provider
  */
 function useProvider<M extends IAnyModelType>(model: M, identifier?: any) {
   return retrieveStore(arguments.length === 2 ? identifier : model)
@@ -44,7 +44,7 @@ function useProvider<M extends IAnyModelType>(model: M, identifier?: any) {
  * React Hook used to instantiate a new store from within a component.
  * @param model mobx-state-tree types.model()
  * @param snapshot input snapshot used during creation (optional)
- * @returns The instance created by the `factory` function
+ * @returns The store instance
  */
 function useCreateStore<M extends IAnyModelType>(
   model: M,
