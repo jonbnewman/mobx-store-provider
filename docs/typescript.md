@@ -37,7 +37,7 @@ function UserDisplay() {
    * The following will not compile, it will cause a typescript error
    * because `foobar` is not a property of an `AppStore`
    */
-  return <div>{appStore.foober}</div>;
+  return <div>{appStore.foobar}</div>;
 }
 ```
 
@@ -65,7 +65,7 @@ function UserDisplay() {
    * The following will not compile, it will cause a typescript error
    * because `foobar` is not a property of an `AppStore`
    */
-  return <div>{appStore.foober}</div>;
+  return <div>{appStore.foobar}</div>;
 }
 ```
 
