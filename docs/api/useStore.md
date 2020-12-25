@@ -7,11 +7,9 @@ parent: API details and examples
 
 # useStore
 
-React Hook used to retrieve a `store` for a given `identifier`.
+React Hook used to retrieve a `store`.
 
 After supplying your application with a store via the [useProvider hook](/api/useProvider) you can then call **useStore** inside of a component to access the `store`.
-
-It must be passed the same `identifier` that was used with the `Provider` supplying it (if one was supplied).
 
 ```javascript
 useStore(
@@ -29,6 +27,8 @@ useStore(
 - **identifier** _(optional)_ `any`
 
   A unique identifier that tells **mobx-store-provider** which store you want to get access to.
+
+  See: [multiple stores](/multiple-stores)
 
 ## Examples
 
