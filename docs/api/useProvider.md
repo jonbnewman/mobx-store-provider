@@ -28,6 +28,8 @@ useProvider(
 
   A unique identifier that tells **mobx-store-provider** which store you want the Provider for.
 
+  See: [When is using an identifier useful?](#when-is-using-an-identifier-useful)
+
 ## Examples
 
 - [Basic example](#basic-example)
