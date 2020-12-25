@@ -58,6 +58,8 @@ Internally it uses [React Context](https://reactjs.org/docs/context.html) - simi
 
 The main difference is that it wraps a developer friendly hooks-based API around it for use in functional components.
 
+Have a [look at the source](https://github.com/jonbnewman/mobx-store-provider/blob/master/src/index.ts), its only ~70 lines.
+
 ## Can't I just use React Context?
 
 Yes, as an alternative you _can use_ the [React Context](https://reactjs.org/docs/context.html) API directly.
