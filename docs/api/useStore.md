@@ -28,7 +28,7 @@ useStore(
 
   A unique identifier that tells **mobx-store-provider** which store you want to get access to.
 
-  See: [multiple stores](/multiple-stores)
+  See: [When is using an identifier useful?](#when-is-using-an-identifier-useful)
 
 ## Examples
 
