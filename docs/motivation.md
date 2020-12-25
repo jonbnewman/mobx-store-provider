@@ -38,7 +38,7 @@ _Why was mobx-store-provider created?_
 
 ## What are the benefits?
 
-The goal is to provide a simple API that allows you to use **mobx-state-tree** from within [React Function Components](https://www.robinwieruch.de/react-function-component) while also giving a couple additional features to help with application development and cover common use cases.
+The goal is to provide a simple API that allows you to use **mobx-state-tree** from within [React Function Components](https://www.robinwieruch.de/react-function-component).
 
 Compared to using the React Context API directly, using **mobx-store-provider** gives you:
 
@@ -48,7 +48,7 @@ Compared to using the React Context API directly, using **mobx-store-provider** 
 
 **mobx-store-provider** aims to be a focused library, minimalist, and limited in scope.
 
-This gives it an extremely small footprint:
+This gives it an _extremely small_ footprint:
 
 ![Package size](https://img.shields.io/bundlephobia/minzip/mobx-store-provider)
 
