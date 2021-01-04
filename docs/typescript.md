@@ -12,9 +12,9 @@ The biggest change to v2.x of **mobx-store-provider** is the addition of automat
 
 In previous (pre 2.x) versions of **mobx-store-provider** you would have to explicitely define the interface for your stores/models in order to take advantage of typescript during development (type hinting, validation, etc). This is [the standard way it is handled in mobx-state-tree](https://mobx-state-tree.js.org/tips/typescript#using-a-mst-type-at-design-time) applications.
 
-It also creates additional (unnecessary) technical debt. Dealing with these interfaces requires extra boilerplate, it is error prone, and in general it is simply a pain.
+As of version 2.0 of **mobx-store-provider** your type definitions are correctly inferred for you.
 
-As of version 2.0 of **mobx-store-provider** your type definitions are correctly passed back automatically for you. To explain the change from 1.x to 2.x, please see the following examples:
+To explain the API changes from 1.x to 2.x, please see the following examples:
 
 ## Old v1.x API
 
