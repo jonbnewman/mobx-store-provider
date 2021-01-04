@@ -41,13 +41,11 @@ function UserDisplay() {
 }
 ```
 
-As demonstrated above, you have to explicitly create the interface that describes the model you want typescript to handle correcly. This is cumbersome and error prone because you have to ensure to do this every place you use your model.
+As demonstrated above, you have to explicitly create the interface that describes the model. This is cumbersome and error prone because you have to ensure to do this every place you use your model.
 
 ## New v2.x API
 
-When using v2.x of **mobx-store-provider** and later, the typing is correctly inferred for you through the use of typescript generics and some minorish (but breaking) API changes/adjustments.
-
-This can be seen in the following:
+When using v2.x of **mobx-store-provider** and later, the typing is correctly inferred for you:
 
 ```javascript
 import { types } from "mobx-state-tree";
@@ -59,7 +57,7 @@ const AppStore = types.model({
 
 // This is a component which uses the AppStore
 function UserDisplay() {
-  // With this declaration, mobx-store-provider correcly infers the type for AppStore
+  // With this declaration, mobx-store-provider correctly infers the type for AppStore
   const appStore = useStore(AppStore);
   /**
    * The following will not compile, it will cause a typescript error
@@ -69,6 +67,6 @@ function UserDisplay() {
 }
 ```
 
-Note that in the v2.x example above, we do not have to explicitly define the interface for our model, this makes our code more concise and it also makes opting in for typescript definitions a no-effort ordeal. **mobx-store-provider** is able to correctly infer the typings for you automatically.
+Note that in the v2.x example above, we do not have to explicitly define the interface for the model, this makes the code more concise and easier to maintain.
 
 [Next: **Testing**](/testing){: .btn .btn-blue }
