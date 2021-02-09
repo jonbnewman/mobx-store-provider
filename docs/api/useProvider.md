@@ -7,7 +7,7 @@ parent: API details and examples
 
 # useProvider
 
-React Hook used to retrieve the `Provider` for a given store `identifier`.
+React Hook used to retrieve the `Provider` for a given store.
 
 This hook returns a wrapper component you can use to provide your application with a `store`.
 
