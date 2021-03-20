@@ -84,4 +84,4 @@ Yes, as an alternative you _can use_ the [React Context](https://reactjs.org/doc
 
 These are the problems **mobx-store-provider** was written to solve.
 
-[Back to **Introduction**](/){: .btn .btn-blue }
+[Next: **Upgrading 1.x -> 2.x**](/upgrade){: .btn .btn-blue }
