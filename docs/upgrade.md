@@ -6,7 +6,7 @@ nav_order: 12
 
 # Upgrading from 1.x to 2.x
 
-The biggest change to v2.x of **mobx-store-provider** is the addition of automatic type inferrence.
+The biggest change to v2.x of **mobx-store-provider** is the addition of automatic type inference.
 
 **What does that mean?**
 
