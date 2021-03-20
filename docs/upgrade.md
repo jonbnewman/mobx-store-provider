@@ -22,7 +22,6 @@ To explain the API changes from 1.x to 2.x, please see the following examples:
 import { types, Instance } from "mobx-state-tree";
 import AppStore from "./AppStore";
 
-// Define and the AppStore
 export const AppStore = types.model({
   user: types.optional(types.string, ""),
 });
@@ -70,8 +69,6 @@ function UserDisplay() {
 }
 ```
 
-Note that in the v2.x example above, we do not have to explicitly define the interface for the model, this makes the code more concise and easier to maintain.
-
-The major API difference in version >=2.x is that you provide the store definition to both [useCreateStore](/api/useCreateStore) and [useStore](/api/useStore).
+The major API difference in version >=2.x is that you provide the store definition to both [useCreateStore](/api/useCreateStore) and [useStore](/api/useStore). This makes it unnecessary to explicitly define the interface for the model as it is inferred for you, making your code more concise and easier to maintain.
 
 [Back to **Introduction**](/){: .btn .btn-blue }
