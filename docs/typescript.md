@@ -6,13 +6,7 @@ nav_order: 9
 
 # Typescript
 
-The biggest change to v2.x of **mobx-store-provider** is the addition of automatic type inferrence.
-
-**What does that mean?**
-
-In previous (pre 2.x) versions of **mobx-store-provider** you would have to explicitely define the interface for your stores/models in order to take advantage of typescript during development (type hinting, validation, etc).
-
-The [standard way it is handled in mobx-state-tree](https://mobx-state-tree.js.org/tips/typescript#using-a-mst-type-at-design-time) applications is by explicitly defining your types via extending the Instance interface provided by mobx-state-tree.
+The [standard way types are handled in mobx-state-tree](https://mobx-state-tree.js.org/tips/typescript#using-a-mst-type-at-design-time) applications is by explicitly defining your types via extending the Instance interface provided by mobx-state-tree.
 
 With **mobx-store-provider** your type definitions are inferred for you:
 
