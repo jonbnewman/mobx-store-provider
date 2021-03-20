@@ -12,7 +12,7 @@ The biggest change to v2.x of **mobx-store-provider** is the addition of automat
 
 In previous (pre 2.x) versions of **mobx-store-provider** you would have to explicitely define the interface for your stores/models in order to take advantage of typescript during development (type hinting, validation, etc).
 
-The [the standard way it is handled in mobx-state-tree](https://mobx-state-tree.js.org/tips/typescript#using-a-mst-type-at-design-time) applications is by explicitly defining your types via extending the Instance interface provided by mobx-state-tree.
+The [standard way it is handled in mobx-state-tree](https://mobx-state-tree.js.org/tips/typescript#using-a-mst-type-at-design-time) applications is by explicitly defining your types via extending the Instance interface provided by mobx-state-tree.
 
 With **mobx-store-provider** your type definitions are inferred for you:
 
@@ -36,7 +36,5 @@ function UserDisplay() {
   return <div>{appStore.foobar}</div>;
 }
 ```
-
-Note that in the v2.x example above, we do not have to explicitly define the interface for the model, this makes the code more concise and easier to maintain.
 
 [Next: **Testing**](/testing){: .btn .btn-blue }
