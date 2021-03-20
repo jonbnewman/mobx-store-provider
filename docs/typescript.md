@@ -8,7 +8,7 @@ nav_order: 9
 
 The [standard way types are handled in mobx-state-tree](https://mobx-state-tree.js.org/tips/typescript#using-a-mst-type-at-design-time) applications is by explicitly defining your types via extending the `Instance` interface provided by mobx-state-tree.
 
-With **mobx-store-provider** your type definitions are inferred for you:
+With **mobx-store-provider** you do not have to do this, your type definitions are inferred for you:
 
 ```javascript
 import { types } from "mobx-state-tree";
