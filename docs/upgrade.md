@@ -20,18 +20,21 @@ To explain the API changes from 1.x to 2.x, please see the following examples:
 
 ```javascript
 import { types, Instance } from "mobx-state-tree";
+import AppStore from "./AppStore";
 
 // Define and the AppStore
 export const AppStore = types.model({
   user: types.optional(types.string, ""),
 });
 
-// Because types are not inferred, we have to explicitly define the interface
+// First we have to explicitly define the interface for AppStore
 interface IAppStore extends Instance<typeof AppStore> {}
 
-// This is a component which uses the AppStore
 function UserDisplay() {
-  // With this verbose declaration, typescript knows the appStore is an AppStore
+  /**
+   * Then we have to explicitly tell typescript what type of object this is
+   * using the previously extended interface we created for this store.
+   */
   const appStore: IAppStore = useStore();
   /**
    * The following will not compile, it will cause a typescript error
@@ -41,23 +44,23 @@ function UserDisplay() {
 }
 ```
 
-As demonstrated above, you have to explicitly create the interface that describes the model. This is cumbersome and error prone because you have to ensure to do this every place you use your model.
-
 ## New v2.x API
 
-When using v2.x of **mobx-store-provider** and later, the typing is correctly inferred for you:
+When using v2.x of **mobx-store-provider** and later, the type is correctly extended and inferred for you whenever you call [useCreateStore](/api/useCreateStore) or [useStore](/api/useStore):
 
 ```javascript
 import { types } from "mobx-state-tree";
+import AppStore from "./AppStore";
 
-// Define the AppStore
 const AppStore = types.model({
   user: types.optional(types.string, ""),
 });
 
-// This is a component which uses the AppStore
 function UserDisplay() {
-  // With this declaration, mobx-store-provider correctly infers the type for AppStore
+  /**
+   * We give the store definition to useStore.
+   * Using that, mobx-store-provider correctly infers the type for us.
+   */
   const appStore = useStore(AppStore);
   /**
    * The following will not compile, it will cause a typescript error
@@ -68,5 +71,7 @@ function UserDisplay() {
 ```
 
 Note that in the v2.x example above, we do not have to explicitly define the interface for the model, this makes the code more concise and easier to maintain.
+
+The major API difference in version >=2.x is that you provide the store definition to both [useCreateStore](/api/useCreateStore) and [useStore](/api/useStore).
 
 [Back to **Introduction**](/){: .btn .btn-blue }
