@@ -63,8 +63,18 @@ function useCreateStore<M extends IAnyModelType>(
  * @returns The store instance
  */
 function useStore<M extends IAnyModelType>(model: M, identifier?: any) {
+  return identifier ? getStore(model, identifier) : getStore(model);
+}
+
+/**
+ * Method used to retrieve a store from outside a component.
+ * @param model mobx-state-tree model
+ * @param identifier The identifier used for the store (optional)
+ * @returns The store instance
+ */
+function getStore<M extends IAnyModelType>(model: M, identifier?: any) {
   return retrieveStore(arguments.length === 2 ? identifier : model)
     .context as Instance<typeof model>;
 }
 
-export { useProvider, useCreateStore, useStore };
+export { useProvider, useCreateStore, useStore, getStore };

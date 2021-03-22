@@ -152,4 +152,4 @@ When your application needs more than one instance of the same store. In that si
 
 For more information on multiple stores, see: [Multiple stores](/multiple-stores)
 
-[Next: **Multiple stores**](/multiple-stores){: .btn .btn-blue }
+[Next: **getStore**](/api/getStore){: .btn .btn-blue }
