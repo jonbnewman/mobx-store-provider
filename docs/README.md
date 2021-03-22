@@ -23,6 +23,7 @@ yarn add mobx-store-provider
    - [useProvider](http://mobx-store-provider.overfoc.us/api/useProvider) - Provide your components with a store
    - [useCreateStore](http://mobx-store-provider.overfoc.us/api/useCreateStore) - Create a new store inside a component
    - [useStore](http://mobx-store-provider.overfoc.us/api/useStore) - Use a store in a component
+   - [getStore](http://mobx-store-provider.overfoc.us/api/useStore) - Use a store outside a component
 1. [Multiple stores](http://mobx-store-provider.overfoc.us/multiple-stores)
 1. [Local state](http://mobx-store-provider.overfoc.us/local-state)
 1. [Typescript](http://mobx-store-provider.overfoc.us/typescript)
