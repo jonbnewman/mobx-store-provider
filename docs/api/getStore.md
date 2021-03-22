@@ -73,7 +73,7 @@ function getName() {
 }
 
 function WhoAmI() {
-  return <Button onClick={getName}>Who am I?</Button>;
+  return <button onClick={getName}>Who am I?</button>;
 }
 
 export default observer(WhoAmI);
