@@ -11,6 +11,9 @@ Method to retrieve a `store` from outside a component.
 
 After supplying your application with a store via the [useProvider hook](/api/useProvider) you can then call **getStore** outside of a component to access the `store`.
 
+Available in version `2.1` or later
+{: .label .label-yellow }
+
 ```javascript
 getStore(
   model: IAnyModelType,
@@ -19,8 +22,6 @@ getStore(
 ```
 
 This method mirrors [useStore](/api/useStore) with the only difference being that it can be called from outside of a React component. This is useful from within callbacks or other places where access to a `store` is needed outside of a component.
-
-**NOTE**: Available in version `2.1` or later.
 
 ## Parameters
 
