@@ -89,7 +89,6 @@ import { types } from "mobx-state-tree";
 
 const User = types.model({
   name: "Batman",
-  isCoolGuy: true,
 });
 
 export default AppStore = types.model({
