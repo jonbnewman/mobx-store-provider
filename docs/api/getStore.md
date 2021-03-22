@@ -33,12 +33,7 @@ This method mirrors [useStore](/api/useStore) with the only difference being tha
 
   A unique identifier that tells **mobx-store-provider** which store you want to get access to.
 
-## Examples
-
-- [Basic example](#basic-example)
-- [Using an identifier](#using-an-identifer)
-
-## Basic example
+## Example
 
 The following shows a basic example use of **getStore**:
 
