@@ -69,7 +69,7 @@ import AppStore from "./AppStore";
 function getName() {
   // We use the store in this function
   const appStore = getStore(AppStore);
-  alert(appStore.user.name);
+  alert(`I am ${appStore.user.name}!`);
 }
 
 function WhoAmI() {
