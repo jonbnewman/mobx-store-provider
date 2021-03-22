@@ -81,6 +81,8 @@ function WhoAmI() {
 export default observer(WhoAmI);
 ```
 
+Calling the **getStore** method with the `AppStore` model retrieves the corresponding `AppStore` that was provided via the [useProvider hook](/api/useProvider).
+
 This is the `AppStore` model/store used with the example above:
 
 ```javascript
@@ -96,7 +98,5 @@ export default AppStore = types.model({
   user: types.optional(User, {}),
 });
 ```
-
-Calling the **getStore** method with the `AppStore` model retrieves the corresponding `AppStore` that was provided via the [useProvider hook](/api/useProvider).
 
 [Next: **Multiple stores**](/multiple-stores){: .btn .btn-blue }
