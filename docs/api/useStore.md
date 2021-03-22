@@ -1,7 +1,7 @@
 ---
 layout: default
 title: useStore
-nav_order: 6
+nav_order: 7
 parent: API details and examples
 ---
 
@@ -152,4 +152,4 @@ When your application needs more than one instance of the same store. In that si
 
 For more information on multiple stores, see: [Multiple stores](/multiple-stores)
 
-[Next: **Multiple stores**](/multiple-stores){: .btn .btn-blue }
+[Next: **getStore**](/api/getStore){: .btn .btn-blue }

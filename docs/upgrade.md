@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Upgrading 1.x -> 2.x
-nav_order: 12
+nav_order: 13
 ---
 
 # Upgrading from 1.x to 2.x
