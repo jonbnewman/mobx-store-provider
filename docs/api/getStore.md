@@ -11,7 +11,7 @@ Method to retrieve a `store` from outside a component.
 
 After supplying your application with a store via the [useProvider hook](/api/useProvider) you can then call **getStore** outside of a component to access the `store`.
 
-**NOTE**: Added in version `2.1`, not available prior.
+**NOTE**: Available in version `2.1` or later.
 
 ```javascript
 getStore(
