@@ -60,7 +60,7 @@ export default App;
 In the above code, we use the `AppStore` model to both create and provide the store to the application.
 
 ```javascript
-// WhoAmI.jsx (component we access the appStore inside)
+// WhoAmI.jsx
 import React from "react";
 import { observer } from "mobx-react";
 import { getStore } from "mobx-store-provider";
