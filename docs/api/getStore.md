@@ -1,7 +1,7 @@
 ---
 layout: default
 title: getStore
-nav_order: 6
+nav_order: 7
 parent: API details and examples
 ---
 

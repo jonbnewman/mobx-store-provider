@@ -1,7 +1,7 @@
 ---
 layout: default
 title: useStore
-nav_order: 7
+nav_order: 6
 parent: API details and examples
 ---
 
