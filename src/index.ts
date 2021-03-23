@@ -63,7 +63,7 @@ function useCreateStore<M extends IAnyModelType>(
  * @returns The store instance
  */
 function useStore<M extends IAnyModelType>(model: M, identifier?: any) {
-  return identifier ? getStore(model, identifier) : getStore(model);
+  return arguments.length === 2 ? getStore(model, identifier) : getStore(model);
 }
 
 /**
