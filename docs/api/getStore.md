@@ -20,8 +20,8 @@ getStore(
 
 This method mirrors [useStore](/api/useStore) with the only difference being that it can be called from outside of a React component. This is useful from within callbacks or other places where access to a `store` is needed outside of a component.
 
-Available in version `2.1` or later
-{: .label .label-yellow }
+Available in version 2.1 or later
+{: .label .label-purple }
 
 ## Parameters
 
