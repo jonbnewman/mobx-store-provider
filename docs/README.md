@@ -14,22 +14,22 @@ npm i mobx-store-provider
 yarn add mobx-store-provider
 ```
 
-[Get started: **Basic example**](http://mobx-store-provider.overfoc.us/basic-example){: .btn .btn-blue }
+[Get started: **Basic example**](https://mobx-store-provider.jonbnewman.dev/basic-example){: .btn .btn-blue }
 
 ---
 
-1. [Basic example](http://mobx-store-provider.overfoc.us/basic-example)
-1. [API details and examples](http://mobx-store-provider.overfoc.us/api-details-and-examples)
-   - [useProvider](http://mobx-store-provider.overfoc.us/api/useProvider) - Provide your components with a store
-   - [useCreateStore](http://mobx-store-provider.overfoc.us/api/useCreateStore) - Create a new store inside a component
-   - [useStore](http://mobx-store-provider.overfoc.us/api/useStore) - Use a store in a component
-   - [getStore](http://mobx-store-provider.overfoc.us/api/useStore) - Use a store outside a component
-1. [Multiple stores](http://mobx-store-provider.overfoc.us/multiple-stores)
-1. [Local state](http://mobx-store-provider.overfoc.us/local-state)
-1. [Typescript](http://mobx-store-provider.overfoc.us/typescript)
-1. [Testing](http://mobx-store-provider.overfoc.us/testing)
-1. [Motivation](http://mobx-store-provider.overfoc.us/motivation)
-1. [Upgrading 1.x -> 2.x](http://mobx-store-provider.overfoc.us/upgrade)
+1. [Basic example](https://mobx-store-provider.jonbnewman.dev/basic-example)
+1. [API details and examples](https://mobx-store-provider.jonbnewman.dev/api-details-and-examples)
+   - [useProvider](https://mobx-store-provider.jonbnewman.dev/api/useProvider) - Provide your components with a store
+   - [useCreateStore](https://mobx-store-provider.jonbnewman.dev/api/useCreateStore) - Create a new store inside a component
+   - [useStore](https://mobx-store-provider.jonbnewman.dev/api/useStore) - Use a store in a component
+   - [getStore](https://mobx-store-provider.jonbnewman.dev/api/useStore) - Use a store outside a component
+1. [Multiple stores](https://mobx-store-provider.jonbnewman.dev/multiple-stores)
+1. [Local state](https://mobx-store-provider.jonbnewman.dev/local-state)
+1. [Typescript](https://mobx-store-provider.jonbnewman.dev/typescript)
+1. [Testing](https://mobx-store-provider.jonbnewman.dev/testing)
+1. [Motivation](https://mobx-store-provider.jonbnewman.dev/motivation)
+1. [Upgrading 1.x -> 2.x](https://mobx-store-provider.jonbnewman.dev/upgrade)
 
 ---
 

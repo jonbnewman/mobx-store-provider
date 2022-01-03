@@ -12,19 +12,19 @@
 
 Its goal is to provide a straight-forward, minimalist, and terse API that allows you to easily incorporate **mobx-state-tree** into functional React components.
 
-1. [Installation](http://mobx-store-provider.overfoc.us/)
-1. [Basic example](http://mobx-store-provider.overfoc.us/basic-example)
-1. [API details and examples](http://mobx-store-provider.overfoc.us/api-details-and-examples)
-   - [useProvider](http://mobx-store-provider.overfoc.us/api/useProvider) - Provide your components with a store
-   - [useCreateStore](http://mobx-store-provider.overfoc.us/api/useCreateStore) - Create a new store inside a component
-   - [useStore](http://mobx-store-provider.overfoc.us/api/useStore) - Use a store in a component
-   - [getStore](http://mobx-store-provider.overfoc.us/api/useStore) - Use a store outside a component
-1. [Multiple stores](http://mobx-store-provider.overfoc.us/multiple-stores)
-1. [Local state](http://mobx-store-provider.overfoc.us/local-state)
-1. [Typescript](http://mobx-store-provider.overfoc.us/typescript)
-1. [Testing](http://mobx-store-provider.overfoc.us/testing)
-1. [Motivation](http://mobx-store-provider.overfoc.us/motivation)
-1. [Upgrading 1.x -> 2.x](http://mobx-store-provider.overfoc.us/upgrade)
+1. [Installation](https://mobx-store-provider.jonbnewman.dev/)
+1. [Basic example](https://mobx-store-provider.jonbnewman.dev/basic-example)
+1. [API details and examples](https://mobx-store-provider.jonbnewman.dev/api-details-and-examples)
+   - [useProvider](https://mobx-store-provider.jonbnewman.dev/api/useProvider) - Provide your components with a store
+   - [useCreateStore](https://mobx-store-provider.jonbnewman.dev/api/useCreateStore) - Create a new store inside a component
+   - [useStore](https://mobx-store-provider.jonbnewman.dev/api/useStore) - Use a store in a component
+   - [getStore](https://mobx-store-provider.jonbnewman.dev/api/useStore) - Use a store outside a component
+1. [Multiple stores](https://mobx-store-provider.jonbnewman.dev/multiple-stores)
+1. [Local state](https://mobx-store-provider.jonbnewman.dev/local-state)
+1. [Typescript](https://mobx-store-provider.jonbnewman.dev/typescript)
+1. [Testing](https://mobx-store-provider.jonbnewman.dev/testing)
+1. [Motivation](https://mobx-store-provider.jonbnewman.dev/motivation)
+1. [Upgrading 1.x -> 2.x](https://mobx-store-provider.jonbnewman.dev/upgrade)
 
 ---
 
@@ -48,8 +48,8 @@ At the core of the application we define the main `App` component.
 
 Inside of the `App` we use hooks provided by **mobx-store-provider** to:
 
-1. Create the `appStore` instance with the [useCreateStore](http://mobx-store-provider.overfoc.us/api/useCreateStore) hook
-1. Retrieve the `Provider` with the [useProvider](http://mobx-store-provider.overfoc.us/api/useProvider) hook
+1. Create the `appStore` instance with the [useCreateStore](https://mobx-store-provider.jonbnewman.dev/api/useCreateStore) hook
+1. Retrieve the `Provider` with the [useProvider](https://mobx-store-provider.jonbnewman.dev/api/useProvider) hook
 
 ```javascript
 // App.jsx (Main App component, we use it to create and provide the store)
@@ -84,7 +84,7 @@ This makes the `appStore` available to the rest of the application.
 
 In another component somewhere in the application we want to use or gain access to the `appStore`.
 
-To do this, we use the [useStore](http://mobx-store-provider.overfoc.us/api/useStore) hook:
+To do this, we use the [useStore](https://mobx-store-provider.jonbnewman.dev/api/useStore) hook:
 
 ```javascript
 // UserDisplay.jsx (A component, we use the store from above inside it)
