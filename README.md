@@ -126,4 +126,4 @@ If you are new to _mobx-state-tree_, it is recommended you read through the [_mo
 
 ---
 
-**[See the full docs](http://mobx-store-provider.overfoc.us)**
+**[See the full docs](http://mobx-store-provider.jonbnewman.dev)**
